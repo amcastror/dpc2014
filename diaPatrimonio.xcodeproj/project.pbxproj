@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6011181916DA687F00F0C828 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6011181716DA687F00F0C828 /* Localizable.strings */; };
-		601461D316E3F478009A3804 /* FacebookSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 601461D216E3F478009A3804 /* FacebookSingleton.m */; };
 		608297B316D831360057BED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B216D831360057BED5 /* UIKit.framework */; };
 		608297B516D831360057BED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B416D831360057BED5 /* Foundation.framework */; };
 		608297B716D831360057BED5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B616D831360057BED5 /* CoreGraphics.framework */; };
@@ -53,8 +52,6 @@
 
 /* Begin PBXFileReference section */
 		6011181816DA687F00F0C828 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		601461D116E3F478009A3804 /* FacebookSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookSingleton.h; sourceTree = "<group>"; };
-		601461D216E3F478009A3804 /* FacebookSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookSingleton.m; sourceTree = "<group>"; };
 		608297AF16D831360057BED5 /* diaPatrimonio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diaPatrimonio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		608297B216D831360057BED5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		608297B416D831360057BED5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -267,8 +264,6 @@
 		608297FE16D851960057BED5 /* Modelos */ = {
 			isa = PBXGroup;
 			children = (
-				601461D116E3F478009A3804 /* FacebookSingleton.h */,
-				601461D216E3F478009A3804 /* FacebookSingleton.m */,
 				6082980316D907DF0057BED5 /* PuntoCultural.h */,
 				6082980416D907DF0057BED5 /* PuntoCultural.m */,
 				6082980616D92C280057BED5 /* MapItem.h */,
@@ -421,7 +416,6 @@
 				6082981116D9A0010057BED5 /* DejalActivityView.m in Sources */,
 				60C7EB0C16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m in Sources */,
 				609E82CC16E3EDBB0029BBFD /* PerfilViewController.m in Sources */,
-				601461D316E3F478009A3804 /* FacebookSingleton.m in Sources */,
 				6094247916E5977B009FF507 /* FacebookController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
