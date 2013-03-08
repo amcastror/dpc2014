@@ -8,25 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "diaPatrimonio/FacebookController.m"
-         timestampString = "384147978.852675"
+         timestampString = "384438819.680762"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
-         landmarkName = "-openSession"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "diaPatrimonio/PerfilViewController.m"
-         timestampString = "384147640.465955"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "73"
+         endingLineNumber = "73"
+         landmarkName = "-trataDeAbrirSesionWithUI:AndHandler:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,12 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "diaPatrimonio/FacebookController.m"
-         timestampString = "384147889.154085"
+         timestampString = "384438865.507096"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
-         landmarkName = "-sessionStateChanged:state:error:"
+         startingLineNumber = "61"
+         endingLineNumber = "61"
+         landmarkName = "-openSessionWithUI:AndHandler:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,25 +34,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "diaPatrimonio/FacebookController.m"
-         timestampString = "384147904.429104"
+         timestampString = "384438902.636191"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
-         landmarkName = "-isTokenLoaded"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
+         landmarkName = "-openSessionWithUI:AndHandler:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "diaPatrimonio/AppDelegate.m"
-         timestampString = "384149198.575751"
+         filePath = "diaPatrimonio/FacebookController.m"
+         timestampString = "384438926.831672"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-sessionStateChanged:state:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "diaPatrimonio/FacebookController.m"
+         timestampString = "384439486.020103"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "112"
+         endingLineNumber = "112"
+         landmarkName = "-publishStoryOnWallWithParams:AndAttemps:AndCompletitionHandler:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

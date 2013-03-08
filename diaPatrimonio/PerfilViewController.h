@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface PerfilViewController : UIViewController{
-    IBOutlet UIButton *facebookLogin;
     IBOutlet UILabel *estadoSesionFacebook;
     IBOutlet UIButton *publish;
+    IBOutlet UISwitch *facebookSwitch;
 }
 
-@property (nonatomic, strong) IBOutlet UIButton *facebookLogin;
 @property (nonatomic, strong) IBOutlet UILabel *estadoSesionFacebook;
 @property (nonatomic, strong) IBOutlet UIButton *publish;
+@property (nonatomic, strong) IBOutlet UISwitch *facebookSwitch;
 
 
 @end

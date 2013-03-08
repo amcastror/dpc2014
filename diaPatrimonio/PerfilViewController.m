@@ -16,7 +16,7 @@
 
 @implementation PerfilViewController
 
-@synthesize facebookLogin, estadoSesionFacebook, publish;
+@synthesize estadoSesionFacebook, publish, facebookSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,6 +24,7 @@
     if (self) {
         // Custom initialization
         self.title = NSLocalizedString(@"Perfil", @"Perfil");
+       
     }
     return self;
 }
@@ -31,21 +32,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [facebookSwitch addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if ([[FacebookController instance] isTokenLoaded]) {
+    if ([[FacebookController instance] tengoSession]) {
         estadoSesionFacebook.text = @"Estoy logueado..";
+        facebookSwitch.on = YES;
     }else{
         estadoSesionFacebook.text = @"No estoy logueado..";
+        facebookSwitch.on = NO;
     }
 }
 
-- (IBAction) facebookLogin:(id)sender{
-    //[DejalBezelActivityView activityViewForView:self.view withLabel:@"Abriendo sesión..."];
-    [[FacebookController instance] openSession];
+- (void)switchValueChange:(id)sender
+{
+    UISwitch* switchControl = sender;
+    
+    if (switchControl.tag ==0) {//Facebook
+        if (switchControl.on) {
+            [DejalBezelActivityView activityViewForView:self.view withLabel:@"Abriendo sesión en Facebook"];
+            [[FacebookController instance] trataDeAbrirSesionWithUI:YES AndHandler:^(NSError *error) {
+                [DejalBezelActivityView removeViewAnimated:YES];
+                if (!error) {
+                    estadoSesionFacebook.text = @"Estoy logueado..";
+                }else{
+                    estadoSesionFacebook.text = @"No estoy logueado";
+                }
+            }];
+        }else{
+            [[FacebookController instance] logout];
+            estadoSesionFacebook.text = @"No estoy logueado";
+        }
+    }else if(switchControl.tag ==1) {//Twitter
+        
+    }
 }
 
 /*
@@ -73,7 +96,6 @@
 */
 - (IBAction)publishOnWall:(id)sender{
     
-    FacebookController *sesionCompartida = [FacebookController instance];
     NSMutableDictionary *parametros = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                        @"http://diapatrimonio.cl", @"link",
                                        @"AppDiaPatrimonio", @"name",
@@ -82,8 +104,8 @@
                                        @"descripcion de la app del dia del patrimonio", @"description",nil];
     
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"Publicando..."];
-    /*
-     [sesionCompartida publishStoryOnWallWithParams:parametros AndAttemps:2 AndCompletitionHandler:^(NSError *error) {
+    
+     [[FacebookController instance] publishStoryOnWallWithParams:parametros AndAttemps:2 AndCompletitionHandler:^(NSError *error) {
         [DejalBezelActivityView removeView];
         if (!error) {
             NSLog(@"terminé bien de publicar");
@@ -93,7 +115,7 @@
             //[self viewDidEndWithResult:@"Error" Error:error];
         }
     }];
-     */
+    
 }
 
 @end

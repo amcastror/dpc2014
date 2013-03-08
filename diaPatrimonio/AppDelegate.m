@@ -34,13 +34,8 @@
      self.tabBarController = [[UITabBarController alloc] init];
      self.tabBarController.viewControllers = @[mapaNavController, perfilNavController];
      self.window.rootViewController = self.tabBarController;
-    
-    if ([[FacebookController instance] isTokenLoaded]) {
-        // Yes, so just open the session (this won't display any UX).
-        [[FacebookController instance] openSession];
-    } else {
-        //no hago nada aún..
-    }
+
+    [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
      
      [self.window makeKeyAndVisible];
      return YES;
