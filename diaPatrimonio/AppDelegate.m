@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MapaViewController.h"
 #import "PerfilViewController.h"
-//#import "FacebookSingleton.h"
+#import "MisPuntosCulturalesViewController.h"
 #import "FacebookController.h"
 
 @implementation AppDelegate
@@ -27,15 +27,18 @@
     
     PerfilViewController *perfil = [[PerfilViewController alloc] initWithNibName:@"PerfilViewController" bundle:nil];
     UINavigationController *perfilNavController = [[UINavigationController alloc] initWithRootViewController:perfil];
+    
+    MisPuntosCulturalesViewController *misPuntos = [[MisPuntosCulturalesViewController alloc] initWithNibName:@"MisPuntosCulturalesViewController" bundle:nil];
+    UINavigationController *misPuntosNavController = [[UINavigationController alloc] initWithRootViewController:misPuntos];
     /*
      View controllers
      */
     
      self.tabBarController = [[UITabBarController alloc] init];
-     self.tabBarController.viewControllers = @[mapaNavController, perfilNavController];
+     self.tabBarController.viewControllers = @[mapaNavController, misPuntosNavController, perfilNavController];
      self.window.rootViewController = self.tabBarController;
 
-    [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
+    //[[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
      
      [self.window makeKeyAndVisible];
      return YES;
@@ -74,7 +77,6 @@
          annotation:(id)annotation {
     
     if ([[url scheme] rangeOfString:@"fb355375187904342"].location!=NSNotFound){
-        //return [FBSession.activeSession handleOpenURL:url];
         return [[FacebookController instance] handleOpenUrl:url];
     }else{
         return YES;

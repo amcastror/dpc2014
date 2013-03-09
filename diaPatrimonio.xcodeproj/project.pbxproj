@@ -48,6 +48,8 @@
 		609E82CD16E3EDBB0029BBFD /* PerfilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609E82CB16E3EDBB0029BBFD /* PerfilViewController.xib */; };
 		60C7EB0C16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7EB0A16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m */; };
 		60C7EB0D16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7EB0B16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib */; };
+		60C8E6F516EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */; };
+		60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +118,9 @@
 		60C7EB0916D9B580001145F2 /* BuscadorPuntosCulturalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscadorPuntosCulturalesViewController.h; sourceTree = "<group>"; };
 		60C7EB0A16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscadorPuntosCulturalesViewController.m; sourceTree = "<group>"; };
 		60C7EB0B16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuscadorPuntosCulturalesViewController.xib; sourceTree = "<group>"; };
+		60C8E6F216EAC3CA00C95DFD /* MisPuntosCulturalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturalesViewController.h; sourceTree = "<group>"; };
+		60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturalesViewController.m; sourceTree = "<group>"; };
+		60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MisPuntosCulturalesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +215,7 @@
 				60C7EB0816D9B56B001145F2 /* Busquedas */,
 				6082980916D99D940057BED5 /* PuntoCultural */,
 				608297FD16D851590057BED5 /* Mapa */,
+				60C8E6F716EAC3EF00C95DFD /* ListaPuntosCulturales */,
 			);
 			name = Vistas;
 			sourceTree = "<group>";
@@ -323,6 +329,16 @@
 			name = Busquedas;
 			sourceTree = "<group>";
 		};
+		60C8E6F716EAC3EF00C95DFD /* ListaPuntosCulturales */ = {
+			isa = PBXGroup;
+			children = (
+				60C8E6F216EAC3CA00C95DFD /* MisPuntosCulturalesViewController.h */,
+				60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */,
+				60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */,
+			);
+			name = ListaPuntosCulturales;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -386,6 +402,7 @@
 				6011181916DA687F00F0C828 /* Localizable.strings in Resources */,
 				609E82C116E3EAA50029BBFD /* FacebookSDKResources.bundle in Resources */,
 				609E82CD16E3EDBB0029BBFD /* PerfilViewController.xib in Resources */,
+				60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +434,7 @@
 				60C7EB0C16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m in Sources */,
 				609E82CC16E3EDBB0029BBFD /* PerfilViewController.m in Sources */,
 				6094247916E5977B009FF507 /* FacebookController.m in Sources */,
+				60C8E6F516EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

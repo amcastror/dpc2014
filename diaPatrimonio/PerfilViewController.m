@@ -7,7 +7,6 @@
 //
 
 #import "PerfilViewController.h"
-//#import "FacebookSingleton.h"
 #import "FacebookController.h"
 
 @interface PerfilViewController ()
@@ -71,29 +70,6 @@
     }
 }
 
-/*
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark facebook
-
-- (IBAction) facebookLogin:(id)sender{
-    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Abriendo sesión..."];
-    [[FacebookSingleton sharedFacebookSession] openSessionWithCompletitionHandler:^(NSError *error) {
-        [DejalBezelActivityView removeView];
-        if (!error) {
-            NSLog(@"tengo sesión con permisos");
-            
-        }else{
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No se pudo iniciar la sesión en Facebook, Por favor intentalo más tarde" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-            NSLog(@"Error al iniciar la sesión en FB: %@",error);
-        }
-    }];
-}
-*/
 - (IBAction)publishOnWall:(id)sender{
     
     NSMutableDictionary *parametros = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -103,19 +79,34 @@
                                        @"no se lo que es caption",@"caption",
                                        @"descripcion de la app del dia del patrimonio", @"description",nil];
     
-    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Publicando..."];
-    
-     [[FacebookController instance] publishStoryOnWallWithParams:parametros AndAttemps:2 AndCompletitionHandler:^(NSError *error) {
-        [DejalBezelActivityView removeView];
-        if (!error) {
-            NSLog(@"terminé bien de publicar");
-            //[self viewDidEndWithResult:@"Published" Error:nil];
-        }else{
-            NSLog(@"terminé mal de publicar, error: %@", error);
-            //[self viewDidEndWithResult:@"Error" Error:error];
-        }
-    }];
-    
+    if ([[FacebookController instance] tengoSession]) {
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@"Publicando..."];
+        [[FacebookController instance] publishStoryOnWallWithParams:parametros AndAttemps:2 AndCompletitionHandler:^(NSError *error) {
+            [DejalBezelActivityView removeView];
+            if (!error) {
+                NSLog(@"terminé bien de publicar");
+                //[self viewDidEndWithResult:@"Published" Error:nil];
+            }else{
+                NSLog(@"terminé mal de publicar, error: %@", error);
+                //[self viewDidEndWithResult:@"Error" Error:error];
+            }
+        }];
+    }else{
+        
+        [[FacebookController instance] trataDeAbrirSesionWithUI:YES AndHandler:^(NSError *error) {
+            [DejalBezelActivityView activityViewForView:self.view withLabel:@"Publicando..."];
+            [[FacebookController instance] publishStoryOnWallWithParams:parametros AndAttemps:2 AndCompletitionHandler:^(NSError *error) {
+                [DejalBezelActivityView removeView];
+                if (!error) {
+                    NSLog(@"terminé bien de publicar");
+                    //[self viewDidEndWithResult:@"Published" Error:nil];
+                }else{
+                    NSLog(@"terminé mal de publicar, error: %@", error);
+                    //[self viewDidEndWithResult:@"Error" Error:error];
+                }
+            }];
+        }];
+    }
 }
 
 @end
