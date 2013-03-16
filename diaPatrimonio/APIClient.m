@@ -11,7 +11,8 @@
 
 @implementation APIClient
 
-static NSString * const baseURL = @"http://api.paonde.com";
+static NSString * const baseURL = @"http://diadelpatrimonio.dsarhoya.cl/";
+static NSString * const prefixURL = @"ws";
 
 + (APIClient *)instance {
     static APIClient *_sharedClient = nil;
@@ -21,6 +22,14 @@ static NSString * const baseURL = @"http://api.paonde.com";
     });
     
     return _sharedClient;
+}
+
+-(void)apiClientGetPath:(NSString *)_path
+             parameters:(NSDictionary *)_parameters
+                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))_success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))_failure{
+    
+    [self getPath:[prefixURL stringByAppendingString:_path] parameters:_parameters success:_success failure:_failure];
 }
 
 - (id)initWithBaseURL:(NSURL *)url {
@@ -84,6 +93,21 @@ static NSString * const baseURL = @"http://api.paonde.com";
     
     //Realizamos la consulta (Automáticamente se crea el request y la consulta se almacena en una cola de espera
     [self postPath:@"/consultas/busquedaSucursales.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (success) {
+            success(responseObject);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+}
+
+-(void)requestPuntosCulturalesWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail{
+    
+    [self apiClientGetPath:@"/puntosCercanos/-33.54322/-70.6043" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (success) {
             success(responseObject);

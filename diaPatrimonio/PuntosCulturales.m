@@ -23,13 +23,13 @@
 
 -(void) requestPuntosCulturalesWithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail{
     
-    [[APIClient instance] requestCustomWithSuccess:^(id results) {
+    [[APIClient instance] requestPuntosCulturalesWithSuccess:^(id results) {
         
         NSArray *JSONPuntosCulturales = (NSArray *)results;
         NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
         
         for (NSDictionary *punto in JSONPuntosCulturales) {
-            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithNombre:[punto objectForKey:@"no_s"]
+            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
                                                                       AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                      AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]];
             [arregloPuntosCulturales addObject:puntoCultural];

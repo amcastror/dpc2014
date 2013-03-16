@@ -77,7 +77,7 @@
                                        @"AppDiaPatrimonio", @"name",
                                        @"Post de la app del día del patrimonio", @"message",
                                        @"no se lo que es caption",@"caption",
-                                       @"descripcion de la app del dia del patrimonio", @"description",nil];
+                                       @"descripcion de la app del dia del .", @"description",nil];
     
     if ([[FacebookController instance] tengoSession]) {
         [DejalBezelActivityView activityViewForView:self.view withLabel:@"Publicando..."];

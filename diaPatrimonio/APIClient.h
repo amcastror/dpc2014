@@ -19,5 +19,6 @@
 + (APIClient *)instance;
 
 -(void)requestCustomWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail;
+-(void)requestPuntosCulturalesWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6011181916DA687F00F0C828 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6011181716DA687F00F0C828 /* Localizable.strings */; };
+		60723BB816ECB4E100C50BCF /* MisPuntosCulturales.m in Sources */ = {isa = PBXBuildFile; fileRef = 60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */; };
 		608297B316D831360057BED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B216D831360057BED5 /* UIKit.framework */; };
 		608297B516D831360057BED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B416D831360057BED5 /* Foundation.framework */; };
 		608297B716D831360057BED5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B616D831360057BED5 /* CoreGraphics.framework */; };
@@ -50,10 +51,15 @@
 		60C7EB0D16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7EB0B16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib */; };
 		60C8E6F516EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */; };
 		60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */; };
+		60E6D57D16EE35E500E08C14 /* filaPuntoCultural.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */; };
+		60E6D58316EE38C000E08C14 /* FilaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E6D58216EE38C000E08C14 /* FilaCell.m */; };
+		60E6D58516EE38D700E08C14 /* FilaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D58416EE38D700E08C14 /* FilaCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6011181816DA687F00F0C828 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		60723BB616ECB4E100C50BCF /* MisPuntosCulturales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturales.h; sourceTree = "<group>"; };
+		60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturales.m; sourceTree = "<group>"; };
 		608297AF16D831360057BED5 /* diaPatrimonio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diaPatrimonio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		608297B216D831360057BED5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		608297B416D831360057BED5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +127,10 @@
 		60C8E6F216EAC3CA00C95DFD /* MisPuntosCulturalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturalesViewController.h; sourceTree = "<group>"; };
 		60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturalesViewController.m; sourceTree = "<group>"; };
 		60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MisPuntosCulturalesViewController.xib; sourceTree = "<group>"; };
+		60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filaPuntoCultural.xib; sourceTree = "<group>"; };
+		60E6D58116EE38C000E08C14 /* FilaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilaCell.h; sourceTree = "<group>"; };
+		60E6D58216EE38C000E08C14 /* FilaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilaCell.m; sourceTree = "<group>"; };
+		60E6D58416EE38D700E08C14 /* FilaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilaCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +296,8 @@
 				6082980116D852290057BED5 /* PuntosCulturales.m */,
 				6094247716E5977B009FF507 /* FacebookController.h */,
 				6094247816E5977B009FF507 /* FacebookController.m */,
+				60723BB616ECB4E100C50BCF /* MisPuntosCulturales.h */,
+				60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -335,6 +347,10 @@
 				60C8E6F216EAC3CA00C95DFD /* MisPuntosCulturalesViewController.h */,
 				60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */,
 				60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */,
+				60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */,
+				60E6D58116EE38C000E08C14 /* FilaCell.h */,
+				60E6D58216EE38C000E08C14 /* FilaCell.m */,
+				60E6D58416EE38D700E08C14 /* FilaCell.xib */,
 			);
 			name = ListaPuntosCulturales;
 			sourceTree = "<group>";
@@ -403,6 +419,8 @@
 				609E82C116E3EAA50029BBFD /* FacebookSDKResources.bundle in Resources */,
 				609E82CD16E3EDBB0029BBFD /* PerfilViewController.xib in Resources */,
 				60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */,
+				60E6D57D16EE35E500E08C14 /* filaPuntoCultural.xib in Resources */,
+				60E6D58516EE38D700E08C14 /* FilaCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +453,8 @@
 				609E82CC16E3EDBB0029BBFD /* PerfilViewController.m in Sources */,
 				6094247916E5977B009FF507 /* FacebookController.m in Sources */,
 				60C8E6F516EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m in Sources */,
+				60723BB816ECB4E100C50BCF /* MisPuntosCulturales.m in Sources */,
+				60E6D58316EE38C000E08C14 /* FilaCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
