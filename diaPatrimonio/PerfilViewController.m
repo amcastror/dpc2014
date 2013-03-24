@@ -8,6 +8,7 @@
 
 #import "PerfilViewController.h"
 #import "FacebookController.h"
+#import <Twitter/Twitter.h>
 
 @interface PerfilViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation PerfilViewController
 
-@synthesize estadoSesionFacebook, publish, facebookSwitch;
+@synthesize estadoSesionFacebook, publish, facebookSwitch, twitterSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +33,7 @@
 {
     [super viewDidLoad];
     [facebookSwitch addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
+    [twitterSwitch addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
     
 }
 
@@ -66,7 +68,29 @@
             estadoSesionFacebook.text = @"No estoy logueado";
         }
     }else if(switchControl.tag ==1) {//Twitter
-        
+        if ([TWTweetComposeViewController canSendTweet]) {
+            // Create an account store object.
+            ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+            
+            // Create an account type that ensures Twitter accounts are retrieved.
+            ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+            
+            // Request access from the user to use their Twitter accounts.
+            [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
+                if (granted) {
+                    //[[[UIAlertView alloc] initWithTitle:@"Master!" message:@"Listo, ahora hay twitter!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                    NSLog(@"master, hay twitter");
+                }else{
+                    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No se pudo acceder a su cuenta, es posible que la aplicación esté bloqueada en Ajustes/Twitter" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                }
+                if (error) {
+                    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No se pudo acceder a su cuenta de Twitter, por favor intentelo más tarde" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                    
+                }
+            }];
+        }else{
+            [[[UIAlertView alloc] initWithTitle:@"Twitter no disponible" message:@"Active su cuenta de twitter en Ajustes del sistema" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
     }
 }
 
@@ -107,6 +131,11 @@
             }];
         }];
     }
+}
+
+#pragma mark alert view delegate methods
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
 }
 
 @end
