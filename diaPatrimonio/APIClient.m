@@ -8,6 +8,7 @@
 
 #import "APIClient.h"
 #import "AFJSONRequestOperation.h"
+#import "Usuario.h"
 
 @implementation APIClient
 
@@ -105,9 +106,12 @@ static NSString * const prefixURL = @"ws";
     }];
 }
 
--(void)requestPuntosCulturalesWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail{
+-(void)requestPuntosCulturalesCercanosWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail{
     
-    [self apiClientGetPath:@"/puntosCercanos/-33.54322/-70.6043" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    double latitud = [[Usuario instance] latitud];
+    double longitud = [[Usuario instance] longitud];
+    
+    [self apiClientGetPath:[NSString stringWithFormat:@"/puntosCercanos/%f/%f", latitud, longitud] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (success) {
             success(responseObject);
@@ -119,5 +123,33 @@ static NSString * const prefixURL = @"ws";
         }
     }];
 }
+
+
+
+-(void)requestPuntosCulturalesEntre:(CLLocationCoordinate2D)puntoNO
+                                  Y:(CLLocationCoordinate2D)puntoSE
+                        WithSuccess:(void (^)(id results))success
+                            AndFail:(void (^)(NSError *error))fail{
+    
+    
+    [self apiClientGetPath:[NSString stringWithFormat:@"/buscarAqui/%f/%f/%f/%f", puntoNO.latitude, puntoNO.longitude, puntoSE.latitude, puntoSE.longitude]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (success) {
+            success(responseObject);
+        }
+        
+    }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+}
+
+/*
+ Entre:(CLLocationCoordinate2D)puntoNO
+ Y:(CLLocationCoordinate2D)puntoSE*/
 
 @end

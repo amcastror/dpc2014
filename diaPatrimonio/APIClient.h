@@ -18,7 +18,13 @@
 
 + (APIClient *)instance;
 
--(void)requestCustomWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail;
--(void)requestPuntosCulturalesWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail;
+-(void)requestCustomWithSuccess:(void (^)(id results))success
+                        AndFail:(void (^)(NSError *error))fail;
+-(void)requestPuntosCulturalesCercanosWithSuccess:(void (^)(id results))success
+                                  AndFail:(void (^)(NSError *error))fail;
+-(void)requestPuntosCulturalesEntre:(CLLocationCoordinate2D)puntoNO
+                                  Y:(CLLocationCoordinate2D)puntoSE
+                        WithSuccess:(void (^)(id results))success
+                            AndFail:(void (^)(NSError *error))fail;
 
 @end
