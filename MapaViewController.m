@@ -12,13 +12,14 @@
 #import "PuntoCulturalViewController.h"
 #import "MapItem.h"
 #import "BuscadorPuntosCulturalesViewController.h"
+#import "Usuario.h"
 
 @interface MapaViewController ()
 
 @end
 
 @implementation MapaViewController
-
+@synthesize botonBuscarAqui;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,18 +40,30 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [mapa setShowsUserLocation:YES];
+
     [mapa setDelegate:self];
     
-    [DejalBezelActivityView activityViewForView:self.view withLabel:@"cargando"];
-     [[PuntosCulturales instance] requestPuntosCulturalesWithSuccess:^(NSArray *puntosCulturales) {
-         [DejalBezelActivityView removeView];
-        //ahora tengo que decirle al mapa que se dibuje..
-         [self dibujarMapa];
-    } AndFail:^(NSError *error) {
-        NSLog(@"hubo un error");
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"localizando..."];
+    [[Usuario instance] updateLocationWithPrecision:100 AndTimeInterval:3 AndSuccessHandler:^(NSError *error) {
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@"cargando..."];
+        [[PuntosCulturales instance] requestPuntosCulturalesCercanosWithSuccess:^(NSArray *puntosCulturales) {
+            [DejalBezelActivityView removeView];
+            //ahora tengo que decirle al mapa que se dibuje..
+            [self dibujarMapa];
+        } AndFail:^(NSError *error) {
+            [DejalBezelActivityView removeView];
+        }];
     }];
-     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [mapa setShowsUserLocation:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [mapa setShowsUserLocation:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,6 +75,17 @@
 #pragma mark custom methods
 
 -(void)dibujarMapa{
+    
+    NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:[mapa.annotations count]];
+    
+    for (id annotation in mapa.annotations) {
+        if (annotation != mapa.userLocation) {
+            [toRemove addObject:annotation];
+        }
+    }
+    
+    [mapa removeAnnotations:toRemove];
+    
     for (PuntoCultural *puntoCultural in [[PuntosCulturales instance] puntosCulturales]) {
          //necesito hacer un punto en el mapa...
         CLLocationCoordinate2D coordenadaItem = {puntoCultural.latitud.doubleValue, puntoCultural.longitud.doubleValue};
@@ -81,6 +105,23 @@
     [[self navigationController] presentViewController:buscador animated:YES completion:^{}];
 }
 
+-(IBAction)botonBuscarAquiPressed:(id)sender{
+    
+    [[Usuario instance] apagarGPS];
+    CGPoint nwPoint = CGPointMake(mapa.bounds.origin.x, mapa.bounds.origin.y);
+    CGPoint sePoint = CGPointMake(mapa.bounds.origin.x+ mapa.bounds.size.width, mapa.bounds.origin.y + mapa.bounds.size.height);
+    CLLocationCoordinate2D nwCoord = [mapa convertPoint: nwPoint toCoordinateFromView:mapa];
+    CLLocationCoordinate2D seCoord = [mapa convertPoint: sePoint toCoordinateFromView:mapa];
+    
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"buscando..."];
+    [[PuntosCulturales instance] requestPuntosCulturalesEntre:nwCoord Y:seCoord WithSuccess:^(NSArray *puntosCulturales) {
+        [self dibujarMapa];
+        [DejalBezelActivityView removeViewAnimated:YES];
+    } AndFail:^(NSError *error) {
+        [DejalBezelActivityView removeViewAnimated:YES];
+    }];
+}
+
 #pragma mark mapa delegate methods
 
 - (MKAnnotationView *)mapView:(MKMapView *)thisMapView viewForAnnotation:(id<MKAnnotation>)annotation{
@@ -89,7 +130,7 @@
     }
     
     //hacer el boton derecho que abre la ficha Sucursal
-    MapItem *aMapPoint = (MapItem *)annotation;
+    //MapItem *aMapPoint = (MapItem *)annotation;
     //NSLog(@"title: %@", aMapPoint.title);
     static NSString *AnnotationViewID = @"annotationViewID";
     

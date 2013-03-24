@@ -10,6 +10,9 @@
 
 @interface MapaViewController : UIViewController <MKMapViewDelegate>{
     IBOutlet MKMapView *mapa;
+    IBOutlet UIButton *botonBuscarAqui;
 }
+
+@property (nonatomic, readonly) IBOutlet UIButton *botonBuscarAqui;
 
 @end
