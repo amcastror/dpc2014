@@ -18,6 +18,11 @@
 
 + (PuntosCulturales *)instance;
 
--(void) requestPuntosCulturalesWithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail;
+-(void) requestPuntosCulturalesCercanosWithSuccess:(void (^)(NSArray *puntosCulturales))success
+                                   AndFail:(void (^)(NSError *error))fail;
+
+-(void) requestPuntosCulturalesEntre:(CLLocationCoordinate2D)puntoNO
+                                   Y:(CLLocationCoordinate2D)puntoSE
+                         WithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail;
 
 @end

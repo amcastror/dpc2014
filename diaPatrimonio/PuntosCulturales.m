@@ -21,9 +21,9 @@
     return _sharedClient;
 }
 
--(void) requestPuntosCulturalesWithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail{
+-(void) requestPuntosCulturalesCercanosWithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail{
     
-    [[APIClient instance] requestPuntosCulturalesWithSuccess:^(id results) {
+    [[APIClient instance] requestPuntosCulturalesCercanosWithSuccess:^(id results) {
         
         NSArray *JSONPuntosCulturales = (NSArray *)results;
         NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
@@ -45,6 +45,35 @@
             fail(error);
         }
     }];
+}
+
+
+-(void) requestPuntosCulturalesEntre:(CLLocationCoordinate2D)puntoNO
+                                   Y:(CLLocationCoordinate2D)puntoSE
+                         WithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail{
+    
+    [[APIClient instance] requestPuntosCulturalesEntre:puntoNO Y:puntoSE WithSuccess:^(id results) {
+        NSArray *JSONPuntosCulturales = (NSArray *)results;
+        NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *punto in JSONPuntosCulturales) {
+            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
+                                                                      AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
+                                                                     AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]];
+            [arregloPuntosCulturales addObject:puntoCultural];
+        }
+        
+        puntosCulturales = [NSArray arrayWithArray:arregloPuntosCulturales];
+        
+        if (success) {
+            success(puntosCulturales);
+        }
+    } AndFail:^(NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+        
 }
 
 @end
