@@ -11,6 +11,8 @@
 #import "PerfilViewController.h"
 #import "MisPuntosCulturalesViewController.h"
 #import "FacebookController.h"
+#import "UIDevice+IdentifierAddition.h"
+#import "Usuario.h"
 
 @implementation AppDelegate
 
@@ -19,9 +21,12 @@
     
      self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    /*
-     View controllers 
-     */
+    /*     Set ups iniciales     */
+    [TestFlight takeOff:@"6eb30449-c8c1-4a32-99e8-c142d56db41f"];
+    [[Usuario instance] setUdid:[[UIDevice currentDevice] uniqueDeviceIdentifier]];
+    /*     Set ups iniciales     */
+    
+    /*     View controllers      */
     MapaViewController *mapa = [[MapaViewController alloc] initWithNibName:@"MapaViewController" bundle:nil];
     UINavigationController *mapaNavController = [[UINavigationController alloc] initWithRootViewController:mapa];
     
@@ -30,9 +35,7 @@
     
     MisPuntosCulturalesViewController *misPuntos = [[MisPuntosCulturalesViewController alloc] initWithNibName:@"MisPuntosCulturalesViewController" bundle:nil];
     UINavigationController *misPuntosNavController = [[UINavigationController alloc] initWithRootViewController:misPuntos];
-    /*
-     View controllers
-     */
+    /*     View controllers     */
     
      self.tabBarController = [[UITabBarController alloc] init];
      self.tabBarController.viewControllers = @[mapaNavController, misPuntosNavController, perfilNavController];
@@ -54,6 +57,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[Usuario instance] apagarGPS];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -64,11 +68,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[Usuario instance] prenderGPS];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[Usuario instance] apagarGPS];
 }
 
 - (BOOL)application:(UIApplication *)application
