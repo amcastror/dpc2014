@@ -41,7 +41,7 @@
      self.tabBarController.viewControllers = @[mapaNavController, misPuntosNavController, perfilNavController];
      self.window.rootViewController = self.tabBarController;
 
-    //[[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
+    [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
      
      [self.window makeKeyAndVisible];
      return YES;

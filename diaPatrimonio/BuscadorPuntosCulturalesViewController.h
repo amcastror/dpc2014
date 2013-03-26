@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BuscadorPuntosCulturalesViewController : UIViewController
+@interface BuscadorPuntosCulturalesViewController : UIViewController{
+    IBOutlet UIButton *botonCancelar;
+}
+
+@property (nonatomic, readonly) IBOutlet UIButton *botonCancelar;
 
 @end
