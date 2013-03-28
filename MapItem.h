@@ -10,6 +10,7 @@
 
 @interface MapItem : NSObject<MKAnnotation>{
     
+    NSNumber *id_punto;
 	NSString *title;
 	NSString *subtitle;
     
@@ -17,12 +18,13 @@
     CLLocationCoordinate2D coordinate;
 }
 
+@property (nonatomic, readonly) NSNumber *id_punto;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
 
 @property (nonatomic, readonly) NSString *nombre;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
--(id) initWithCoordinate:(CLLocationCoordinate2D)_coordenadas AndNombre:(NSString *)_nombre;
+-(id) initWithIDPunto:(NSNumber *)_id_punto AndCoordinate:(CLLocationCoordinate2D)_coordenadas AndNombre:(NSString *)_nombre;
 
 @end

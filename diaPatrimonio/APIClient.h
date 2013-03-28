@@ -26,5 +26,11 @@
                                   Y:(CLLocationCoordinate2D)puntoSE
                         WithSuccess:(void (^)(id results))success
                             AndFail:(void (^)(NSError *error))fail;
+-(void) requestCompletarInformacionPuntoCulturalConIDPunto:(NSNumber *)id_punto
+                                                AndSuccess:(void (^)(NSDictionary *informacionPunto))success
+                                                   AndFail:(void (^)(NSError *error))fail;
+-(void)requestDescargarImagenAsincronaWithURLString:(NSString *)url_string
+                                            success:(void (^)(id results, NSError *error))block
+                              downloadProgressBlock:(void (^) (NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))downloadProgressBlock;
 
 @end

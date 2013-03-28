@@ -148,8 +148,44 @@ static NSString * const prefixURL = @"ws";
     }];
 }
 
-/*
- Entre:(CLLocationCoordinate2D)puntoNO
- Y:(CLLocationCoordinate2D)puntoSE*/
+-(void) requestCompletarInformacionPuntoCulturalConIDPunto:(NSNumber *)id_punto
+                                                AndSuccess:(void (^)(NSDictionary *informacionPunto))success
+                                                   AndFail:(void (^)(NSError *error))fail{
+    [self apiClientGetPath:[NSString stringWithFormat:@"/verDetallePunto/%i", id_punto.intValue]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       
+                       if (success) {
+                           success(responseObject);
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
+
+
+-(void)requestDescargarImagenAsincronaWithURLString:(NSString *)url_string
+                                            success:(void (^)(id results, NSError *error))block
+                              downloadProgressBlock:(void (^) (NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))downloadProgressBlock{
+    NSURL *url = [NSURL URLWithString:url_string];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    AFImageRequestOperation *requestOperation = [AFImageRequestOperation imageRequestOperationWithRequest:request success:^(UIImage *imagen)
+                                                 {
+                                                     if (block) {
+                                                         block(imagen,nil);
+                                                     }
+                                                 }];
+    [[self operationQueue] addOperation:requestOperation];
+    
+    if (downloadProgressBlock) {
+        [requestOperation setDownloadProgressBlock:downloadProgressBlock];
+    }
+}
 
 @end

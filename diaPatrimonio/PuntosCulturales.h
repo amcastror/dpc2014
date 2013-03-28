@@ -25,4 +25,5 @@
                                    Y:(CLLocationCoordinate2D)puntoSE
                          WithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail;
 
+-(PuntoCultural *) requestPuntoConID:(NSNumber *)_id_punto;
 @end

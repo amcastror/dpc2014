@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PuntoCultural.h"
+#import "ImagenAsincrona.h"
 
-@interface PuntoCulturalViewController : UIViewController
+@interface PuntoCulturalViewController : UIViewController{
+    IBOutlet UILabel *resumen;
+}
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil AndPuntoCultural:(PuntoCultural *)_puntoCultural;
 @end

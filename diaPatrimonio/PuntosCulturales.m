@@ -29,7 +29,8 @@
         NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
         
         for (NSDictionary *punto in JSONPuntosCulturales) {
-            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
+            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
+                                                                        AndNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
                                                                       AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                      AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]];
             [arregloPuntosCulturales addObject:puntoCultural];
@@ -57,9 +58,10 @@
         NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
         
         for (NSDictionary *punto in JSONPuntosCulturales) {
-            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
-                                                                      AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
-                                                                     AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]];
+            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
+                                                                        AndNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
+                                                                       AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
+                                                                      AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]];
             [arregloPuntosCulturales addObject:puntoCultural];
         }
         
@@ -74,6 +76,17 @@
         }
     }];
         
+}
+
+-(PuntoCultural *) requestPuntoConID:(NSNumber *)_id_punto{
+    
+    for (PuntoCultural *punto in puntosCulturales) {
+        if ([punto.id_punto intValue] == [_id_punto intValue]) {
+            return punto;
+        }
+    }
+    
+    return nil;
 }
 
 @end

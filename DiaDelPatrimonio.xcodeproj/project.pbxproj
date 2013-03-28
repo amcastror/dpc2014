@@ -44,6 +44,7 @@
 		6082980E16D99DC10057BED5 /* PuntoCulturalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6082980C16D99DC10057BED5 /* PuntoCulturalViewController.xib */; };
 		6082981116D9A0010057BED5 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6082981016D9A0010057BED5 /* DejalActivityView.m */; };
 		6094247916E5977B009FF507 /* FacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6094247816E5977B009FF507 /* FacebookController.m */; };
+		609518221704873E004F2019 /* ImagenAsincrona.m in Sources */ = {isa = PBXBuildFile; fileRef = 609518211704873E004F2019 /* ImagenAsincrona.m */; };
 		609E82BF16E3EA290029BBFD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82BE16E3EA290029BBFD /* FacebookSDK.framework */; };
 		609E82C116E3EAA50029BBFD /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 609E82C016E3EAA50029BBFD /* FacebookSDKResources.bundle */; };
 		609E82C316E3EAF20029BBFD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82C216E3EAF20029BBFD /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -129,6 +130,8 @@
 		6082981016D9A0010057BED5 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		6094247716E5977B009FF507 /* FacebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookController.h; sourceTree = "<group>"; };
 		6094247816E5977B009FF507 /* FacebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookController.m; sourceTree = "<group>"; };
+		609518201704873E004F2019 /* ImagenAsincrona.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagenAsincrona.h; sourceTree = "<group>"; };
+		609518211704873E004F2019 /* ImagenAsincrona.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagenAsincrona.m; sourceTree = "<group>"; };
 		609E82BE16E3EA290029BBFD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		609E82C016E3EAA50029BBFD /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		609E82C216E3EAF20029BBFD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -279,6 +282,8 @@
 				60E9A76716FF42E30009D7C8 /* TestFlight */,
 				608297F816D839E10057BED5 /* APIClient.h */,
 				608297F916D839E10057BED5 /* APIClient.m */,
+				609518201704873E004F2019 /* ImagenAsincrona.h */,
+				609518211704873E004F2019 /* ImagenAsincrona.m */,
 			);
 			name = Librerias;
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				601F9B8916FF5E1100C6E63A /* UIDevice+IdentifierAddition.m in Sources */,
 				601F9B8C16FF5E2600C6E63A /* NSString+MD5Addition.m in Sources */,
 				601F9B8F16FF5E7B00C6E63A /* Usuario.m in Sources */,
+				609518221704873E004F2019 /* ImagenAsincrona.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +611,7 @@
 		608297CD16D831360057BED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andres Castro (9659KEG457)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -622,6 +629,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B5EA795F-6F3A-4FF1-86F8-82C9F190F438";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

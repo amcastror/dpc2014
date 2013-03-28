@@ -89,14 +89,18 @@
     for (PuntoCultural *puntoCultural in [[PuntosCulturales instance] puntosCulturales]) {
          //necesito hacer un punto en el mapa...
         CLLocationCoordinate2D coordenadaItem = {puntoCultural.latitud.doubleValue, puntoCultural.longitud.doubleValue};
-        MapItem *item = [[MapItem alloc] initWithCoordinate:coordenadaItem AndNombre:puntoCultural.nombre];
+        MapItem *item = [[MapItem alloc] initWithIDPunto:puntoCultural.id_punto AndCoordinate:coordenadaItem AndNombre:puntoCultural.nombre];
         [mapa addAnnotation:item];
     }
 }
 
 -(void)muestraPuntoCultural:(id)sender{ //me llama un botón. Hay que ponerle tag
-    PuntoCulturalViewController *puntoCultural = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle]];
-    [[self navigationController] pushViewController:puntoCultural animated:YES];
+    
+    PuntoCultural *puntoCultural = [[PuntosCulturales instance] requestPuntoConID:[NSNumber numberWithInt:((UIButton *)sender).tag]];
+    
+    PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
+    //PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithPuntoCultural:puntoCultural];
+    [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
     //[[self navigationController] presentViewController:puntoCultural animated:YES completion:^{}];
 }
 
@@ -130,7 +134,7 @@
     }
     
     //hacer el boton derecho que abre la ficha Sucursal
-    //MapItem *aMapPoint = (MapItem *)annotation;
+    MapItem *aMapPoint = (MapItem *)annotation;
     //NSLog(@"title: %@", aMapPoint.title);
     static NSString *AnnotationViewID = @"annotationViewID";
     
@@ -144,6 +148,7 @@
     
     UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     [rightButton addTarget:self action:@selector(muestraPuntoCultural:) forControlEvents:UIControlEventTouchUpInside];
+    rightButton.tag = [aMapPoint.id_punto intValue];
     
     annotationView.rightCalloutAccessoryView = rightButton;
     return annotationView;

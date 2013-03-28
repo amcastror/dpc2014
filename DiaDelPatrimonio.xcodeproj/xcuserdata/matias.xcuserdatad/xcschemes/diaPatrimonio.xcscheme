@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "608297AE16D831360057BED5"
-               BuildableName = "diaPatrimonio.app"
-               BlueprintName = "diaPatrimonio"
-               ReferencedContainer = "container:diaPatrimonio.xcodeproj">
+               BuildableName = "DiaDelPatrimonio.app"
+               BlueprintName = "DiaDelPatrimonio"
+               ReferencedContainer = "container:DiaDelPatrimonio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "608297AE16D831360057BED5"
-            BuildableName = "diaPatrimonio.app"
-            BlueprintName = "diaPatrimonio"
-            ReferencedContainer = "container:diaPatrimonio.xcodeproj">
+            BuildableName = "DiaDelPatrimonio.app"
+            BlueprintName = "DiaDelPatrimonio"
+            ReferencedContainer = "container:DiaDelPatrimonio.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "608297AE16D831360057BED5"
-            BuildableName = "diaPatrimonio.app"
-            BlueprintName = "diaPatrimonio"
-            ReferencedContainer = "container:diaPatrimonio.xcodeproj">
+            BuildableName = "DiaDelPatrimonio.app"
+            BlueprintName = "DiaDelPatrimonio"
+            ReferencedContainer = "container:DiaDelPatrimonio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "608297AE16D831360057BED5"
-            BuildableName = "diaPatrimonio.app"
-            BlueprintName = "diaPatrimonio"
-            ReferencedContainer = "container:diaPatrimonio.xcodeproj">
+            BuildableName = "DiaDelPatrimonio.app"
+            BlueprintName = "DiaDelPatrimonio"
+            ReferencedContainer = "container:DiaDelPatrimonio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
