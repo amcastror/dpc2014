@@ -31,5 +31,4 @@
 
 -(void) requestCompletarInformacionWithSuccess:(void (^)())success
                                        AndFail:(void (^)(NSError *error))fail;
-
 @end

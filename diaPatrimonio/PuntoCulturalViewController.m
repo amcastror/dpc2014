@@ -7,6 +7,7 @@
 //
 
 #import "PuntoCulturalViewController.h"
+#import "MisPuntosCulturales.h" 
 
 @interface PuntoCulturalViewController (){
     PuntoCultural *puntoCultural;
@@ -38,7 +39,7 @@
         resumen.text = [NSString stringWithFormat:@"id: %@, nombre: %@, descripción: %@, lat: %@, long: %@", puntoCultural.id_punto, puntoCultural.nombre, puntoCultural.descripcion, puntoCultural.latitud, puntoCultural.longitud];
         if (puntoCultural.url_foto) {
             
-            ImagenAsincrona *foto = [[ImagenAsincrona alloc] initWithFrame:CGRectMake(40, 30, 240, 120) AndURL:[NSString stringWithFormat:@"http://%@", puntoCultural.url_foto] AndStartNow:YES];
+            ImagenAsincrona *foto = [[ImagenAsincrona alloc] initWithFrame:CGRectMake(40, 30, 240, 120) AndURL:puntoCultural.url_foto AndStartNow:YES];
             [self.view addSubview:foto];
         }
     } AndFail:^(NSError *error) {
@@ -50,6 +51,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - acciones del punto
+
+- (IBAction)botonAgregarPuntoPressed:(id)sender{
+    
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Agregando punto..."];
+    [[MisPuntosCulturales instance] agregarPuntoCultural:puntoCultural AMisPuntosWithSuccess:^{
+        [DejalBezelActivityView removeViewAnimated:YES];
+    } AndFail:^(NSError *error) {
+        [DejalBezelActivityView removeViewAnimated:YES];
+    }];
 }
 
 @end

@@ -47,4 +47,17 @@
     }];
 }
 
+-(void) eliminarDeMisPuntosWithSuccess:(void (^)())success
+                               AndFail:(void (^)(NSError *error))fail{
+    [[APIClient instance] requestEliminarPuntoId:id_punto DeMisPuntosWithSuccess:^{
+        if (success) {
+            success();
+        }
+    } AndFail:^(NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+}
+
 @end

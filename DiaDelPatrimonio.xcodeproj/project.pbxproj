@@ -43,6 +43,8 @@
 		6082980D16D99DC10057BED5 /* PuntoCulturalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6082980B16D99DC10057BED5 /* PuntoCulturalViewController.m */; };
 		6082980E16D99DC10057BED5 /* PuntoCulturalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6082980C16D99DC10057BED5 /* PuntoCulturalViewController.xib */; };
 		6082981116D9A0010057BED5 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6082981016D9A0010057BED5 /* DejalActivityView.m */; };
+		608C617217075B6400F77FCB /* Zona.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C617117075B6400F77FCB /* Zona.m */; };
+		608C6175170760B300F77FCB /* Filtros.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C6174170760B300F77FCB /* Filtros.m */; };
 		6094247916E5977B009FF507 /* FacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6094247816E5977B009FF507 /* FacebookController.m */; };
 		609518221704873E004F2019 /* ImagenAsincrona.m in Sources */ = {isa = PBXBuildFile; fileRef = 609518211704873E004F2019 /* ImagenAsincrona.m */; };
 		609E82BF16E3EA290029BBFD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82BE16E3EA290029BBFD /* FacebookSDK.framework */; };
@@ -128,6 +130,10 @@
 		6082980C16D99DC10057BED5 /* PuntoCulturalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PuntoCulturalViewController.xib; sourceTree = "<group>"; };
 		6082980F16D9A0010057BED5 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6082981016D9A0010057BED5 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
+		608C617017075B6400F77FCB /* Zona.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zona.h; path = diaPatrimonio/Zona.h; sourceTree = "<group>"; };
+		608C617117075B6400F77FCB /* Zona.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Zona.m; path = diaPatrimonio/Zona.m; sourceTree = "<group>"; };
+		608C6173170760B300F77FCB /* Filtros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filtros.h; sourceTree = "<group>"; };
+		608C6174170760B300F77FCB /* Filtros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filtros.m; sourceTree = "<group>"; };
 		6094247716E5977B009FF507 /* FacebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookController.h; sourceTree = "<group>"; };
 		6094247816E5977B009FF507 /* FacebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookController.m; sourceTree = "<group>"; };
 		609518201704873E004F2019 /* ImagenAsincrona.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagenAsincrona.h; sourceTree = "<group>"; };
@@ -236,8 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				608297D516D835160057BED5 /* Librerias */,
-				608297FF16D851A80057BED5 /* Controladores */,
 				608297FE16D851960057BED5 /* Modelos */,
+				608297FF16D851A80057BED5 /* Controladores */,
 				608297D416D8319C0057BED5 /* Vistas */,
 				608297C116D831360057BED5 /* AppDelegate.h */,
 				608297C216D831360057BED5 /* AppDelegate.m */,
@@ -333,6 +339,8 @@
 				6082980716D92C280057BED5 /* MapItem.m */,
 				601F9B8D16FF5E7B00C6E63A /* Usuario.h */,
 				601F9B8E16FF5E7B00C6E63A /* Usuario.m */,
+				608C617017075B6400F77FCB /* Zona.h */,
+				608C617117075B6400F77FCB /* Zona.m */,
 			);
 			name = Modelos;
 			path = ..;
@@ -347,6 +355,8 @@
 				6094247816E5977B009FF507 /* FacebookController.m */,
 				60723BB616ECB4E100C50BCF /* MisPuntosCulturales.h */,
 				60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */,
+				608C6173170760B300F77FCB /* Filtros.h */,
+				608C6174170760B300F77FCB /* Filtros.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -521,6 +531,8 @@
 				601F9B8C16FF5E2600C6E63A /* NSString+MD5Addition.m in Sources */,
 				601F9B8F16FF5E7B00C6E63A /* Usuario.m in Sources */,
 				609518221704873E004F2019 /* ImagenAsincrona.m in Sources */,
+				608C617217075B6400F77FCB /* Zona.m in Sources */,
+				608C6175170760B300F77FCB /* Filtros.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

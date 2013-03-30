@@ -13,6 +13,7 @@
 #import "FacebookController.h"
 #import "UIDevice+IdentifierAddition.h"
 #import "Usuario.h"
+#import "Filtros.h"
 
 @implementation AppDelegate
 
@@ -24,6 +25,7 @@
     /*     Set ups iniciales     */
     [TestFlight takeOff:@"6eb30449-c8c1-4a32-99e8-c142d56db41f"];
     [[Usuario instance] setUdid:[[UIDevice currentDevice] uniqueDeviceIdentifier]];
+    [Filtros instance];
     /*     Set ups iniciales     */
     
     /*     View controllers      */

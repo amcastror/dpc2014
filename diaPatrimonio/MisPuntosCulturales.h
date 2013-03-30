@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PuntoCultural.h"
 
 @interface MisPuntosCulturales : NSObject{
     
@@ -16,6 +17,9 @@
 
 + (MisPuntosCulturales *)instance;
 
--(void) requestMisPuntosCulturalesWithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail;
-
+-(void) requestMisPuntosCulturalesWithSuccess:(void (^)())success AndFail:(void (^)(NSError *error))fail;
+-(void) agregarPuntoCultural:(PuntoCultural *)miNuevoPunto AMisPuntosWithSuccess:(void (^)())success
+                     AndFail:(void (^)(NSError *error))fail;
+-(void) eliminarPuntoCultural:(PuntoCultural *)miViejoPunto DeMisPuntosWithSuccess:(void (^)())success
+                      AndFail:(void (^)(NSError *error))fail;
 @end

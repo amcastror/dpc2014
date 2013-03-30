@@ -12,6 +12,7 @@
 
 @interface PuntoCulturalViewController : UIViewController{
     IBOutlet UILabel *resumen;
+    //IBOutlet UIButton *botonAgregarPunto;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil AndPuntoCultural:(PuntoCultural *)_puntoCultural;

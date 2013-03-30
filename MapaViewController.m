@@ -54,6 +54,12 @@
             [DejalBezelActivityView removeView];
         }];
     }];
+    
+    [[APIClient instance] requestZonasYSubZonasWithSuccess:^(NSDictionary *results) {
+        //
+    } AndFail:^(NSError *error) {
+        //
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

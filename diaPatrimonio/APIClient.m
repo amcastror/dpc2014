@@ -47,64 +47,7 @@ static NSString * const prefixURL = @"ws";
     return self;
 }
 
-#pragma mark - requests
--(void)requestCustomWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail
-{
-    //Estos son datos propios de esta consulta
-    NSDictionary *datos = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"bs",@"c"
-                           , nil];
-    
-    /*
-     "id_tipo": 1,
-     "id_usuario": 11,
-     "id_sesion": 33,
-     "id": 0,
-     "udid": "45j63o4iu5h2o589",
-     "latitud": -33.541,
-     "longitud": -70.549
-     */
-    NSDictionary *usuario = [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"1",@"id_tipo",
-                             @"11",@"id_usuario",
-                             @"33",@"id_sesion",
-                             @"0",@"id",
-                             @"45j63o4iu5h2o589",@"udid",
-                             @"-33.541",@"clatitud",
-                             @"-70.549",@"longitud",
-                             nil];
-    
-    /*
-     "ps": "alkjrnv9ap84ejvqaw4ijfapwoi34f",
-     "va": "1.3.1",
-     "ba": "4.65"
-     */
-    NSDictionary *conexion = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"alkjrnv9ap84ejvqaw4ijfapwoi34f",@"ps",
-                              @"1.3.1",@"va",
-                              @"4.65",@"ba",
-                              nil];
-    
-    //El set de parámetros necesarios incluye parámetros generales y los propios de esta consulta
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
-                                usuario,@"usuario",
-                                conexion,@"conexion",
-                                datos,@"datos",
-                                nil];
-    
-    //Realizamos la consulta (Automáticamente se crea el request y la consulta se almacena en una cola de espera
-    [self postPath:@"/consultas/busquedaSucursales.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        if (success) {
-            success(responseObject);
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (fail) {
-            fail(error);
-        }
-    }];
-}
+#pragma mark - requests busquedas
 
 -(void)requestPuntosCulturalesCercanosWithSuccess:(void (^)(id results))success AndFail:(void (^)(NSError *error))fail{
     
@@ -148,6 +91,25 @@ static NSString * const prefixURL = @"ws";
     }];
 }
 
+-(void)requestZonasYSubZonasWithSuccess:(void (^)(NSDictionary *results))success
+                            AndFail:(void (^)(NSError *error))fail{
+    [self apiClientGetPath:@"/getZonas"
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       if (success) {
+                           success(responseObject);
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
+#pragma mark - requests informacion punto
+
 -(void) requestCompletarInformacionPuntoCulturalConIDPunto:(NSNumber *)id_punto
                                                 AndSuccess:(void (^)(NSDictionary *informacionPunto))success
                                                    AndFail:(void (^)(NSError *error))fail{
@@ -166,8 +128,6 @@ static NSString * const prefixURL = @"ws";
                        }
                    }];
 }
-
-
 
 -(void)requestDescargarImagenAsincronaWithURLString:(NSString *)url_string
                                             success:(void (^)(id results, NSError *error))block
@@ -188,4 +148,68 @@ static NSString * const prefixURL = @"ws";
     }
 }
 
+#pragma mark - acciones mis puntos
+
+-(void)requestAgregarPuntoId:(NSNumber *)id_punto
+       AMisPuntosWithSuccess:(void (^)())success
+                     AndFail:(void (^)(NSError *error))fail{
+    [self apiClientGetPath:[NSString stringWithFormat:@"/guardarPunto/%@/%i",
+                            [[Usuario instance] udid],
+                            id_punto.intValue]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       
+                       if (success) {
+                           success();
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
+-(void)requestEliminarPuntoId:(NSNumber *)id_punto
+       DeMisPuntosWithSuccess:(void (^)())success
+                      AndFail:(void (^)(NSError *error))fail{
+    [self apiClientGetPath:[NSString stringWithFormat:@"/eliminarPunto/%@/%i",
+                            [[Usuario instance] udid],
+                            id_punto.intValue]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSLog(@"res: %@", responseObject);
+                       if (success) {
+                           success();
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
+-(void)requestMisPuntosCulturalesWithSuccess:(void (^)(NSArray *misPuntosCulturales))success
+                     AndFail:(void (^)(NSError *error))fail{
+    
+    [self apiClientGetPath:[NSString stringWithFormat:@"/verListaAlmacenada/%@",
+                            [[Usuario instance] udid]
+                            ]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       NSLog(@"lista: %@", responseObject);
+                       if (success) {
+                           success(responseObject);
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
 @end
