@@ -102,6 +102,35 @@
         MapItem *item = [[MapItem alloc] initWithIDPunto:puntoCultural.id_punto AndCoordinate:coordenadaItem AndNombre:puntoCultural.nombre];
         [mapa addAnnotation:item];
     }
+    
+    [self ajustarMargenesDelMapa];
+}
+
+-(void) ajustarMargenesDelMapa{
+    
+    NSMutableArray *lats = [[NSMutableArray alloc] init];
+    NSMutableArray *lons = [[NSMutableArray alloc] init];
+    
+    for (PuntoCultural *punto in [[PuntosCulturales instance] puntosCulturales]) {
+        [lats addObject:[punto latitud]];
+        [lons addObject:[punto longitud]];
+    }
+    
+    float maxLat = [[lats valueForKeyPath:@"@max.self"] doubleValue];
+    float maxLon = [[lons valueForKeyPath:@"@max.self"] doubleValue];
+    float minLat = [[lats valueForKeyPath:@"@min.self"] doubleValue];
+    float minLon = [[lons valueForKeyPath:@"@min.self"] doubleValue];
+    
+    MKCoordinateSpan span;
+    MKCoordinateRegion laRegion;
+    
+    laRegion.center.latitude = (minLat+ maxLat)/2;
+    laRegion.center.longitude = (minLon + maxLon)/2;
+    span.latitudeDelta= (fabs(minLat) - fabs(maxLat))*1.15;
+    span.longitudeDelta= (fabs(minLon) - fabs(maxLon))*1.15;
+    laRegion.span = span;
+    
+    [mapa setRegion:laRegion animated:YES];
 }
 
 -(void)muestraPuntoCultural:(id)sender{ //me llama un botón. Hay que ponerle tag
