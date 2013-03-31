@@ -11,10 +11,11 @@
 #import "PuntoCultural.h"
 
 @interface PuntosCulturales : NSObject{
-    
+    BOOL recienDescargados;
 }
 
-@property (nonatomic,readonly) NSArray *puntosCulturales;
+@property (nonatomic, readonly) NSArray *puntosCulturales;
+@property (nonatomic, readwrite) BOOL recienDescargados;
 
 + (PuntosCulturales *)instance;
 
@@ -24,6 +25,6 @@
 -(void) requestPuntosCulturalesEntre:(CLLocationCoordinate2D)puntoNO
                                    Y:(CLLocationCoordinate2D)puntoSE
                          WithSuccess:(void (^)(NSArray *puntosCulturales))success AndFail:(void (^)(NSError *error))fail;
-
+-(void)buscarPuntosCulturalesConFiltrosActivosWithSuccess:(void (^)())success AndFail:(void (^)(NSError *error))fail;
 -(PuntoCultural *) requestPuntoConID:(NSNumber *)_id_punto;
 @end

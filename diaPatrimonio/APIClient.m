@@ -91,8 +91,48 @@ static NSString * const prefixURL = @"ws";
     }];
 }
 
+-(void)requestBuscarConZonaID:(NSNumber *)id_zona
+                   YSubZonaID:(NSNumber *)id_sub_zona
+                       YTexto:(NSString *)texto
+                  WithSuccess:(void (^)(NSArray *results))success
+                      AndFail:(void (^)(NSError *error))fail{
+    
+    NSString *path = @"/buscarPuntos";
+    
+    if (id_zona) {
+        path = [path stringByAppendingFormat:@"/%i", id_zona.intValue];
+    }else{
+        path = [path stringByAppendingString:@"/0"];
+    }
+    
+    if (id_sub_zona) {
+        path = [path stringByAppendingFormat:@"/%i", id_sub_zona.intValue];
+    }else{
+        path = [path stringByAppendingString:@"/0"];
+    }
+    
+    if (texto && ![texto isEqualToString:@""]) {
+        path = [path stringByAppendingFormat:@"/%@", texto];
+    }
+    
+    [self apiClientGetPath:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       if (success) {
+                           success((NSArray *)responseObject);
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       NSLog(@"err: %@", error);
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
 -(void)requestZonasYSubZonasWithSuccess:(void (^)(NSDictionary *results))success
-                            AndFail:(void (^)(NSError *error))fail{
+                                AndFail:(void (^)(NSError *error))fail{
     [self apiClientGetPath:@"/getZonas"
                 parameters:nil
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {

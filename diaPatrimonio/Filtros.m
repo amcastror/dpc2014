@@ -10,7 +10,7 @@
 
 @implementation Filtros
 
-@synthesize activos, zonas;
+@synthesize activos, zonas, zona_seleccionada, sub_zona_seleccionada, texto_ingresado;
 
 + (Filtros *)instance {
     static Filtros *_sharedClient = nil;
@@ -51,6 +51,12 @@
     }
     
     zonas = [NSArray arrayWithArray:zonas_tmp];
+}
+
+- (void) limpiarFiltros{
+    zona_seleccionada = nil;
+    sub_zona_seleccionada = nil;
+    texto_ingresado = nil;
 }
 
 @end

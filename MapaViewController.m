@@ -65,6 +65,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [mapa setShowsUserLocation:YES];
+    if ([[PuntosCulturales instance] recienDescargados]) {
+        [self dibujarMapa];
+        [[PuntosCulturales instance] setRecienDescargados:NO];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

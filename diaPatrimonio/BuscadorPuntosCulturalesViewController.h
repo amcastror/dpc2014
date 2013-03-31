@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BuscadorPuntosCulturalesViewController : UIViewController{
+@interface BuscadorPuntosCulturalesViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
     IBOutlet UIButton *botonCancelar;
+    IBOutlet UIButton *botonBuscar;
+    IBOutlet UIButton *botonZonas;
+    IBOutlet UIButton *botonSubZonas;
+    IBOutlet UITextField *textoABuscar;
+    IBOutlet UIPickerView *picker;
+    IBOutlet UIView *pickerView;
+    IBOutlet UILabel *busqueda;
 }
 
 @property (nonatomic, readonly) IBOutlet UIButton *botonCancelar;
+@property (nonatomic, readonly) IBOutlet UIButton *botonBuscar;
+@property (nonatomic, readonly) IBOutlet UIButton *botonZonas;
+@property (nonatomic, readonly) IBOutlet UIButton *botonSubZonas;
+@property (nonatomic, readonly) IBOutlet UITextField *textoABuscar;
 
 @end

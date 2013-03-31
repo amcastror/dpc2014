@@ -24,6 +24,11 @@
                                   Y:(CLLocationCoordinate2D)puntoSE
                         WithSuccess:(void (^)(id results))success
                             AndFail:(void (^)(NSError *error))fail;
+-(void)requestBuscarConZonaID:(NSNumber *)id_zona
+                   YSubZonaID:(NSNumber *)id_sub_zona
+                       YTexto:(NSString *)texto
+                  WithSuccess:(void (^)(NSArray *results))success
+                      AndFail:(void (^)(NSError *error))fail;
 -(void)requestZonasYSubZonasWithSuccess:(void (^)(NSDictionary *results))success
                                 AndFail:(void (^)(NSError *error))fail;
 -(void) requestCompletarInformacionPuntoCulturalConIDPunto:(NSNumber *)id_punto
