@@ -97,4 +97,8 @@
     //[locationManager startMonitoringSignificantLocationChanges];
 }
 
+-(BOOL) tieneCoordenadas{
+    return YES;
+}
+
 @end

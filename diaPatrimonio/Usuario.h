@@ -31,4 +31,5 @@ typedef void (^UpdateLocationSuccessHandler)(NSError *error);
                  AndSuccessHandler:(void(^)(NSError * error))block;
 -(void) apagarGPS;
 -(void) prenderGPS;
+-(BOOL) tieneCoordenadas;
 @end

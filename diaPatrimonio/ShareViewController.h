@@ -1,0 +1,13 @@
+//
+//  ShareViewController.h
+//  DiaDelPatrimonio
+//
+//  Created by Matias Castro on 04-04-13.
+//  Copyright (c) 2013 Matias Castro. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ShareViewController : UIViewController
+
+@end

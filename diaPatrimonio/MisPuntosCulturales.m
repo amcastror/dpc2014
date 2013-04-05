@@ -34,7 +34,8 @@
              PuntoCultural *miPunto = [[PuntoCultural alloc] initWithIDPunto:[punto objectForKey:@"id"]
                                                                    AndNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
                                                                   AndLatitud:[NSNumber numberWithDouble:-33.0]
-                                                                 AndLongitud:[NSNumber numberWithDouble:-71.0]];
+                                                                 AndLongitud:[NSNumber numberWithDouble:-71.0]                                      AndZona:nil
+                                                                  AndSubZona:nil];
              [puntos_tmp addObject:miPunto];
          }
          misPuntosCulturales = nil;
@@ -49,6 +50,9 @@
 -(void) agregarPuntoCultural:(PuntoCultural *)miNuevoPunto AMisPuntosWithSuccess:(void (^)())success
                              AndFail:(void (^)(NSError *error))fail{
     [[APIClient instance] requestAgregarPuntoId:miNuevoPunto.id_punto AMisPuntosWithSuccess:^{
+        NSMutableArray *misPuntos_tmp = [NSMutableArray arrayWithArray:misPuntosCulturales];
+        [misPuntos_tmp addObject:miNuevoPunto];
+        misPuntosCulturales = [NSArray arrayWithArray:misPuntos_tmp];
         if (success) {
             success();
         }
@@ -74,6 +78,17 @@
             fail(error);
         }
     }];
+}
+
+-(PuntoCultural *) puntoCulturalConID:(NSNumber *)id_punto{
+    
+    for (PuntoCultural *punto in misPuntosCulturales) {
+        if (punto.id_punto.intValue == id_punto.intValue) {
+            return punto;
+        }
+    }
+    
+    return nil;
 }
 
 @end

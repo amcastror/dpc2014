@@ -22,4 +22,5 @@
                      AndFail:(void (^)(NSError *error))fail;
 -(void) eliminarPuntoCultural:(PuntoCultural *)miViejoPunto DeMisPuntosWithSuccess:(void (^)())success
                       AndFail:(void (^)(NSError *error))fail;
+-(PuntoCultural *) puntoCulturalConID:(NSNumber *)id_punto;
 @end

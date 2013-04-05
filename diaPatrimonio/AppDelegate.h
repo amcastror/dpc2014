@@ -7,9 +7,8 @@
 //
 /*
  TODO:
- 1. variable que diga si el punto ha sido agregado o no a mis puntos culturales.. tendría que mandar la consulta con mi udid
- 2. la imagen (img) esta fuera del "d" en el json de respuesta
- 3. mis puntos culturales no trae información de las coordenadas.
+ 1. faltan los ids de la zona y sub zona de un punto cultural
+ 2. falta la distancia a la que está cada punto...? Tendría que mandar las coordenadas siempre... chao.
  */
 
 #import <UIKit/UIKit.h>

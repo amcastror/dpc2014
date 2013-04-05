@@ -41,7 +41,9 @@
             PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
                                                                         AndNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
                                                                       AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
-                                                                     AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]];
+                                                                     AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
+                                                                          AndZona:nil
+                                                                       AndSubZona:nil];
             [arregloPuntosCulturales addObject:puntoCultural];
         }
         
@@ -106,7 +108,9 @@
         PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
                                                                     AndNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
                                                                    AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
-                                                                  AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]];
+                                                                  AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
+                                                                      AndZona:nil
+                                                                   AndSubZona:nil];
         [arregloPuntosCulturales addObject:puntoCultural];
     }
     
