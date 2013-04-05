@@ -27,6 +27,10 @@
     return [FBSession.activeSession handleOpenURL:url];
 }
 
+-(void) handleDidBecomeActive{
+    [FBSession.activeSession handleDidBecomeActive];
+}
+
 -(BOOL) tengoSession{
     if (FBSession.activeSession.isOpen) {
         return YES;
@@ -80,10 +84,13 @@
             [self openSessionWithUI:withUI AndHandler:handler];
             break;
         case FBSessionStateClosedLoginFailed:
-            if (handler) {
+            [self openSessionWithUI:withUI AndHandler:handler];
+            /*
+             if (handler) {
                 NSError *err;
                 handler(err);
             }
+             */
             break;
         case FBSessionStateCreatedTokenLoaded:
             [self openSessionWithUI:withUI AndHandler:handler];

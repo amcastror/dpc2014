@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShareViewController : UIViewController
+@interface ShareViewController : UIViewController <UITextViewDelegate>{
+    IBOutlet UISwitch *facebook;
+    IBOutlet UISwitch *twitter;
+    IBOutlet UITextView *comentario;
+}
 
 @end

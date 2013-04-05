@@ -58,9 +58,14 @@
             [[FacebookController instance] trataDeAbrirSesionWithUI:YES AndHandler:^(NSError *error) {
                 [DejalBezelActivityView removeViewAnimated:YES];
                 if (!error) {
-                    estadoSesionFacebook.text = @"Estoy logueado..";
+                    if ([[FacebookController instance] tengoSession]) {
+                        estadoSesionFacebook.text = @"Estoy logueado..";
+                    }else{
+                        estadoSesionFacebook.text = @"No estoy logueado";
+                        switchControl.on = NO;
+                    }
                 }else{
-                    estadoSesionFacebook.text = @"No estoy logueado";
+                    
                 }
             }];
         }else{

@@ -16,6 +16,7 @@ typedef void (^CompletionHandler)(NSError *error);
 +(FacebookController *) instance;
 
 -(BOOL) handleOpenUrl:(NSURL *)url;
+-(void) handleDidBecomeActive;
 -(BOOL) tengoSession;
 -(void) logout;
 
