@@ -42,8 +42,8 @@
     [[APIClient instance] requestCompletarInformacionPuntoCulturalConIDPunto:id_punto AndSuccess:^(NSDictionary *informacionPunto) {
         NSLog(@"info: %@", informacionPunto);
         
-        if ([[informacionPunto objectForKey:@"d"] objectForKey:@"d_c"]) {
-            descripcion = [[informacionPunto objectForKey:@"d"] objectForKey:@"d_c"];
+        if ([informacionPunto objectForKey:@"d_c"]) {
+            descripcion = [informacionPunto objectForKey:@"d_c"];
         }
         if ([informacionPunto objectForKey:@"img"] && ![[informacionPunto objectForKey:@"img"] isEqualToString:@""]) {
             url_foto = [informacionPunto objectForKey:@"img"];

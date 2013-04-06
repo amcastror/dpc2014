@@ -45,13 +45,14 @@
 		6082981116D9A0010057BED5 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6082981016D9A0010057BED5 /* DejalActivityView.m */; };
 		608C617217075B6400F77FCB /* Zona.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C617117075B6400F77FCB /* Zona.m */; };
 		608C6175170760B300F77FCB /* Filtros.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C6174170760B300F77FCB /* Filtros.m */; };
+		608DF984170F892A0026C00E /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DF983170F892A0026C00E /* TwitterController.m */; };
+		608DF987170F90C70026C00E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DF986170F90C70026C00E /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6094247916E5977B009FF507 /* FacebookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6094247816E5977B009FF507 /* FacebookController.m */; };
 		609518221704873E004F2019 /* ImagenAsincrona.m in Sources */ = {isa = PBXBuildFile; fileRef = 609518211704873E004F2019 /* ImagenAsincrona.m */; };
 		609B5B77170E49B500E82018 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609B5B75170E49B500E82018 /* ShareViewController.m */; };
 		609B5B78170E49B500E82018 /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609B5B76170E49B500E82018 /* ShareViewController.xib */; };
 		609E82BF16E3EA290029BBFD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82BE16E3EA290029BBFD /* FacebookSDK.framework */; };
 		609E82C116E3EAA50029BBFD /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 609E82C016E3EAA50029BBFD /* FacebookSDKResources.bundle */; };
-		609E82C316E3EAF20029BBFD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82C216E3EAF20029BBFD /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		609E82C516E3EAF70029BBFD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82C416E3EAF70029BBFD /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		609E82C716E3EAFF0029BBFD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82C616E3EAFF0029BBFD /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		609E82CC16E3EDBB0029BBFD /* PerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E82CA16E3EDBB0029BBFD /* PerfilViewController.m */; };
@@ -136,6 +137,9 @@
 		608C617117075B6400F77FCB /* Zona.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Zona.m; path = diaPatrimonio/Zona.m; sourceTree = "<group>"; };
 		608C6173170760B300F77FCB /* Filtros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filtros.h; sourceTree = "<group>"; };
 		608C6174170760B300F77FCB /* Filtros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filtros.m; sourceTree = "<group>"; };
+		608DF982170F892A0026C00E /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
+		608DF983170F892A0026C00E /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
+		608DF986170F90C70026C00E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		6094247716E5977B009FF507 /* FacebookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookController.h; sourceTree = "<group>"; };
 		6094247816E5977B009FF507 /* FacebookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookController.m; sourceTree = "<group>"; };
 		609518201704873E004F2019 /* ImagenAsincrona.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagenAsincrona.h; sourceTree = "<group>"; };
@@ -145,7 +149,6 @@
 		609B5B76170E49B500E82018 /* ShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
 		609E82BE16E3EA290029BBFD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		609E82C016E3EAA50029BBFD /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
-		609E82C216E3EAF20029BBFD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		609E82C416E3EAF70029BBFD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		609E82C616E3EAFF0029BBFD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		609E82C916E3EDBB0029BBFD /* PerfilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilViewController.h; sourceTree = "<group>"; };
@@ -174,12 +177,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608DF987170F90C70026C00E /* Accounts.framework in Frameworks */,
 				601F9B9116FF666E00C6E63A /* CoreLocation.framework in Frameworks */,
 				60E9A77016FF43450009D7C8 /* libz.dylib in Frameworks */,
 				60C7334516F4DA790040453C /* Twitter.framework in Frameworks */,
 				609E82C716E3EAFF0029BBFD /* AdSupport.framework in Frameworks */,
 				609E82C516E3EAF70029BBFD /* Social.framework in Frameworks */,
-				609E82C316E3EAF20029BBFD /* Accounts.framework in Frameworks */,
 				608297FC16D840710057BED5 /* MapKit.framework in Frameworks */,
 				608297F716D836FF0057BED5 /* MobileCoreServices.framework in Frameworks */,
 				608297F516D8358A0057BED5 /* SystemConfiguration.framework in Frameworks */,
@@ -225,12 +228,12 @@
 		608297B116D831360057BED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				608DF986170F90C70026C00E /* Accounts.framework */,
 				601F9B9016FF666E00C6E63A /* CoreLocation.framework */,
 				60E9A76F16FF43450009D7C8 /* libz.dylib */,
 				60C7334416F4DA790040453C /* Twitter.framework */,
 				609E82C616E3EAFF0029BBFD /* AdSupport.framework */,
 				609E82C416E3EAF70029BBFD /* Social.framework */,
-				609E82C216E3EAF20029BBFD /* Accounts.framework */,
 				609E82C016E3EAA50029BBFD /* FacebookSDKResources.bundle */,
 				609E82BE16E3EA290029BBFD /* FacebookSDK.framework */,
 				608297FB16D840710057BED5 /* MapKit.framework */,
@@ -359,6 +362,8 @@
 				6082980116D852290057BED5 /* PuntosCulturales.m */,
 				6094247716E5977B009FF507 /* FacebookController.h */,
 				6094247816E5977B009FF507 /* FacebookController.m */,
+				608DF982170F892A0026C00E /* TwitterController.h */,
+				608DF983170F892A0026C00E /* TwitterController.m */,
 				60723BB616ECB4E100C50BCF /* MisPuntosCulturales.h */,
 				60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */,
 				608C6173170760B300F77FCB /* Filtros.h */,
@@ -551,6 +556,7 @@
 				608C617217075B6400F77FCB /* Zona.m in Sources */,
 				608C6175170760B300F77FCB /* Filtros.m in Sources */,
 				609B5B77170E49B500E82018 /* ShareViewController.m in Sources */,
+				608DF984170F892A0026C00E /* TwitterController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

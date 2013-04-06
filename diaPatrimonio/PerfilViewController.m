@@ -8,7 +8,7 @@
 
 #import "PerfilViewController.h"
 #import "FacebookController.h"
-#import <Twitter/Twitter.h>
+#import "TwitterController.h"
 
 @interface PerfilViewController ()
 
@@ -16,7 +16,7 @@
 
 @implementation PerfilViewController
 
-@synthesize estadoSesionFacebook, publish, facebookSwitch, twitterSwitch;
+@synthesize estadoSesionFacebook, estadoSesionTwitter, publish, facebookSwitch, twitterSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,11 +40,19 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if ([[FacebookController instance] tengoSession]) {
-        estadoSesionFacebook.text = @"Estoy logueado..";
+        estadoSesionFacebook.text = @"facebook on";
         facebookSwitch.on = YES;
     }else{
-        estadoSesionFacebook.text = @"No estoy logueado..";
+        estadoSesionFacebook.text = @"facebook off";
         facebookSwitch.on = NO;
+    }
+    
+    if([[TwitterController instance] tengoCuentas]){
+        estadoSesionTwitter.text = @"twitter on";
+        twitterSwitch.on = YES;
+    }else{
+        estadoSesionTwitter.text = @"twitter off";
+        twitterSwitch.on = NO;
     }
 }
 
@@ -59,9 +67,20 @@
                 [DejalBezelActivityView removeViewAnimated:YES];
                 if (!error) {
                     if ([[FacebookController instance] tengoSession]) {
-                        estadoSesionFacebook.text = @"Estoy logueado..";
+                        estadoSesionFacebook.text = @"facebook on";
+                        /*
+                         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Compartir vía:"
+                         delegate:self
+                         cancelButtonTitle:@"Cancel"
+                         destructiveButtonTitle:nil
+                         otherButtonTitles:@"Facebook",
+                         @"Tweet",
+                         @"Email", nil];
+                         actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+                         [actionSheet showFromTabBar:self.tabBarController.tabBar];
+                         */
                     }else{
-                        estadoSesionFacebook.text = @"No estoy logueado";
+                        estadoSesionFacebook.text = @"facebook off";
                         switchControl.on = NO;
                     }
                 }else{
@@ -70,31 +89,30 @@
             }];
         }else{
             [[FacebookController instance] logout];
-            estadoSesionFacebook.text = @"No estoy logueado";
+            estadoSesionFacebook.text = @"facebook off";
         }
     }else if(switchControl.tag ==1) {//Twitter
-        if ([TWTweetComposeViewController canSendTweet]) {
-            // Create an account store object.
-            ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-            
-            // Create an account type that ensures Twitter accounts are retrieved.
-            ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-            
-            // Request access from the user to use their Twitter accounts.
-            [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
-                if (granted) {
-                    //[[[UIAlertView alloc] initWithTitle:@"Master!" message:@"Listo, ahora hay twitter!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-                    NSLog(@"master, hay twitter");
-                }else{
-                    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No se pudo acceder a su cuenta, es posible que la aplicación esté bloqueada en Ajustes/Twitter" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-                }
-                if (error) {
-                    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No se pudo acceder a su cuenta de Twitter, por favor intentelo más tarde" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-                    
-                }
-            }];
+        if (switchControl.on) {
+            if ([[TwitterController instance] canSendTweet]) {
+                
+                [[TwitterController instance] conectarseALasCuentasDelUsuarioWith:^(NSError *error) {
+                    //
+                    if (error) {
+                        estadoSesionTwitter.text = @"twitter off";
+                        switchControl.on = NO;
+                    }else{
+                        estadoSesionTwitter.text = @"twitter on";
+                    }
+                }];
+            }else{
+                [[[UIAlertView alloc] initWithTitle:@"Twitter no disponible" message:@"Active su cuenta de twitter en Ajustes del sistema" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                estadoSesionTwitter.text = @"twitter off";
+                switchControl.on = NO;
+            }
         }else{
-            [[[UIAlertView alloc] initWithTitle:@"Twitter no disponible" message:@"Active su cuenta de twitter en Ajustes del sistema" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [[TwitterController instance] logout];
+            estadoSesionTwitter.text = @"twitter off";
+            switchControl.on = NO;
         }
     }
 }

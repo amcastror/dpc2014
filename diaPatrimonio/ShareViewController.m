@@ -8,6 +8,7 @@
 
 #import "ShareViewController.h"
 #import "FacebookController.h"
+#import "TwitterController.h"
 
 @interface ShareViewController ()
 
@@ -46,6 +47,12 @@
                                                          }
                                                      }];
     }
+    
+    if ([[TwitterController instance] tengoCuentas]) {
+        [twitter setOn:YES];
+    }else{
+        [twitter setOn:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,8 +77,18 @@
                 
             }];
         }
-    }else{
-        NSLog(@"twitter");
+    }else if (sender == twitter){
+        if (![twitter isOn]) {
+            NSLog(@"apago twitter");
+        }else{
+            [[TwitterController instance] conectarseALasCuentasDelUsuarioWith:^(NSError *error) {
+                if (!error) {
+                    [twitter setOn:YES];
+                }else{
+                    [twitter setOn:NO];
+                }
+            }];
+        }
     }
 }
 
@@ -82,7 +99,9 @@
         NSLog(@"en facebook");
     }
     if (twitter.on) {
-        NSLog(@"en twitter");
+        [[TwitterController instance] enviarTweetWith:^(NSError *error) {
+            //
+        }];
     }
 }
 

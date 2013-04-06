@@ -39,7 +39,7 @@
         
         for (NSDictionary *punto in JSONPuntosCulturales) {
             PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
-                                                                        AndNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
+                                                                        AndNombre:[punto objectForKey:@"n"]
                                                                       AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                      AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
                                                                           AndZona:nil
@@ -106,7 +106,7 @@
     
     for (NSDictionary *punto in arregloPuntos) {
         PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
-                                                                    AndNombre:[[punto objectForKey:@"d"] objectForKey:@"n"]
+                                                                    AndNombre:[punto objectForKey:@"n"]
                                                                    AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                   AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
                                                                       AndZona:nil
