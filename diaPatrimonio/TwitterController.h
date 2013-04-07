@@ -8,17 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TwitterController : NSObject{
+@interface TwitterController : NSObject <UIActionSheetDelegate>{
     
 }
+
+//@property (nonatomic, readonly) BOOL twitterOn;
 
 +(TwitterController *) instance;
 
 -(BOOL) canSendTweet;
 -(void) imprimeCuentas;
--(void) conectarseALasCuentasDelUsuarioWith:(void (^)(NSError *error))handler;
+-(void) conectarseALasCuentasDelUsuarioWithSender:(id)sender AndHandler:(void (^)(NSError *error))handler;
+-(void) cambiarCuentaPorDefectoWithSender:(id)sender;
 -(BOOL) tengoCuentas;
+-(BOOL) twitterOn;
+-(int) cantidadDeCuentas;
+-(NSArray *) nombresDeCuentas;
 -(void) logout;
+-(void) loginWithSender:(id)sender AndHandler:(void (^)(NSError *error))handler;
 -(void) enviarTweetWith:(void (^)(NSError *error))handler;
 
 @end

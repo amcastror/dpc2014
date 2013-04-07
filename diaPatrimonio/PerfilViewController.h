@@ -14,6 +14,7 @@
     IBOutlet UIButton *publish;
     IBOutlet UISwitch *facebookSwitch;
     IBOutlet UISwitch *twitterSwitch;
+    IBOutlet UIButton *cuentaPorDefecto;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *estadoSesionFacebook;

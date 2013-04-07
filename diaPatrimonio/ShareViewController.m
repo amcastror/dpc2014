@@ -30,7 +30,7 @@
     [super viewDidLoad];
     [facebook addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
     [twitter addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
-    
+    [self actualizarBotonCompartir];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -48,7 +48,7 @@
                                                      }];
     }
     
-    if ([[TwitterController instance] tengoCuentas]) {
+    if ([[TwitterController instance] twitterOn]) {
         [twitter setOn:YES];
     }else{
         [twitter setOn:NO];
@@ -79,17 +79,20 @@
         }
     }else if (sender == twitter){
         if (![twitter isOn]) {
-            NSLog(@"apago twitter");
+            
         }else{
-            [[TwitterController instance] conectarseALasCuentasDelUsuarioWith:^(NSError *error) {
-                if (!error) {
-                    [twitter setOn:YES];
-                }else{
-                    [twitter setOn:NO];
-                }
-            }];
+            if (![[TwitterController instance] twitterOn]) {
+                [[TwitterController instance] loginWithSender:self AndHandler:^(NSError *error) {
+                    if (!error) {
+                        [twitter setOn:YES];
+                    }else{
+                        [twitter setOn:NO];
+                    }
+                }];
+            }
         }
     }
+    [self actualizarBotonCompartir];
 }
 
 - (IBAction)compartirPressed:(id)sender{
@@ -107,7 +110,6 @@
 
 #pragma mark - text view delegate methods
 
-
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     if([comentario.text isEqualToString:@"Escribe un comentario"]){
         comentario.text = @"";
@@ -120,6 +122,17 @@
     }else {
         
     }
+    [self actualizarBotonCompartir];
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    if([comentario.text isEqualToString:@"Escribe un comentario"]){
+        comentario.text = @"";
+        contadorCaracteres.text = @"Quedan 140 caracteres";
+    }else{
+        contadorCaracteres.text = [NSString stringWithFormat:@"Quedan %i caracteres", 140 - [comentario.text length]];
+    }
+    [self actualizarBotonCompartir];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -129,6 +142,18 @@
         [comentario resignFirstResponder];
     }
     [super touchesBegan:touches withEvent:event];
+}
+
+- (void) actualizarBotonCompartir{
+    if (!facebook.on && !twitter.on) {
+        compartir.enabled = NO;
+    }else{
+        if([comentario.text isEqualToString:@"Escribe un comentario"]){
+            compartir.enabled = NO;
+        }else{
+            compartir.enabled = YES;
+        }
+    }
 }
 
 @end

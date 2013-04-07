@@ -12,6 +12,8 @@
     IBOutlet UISwitch *facebook;
     IBOutlet UISwitch *twitter;
     IBOutlet UITextView *comentario;
+    IBOutlet UILabel *contadorCaracteres;
+    IBOutlet UIButton *compartir;
 }
 
 @end

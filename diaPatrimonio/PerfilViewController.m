@@ -46,14 +46,20 @@
         estadoSesionFacebook.text = @"facebook off";
         facebookSwitch.on = NO;
     }
-    
-    if([[TwitterController instance] tengoCuentas]){
+    /*
+    if([[TwitterController instance] twitterOn]){
         estadoSesionTwitter.text = @"twitter on";
         twitterSwitch.on = YES;
     }else{
         estadoSesionTwitter.text = @"twitter off";
         twitterSwitch.on = NO;
     }
+    
+    if ([[TwitterController instance] cantidadDeCuentas] > 0) {
+        cuentaPorDefecto.hidden = NO;
+    }
+     */
+    [self actualizaTwitterDisplay];
 }
 
 - (void)switchValueChange:(id)sender
@@ -68,17 +74,6 @@
                 if (!error) {
                     if ([[FacebookController instance] tengoSession]) {
                         estadoSesionFacebook.text = @"facebook on";
-                        /*
-                         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Compartir vía:"
-                         delegate:self
-                         cancelButtonTitle:@"Cancel"
-                         destructiveButtonTitle:nil
-                         otherButtonTitles:@"Facebook",
-                         @"Tweet",
-                         @"Email", nil];
-                         actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-                         [actionSheet showFromTabBar:self.tabBarController.tabBar];
-                         */
                     }else{
                         estadoSesionFacebook.text = @"facebook off";
                         switchControl.on = NO;
@@ -93,27 +88,15 @@
         }
     }else if(switchControl.tag ==1) {//Twitter
         if (switchControl.on) {
-            if ([[TwitterController instance] canSendTweet]) {
-                
-                [[TwitterController instance] conectarseALasCuentasDelUsuarioWith:^(NSError *error) {
-                    //
-                    if (error) {
-                        estadoSesionTwitter.text = @"twitter off";
-                        switchControl.on = NO;
-                    }else{
-                        estadoSesionTwitter.text = @"twitter on";
-                    }
-                }];
-            }else{
-                [[[UIAlertView alloc] initWithTitle:@"Twitter no disponible" message:@"Active su cuenta de twitter en Ajustes del sistema" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-                estadoSesionTwitter.text = @"twitter off";
-                switchControl.on = NO;
-            }
+            [[TwitterController instance] loginWithSender:self
+                                               AndHandler:^(NSError *error) {
+                                                   [self actualizaTwitterDisplay];
+                                               }];
+            
         }else{
             [[TwitterController instance] logout];
-            estadoSesionTwitter.text = @"twitter off";
-            switchControl.on = NO;
         }
+        [self actualizaTwitterDisplay];
     }
 }
 
@@ -156,9 +139,24 @@
     }
 }
 
-#pragma mark alert view delegate methods
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
+- (IBAction)cambiarCuentaPorDefecto:(id)sender{
+    [[TwitterController instance] cambiarCuentaPorDefectoWithSender:self];
+}
+
+-(void) actualizaTwitterDisplay{
+    if (![[TwitterController instance] twitterOn]) {
+        estadoSesionTwitter.text = @"twitter off";
+        cuentaPorDefecto.hidden = YES;
+        twitterSwitch.on = NO;
+    }else{
+        estadoSesionTwitter.text = @"twitter on";
+        twitterSwitch.on = YES;
+        if ([[TwitterController instance] cantidadDeCuentas] > 0) {
+            cuentaPorDefecto.hidden = NO;
+        }else{
+            cuentaPorDefecto.hidden = YES;
+        }
+    }
 }
 
 @end
