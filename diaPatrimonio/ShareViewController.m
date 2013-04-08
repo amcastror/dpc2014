@@ -81,14 +81,18 @@
         if (![twitter isOn]) {
             
         }else{
-            if (![[TwitterController instance] twitterOn]) {
-                [[TwitterController instance] loginWithSender:self AndHandler:^(NSError *error) {
-                    if (!error) {
-                        [twitter setOn:YES];
-                    }else{
-                        [twitter setOn:NO];
-                    }
-                }];
+            if ([comentario.text length] <= 140) {
+                if (![[TwitterController instance] twitterOn]) {
+                    [[TwitterController instance] loginWithSender:self AndHandler:^(NSError *error) {
+                        if (!error) {
+                            [twitter setOn:YES];
+                        }else{
+                            [twitter setOn:NO];
+                        }
+                    }];
+                }
+            }else{
+                twitter.on = NO;
             }
         }
     }
@@ -102,9 +106,16 @@
         NSLog(@"en facebook");
     }
     if (twitter.on) {
-        [[TwitterController instance] enviarTweetWith:^(NSError *error) {
-            //
+        [[TwitterController instance] enviarTweet:comentario.text With:^(NSError *error) {
+            if (error) {
+                NSLog(@"err: %@", error);
+            }
         }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc] initWithTitle:@"Listo!" message:@"Gracias por compartir!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [self.navigationController popViewControllerAnimated:YES];
+        });
     }
 }
 
@@ -128,9 +139,12 @@
 - (void)textViewDidChange:(UITextView *)textView{
     if([comentario.text isEqualToString:@"Escribe un comentario"]){
         comentario.text = @"";
-        contadorCaracteres.text = @"Quedan 140 caracteres";
+        contadorCaracteres.text = @"0 caracteres";
     }else{
-        contadorCaracteres.text = [NSString stringWithFormat:@"Quedan %i caracteres", 140 - [comentario.text length]];
+        contadorCaracteres.text = [NSString stringWithFormat:@"%i caracteres", [comentario.text length]];
+        if ([comentario.text length] > 140) {
+            twitter.on = NO;
+        }
     }
     [self actualizarBotonCompartir];
 }

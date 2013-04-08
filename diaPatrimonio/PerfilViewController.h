@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FacebookController.h"
+#import "TwitterController.h"
 
-@interface PerfilViewController : UIViewController <UIActionSheetDelegate> {
+@interface PerfilViewController : UIViewController <UIActionSheetDelegate, twitter> {
     IBOutlet UILabel *estadoSesionFacebook;
     IBOutlet UILabel *estadoSesionTwitter;
     IBOutlet UIButton *publish;
     IBOutlet UISwitch *facebookSwitch;
     IBOutlet UISwitch *twitterSwitch;
     IBOutlet UIButton *cuentaPorDefecto;
+    IBOutlet UILabel *nombreCuenta;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *estadoSesionFacebook;

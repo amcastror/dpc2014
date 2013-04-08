@@ -10,9 +10,9 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 
-@implementation TwitterController{
-    NSInteger cunetaPorDefecto;
-}
+@implementation TwitterController
+
+@synthesize delegate;
 
 +(TwitterController *) instance
 {
@@ -29,10 +29,10 @@
 
 -(id) init{
     if (self = [super init]) {
-        cunetaPorDefecto = 0;
         if (![self tengoCuentas]) {
             [self setTwitterOn:NO];
         }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cambiaronPermisosDeCuenta) name:ACAccountStoreDidChangeNotification object:nil];
     }
     return self;
 }
@@ -44,6 +44,19 @@
 
 -(BOOL) twitterOn{
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"twitter"];
+}
+
+-(void) setCuentaPorDefecto:(NSInteger)_value{
+    [[NSUserDefaults standardUserDefaults] setInteger:_value forKey:@"cuentaPorDefecto"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(NSInteger) cuentaPorDefecto{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"cuentaPorDefecto"];
+}
+
+-(NSString *)nombreCuenta{
+    return [[self nombresDeCuentas] objectAtIndex:[self cuentaPorDefecto]];
 }
 
 -(BOOL) canSendTweet{
@@ -68,8 +81,8 @@
 
 -(void) conectarseALasCuentasDelUsuarioWithSender:(id)sender AndHandler:(void (^)(NSError *error))handler{
 
-    UIViewController *login = (UIViewController *)sender;
-    [DejalBezelActivityView activityViewForView:login.view withLabel:@"conectando..."];
+    UIViewController * senderController = (UIViewController *)sender;
+    [DejalBezelActivityView activityViewForView:senderController.view withLabel:@"conectando..."];
      // Create an account store object.
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     
@@ -94,6 +107,7 @@
             if (granted) {
                 [DejalBezelActivityView removeViewAnimated:YES];
                 [self setTwitterOn:YES];
+                [self setCuentaPorDefecto:0];
                 if ([self cantidadDeCuentas] > 1) {
                     
                     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Cuenta por defecto:"
@@ -105,7 +119,7 @@
                         [actionSheet addButtonWithTitle:nombre];
                     }
                     actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-                    [actionSheet showFromTabBar:login.tabBarController.tabBar];
+                    [actionSheet showFromTabBar:senderController.tabBarController.tabBar];
                     
                 }
                 
@@ -129,9 +143,8 @@
 
 -(void) cambiarCuentaPorDefectoWithSender:(id)sender{
     
-    UIViewController *login = (UIViewController *)sender;
+    UIViewController * senderController = (UIViewController *)sender;
     if ([self cantidadDeCuentas] > 1) {
-        
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Cuenta por defecto:"
                                                                  delegate:self
                                                         cancelButtonTitle:nil
@@ -141,7 +154,7 @@
             [actionSheet addButtonWithTitle:nombre];
         }
         actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-        [actionSheet showFromTabBar:login.tabBarController.tabBar];
+        [actionSheet showFromTabBar:senderController.tabBarController.tabBar];
         
     }
 }
@@ -232,10 +245,22 @@
     }
 }
 
--(void) enviarTweetWith:(void (^)(NSError *error))handler{
+- (void) cambiaronPermisosDeCuenta{
+    if (![self tengoCuentas]) {
+        [self setTwitterOn:NO];
+    }
+}
+
+-(void) enviarTweet:(NSString *)_tweet With:(void (^)(NSError *error))handler{
     
     if (![self tengoCuentas]) {
         NSError *err = [[NSError alloc] initWithDomain:@"sin cuentas" code:1 userInfo:nil]; //tengo que decirle que no hay sesión
+        handler(err);
+        return;
+    }
+    
+    if (_tweet.length > 140) {
+        NSError *err = [[NSError alloc] initWithDomain:@"Tweet muy largo" code:1 userInfo:nil]; //tengo que decirle que no hay sesión
         handler(err);
         return;
     }
@@ -247,14 +272,14 @@
 	// Create an account type that ensures Twitter accounts are retrieved.
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 	NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
-    ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
-    TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:@"Hello." forKey:@"status"] requestMethod:TWRequestMethodPOST];
+    ACAccount *twitterAccount = [accountsArray objectAtIndex:[self cuentaPorDefecto]];
+    TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:_tweet forKey:@"status"] requestMethod:TWRequestMethodPOST];
     
     [postRequest setAccount:twitterAccount];
 
     [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-        //NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
-        //[self performSelectorOnMainThread:@selector(displayText:) withObject:output waitUntilDone:NO];
+        NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
+        NSLog(@"tweet output: %@", output);
     }];
 }
 
@@ -262,7 +287,10 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    cunetaPorDefecto = buttonIndex;
+    [self setCuentaPorDefecto:buttonIndex];
+    if ([delegate respondsToSelector:@selector(didSelectAccount)]) {
+        [delegate didSelectAccount];
+    }
 }
 
 @end

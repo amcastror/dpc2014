@@ -7,8 +7,6 @@
 //
 
 #import "PerfilViewController.h"
-#import "FacebookController.h"
-#import "TwitterController.h"
 
 @interface PerfilViewController ()
 
@@ -46,19 +44,7 @@
         estadoSesionFacebook.text = @"facebook off";
         facebookSwitch.on = NO;
     }
-    /*
-    if([[TwitterController instance] twitterOn]){
-        estadoSesionTwitter.text = @"twitter on";
-        twitterSwitch.on = YES;
-    }else{
-        estadoSesionTwitter.text = @"twitter off";
-        twitterSwitch.on = NO;
-    }
     
-    if ([[TwitterController instance] cantidadDeCuentas] > 0) {
-        cuentaPorDefecto.hidden = NO;
-    }
-     */
     [self actualizaTwitterDisplay];
 }
 
@@ -140,7 +126,12 @@
 }
 
 - (IBAction)cambiarCuentaPorDefecto:(id)sender{
+    [[TwitterController instance] setDelegate:self];
     [[TwitterController instance] cambiarCuentaPorDefectoWithSender:self];
+}
+
+-(void)didSelectAccount{
+    [self actualizaTwitterDisplay];
 }
 
 -(void) actualizaTwitterDisplay{
@@ -148,9 +139,11 @@
         estadoSesionTwitter.text = @"twitter off";
         cuentaPorDefecto.hidden = YES;
         twitterSwitch.on = NO;
+        nombreCuenta.text = @"";
     }else{
         estadoSesionTwitter.text = @"twitter on";
         twitterSwitch.on = YES;
+        nombreCuenta.text = [NSString stringWithFormat:@"Estas usando la cuenta %@", [[TwitterController instance] nombreCuenta]];
         if ([[TwitterController instance] cantidadDeCuentas] > 0) {
             cuentaPorDefecto.hidden = NO;
         }else{
