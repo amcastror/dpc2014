@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShareViewController : UIViewController <UITextViewDelegate>{
+@interface ShareViewController : UIViewController <UITextViewDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     IBOutlet UISwitch *facebook;
     IBOutlet UISwitch *twitter;
     IBOutlet UITextView *comentario;
     IBOutlet UILabel *contadorCaracteres;
     IBOutlet UIButton *compartir;
+    IBOutlet UIButton *tomarFoto;
 }
 
 @end

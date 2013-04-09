@@ -21,7 +21,8 @@ typedef void (^CompletionHandler)(NSError *error);
 -(void) logout;
 
 -(void) trataDeAbrirSesionWithUI:(BOOL) withUI AndHandler:(void (^)(NSError *error))handler;
--(void) publishStoryOnWallWithParams:(NSMutableDictionary *)params
+-(void)publishStoryOnWallWithParams:(NSDictionary *)_params
+                           AndImage:(UIImage *)image
                          AndAttemps:(int)attemps
              AndCompletitionHandler:(CompletionHandler)block;
 @end

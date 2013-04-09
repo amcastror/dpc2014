@@ -251,7 +251,11 @@
     }
 }
 
--(void) enviarTweet:(NSString *)_tweet With:(void (^)(NSError *error))handler{
+-(void) enviarTweet:(NSString *)_tweet ConImagen:(UIImage *)imagen YHandler:(void (^)(NSError *error))handler{
+    int caracteresImg = 0;
+    if (imagen) {
+        caracteresImg = 23;
+    }
     
     if (![self tengoCuentas]) {
         NSError *err = [[NSError alloc] initWithDomain:@"sin cuentas" code:1 userInfo:nil]; //tengo que decirle que no hay sesión
@@ -259,7 +263,7 @@
         return;
     }
     
-    if (_tweet.length > 140) {
+    if (_tweet.length + caracteresImg > 140) {
         NSError *err = [[NSError alloc] initWithDomain:@"Tweet muy largo" code:1 userInfo:nil]; //tengo que decirle que no hay sesión
         handler(err);
         return;
@@ -268,18 +272,34 @@
     //ACAccount *twitterAccount = [cuentas objectAtIndex:0];
     
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-	
-	// Create an account type that ensures Twitter accounts are retrieved.
+    
+    // Create an account type that ensures Twitter accounts are retrieved.
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-	NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+    NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
     ACAccount *twitterAccount = [accountsArray objectAtIndex:[self cuentaPorDefecto]];
-    TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:_tweet forKey:@"status"] requestMethod:TWRequestMethodPOST];
+    TWRequest *postRequest;
+    
+    NSData *imageData;
+    if (imagen) {
+        imageData = UIImageJPEGRepresentation(imagen, 0.f);
+    }
+    
+    if (imageData) {
+        postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"https://upload.twitter.com/1/statuses/update_with_media.json"] parameters:nil requestMethod:TWRequestMethodPOST];
+        [postRequest addMultiPartData:imageData withName:@"media" type:@"image/jpeg"];
+        [postRequest addMultiPartData:[_tweet dataUsingEncoding:NSUTF8StringEncoding] withName:@"status" type:@"text/plain"];
+    }else{
+        postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"https://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:_tweet forKey:@"status"] requestMethod:TWRequestMethodPOST];
+    }
     
     [postRequest setAccount:twitterAccount];
-
+    
     [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-        NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
-        NSLog(@"tweet output: %@", output);
+        NSDictionary *dict =
+        (NSDictionary *)[NSJSONSerialization
+                         JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"err code: %i", [urlResponse statusCode]);
+        NSLog(@"dick: %@", dict);
     }];
 }
 

@@ -74,6 +74,7 @@
         }
     }else if(switchControl.tag ==1) {//Twitter
         if (switchControl.on) {
+            [[TwitterController instance] setDelegate:self];
             [[TwitterController instance] loginWithSender:self
                                                AndHandler:^(NSError *error) {
                                                    [self actualizaTwitterDisplay];
@@ -85,46 +86,6 @@
         [self actualizaTwitterDisplay];
     }
 }
-
-- (IBAction)publishOnWall:(id)sender{
-    
-    NSMutableDictionary *parametros = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                       @"http://diapatrimonio.cl", @"link",
-                                       @"AppDiaPatrimonio", @"name",
-                                       @"Post de la app del día del patrimonio", @"message",
-                                       @"no se lo que es caption",@"caption",
-                                       @"descripcion de la app del dia del .", @"description",nil];
-    
-    if ([[FacebookController instance] tengoSession]) {
-        [DejalBezelActivityView activityViewForView:self.view withLabel:@"Publicando..."];
-        [[FacebookController instance] publishStoryOnWallWithParams:parametros AndAttemps:2 AndCompletitionHandler:^(NSError *error) {
-            [DejalBezelActivityView removeView];
-            if (!error) {
-                NSLog(@"terminé bien de publicar");
-                //[self viewDidEndWithResult:@"Published" Error:nil];
-            }else{
-                NSLog(@"terminé mal de publicar, error: %@", error);
-                //[self viewDidEndWithResult:@"Error" Error:error];
-            }
-        }];
-    }else{
-        
-        [[FacebookController instance] trataDeAbrirSesionWithUI:YES AndHandler:^(NSError *error) {
-            [DejalBezelActivityView activityViewForView:self.view withLabel:@"Publicando..."];
-            [[FacebookController instance] publishStoryOnWallWithParams:parametros AndAttemps:2 AndCompletitionHandler:^(NSError *error) {
-                [DejalBezelActivityView removeView];
-                if (!error) {
-                    NSLog(@"terminé bien de publicar");
-                    //[self viewDidEndWithResult:@"Published" Error:nil];
-                }else{
-                    NSLog(@"terminé mal de publicar, error: %@", error);
-                    //[self viewDidEndWithResult:@"Error" Error:error];
-                }
-            }];
-        }];
-    }
-}
-
 - (IBAction)cambiarCuentaPorDefecto:(id)sender{
     [[TwitterController instance] setDelegate:self];
     [[TwitterController instance] cambiarCuentaPorDefectoWithSender:self];

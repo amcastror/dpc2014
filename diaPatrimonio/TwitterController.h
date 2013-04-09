@@ -27,6 +27,6 @@
 -(int) cantidadDeCuentas;
 -(void) logout;
 -(void) loginWithSender:(id)sender AndHandler:(void (^)(NSError *error))handler;
--(void) enviarTweet:(NSString *)_tweet With:(void (^)(NSError *error))handler;
+-(void) enviarTweet:(NSString *)_tweet ConImagen:(UIImage *)imagen YHandler:(void (^)(NSError *error))handler;
 
 @end

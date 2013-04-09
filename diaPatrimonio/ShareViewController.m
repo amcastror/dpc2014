@@ -10,7 +10,10 @@
 #import "FacebookController.h"
 #import "TwitterController.h"
 
-@interface ShareViewController ()
+@interface ShareViewController (){
+    UIImage *imagenSeleccionada;
+    int catacteresImg;
+}
 
 @end
 
@@ -81,7 +84,11 @@
         if (![twitter isOn]) {
             
         }else{
-            if ([comentario.text length] <= 140) {
+            int caracteresImg = 0;
+            if (imagenSeleccionada) {
+                caracteresImg = 23;
+            }
+            if ([comentario.text length] + caracteresImg <= 140) {
                 if (![[TwitterController instance] twitterOn]) {
                     [[TwitterController instance] loginWithSender:self AndHandler:^(NSError *error) {
                         if (!error) {
@@ -103,20 +110,44 @@
     //Tengo que hacer la lógica de comartir
     NSLog(@"tengo que compartir el texto: %@", comentario.text);
     if (facebook.on) {
-        NSLog(@"en facebook");
-    }
-    if (twitter.on) {
-        [[TwitterController instance] enviarTweet:comentario.text With:^(NSError *error) {
+        
+        NSDictionary *parametros = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                           //linkURL, @"link",
+                                           //@"http://www.paonde.com/web/img/logo/logo_paonde.png", @"picture",
+                                           //imageURL, @"picture",
+                                           //name, @"name",
+                                           comentario.text, @"message",
+                                           //caption,@"caption",
+                                           //description, @"description",
+                                           nil];
+        [[FacebookController instance] publishStoryOnWallWithParams:parametros AndImage:imagenSeleccionada AndAttemps:1 AndCompletitionHandler:^(NSError *error) {
             if (error) {
                 NSLog(@"err: %@", error);
             }
         }];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[[UIAlertView alloc] initWithTitle:@"Listo!" message:@"Gracias por compartir!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-            [self.navigationController popViewControllerAnimated:YES];
-        });
     }
+    if (twitter.on) {
+        [[TwitterController instance] enviarTweet:comentario.text ConImagen:imagenSeleccionada YHandler:^(NSError *error) {
+            if (error) {
+                NSLog(@"err: %@", error);
+            }
+        }];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[[UIAlertView alloc] initWithTitle:@"Listo!" message:@"Gracias por compartir!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+}
+
+- (IBAction)tomarFotoPressed:(id)sender{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Obtener imagen desde:"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Cámara", @"Biblioteca", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    [actionSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
 #pragma mark - text view delegate methods
@@ -141,8 +172,15 @@
         comentario.text = @"";
         contadorCaracteres.text = @"0 caracteres";
     }else{
-        contadorCaracteres.text = [NSString stringWithFormat:@"%i caracteres", [comentario.text length]];
-        if ([comentario.text length] > 140) {
+        int caracteresImg = 0;
+        NSString *img = @"";
+        if (imagenSeleccionada) {
+            caracteresImg = 23;
+            img = @" (incluída la imagen)";
+        }
+        contadorCaracteres.text = [NSString stringWithFormat:@"%i caracteres%@", [comentario.text length] + caracteresImg, img];
+        
+        if ([comentario.text length] + caracteresImg > 140) {
             twitter.on = NO;
         }
     }
@@ -168,6 +206,87 @@
             compartir.enabled = YES;
         }
     }
+}
+
+#pragma mark - uiactionsheet delegate methods
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        //From Camera
+        [self imagenDesdeCamara];
+    }
+    else if (buttonIndex == 1) {
+        //From Video Library
+        [self imagenDesdeBiblioteca];
+    }
+    else if (buttonIndex == 2) {
+        //Cancel
+    }
+}
+
+- (void)imagenDesdeCamara
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        if ([mediaTypes containsObject:(NSString *)kUTTypeImage])
+        {
+            UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+            cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+            cameraUI.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+            cameraUI.allowsEditing = YES;
+            cameraUI.delegate = self;
+            
+            [self presentModalViewController:cameraUI animated:YES];
+        }
+        else {
+            UIAlertView *alertB = [[UIAlertView alloc] initWithTitle:@"Lo sentimos" message:@"No es posible tomar una foto" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertB show];
+        }
+    }
+    else {
+        UIAlertView *alertA = [[UIAlertView alloc] initWithTitle:@"Lo sentimos" message:@"No detectamos una cámara" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertA show];
+    }
+}
+
+- (void) imagenDesdeBiblioteca
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        if ([mediaTypes containsObject:(NSString *)kUTTypeImage]) {
+            UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+            cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            cameraUI.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+            cameraUI.allowsEditing = YES;
+            cameraUI.delegate = self;
+            
+            [self presentModalViewController:cameraUI animated:YES];
+        }
+        else {
+            UIAlertView *alertB = [[UIAlertView alloc] initWithTitle:@"Lo sentimos" message:@"La biblioteca de fotos no está disponible" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertB show];
+        }
+    }
+    else {
+        UIAlertView *alertA = [[UIAlertView alloc] initWithTitle:@"Lo sentimos" message:@"No encontramos imágenes para usar" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertA show];
+    }
+}
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) imagePickerController:(UIImagePickerController *) picker
+ didFinishPickingMediaWithInfo:(NSDictionary *) info {
+    [self dismissModalViewControllerAnimated: YES];
+    
+    NSLog(@"info: %@",info);
+    
+    imagenSeleccionada = [info objectForKey:UIImagePickerControllerEditedImage];
+    [self textViewDidChange:comentario];
+    
 }
 
 @end

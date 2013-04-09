@@ -11,6 +11,8 @@
  2. falta la distancia a la que está cada punto...? Tendría que mandar las coordenadas siempre... chao.
  3. falta que se haga el post también en facebook.
  4. agregar fotos a los dos posts
+ 5. agregar el tipo a las consultas de búsquedas.
+ 6. estado de mis puntos culturales (visitado o no).
  */
 
 #import <UIKit/UIKit.h>

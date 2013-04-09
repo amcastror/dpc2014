@@ -112,17 +112,30 @@
     [FBSession.activeSession closeAndClearTokenInformation];
 }
 
--(void)publishStoryOnWallWithParams:(NSMutableDictionary *)params
+-(void)publishStoryOnWallWithParams:(NSDictionary *)_params
+                           AndImage:(UIImage *)image
                          AndAttemps:(int)attemps
              AndCompletitionHandler:(CompletionHandler)block{
     
     if ([self tengoSession]) {
+        
+        NSData *imageData;
+        NSString *accion = @"me/feed";
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:_params];
+        if (image) {
+            imageData = UIImageJPEGRepresentation(image, 0.f);
+            accion = @"me/photos";
+            if (![params objectForKey:@"data"]) {
+                [params setObject:imageData forKey:@"data"];
+            }
+        }
+        
         if (attemps>0) {
             NSLog(@"Intento de publicar");
             int newAttempts = attemps - 1;
             [FBRequestConnection
-             startWithGraphPath:@"me/feed"
-             parameters:params
+             startWithGraphPath:accion
+             parameters:[NSDictionary dictionaryWithDictionary:params]
              HTTPMethod:@"POST"
              completionHandler:^(FBRequestConnection *connection,
                                  id result,
@@ -133,7 +146,7 @@
                          
                      }
                  }else if (attemps>0){
-                     [self publishStoryOnWallWithParams:params AndAttemps:newAttempts AndCompletitionHandler:block];
+                     [self publishStoryOnWallWithParams:[NSDictionary dictionaryWithDictionary:params] AndImage:image AndAttemps:newAttempts AndCompletitionHandler:block];
                  }else{
                      if (block) {
                          block(error);
