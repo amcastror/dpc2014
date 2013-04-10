@@ -26,7 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = NSLocalizedString(@"Mis puntos culturales", @"Mis puntos culturales");
+        //self.title = NSLocalizedString(@"Mis puntos culturales", @"Mis puntos culturales");
         [[MisPuntosCulturales instance] requestMisPuntosCulturalesWithSuccess:^() {
            
         } AndFail:^(NSError *error) {

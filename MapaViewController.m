@@ -26,10 +26,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = NSLocalizedString(@"TITULO_MAPA", @"Patrimonio Cultural");
-        UIBarButtonItem *buscar = [[UIBarButtonItem alloc] initWithTitle:@"buscar" style:UIBarButtonItemStyleBordered target:self action:@selector(presentaBuscador)];
-        [buscar setTintColor:[UIColor darkGrayColor]];
-        self.navigationItem.rightBarButtonItem = buscar;
+        //self.title = NSLocalizedString(@"TITULO_MAPA", @"Patrimonio Cultural");
+        //UIBarButtonItem *buscar = [[UIBarButtonItem alloc] initWithTitle:@"buscar" style:UIBarButtonItemStyleBordered target:self action:@selector(presentaBuscador)];
+        //[buscar setTintColor:[UIColor darkGrayColor]];
+        //self.navigationItem.rightBarButtonItem = buscar;
     }
     return self;
 }
@@ -138,12 +138,10 @@
     PuntoCultural *puntoCultural = [[PuntosCulturales instance] requestPuntoConID:[NSNumber numberWithInt:((UIButton *)sender).tag]];
     
     PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
-    //PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithPuntoCultural:puntoCultural];
     [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
-    //[[self navigationController] presentViewController:puntoCultural animated:YES completion:^{}];
 }
 
--(void) presentaBuscador{
+-(IBAction) presentaBuscador:(id)sender{
     BuscadorPuntosCulturalesViewController *buscador = [[BuscadorPuntosCulturalesViewController alloc] initWithNibName:@"BuscadorPuntosCulturalesViewController" bundle:[NSBundle mainBundle]];
     [[self navigationController] presentViewController:buscador animated:YES completion:^{}];
 }
@@ -192,4 +190,43 @@
     annotationView.rightCalloutAccessoryView = rightButton;
     return annotationView;
 }
+
+#pragma mark - botones
+
+-(IBAction)aperturasPressed:(id)sender{
+    UIButton *boton = (UIButton *)sender;
+    if (boton.selected) {
+        [boton setSelected:NO];
+    }else{
+        [boton setSelected:YES];
+    }
+}
+
+-(IBAction)recorridosPressed:(id)sender{
+    UIButton *boton = (UIButton *)sender;
+    if (boton.selected) {
+        [boton setSelected:NO];
+    }else{
+        [boton setSelected:YES];
+    }
+}
+
+-(IBAction)rutasPressed:(id)sender{
+    UIButton *boton = (UIButton *)sender;
+    if (boton.selected) {
+        [boton setSelected:NO];
+    }else{
+        [boton setSelected:YES];
+    }
+}
+
+-(IBAction)actividadesPressed:(id)sender{
+    UIButton *boton = (UIButton *)sender;
+    if (boton.selected) {
+        [boton setSelected:NO];
+    }else{
+        [boton setSelected:YES];
+    }
+}
+
 @end

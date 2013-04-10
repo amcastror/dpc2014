@@ -23,7 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = NSLocalizedString(@"Ficha Cultural", @"Ficha Cultural");
+        //self.title = NSLocalizedString(@"Ficha Cultural", @"Ficha Cultural");
         self.hidesBottomBarWhenPushed = YES;
         puntoCultural = _puntoCultural;
     }

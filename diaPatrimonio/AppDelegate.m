@@ -31,12 +31,18 @@
     /*     View controllers      */
     MapaViewController *mapa = [[MapaViewController alloc] initWithNibName:@"MapaViewController" bundle:nil];
     UINavigationController *mapaNavController = [[UINavigationController alloc] initWithRootViewController:mapa];
-    
-    PerfilViewController *perfil = [[PerfilViewController alloc] initWithNibName:@"PerfilViewController" bundle:nil];
-    UINavigationController *perfilNavController = [[UINavigationController alloc] initWithRootViewController:perfil];
+    UITabBarItem *item_mapa = [[UITabBarItem alloc] initWithTitle:@"Mapa" image:[UIImage imageNamed:@"tab-bar-mapa-"] tag:0];
+    [mapaNavController setTabBarItem:item_mapa];
     
     MisPuntosCulturalesViewController *misPuntos = [[MisPuntosCulturalesViewController alloc] initWithNibName:@"MisPuntosCulturalesViewController" bundle:nil];
     UINavigationController *misPuntosNavController = [[UINavigationController alloc] initWithRootViewController:misPuntos];
+    UITabBarItem *item_mis_puntos = [[UITabBarItem alloc] initWithTitle:@"Mi ruta" image:[UIImage imageNamed:@"tab-bar-mis-puntos-"] tag:1];
+    [misPuntosNavController setTabBarItem:item_mis_puntos];
+    
+    PerfilViewController *perfil = [[PerfilViewController alloc] initWithNibName:@"PerfilViewController" bundle:nil];
+    UINavigationController *perfilNavController = [[UINavigationController alloc] initWithRootViewController:perfil];
+    UITabBarItem *item_perfil = [[UITabBarItem alloc] initWithTitle:@"Perfil" image:[UIImage imageNamed:@"tab-bar-perfil-"] tag:2];
+    [perfilNavController setTabBarItem:item_perfil];
     /*     View controllers     */
     
      self.tabBarController = [[UITabBarController alloc] init];
@@ -44,7 +50,9 @@
      self.window.rootViewController = self.tabBarController;
 
     [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
-     
+    if ([[UINavigationBar class]respondsToSelector:@selector(appearance)]) {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-var-"] forBarMetrics:UIBarMetricsDefault];
+    }
      [self.window makeKeyAndVisible];
      return YES;
 }

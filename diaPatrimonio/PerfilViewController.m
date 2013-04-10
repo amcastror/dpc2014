@@ -21,7 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = NSLocalizedString(@"Perfil", @"Perfil");
+        //self.title = NSLocalizedString(@"Perfil", @"Perfil");
        
     }
     return self;
