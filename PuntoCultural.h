@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+enum TipoPunto
+{
+    TIPO_APERTURA = 1,
+    TIPO_RECORRIDO_GUIADO = 2,
+    TIPO_RUTA_TEMATICA = 3,
+    TIPO_ACTIVIDAD = 4,
+    TIPO_OTRO = 5
+};
+typedef enum TipoPunto TipoPunto;
+
 @interface PuntoCultural : NSObject{
     NSNumber *id_punto;
     NSString *nombre;
@@ -18,6 +28,7 @@
     NSNumber *id_zona;
     NSNumber *id_sub_zona;
     NSNumber *distancia;
+    NSNumber *id_tipo;
 }
 
 @property (nonatomic, readonly) NSString *nombre;
@@ -29,13 +40,15 @@
 @property (nonatomic, readonly) NSNumber *id_zona;
 @property (nonatomic, readonly) NSNumber *id_sub_zona;
 @property (nonatomic, readonly) NSNumber *distancia;
+@property (nonatomic, readonly) NSNumber *id_tipo;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto
             AndNombre:(NSString *)_nombre
             AndLatitud:(NSNumber *)_latitud
           AndLongitud:(NSNumber *)_longitud
               AndZona:(NSNumber *)_id_zona
-           AndSubZona:(NSNumber *)_id_sub_zona;
+           AndSubZona:(NSNumber *)_id_sub_zona
+            AndIdTipo:(NSNumber *)_id_tipo;
 
 -(void) requestCompletarInformacionWithSuccess:(void (^)())success
                                        AndFail:(void (^)(NSError *error))fail;

@@ -13,19 +13,21 @@
 @implementation PuntoCultural
 
 //aca sintetizo las propiedades
-@synthesize nombre, latitud, longitud, id_punto, descripcion, url_foto, id_zona, id_sub_zona, distancia;
+@synthesize nombre, latitud, longitud, id_punto, descripcion, url_foto, id_zona, id_sub_zona, distancia, id_tipo;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto
             AndNombre:(NSString *)_nombre
            AndLatitud:(NSNumber *)_latitud
           AndLongitud:(NSNumber *)_longitud
               AndZona:(NSNumber *)_id_zona
-           AndSubZona:(NSNumber *)_id_sub_zona{
+           AndSubZona:(NSNumber *)_id_sub_zona
+            AndIdTipo:(NSNumber *)_id_tipo{
     if (self = [super init]) {
         id_punto = _id_punto;
         nombre = _nombre;
         latitud = _latitud;
         longitud = _longitud;
+        id_tipo = _id_tipo;
         if (_id_zona) {
             id_zona = _id_zona;
         }

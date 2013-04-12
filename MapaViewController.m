@@ -11,6 +11,7 @@
 #import "PuntoCultural.h"
 #import "PuntoCulturalViewController.h"
 #import "MapItem.h"
+#import "ViewPuntoMapa.h"
 #import "BuscadorPuntosCulturalesViewController.h"
 #import "Usuario.h"
 
@@ -25,11 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        //self.title = NSLocalizedString(@"TITULO_MAPA", @"Patrimonio Cultural");
-        //UIBarButtonItem *buscar = [[UIBarButtonItem alloc] initWithTitle:@"buscar" style:UIBarButtonItemStyleBordered target:self action:@selector(presentaBuscador)];
-        //[buscar setTintColor:[UIColor darkGrayColor]];
-        //self.navigationItem.rightBarButtonItem = buscar;
+        
     }
     return self;
 }
@@ -49,7 +46,7 @@
         [[PuntosCulturales instance] requestPuntosCulturalesCercanosWithSuccess:^(NSArray *puntosCulturales) {
             [DejalBezelActivityView removeView];
             //ahora tengo que decirle al mapa que se dibuje..
-            [self dibujarMapa];
+            [self dibujarMapaConAjuste:YES];
         } AndFail:^(NSError *error) {
             [DejalBezelActivityView removeView];
         }];
@@ -66,7 +63,7 @@
     [super viewWillAppear:animated];
     [mapa setShowsUserLocation:YES];
     if ([[PuntosCulturales instance] recienDescargados]) {
-        [self dibujarMapa];
+        [self dibujarMapaConAjuste:YES];
         [[PuntosCulturales instance] setRecienDescargados:NO];
     }
 }
@@ -84,7 +81,7 @@
 
 #pragma mark custom methods
 
--(void)dibujarMapa{
+-(void)dibujarMapaConAjuste:(BOOL)ajustar{
     
     NSMutableArray *toRemove = [NSMutableArray arrayWithCapacity:[mapa.annotations count]];
     
@@ -97,13 +94,33 @@
     [mapa removeAnnotations:toRemove];
     
     for (PuntoCultural *puntoCultural in [[PuntosCulturales instance] puntosCulturales]) {
-         //necesito hacer un punto en el mapa...
-        CLLocationCoordinate2D coordenadaItem = {puntoCultural.latitud.doubleValue, puntoCultural.longitud.doubleValue};
-        MapItem *item = [[MapItem alloc] initWithIDPunto:puntoCultural.id_punto AndCoordinate:coordenadaItem AndNombre:puntoCultural.nombre];
-        [mapa addAnnotation:item];
+        BOOL muestra_punto = YES;
+        if (
+            boton_actividades.selected ||
+            boton_recorridos.selected ||
+            boton_rutas.selected ||
+            boton_aperturas.selected
+            ) { //entonces tengo que ver si el punto corresponde a alguno apretado
+            muestra_punto = NO; //por defecto no los muestro a no ser de que el botón esté apretado
+            if (boton_aperturas.selected && puntoCultural.id_tipo.intValue == TIPO_APERTURA) {
+                muestra_punto = YES;
+            }else if(boton_recorridos.selected && puntoCultural.id_tipo.intValue == TIPO_RECORRIDO_GUIADO){
+                muestra_punto = YES;
+            }else if(boton_actividades.selected && puntoCultural.id_tipo.intValue == TIPO_ACTIVIDAD){
+                muestra_punto = YES;
+            }else if(boton_rutas.selected && puntoCultural.id_tipo.intValue == TIPO_RUTA_TEMATICA){
+                muestra_punto = YES;
+            }
+        }
+        if (muestra_punto) {
+            CLLocationCoordinate2D coordenadaItem = {puntoCultural.latitud.doubleValue, puntoCultural.longitud.doubleValue};
+            MapItem *item = [[MapItem alloc] initWithIDPunto:puntoCultural.id_punto AndCoordinate:coordenadaItem AndNombre:puntoCultural.nombre AndOriginalArrayIndex:[[[PuntosCulturales instance] puntosCulturales] indexOfObject:puntoCultural]];
+            [mapa addAnnotation:item];
+        }
     }
-    
-    [self ajustarMargenesDelMapa];
+    if (ajustar) {
+        [self ajustarMargenesDelMapa];
+    }
 }
 
 -(void) ajustarMargenesDelMapa{
@@ -148,7 +165,11 @@
 
 -(IBAction)botonBuscarAquiPressed:(id)sender{
     
-    [[Usuario instance] apagarGPS];
+    boton_rutas.selected = NO;
+    boton_actividades.selected = NO;
+    boton_aperturas.selected = NO;
+    boton_recorridos.selected = NO;
+    
     CGPoint nwPoint = CGPointMake(mapa.bounds.origin.x, mapa.bounds.origin.y);
     CGPoint sePoint = CGPointMake(mapa.bounds.origin.x+ mapa.bounds.size.width, mapa.bounds.origin.y + mapa.bounds.size.height);
     CLLocationCoordinate2D nwCoord = [mapa convertPoint: nwPoint toCoordinateFromView:mapa];
@@ -156,7 +177,7 @@
     
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"buscando..."];
     [[PuntosCulturales instance] requestPuntosCulturalesEntre:nwCoord Y:seCoord WithSuccess:^(NSArray *puntosCulturales) {
-        [self dibujarMapa];
+        [self dibujarMapaConAjuste:YES];
         [DejalBezelActivityView removeViewAnimated:YES];
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
@@ -175,9 +196,9 @@
     //NSLog(@"title: %@", aMapPoint.title);
     static NSString *AnnotationViewID = @"annotationViewID";
     
-    MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [thisMapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
+    ViewPuntoMapa *annotationView = (ViewPuntoMapa *) [thisMapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
     
-    annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+    annotationView = [[ViewPuntoMapa alloc] initWithPunto:[[[PuntosCulturales instance] puntosCulturales] objectAtIndex:aMapPoint.originalArrayIndex]];
     
     annotationView.canShowCallout = YES;
     
@@ -186,8 +207,8 @@
     UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     [rightButton addTarget:self action:@selector(muestraPuntoCultural:) forControlEvents:UIControlEventTouchUpInside];
     rightButton.tag = [aMapPoint.id_punto intValue];
-    
     annotationView.rightCalloutAccessoryView = rightButton;
+    
     return annotationView;
 }
 
@@ -200,6 +221,7 @@
     }else{
         [boton setSelected:YES];
     }
+    [self dibujarMapaConAjuste:NO];
 }
 
 -(IBAction)recorridosPressed:(id)sender{
@@ -209,6 +231,7 @@
     }else{
         [boton setSelected:YES];
     }
+    [self dibujarMapaConAjuste:NO];
 }
 
 -(IBAction)rutasPressed:(id)sender{
@@ -218,6 +241,7 @@
     }else{
         [boton setSelected:YES];
     }
+    [self dibujarMapaConAjuste:NO];
 }
 
 -(IBAction)actividadesPressed:(id)sender{
@@ -227,6 +251,7 @@
     }else{
         [boton setSelected:YES];
     }
+    [self dibujarMapaConAjuste:NO];
 }
 
 @end

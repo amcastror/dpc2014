@@ -112,7 +112,7 @@
     PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
     [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
     
-    UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Mis puntos" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Mi ruta" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
     if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
         atras.tintColor = [UIColor darkGrayColor];

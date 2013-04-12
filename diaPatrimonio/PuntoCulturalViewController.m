@@ -62,6 +62,7 @@
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"Agregando punto..."];
     if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
         [DejalBezelActivityView removeViewAnimated:YES];
+        [[[UIAlertView alloc] initWithTitle:@"Alerta" message:@"Este lugar ya está dentro de tu ruta" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         return;
     }
     

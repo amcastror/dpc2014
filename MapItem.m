@@ -10,15 +10,16 @@
 
 @implementation MapItem
 
-@synthesize id_punto, nombre, coordinate, title, subtitle;
+@synthesize id_punto, nombre, coordinate, title, subtitle, originalArrayIndex;
 
--(id) initWithIDPunto:(NSNumber *)_id_punto AndCoordinate:(CLLocationCoordinate2D)_coordenadas AndNombre:(NSString *)_nombre{
+-(id) initWithIDPunto:(NSNumber *)_id_punto AndCoordinate:(CLLocationCoordinate2D)_coordenadas AndNombre:(NSString *)_nombre AndOriginalArrayIndex:(int)_index{
     if (self = [super init]) {
         id_punto = _id_punto;
         nombre = _nombre;
         coordinate = _coordenadas;
         title = _nombre;
         subtitle = _nombre;
+        originalArrayIndex = _index;
     }
     return self;
 }

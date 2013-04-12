@@ -33,9 +33,10 @@
          for (NSDictionary *punto in puntos) {
              PuntoCultural *miPunto = [[PuntoCultural alloc] initWithIDPunto:[punto objectForKey:@"id"]
                                                                    AndNombre:[punto objectForKey:@"n"]
-                                                                  AndLatitud:[NSNumber numberWithDouble:-33.0]
-                                                                 AndLongitud:[NSNumber numberWithDouble:-71.0]                                      AndZona:nil
-                                                                  AndSubZona:nil];
+                                                                  AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
+                                                                 AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
+                                                                     AndZona:nil
+                                                                  AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]];
              [puntos_tmp addObject:miPunto];
          }
          misPuntosCulturales = nil;

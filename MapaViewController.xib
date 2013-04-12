@@ -55,7 +55,6 @@
 						<string key="NSFrame">{{92, 321}, {137, 39}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -348,6 +347,38 @@
 					<int key="connectionID">10</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">boton_aperturas</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="851280534"/>
+					</object>
+					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">boton_recorridos</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="710221061"/>
+					</object>
+					<int key="connectionID">25</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">boton_rutas</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="816216150"/>
+					</object>
+					<int key="connectionID">26</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">boton_actividades</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="71303006"/>
+					</object>
+					<int key="connectionID">27</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">botonBuscarAquiPressed:</string>
 						<reference key="source" ref="930748796"/>
@@ -511,7 +542,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">23</int>
+			<int key="maxID">27</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -554,11 +585,31 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="botonBuscarAqui">UIButton</string>
+						<string key="boton_actividades">UIButton</string>
+						<string key="boton_aperturas">UIButton</string>
+						<string key="boton_recorridos">UIButton</string>
+						<string key="boton_rutas">UIButton</string>
 						<string key="mapa">MKMapView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="botonBuscarAqui">
 							<string key="name">botonBuscarAqui</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="boton_actividades">
+							<string key="name">boton_actividades</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="boton_aperturas">
+							<string key="name">boton_aperturas</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="boton_recorridos">
+							<string key="name">boton_recorridos</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="boton_rutas">
+							<string key="name">boton_rutas</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mapa">

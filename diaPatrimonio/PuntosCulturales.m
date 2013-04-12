@@ -35,19 +35,7 @@
     [[APIClient instance] requestPuntosCulturalesCercanosWithSuccess:^(id results) {
         
         NSArray *JSONPuntosCulturales = (NSArray *)results;
-        NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
-        
-        for (NSDictionary *punto in JSONPuntosCulturales) {
-            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
-                                                                        AndNombre:[punto objectForKey:@"n"]
-                                                                      AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
-                                                                     AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
-                                                                          AndZona:nil
-                                                                       AndSubZona:nil];
-            [arregloPuntosCulturales addObject:puntoCultural];
-        }
-        
-        puntosCulturales = [NSArray arrayWithArray:arregloPuntosCulturales];
+        puntosCulturales = [self guardaPuntosCulturalesDesdeArray:JSONPuntosCulturales];
         recienDescargados = YES;
         
         if (success) {
@@ -110,7 +98,7 @@
                                                                    AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                   AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
                                                                       AndZona:nil
-                                                                   AndSubZona:nil];
+                                                                   AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]];
         [arregloPuntosCulturales addObject:puntoCultural];
     }
     
