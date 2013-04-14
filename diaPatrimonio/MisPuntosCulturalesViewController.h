@@ -12,7 +12,6 @@
     
 }
 
-
 @property (nonatomic, retain) IBOutlet UITableView *tablaPuntosCulturales;
 @property (strong, nonatomic) IBOutlet UITableViewCell *filaPuntoCultural;
 

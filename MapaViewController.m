@@ -156,6 +156,14 @@
     
     PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
     [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
+    
+    UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Mapa" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    
+    if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
+        atras.tintColor = [UIColor darkGrayColor];
+    }
+    
+    [self.navigationItem setBackBarButtonItem:atras];
 }
 
 -(IBAction) presentaBuscador:(id)sender{

@@ -43,8 +43,37 @@ static NSString * const prefixURL = @"ws";
 	
     [self setDefaultHeader:@"Accept" value:@"application/json"];
     [self setParameterEncoding:AFJSONParameterEncoding];
-        
+    
+    [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case (AFNetworkReachabilityStatusNotReachable, AFNetworkReachabilityStatusUnknown):
+                [[[UIAlertView alloc] initWithTitle:@"error" message:@"No hay conexión, intente más tarde" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                break;
+                
+            case (AFNetworkReachabilityStatusReachableViaWiFi, AFNetworkReachabilityStatusReachableViaWWAN):
+                [[[UIAlertView alloc] initWithTitle:@"error" message:@"Sí hay conexión!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
     return self;
+}
+
+- (void) revisaSiHayInternet{
+    switch ([self networkReachabilityStatus]) {
+        case AFNetworkReachabilityStatusNotReachable:
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No hay conexión a internet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            break;
+        case  AFNetworkReachabilityStatusUnknown:
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No hay conexión a internet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - requests busquedas
@@ -61,6 +90,7 @@ static NSString * const prefixURL = @"ws";
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self revisaSiHayInternet];
         if (fail) {
             fail(error);
         }
@@ -85,6 +115,7 @@ static NSString * const prefixURL = @"ws";
         
     }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
         if (fail) {
             fail(error);
         }
@@ -93,6 +124,7 @@ static NSString * const prefixURL = @"ws";
 
 -(void)requestBuscarConZonaID:(NSNumber *)id_zona
                    YSubZonaID:(NSNumber *)id_sub_zona
+                 YCategoriaID:(NSNumber *)id_categoria
                        YTexto:(NSString *)texto
                   WithSuccess:(void (^)(NSArray *results))success
                       AndFail:(void (^)(NSError *error))fail{
@@ -111,6 +143,12 @@ static NSString * const prefixURL = @"ws";
         path = [path stringByAppendingString:@"/0"];
     }
     
+    if (id_categoria) {
+        path = [path stringByAppendingFormat:@"/%i", id_categoria.intValue];
+    }else{
+        path = [path stringByAppendingString:@"/0"];
+    }
+    
     if (texto && ![texto isEqualToString:@""]) {
         path = [path stringByAppendingFormat:@"/%@", texto];
     }
@@ -124,7 +162,7 @@ static NSString * const prefixURL = @"ws";
                        
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                       NSLog(@"err: %@", error);
+                       [self revisaSiHayInternet];
                        if (fail) {
                            fail(error);
                        }
@@ -142,6 +180,25 @@ static NSString * const prefixURL = @"ws";
                        
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
+-(void)requestCategoriasWithSuccess:(void (^)(NSArray *results))success
+                                AndFail:(void (^)(NSError *error))fail{
+    [self apiClientGetPath:@"/getTipos"
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       if (success) {
+                           success(responseObject);
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
                        if (fail) {
                            fail(error);
                        }
@@ -163,6 +220,7 @@ static NSString * const prefixURL = @"ws";
                        
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
                        if (fail) {
                            fail(error);
                        }
@@ -205,6 +263,7 @@ static NSString * const prefixURL = @"ws";
                        
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
                        if (fail) {
                            fail(error);
                        }
@@ -226,6 +285,7 @@ static NSString * const prefixURL = @"ws";
                        
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
                        if (fail) {
                            fail(error);
                        }
@@ -233,20 +293,43 @@ static NSString * const prefixURL = @"ws";
 }
 
 -(void)requestMisPuntosCulturalesWithSuccess:(void (^)(NSArray *misPuntosCulturales))success
-                     AndFail:(void (^)(NSError *error))fail{
+                                     AndFail:(void (^)(NSError *error))fail{
     
     [self apiClientGetPath:[NSString stringWithFormat:@"/verListaAlmacenada/%@",
                             [[Usuario instance] udid]
                             ]
                 parameters:nil
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                       NSLog(@"mis: %@", responseObject);
                        if (success) {
                            success(responseObject);
                        }
                        
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
+-(void)requestCambiarEstadoPuntoCulturalID:(NSNumber *)id_punto
+                               WithSuccess:(void (^)())success
+                                     AndFail:(void (^)(NSError *error))fail{
+    
+    [self apiClientGetPath:[NSString stringWithFormat:@"/cambiarEstadoPunto/%@/%i",
+                            [[Usuario instance] udid],
+                            [id_punto intValue]
+                            ]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       if (success) {
+                           success();
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
                        if (fail) {
                            fail(error);
                        }

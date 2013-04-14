@@ -16,13 +16,15 @@
 
 @implementation BuscadorPuntosCulturalesViewController
 
-@synthesize botonCancelar, botonZonas, botonBuscar, botonSubZonas, textoABuscar;
+@synthesize botonCancelar, botonZonas, botonBuscar, botonSubZonas, textoABuscar, botonCategorias;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [picker setShowsSelectionIndicator:YES];
+        tipoBusqueda = BUSQUEDA_NO;
     }
     return self;
 }
@@ -41,17 +43,20 @@
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self actualizaBusqueda];
-    
     if ([[Filtros instance] zona_seleccionada]) {
         [botonZonas setTitle:[[[Filtros instance] zona_seleccionada] nombre] forState:UIControlStateNormal];
     }
     if ([[Filtros instance] sub_zona_seleccionada]) {
         [botonSubZonas setTitle:[[[Filtros instance] sub_zona_seleccionada] nombre] forState:UIControlStateNormal];
     }
+    if ([[Filtros instance] categoria_seleccionada]) {
+        [botonCategorias setTitle:[[[[Filtros instance] categorias] objectAtIndex:[[[Filtros instance] categoria_seleccionada] intValue] -1] objectForKey:@"n"] forState:UIControlStateNormal];
+    }
     if ([[Filtros instance] texto_ingresado]) {
         textoABuscar.text = [[Filtros instance] texto_ingresado];
     }
+    
+    [self actualizaBusqueda];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,11 +78,16 @@
         [self dismissModalViewControllerAnimated:YES];
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No se pudo realizar la búsqueda, intenta de nuevo más tarde" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }];
 }
 
 - (IBAction)botonZonas:(id)sender{
     [botonSubZonas setSelected:NO];
+    [botonCategorias setSelected:NO];
+    
+    tipoBusqueda = BUSQUEDA_ZONAS;
+    
     if ([sender isSelected]) {
         [self esconderPicker:self];
         [sender setSelected:NO];
@@ -99,6 +109,10 @@
 
 - (IBAction)botonSubZonas:(id)sender{
     [botonZonas setSelected:NO];
+    [botonCategorias setSelected:NO];
+    
+    tipoBusqueda = BUSQUEDA_SUB_ZONAS;
+    
     if ([sender isSelected]) {
         [self esconderPicker:self];
         [sender setSelected:NO];
@@ -123,10 +137,36 @@
     }
 }
 
+- (IBAction)botonCategorias:(id)sender{
+    [botonSubZonas setSelected:NO];
+    [botonZonas setSelected:NO];
+    
+    tipoBusqueda = BUSQUEDA_CATEGORIAS;
+    
+    if ([sender isSelected]) {
+        [self esconderPicker:self];
+        [sender setSelected:NO];
+    }else{
+        [sender setSelected:YES];
+        [self esconderPicker:self];
+        [picker reloadAllComponents];
+        [self mostrarPicker:self];
+        if ([[Filtros instance] categoria_seleccionada]) {
+            [picker selectRow:[[[Filtros instance] categorias] indexOfObject:[[Filtros instance] categoria_seleccionada]]+1
+                  inComponent:0
+                     animated:YES];
+        }else{
+            [picker selectRow:0 inComponent:0 animated:YES];
+        }
+        
+    }
+}
+
 - (IBAction)esconderPicker:(id)sender{
     if ([sender class] == [UIBarButtonItem class]) {
         [botonZonas setSelected:NO];
         [botonSubZonas setSelected:NO];
+        [botonCategorias setSelected:NO];
     }
     
     [UIView animateWithDuration:0.5
@@ -178,14 +218,21 @@
         stringBusqueda = [stringBusqueda stringByAppendingFormat:@" %@", textoABuscar.text];
     }
     
+    if ([[Filtros instance] categoria_seleccionada]) {
+        
+        stringBusqueda = [stringBusqueda stringByAppendingFormat:@" en %@", [[[[Filtros instance] categorias] objectAtIndex:[[[Filtros instance] categoria_seleccionada] intValue] -1] objectForKey:@"n"]];
+    }else{
+        stringBusqueda = [stringBusqueda stringByAppendingString:@" en todas las categorías"];
+    }
+    
     if ([[Filtros instance] zona_seleccionada]) {
-        stringBusqueda = [stringBusqueda stringByAppendingFormat:@" en la zona %@", [[[Filtros instance] zona_seleccionada] nombre]];
+        stringBusqueda = [stringBusqueda stringByAppendingFormat:@", en la zona %@", [[[Filtros instance] zona_seleccionada] nombre]];
         
         if ([[Filtros instance] sub_zona_seleccionada]) {
-            stringBusqueda = [stringBusqueda stringByAppendingFormat:@", específicamente en la sub zona %@", [[[Filtros instance] sub_zona_seleccionada] nombre]];
+            stringBusqueda = [stringBusqueda stringByAppendingFormat:@", específicamente en %@", [[[Filtros instance] sub_zona_seleccionada] nombre]];
         }
     }else{
-        stringBusqueda = [stringBusqueda stringByAppendingString:@" en todas las zonas"];
+        stringBusqueda = [stringBusqueda stringByAppendingString:@", en todas las zonas"];
     }
     
     busqueda.text = stringBusqueda;
@@ -199,65 +246,76 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    if ([botonZonas isSelected]) {
+    if (tipoBusqueda == BUSQUEDA_ZONAS) {
         return [[[Filtros instance] zonas] count] + 1; //el +1 es por todas las zonas
-    }else{
+    }else if(tipoBusqueda == BUSQUEDA_SUB_ZONAS){
         Zona *zona_seleccionada = [[Filtros instance] zona_seleccionada]; 
         return [[zona_seleccionada sub_zonas] count] + 1;//el +1 es por todas las zonas
+    }else{
+        return [[[Filtros instance] categorias] count] + 1;
     }
 }
 
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSArray *zonas;
-    NSString *titulo;
-    if ([botonZonas isSelected]) {
-        titulo = @"Toda las zonas...";
-        zonas = [[Filtros instance] zonas];
+    
+    if (tipoBusqueda == BUSQUEDA_ZONAS) {
+        if (row == 0) {
+            return @"Toda las zonas...";
+        }else{
+            return [[[[Filtros instance] zonas] objectAtIndex:row-1] nombre];
+        }
+    }else if(tipoBusqueda == BUSQUEDA_SUB_ZONAS){
+        if (row == 0) {
+            return @"Toda las sub zonas...";
+        }else{
+            return [[[[[Filtros instance] zona_seleccionada] sub_zonas] objectAtIndex:row-1] nombre];
+        }
     }else{
-        titulo = @"Todas las sub zonas...";
-        zonas = [[[Filtros instance] zona_seleccionada] sub_zonas];
-    }
-    if (row == 0) {
-        return titulo;
-    }else{
-        return [[zonas objectAtIndex:row-1] nombre];
+        if (row == 0) {
+            return @"Todas las categorías...";
+        }else{
+            return [[[[Filtros instance] categorias] objectAtIndex:row-1] objectForKey:@"n"];
+        }
     }
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSArray *zonas;
-    NSString *titulo;
-    if ([botonZonas isSelected]) {
-        titulo = @"Toda las zonas...";
-        zonas = [[Filtros instance] zonas];
-    }else{
-        titulo = @"Todas las sub zonas...";
-        zonas = [[[Filtros instance] zona_seleccionada] sub_zonas];
-    }
     
-    if (row == 0) {
-        //Borro el filtro...
-        if ([botonZonas isSelected]) {
+    if (tipoBusqueda == BUSQUEDA_ZONAS) {
+        if (row == 0) {
             [[Filtros instance] setZona_seleccionada:nil];
-            [botonZonas setTitle:titulo forState:UIControlStateNormal];
+            [botonZonas setTitle:@"Todas las zonas..." forState:UIControlStateNormal];
             
             [[Filtros instance] setSub_zona_seleccionada:nil];
             [botonSubZonas setTitle:@"Todas las sub zonas..." forState:UIControlStateNormal];
         }else{
-            [[Filtros instance] setSub_zona_seleccionada:nil];
-            [botonSubZonas setTitle:titulo forState:UIControlStateNormal];
-        }
-    }else{
-        //agrego el filtro...
-        if ([botonZonas isSelected]) {
+            NSArray *zonas = [[Filtros instance] zonas];
+            
             [[Filtros instance] setZona_seleccionada:[zonas objectAtIndex:row-1]];
             [botonZonas setTitle:[[zonas objectAtIndex:row-1] nombre] forState:UIControlStateNormal];
             
             [[Filtros instance] setSub_zona_seleccionada:nil];
             [botonSubZonas setTitle:@"Todas las sub zonas..." forState:UIControlStateNormal];
+        }
+    }else if(tipoBusqueda == BUSQUEDA_SUB_ZONAS){
+        if (row == 0) {
+            [[Filtros instance] setSub_zona_seleccionada:nil];
+            [botonSubZonas setTitle:@"Todas las sub zonas..." forState:UIControlStateNormal];
         }else{
+            NSArray *zonas = [[[Filtros instance] zona_seleccionada] sub_zonas];
+            
             [[Filtros instance] setSub_zona_seleccionada:[zonas objectAtIndex:row-1]];
             [botonSubZonas setTitle:[[zonas objectAtIndex:row-1] nombre] forState:UIControlStateNormal];
+        }
+    }else{
+        if (row == 0) {
+            [[Filtros instance] setCategoria_seleccionada:nil];
+            [botonCategorias setTitle:@"Todas las categorías" forState:UIControlStateNormal];
+        }else{
+            NSArray *categorias = [[Filtros instance] categorias];
+
+            [[Filtros instance] setCategoria_seleccionada:[[categorias objectAtIndex:row-1] objectForKey:@"id"]];
+            [botonCategorias setTitle:[[categorias objectAtIndex:row-1] objectForKey:@"n"] forState:UIControlStateNormal];
         }
     }
     [self actualizaBusqueda];
@@ -266,17 +324,33 @@
 #pragma mark - text field delegate methods
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y = frame.origin.y - 150;
+        self.view.frame = frame;
+    } completion:^(BOOL finished) {
+        //
+    }];
 
     textField.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
     return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
-
+    tipoBusqueda = BUSQUEDA_NO;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y = frame.origin.y + 150;
+        self.view.frame = frame;
+    } completion:^(BOOL finished) {
+        //
+    }];
+    
     textField.backgroundColor = [UIColor whiteColor];
     return YES;
 }

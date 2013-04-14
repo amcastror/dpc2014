@@ -29,6 +29,7 @@ typedef enum TipoPunto TipoPunto;
     NSNumber *id_sub_zona;
     NSNumber *distancia;
     NSNumber *id_tipo;
+    BOOL visitado;
 }
 
 @property (nonatomic, readonly) NSString *nombre;
@@ -41,15 +42,19 @@ typedef enum TipoPunto TipoPunto;
 @property (nonatomic, readonly) NSNumber *id_sub_zona;
 @property (nonatomic, readonly) NSNumber *distancia;
 @property (nonatomic, readonly) NSNumber *id_tipo;
+@property (readwrite) BOOL visitado;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto
             AndNombre:(NSString *)_nombre
-            AndLatitud:(NSNumber *)_latitud
+           AndLatitud:(NSNumber *)_latitud
           AndLongitud:(NSNumber *)_longitud
               AndZona:(NSNumber *)_id_zona
            AndSubZona:(NSNumber *)_id_sub_zona
-            AndIdTipo:(NSNumber *)_id_tipo;
+            AndIdTipo:(NSNumber *)_id_tipo
+          AndVisitado:(BOOL)_visitado;
 
 -(void) requestCompletarInformacionWithSuccess:(void (^)())success
                                        AndFail:(void (^)(NSError *error))fail;
+-(void) cambiarEstadoPuntoWithSuccess:(void (^)())success
+                              AndFail:(void (^)(NSError *error))fail;
 @end

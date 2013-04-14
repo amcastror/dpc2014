@@ -33,8 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    NSLog(@"punto: %@", puntoCultural);
     
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"cargando..."];
     [puntoCultural requestCompletarInformacionWithSuccess:^{
@@ -49,6 +47,30 @@
     }];
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self actualizaDisplayBotonAccion];
+}
+
+-(void) actualizaDisplayBotonAccion{
+    
+    if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
+        if (puntoCultural.visitado) {
+            [botonAccionPunto setTitle:@"marcar como no visitado" forState:UIControlStateNormal];
+            [botonAccionPunto setTitle:@"marcar como no visitado" forState:UIControlStateSelected];
+            [botonAccionPunto setTitle:@"marcar como no visitado" forState:UIControlStateHighlighted];
+        }else{
+            [botonAccionPunto setTitle:@"marcar como visitado" forState:UIControlStateNormal];
+            [botonAccionPunto setTitle:@"marcar como visitado" forState:UIControlStateSelected];
+            [botonAccionPunto setTitle:@"marcar como visitado" forState:UIControlStateHighlighted];
+        }
+    }else{
+        [botonAccionPunto setTitle:@"Agregar a mis puntos culturales" forState:UIControlStateNormal];
+        [botonAccionPunto setTitle:@"Agregar a mis puntos culturales" forState:UIControlStateSelected];
+        [botonAccionPunto setTitle:@"Agregar a mis puntos culturales" forState:UIControlStateHighlighted];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -57,26 +79,49 @@
 
 #pragma mark - acciones del punto
 
-- (IBAction)botonAgregarPuntoPressed:(id)sender{
+- (IBAction)botonAccionPuntoPressed:(id)sender{
     
-    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Agregando punto..."];
     if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
-        [DejalBezelActivityView removeViewAnimated:YES];
-        [[[UIAlertView alloc] initWithTitle:@"Alerta" message:@"Este lugar ya está dentro de tu ruta" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        return;
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@"Cargando..."];
+        [puntoCultural cambiarEstadoPuntoWithSuccess:^{
+            [self actualizaDisplayBotonAccion];
+            [DejalBezelActivityView removeViewAnimated:YES];
+        } AndFail:^(NSError *error) {
+            [self actualizaDisplayBotonAccion];
+            [DejalBezelActivityView removeViewAnimated:YES];
+        }];
+        
+    }else{
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@"Agregando punto..."];
+        if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
+            [DejalBezelActivityView removeViewAnimated:YES];
+            [[[UIAlertView alloc] initWithTitle:@"Alerta" message:@"Este lugar ya está dentro de tu ruta" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            return;
+        }
+        
+        [[MisPuntosCulturales instance] agregarPuntoCultural:puntoCultural AMisPuntosWithSuccess:^{
+            [DejalBezelActivityView removeViewAnimated:YES];
+            [self actualizaDisplayBotonAccion];
+        } AndFail:^(NSError *error) {
+            [DejalBezelActivityView removeViewAnimated:YES];
+            [self actualizaDisplayBotonAccion];
+        }];
     }
     
-    [[MisPuntosCulturales instance] agregarPuntoCultural:puntoCultural AMisPuntosWithSuccess:^{
-        [DejalBezelActivityView removeViewAnimated:YES];
-    } AndFail:^(NSError *error) {
-        [DejalBezelActivityView removeViewAnimated:YES];
-    }];
 }
 
 - (IBAction)botonCompartirEnRedesSocialesPressed:(id)sender{
     ShareViewController *share = [[ShareViewController alloc] initWithNibName:@"ShareViewController" bundle:[NSBundle mainBundle]];
     [[self navigationController] pushViewController:share
                                            animated:YES];
+    
+    UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    
+    if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
+        atras.tintColor = [UIColor darkGrayColor];
+    }
+    
+    [self.navigationItem setBackBarButtonItem:atras];
 }
 
 @end

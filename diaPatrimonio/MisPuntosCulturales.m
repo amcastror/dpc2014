@@ -36,7 +36,7 @@
                                                                   AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                  AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
                                                                      AndZona:nil
-                                                                  AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]];
+                                                                  AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]] AndVisitado:[[punto objectForKey:@"visitado"] boolValue]];
              [puntos_tmp addObject:miPunto];
          }
          misPuntosCulturales = nil;

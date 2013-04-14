@@ -10,7 +10,7 @@
 
 @implementation Filtros
 
-@synthesize activos, zonas, zona_seleccionada, sub_zona_seleccionada, texto_ingresado;
+@synthesize activos, zonas, zona_seleccionada, sub_zona_seleccionada, texto_ingresado, categorias, categoria_seleccionada;
 
 + (Filtros *)instance {
     static Filtros *_sharedClient = nil;
@@ -27,6 +27,11 @@
     if (self = [super init]) {
         [[APIClient instance] requestZonasYSubZonasWithSuccess:^(NSDictionary *results) {
             [self cargaZonas:results];
+            [[APIClient instance] requestCategoriasWithSuccess:^(NSArray *results) {
+                categorias = results;
+            } AndFail:^(NSError *error) {
+                //
+            }];
         } AndFail:^(NSError *error) {
             //
         }];
@@ -57,6 +62,7 @@
     zona_seleccionada = nil;
     sub_zona_seleccionada = nil;
     texto_ingresado = nil;
+    categoria_seleccionada = nil;
 }
 
 @end

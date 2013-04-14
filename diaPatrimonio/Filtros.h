@@ -16,9 +16,11 @@
 
 @property (nonatomic, readonly) BOOL *activos;
 @property (nonatomic, readonly) NSArray *zonas;
+@property (nonatomic, readonly) NSArray *categorias;
 @property (nonatomic, readwrite) Zona *zona_seleccionada;
 @property (nonatomic, readwrite) Zona *sub_zona_seleccionada;
 @property (nonatomic, readwrite) NSString *texto_ingresado;
+@property (nonatomic, readwrite) NSNumber *categoria_seleccionada;
 
 + (Filtros *)instance;
 - (void) limpiarFiltros;

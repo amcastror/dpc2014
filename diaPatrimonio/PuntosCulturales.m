@@ -73,6 +73,7 @@
     
     [[APIClient instance] requestBuscarConZonaID:[[[Filtros instance] zona_seleccionada] id_zona]
                                       YSubZonaID:[[[Filtros instance] sub_zona_seleccionada] id_zona]
+                                    YCategoriaID:[[Filtros instance] categoria_seleccionada]
                                           YTexto:[[Filtros instance] texto_ingresado]
                                      WithSuccess:^(NSArray *results) {
                                          puntosCulturales = [self guardaPuntosCulturalesDesdeArray:(NSArray *)results];
@@ -98,7 +99,8 @@
                                                                    AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                   AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
                                                                       AndZona:nil
-                                                                   AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]];
+                                                                   AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]
+                                                                  AndVisitado:NO];
         [arregloPuntosCulturales addObject:puntoCultural];
     }
     

@@ -26,11 +26,14 @@
                             AndFail:(void (^)(NSError *error))fail;
 -(void)requestBuscarConZonaID:(NSNumber *)id_zona
                    YSubZonaID:(NSNumber *)id_sub_zona
+                 YCategoriaID:(NSNumber *)id_categoria
                        YTexto:(NSString *)texto
                   WithSuccess:(void (^)(NSArray *results))success
                       AndFail:(void (^)(NSError *error))fail;
 -(void)requestZonasYSubZonasWithSuccess:(void (^)(NSDictionary *results))success
                                 AndFail:(void (^)(NSError *error))fail;
+-(void)requestCategoriasWithSuccess:(void (^)(NSArray *results))success
+                       AndFail:(void (^)(NSError *error))fail;
 -(void) requestCompletarInformacionPuntoCulturalConIDPunto:(NSNumber *)id_punto
                                                 AndSuccess:(void (^)(NSDictionary *informacionPunto))success
                                                    AndFail:(void (^)(NSError *error))fail;
@@ -45,4 +48,7 @@
                       AndFail:(void (^)(NSError *error))fail;
 -(void)requestMisPuntosCulturalesWithSuccess:(void (^)(NSArray *misPuntosCulturales))success
                                      AndFail:(void (^)(NSError *error))fail;
+-(void)requestCambiarEstadoPuntoCulturalID:(NSNumber *)id_punto
+                               WithSuccess:(void (^)())success
+                                   AndFail:(void (^)(NSError *error))fail;
 @end

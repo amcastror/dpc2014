@@ -47,7 +47,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editarPressed:)];
-    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor lightGrayColor]];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor darkTextColor]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -61,7 +61,7 @@
     if (editando) {
         editando = NO;
         [sender setTitle:@"Editar"];
-        [sender setTintColor:[UIColor lightGrayColor]];
+        [sender setTintColor:[UIColor darkTextColor]];
 		[super setEditing:NO animated:YES];
 		[self.tablaPuntosCulturales setEditing:NO animated:YES];
     }else{
@@ -96,11 +96,22 @@
     /*
      1 - Label, nombre
      */
-   
+    
     UILabel *label;
     
     label = (UILabel *)[cell viewWithTag:1];
     label.text = puntoCultural.nombre;
+    
+    /*
+     2 - Label, visitado
+     */
+    
+    label = (UILabel *)[cell viewWithTag:2];
+    if (puntoCultural.visitado) {
+        label.text = @"Visitado";
+    }else{
+        label.text = @"No visitado";
+    }
     
     return cell;
     
