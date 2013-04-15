@@ -118,7 +118,7 @@
             [mapa addAnnotation:item];
         }
     }
-    if (ajustar) {
+    if (ajustar && [[[PuntosCulturales instance] puntosCulturales] count] > 0) {
         [self ajustarMargenesDelMapa];
     }
 }

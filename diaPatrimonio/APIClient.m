@@ -51,7 +51,7 @@ static NSString * const prefixURL = @"ws";
                 break;
                 
             case (AFNetworkReachabilityStatusReachableViaWiFi, AFNetworkReachabilityStatusReachableViaWWAN):
-                [[[UIAlertView alloc] initWithTitle:@"error" message:@"Sí hay conexión!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                //[[[UIAlertView alloc] initWithTitle:@"error" message:@"Sí hay conexión!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                 break;
                 
             default:
