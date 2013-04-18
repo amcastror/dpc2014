@@ -350,7 +350,6 @@
 								<string key="NSFrame">{{0, 44}, {320, 216}}</string>
 								<reference key="NSSuperview" ref="778748706"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<array key="IBUIGestureRecognizers" id="0"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -495,6 +494,14 @@
 					<int key="connectionID">47</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">botonCategorias</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="18310729"/>
+					</object>
+					<int key="connectionID">54</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">botonCancelarPressed:</string>
 						<reference key="source" ref="981827634"/>
@@ -582,12 +589,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">botonZonas:</string>
+						<string key="label">botonCategorias:</string>
 						<reference key="source" ref="18310729"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">51</int>
+					<int key="connectionID">55</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -741,52 +748,13 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">53</int>
+			<int key="maxID">55</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">BuscadorPuntosCulturalesViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="botonBuscarPressed:">id</string>
-						<string key="botonCancelarPressed:">id</string>
-						<string key="botonCategorias:">id</string>
-						<string key="botonSubZonas:">id</string>
-						<string key="botonZonas:">id</string>
-						<string key="esconderPicker:">id</string>
-						<string key="mostrarPicker:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="botonBuscarPressed:">
-							<string key="name">botonBuscarPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="botonCancelarPressed:">
-							<string key="name">botonCancelarPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="botonCategorias:">
-							<string key="name">botonCategorias:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="botonSubZonas:">
-							<string key="name">botonSubZonas:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="botonZonas:">
-							<string key="name">botonZonas:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="esconderPicker:">
-							<string key="name">esconderPicker:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="mostrarPicker:">
-							<string key="name">mostrarPicker:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="botonBuscar">UIButton</string>
 						<string key="botonCancelar">UIButton</string>
