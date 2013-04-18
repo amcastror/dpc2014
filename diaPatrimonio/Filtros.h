@@ -24,5 +24,7 @@
 
 + (Filtros *)instance;
 - (void) limpiarFiltros;
+- (NSString *)nombreZonaConIDSubZona:(NSNumber *)id_sub_zona;
+- (NSString *)nombreSubZonaConIDSubZona:(NSNumber *)id_sub_zona;
 
 @end

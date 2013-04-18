@@ -11,8 +11,9 @@
 #import "ImagenAsincrona.h"
 
 @interface PuntoCulturalViewController : UIViewController{
-    IBOutlet UILabel *resumen;
     IBOutlet UIButton *botonAccionPunto;
+    IBOutlet UIButton *botonCompartir;
+    IBOutlet UIScrollView *scroll;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil AndPuntoCultural:(PuntoCultural *)_puntoCultural;

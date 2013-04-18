@@ -13,7 +13,7 @@
 @implementation PuntoCultural
 
 //aca sintetizo las propiedades
-@synthesize nombre, latitud, longitud, id_punto, descripcion, url_foto, id_zona, id_sub_zona, distancia, id_tipo, visitado;
+@synthesize nombre, latitud, longitud, id_punto, descripcion, descripcion_larga, direccion, url_foto, id_zona, id_sub_zona, distancia, id_tipo, visitado;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto
             AndNombre:(NSString *)_nombre
@@ -53,8 +53,18 @@
         if ([informacionPunto objectForKey:@"d_c"]) {
             descripcion = [informacionPunto objectForKey:@"d_c"];
         }
+        if ([informacionPunto objectForKey:@"d_l"]) {
+            descripcion_larga = [informacionPunto objectForKey:@"d_l"];
+        }
+        if ([informacionPunto objectForKey:@"direccion"]) {
+            direccion = [informacionPunto objectForKey:@"direccion"];
+        }
         if ([informacionPunto objectForKey:@"img"] && ![[informacionPunto objectForKey:@"img"] isEqualToString:@""]) {
             url_foto = [informacionPunto objectForKey:@"img"];
+        }
+        
+        if ([informacionPunto objectForKey:@"subzona"]) {
+            id_sub_zona = (NSNumber *)[informacionPunto objectForKey:@"subzona"];
         }
         
         if (success) {

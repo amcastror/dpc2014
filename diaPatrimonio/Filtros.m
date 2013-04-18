@@ -65,4 +65,30 @@
     categoria_seleccionada = nil;
 }
 
+#pragma mark - nombres
+
+- (NSString *)nombreZonaConIDSubZona:(NSNumber *)id_sub_zona{
+    
+    for (Zona *zona in zonas) {
+        for (Zona *sub_zona in [zona sub_zonas]) {
+            if (sub_zona.id_zona.intValue == id_sub_zona.intValue) {
+                return zona.nombre;
+            }
+        }
+    }
+    return nil;
+}
+
+- (NSString *)nombreSubZonaConIDSubZona:(NSNumber *)id_sub_zona{
+    
+    for (Zona *zona in zonas) {
+        for (Zona *sub_zona in [zona sub_zonas]) {
+            if (sub_zona.id_zona.intValue == id_sub_zona.intValue) {
+                return sub_zona.nombre;
+            }
+        }
+    }
+    return nil;
+}
+
 @end
