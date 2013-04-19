@@ -97,7 +97,7 @@
 -(void)requestComentariosWithSuccess:(void (^)())success
                              AndFail:(void (^)(NSError *error))fail{
     
-    [[APIClient instance] requestComentariosDePuntoCulturalID:id_punto WithSuccess:^(NSDictionary *results) {
+    [[APIClient instance] requestComentariosDePuntoCulturalID:id_punto WithSuccess:^(NSArray *results) {
         comentarios = results;
         if (success) {
             success();

@@ -380,7 +380,7 @@ static NSString * const prefixURL = @"ws";
                    }];
 }
 -(void)requestComentariosDePuntoCulturalID:(NSNumber *)id_punto
-                               WithSuccess:(void (^)(NSDictionary *results))success
+                               WithSuccess:(void (^)(NSArray *results))success
                                    AndFail:(void (^)(NSError *error))fail{
     
     [self apiClientGetPath:[NSString stringWithFormat:@"/getComentarios/%i",
@@ -389,7 +389,7 @@ static NSString * const prefixURL = @"ws";
                 parameters:nil
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                        if (success) {
-                           success((NSDictionary *)responseObject);
+                           success((NSArray *)responseObject);
                        }
                        
                    }

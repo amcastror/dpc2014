@@ -151,20 +151,22 @@
     //label.backgroundColor = [UIColor yellowColor];
     
     /*
-     2 - Label, visitado
+     2 - imageview, visitado
      */
     
-    label = (UILabel *)[cell viewWithTag:2];
+    UIImageView *imagenVisitado = (UIImageView *)[cell viewWithTag:2];
     
-    frame = label.frame;
-    frame.origin.y = frame.origin.y + alto_primera_fila;
-    label.frame = frame;
     
     if (puntoCultural.visitado) {
-        label.text = @"Visitado";
+        imagenVisitado.image = [UIImage imageNamed:@"icono-visitado"];
     }else{
-        label.text = @"No visitado";
+        imagenVisitado.image = [UIImage imageNamed:@"icono-no-visitado"];
     }
+    
+    frame = imagenVisitado.frame;
+    frame.origin.y = frame.origin.y + alto_primera_fila;
+    frame.origin.y = [self tableView:tableView heightForRowAtIndexPath:indexPath]/2 - frame.size.height/2 + alto_primera_fila;
+    imagenVisitado.frame = frame;
     
     /*
      3 - imageview, tipo

@@ -58,6 +58,6 @@
                                    WithSuccess:(void (^)())success
                                        AndFail:(void (^)(NSError *error))fail;
 -(void)requestComentariosDePuntoCulturalID:(NSNumber *)id_punto
-                               WithSuccess:(void (^)(NSDictionary *results))success
+                               WithSuccess:(void (^)(NSArray *results))success
                                    AndFail:(void (^)(NSError *error))fail;
 @end

@@ -13,6 +13,7 @@
 @interface PuntoCulturalViewController : UIViewController{
     IBOutlet UIButton *botonAccionPunto;
     IBOutlet UIButton *botonCompartir;
+    IBOutlet UIButton *botonComentar;
     IBOutlet UIScrollView *scroll;
 }
 

@@ -31,7 +31,7 @@ typedef enum TipoPunto TipoPunto;
     NSNumber *id_sub_zona;
     NSNumber *distancia;
     NSNumber *id_tipo;
-    NSDictionary *comentarios;
+    NSArray *comentarios;
     BOOL visitado;
 }
 
@@ -47,7 +47,7 @@ typedef enum TipoPunto TipoPunto;
 @property (nonatomic, readonly) NSNumber *id_sub_zona;
 @property (nonatomic, readonly) NSNumber *distancia;
 @property (nonatomic, readonly) NSNumber *id_tipo;
-@property (nonatomic, readonly) NSDictionary *comentarios;
+@property (nonatomic, readonly) NSArray *comentarios;
 @property (readwrite) BOOL visitado;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto

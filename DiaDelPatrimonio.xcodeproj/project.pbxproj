@@ -161,6 +161,32 @@
 		609E82C716E3EAFF0029BBFD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609E82C616E3EAFF0029BBFD /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		609E82CC16E3EDBB0029BBFD /* PerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609E82CA16E3EDBB0029BBFD /* PerfilViewController.m */; };
 		609E82CD16E3EDBB0029BBFD /* PerfilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609E82CB16E3EDBB0029BBFD /* PerfilViewController.xib */; };
+		60BF70891721DDF400E9EA13 /* ComentariosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BF70871721DDF400E9EA13 /* ComentariosViewController.m */; };
+		60BF708A1721DDF400E9EA13 /* ComentariosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70881721DDF400E9EA13 /* ComentariosViewController.xib */; };
+		60BF708F1721E63400E9EA13 /* ficha-tabbar-activ-02-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF708B1721E63400E9EA13 /* ficha-tabbar-activ-02-over.png */; };
+		60BF70901721E63400E9EA13 /* ficha-tabbar-activ-02-over@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF708C1721E63400E9EA13 /* ficha-tabbar-activ-02-over@2x.png */; };
+		60BF70911721E63400E9EA13 /* ficha-tabbar-activ-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF708D1721E63400E9EA13 /* ficha-tabbar-activ-02.png */; };
+		60BF70921721E63400E9EA13 /* ficha-tabbar-activ-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF708E1721E63400E9EA13 /* ficha-tabbar-activ-02@2x.png */; };
+		60BF70971721E63D00E9EA13 /* ficha-tabbar-aper-02-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70931721E63D00E9EA13 /* ficha-tabbar-aper-02-over.png */; };
+		60BF70981721E63D00E9EA13 /* ficha-tabbar-aper-02-over@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70941721E63D00E9EA13 /* ficha-tabbar-aper-02-over@2x.png */; };
+		60BF70991721E63D00E9EA13 /* ficha-tabbar-aper-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70951721E63D00E9EA13 /* ficha-tabbar-aper-02.png */; };
+		60BF709A1721E63D00E9EA13 /* ficha-tabbar-aper-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70961721E63D00E9EA13 /* ficha-tabbar-aper-02@2x.png */; };
+		60BF709F1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF709B1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over.png */; };
+		60BF70A01721E65500E9EA13 /* ficha-tabbar-recorridos-02-over@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF709C1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over@2x.png */; };
+		60BF70A11721E65500E9EA13 /* ficha-tabbar-recorridos-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF709D1721E65500E9EA13 /* ficha-tabbar-recorridos-02.png */; };
+		60BF70A21721E65500E9EA13 /* ficha-tabbar-recorridos-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF709E1721E65500E9EA13 /* ficha-tabbar-recorridos-02@2x.png */; };
+		60BF70A71721E65D00E9EA13 /* ficha-tabbar-rutas-02-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70A31721E65D00E9EA13 /* ficha-tabbar-rutas-02-over.png */; };
+		60BF70A81721E65D00E9EA13 /* ficha-tabbar-rutas-02-over@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70A41721E65D00E9EA13 /* ficha-tabbar-rutas-02-over@2x.png */; };
+		60BF70A91721E65D00E9EA13 /* ficha-tabbar-rutas-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70A51721E65D00E9EA13 /* ficha-tabbar-rutas-02.png */; };
+		60BF70AA1721E65D00E9EA13 /* ficha-tabbar-rutas-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70A61721E65D00E9EA13 /* ficha-tabbar-rutas-02@2x.png */; };
+		60BF70AD1721E79000E9EA13 /* ficha-tabbar-icono-agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70AB1721E79000E9EA13 /* ficha-tabbar-icono-agregar.png */; };
+		60BF70AE1721E79000E9EA13 /* ficha-tabbar-icono-agregar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70AC1721E79000E9EA13 /* ficha-tabbar-icono-agregar@2x.png */; };
+		60BF70B11721E79B00E9EA13 /* ficha-tabbar-icono-comentar.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70AF1721E79B00E9EA13 /* ficha-tabbar-icono-comentar.png */; };
+		60BF70B21721E79B00E9EA13 /* ficha-tabbar-icono-comentar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70B01721E79B00E9EA13 /* ficha-tabbar-icono-comentar@2x.png */; };
+		60BF70B71721EBD900E9EA13 /* icono-no-visitado.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70B31721EBD900E9EA13 /* icono-no-visitado.png */; };
+		60BF70B81721EBD900E9EA13 /* icono-no-visitado@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70B41721EBD900E9EA13 /* icono-no-visitado@2x.png */; };
+		60BF70B91721EBD900E9EA13 /* icono-visitado.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70B51721EBD900E9EA13 /* icono-visitado.png */; };
+		60BF70BA1721EBD900E9EA13 /* icono-visitado@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BF70B61721EBD900E9EA13 /* icono-visitado@2x.png */; };
 		60C7334516F4DA790040453C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7334416F4DA790040453C /* Twitter.framework */; };
 		60C7EB0C16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C7EB0A16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m */; };
 		60C7EB0D16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7EB0B16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib */; };
@@ -369,6 +395,33 @@
 		609E82C916E3EDBB0029BBFD /* PerfilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilViewController.h; sourceTree = "<group>"; };
 		609E82CA16E3EDBB0029BBFD /* PerfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilViewController.m; sourceTree = "<group>"; };
 		609E82CB16E3EDBB0029BBFD /* PerfilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerfilViewController.xib; sourceTree = "<group>"; };
+		60BF70861721DDF400E9EA13 /* ComentariosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComentariosViewController.h; sourceTree = "<group>"; };
+		60BF70871721DDF400E9EA13 /* ComentariosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComentariosViewController.m; sourceTree = "<group>"; };
+		60BF70881721DDF400E9EA13 /* ComentariosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComentariosViewController.xib; sourceTree = "<group>"; };
+		60BF708B1721E63400E9EA13 /* ficha-tabbar-activ-02-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-activ-02-over.png"; sourceTree = "<group>"; };
+		60BF708C1721E63400E9EA13 /* ficha-tabbar-activ-02-over@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-activ-02-over@2x.png"; sourceTree = "<group>"; };
+		60BF708D1721E63400E9EA13 /* ficha-tabbar-activ-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-activ-02.png"; sourceTree = "<group>"; };
+		60BF708E1721E63400E9EA13 /* ficha-tabbar-activ-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-activ-02@2x.png"; sourceTree = "<group>"; };
+		60BF70931721E63D00E9EA13 /* ficha-tabbar-aper-02-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-aper-02-over.png"; sourceTree = "<group>"; };
+		60BF70941721E63D00E9EA13 /* ficha-tabbar-aper-02-over@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-aper-02-over@2x.png"; sourceTree = "<group>"; };
+		60BF70951721E63D00E9EA13 /* ficha-tabbar-aper-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-aper-02.png"; sourceTree = "<group>"; };
+		60BF70961721E63D00E9EA13 /* ficha-tabbar-aper-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-aper-02@2x.png"; sourceTree = "<group>"; };
+		60BF709B1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-recorridos-02-over.png"; sourceTree = "<group>"; };
+		60BF709C1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-recorridos-02-over@2x.png"; sourceTree = "<group>"; };
+		60BF709D1721E65500E9EA13 /* ficha-tabbar-recorridos-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-recorridos-02.png"; sourceTree = "<group>"; };
+		60BF709E1721E65500E9EA13 /* ficha-tabbar-recorridos-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-recorridos-02@2x.png"; sourceTree = "<group>"; };
+		60BF70A31721E65D00E9EA13 /* ficha-tabbar-rutas-02-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-rutas-02-over.png"; sourceTree = "<group>"; };
+		60BF70A41721E65D00E9EA13 /* ficha-tabbar-rutas-02-over@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-rutas-02-over@2x.png"; sourceTree = "<group>"; };
+		60BF70A51721E65D00E9EA13 /* ficha-tabbar-rutas-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-rutas-02.png"; sourceTree = "<group>"; };
+		60BF70A61721E65D00E9EA13 /* ficha-tabbar-rutas-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-rutas-02@2x.png"; sourceTree = "<group>"; };
+		60BF70AB1721E79000E9EA13 /* ficha-tabbar-icono-agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-agregar.png"; sourceTree = "<group>"; };
+		60BF70AC1721E79000E9EA13 /* ficha-tabbar-icono-agregar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-agregar@2x.png"; sourceTree = "<group>"; };
+		60BF70AF1721E79B00E9EA13 /* ficha-tabbar-icono-comentar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-comentar.png"; sourceTree = "<group>"; };
+		60BF70B01721E79B00E9EA13 /* ficha-tabbar-icono-comentar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-comentar@2x.png"; sourceTree = "<group>"; };
+		60BF70B31721EBD900E9EA13 /* icono-no-visitado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-no-visitado.png"; sourceTree = "<group>"; };
+		60BF70B41721EBD900E9EA13 /* icono-no-visitado@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-no-visitado@2x.png"; sourceTree = "<group>"; };
+		60BF70B51721EBD900E9EA13 /* icono-visitado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-visitado.png"; sourceTree = "<group>"; };
+		60BF70B61721EBD900E9EA13 /* icono-visitado@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-visitado@2x.png"; sourceTree = "<group>"; };
 		60C7334416F4DA790040453C /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		60C7EB0916D9B580001145F2 /* BuscadorPuntosCulturalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscadorPuntosCulturalesViewController.h; sourceTree = "<group>"; };
 		60C7EB0A16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscadorPuntosCulturalesViewController.m; sourceTree = "<group>"; };
@@ -494,6 +547,26 @@
 		6044F083171FA19400F50842 /* ficha */ = {
 			isa = PBXGroup;
 			children = (
+				60BF70AF1721E79B00E9EA13 /* ficha-tabbar-icono-comentar.png */,
+				60BF70B01721E79B00E9EA13 /* ficha-tabbar-icono-comentar@2x.png */,
+				60BF70AB1721E79000E9EA13 /* ficha-tabbar-icono-agregar.png */,
+				60BF70AC1721E79000E9EA13 /* ficha-tabbar-icono-agregar@2x.png */,
+				60BF70A31721E65D00E9EA13 /* ficha-tabbar-rutas-02-over.png */,
+				60BF70A41721E65D00E9EA13 /* ficha-tabbar-rutas-02-over@2x.png */,
+				60BF70A51721E65D00E9EA13 /* ficha-tabbar-rutas-02.png */,
+				60BF70A61721E65D00E9EA13 /* ficha-tabbar-rutas-02@2x.png */,
+				60BF709B1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over.png */,
+				60BF709C1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over@2x.png */,
+				60BF709D1721E65500E9EA13 /* ficha-tabbar-recorridos-02.png */,
+				60BF709E1721E65500E9EA13 /* ficha-tabbar-recorridos-02@2x.png */,
+				60BF708B1721E63400E9EA13 /* ficha-tabbar-activ-02-over.png */,
+				60BF708C1721E63400E9EA13 /* ficha-tabbar-activ-02-over@2x.png */,
+				60BF708D1721E63400E9EA13 /* ficha-tabbar-activ-02.png */,
+				60BF708E1721E63400E9EA13 /* ficha-tabbar-activ-02@2x.png */,
+				60BF70931721E63D00E9EA13 /* ficha-tabbar-aper-02-over.png */,
+				60BF70941721E63D00E9EA13 /* ficha-tabbar-aper-02-over@2x.png */,
+				60BF70951721E63D00E9EA13 /* ficha-tabbar-aper-02.png */,
+				60BF70961721E63D00E9EA13 /* ficha-tabbar-aper-02@2x.png */,
 				605364891720421C00563C44 /* ficha-tabbar-icono-compartir-over.png */,
 				6053648A1720421C00563C44 /* ficha-tabbar-icono-compartir@2x.png */,
 				60536485172041EC00563C44 /* ficha-tabbar-icono-compartir-over@2x.png */,
@@ -731,6 +804,9 @@
 				603CEB861721917400F50727 /* DejarComentarioViewController.h */,
 				603CEB871721917400F50727 /* DejarComentarioViewController.m */,
 				603CEB881721917400F50727 /* DejarComentarioViewController.xib */,
+				60BF70861721DDF400E9EA13 /* ComentariosViewController.h */,
+				60BF70871721DDF400E9EA13 /* ComentariosViewController.m */,
+				60BF70881721DDF400E9EA13 /* ComentariosViewController.xib */,
 			);
 			name = PuntoCultural;
 			sourceTree = "<group>";
@@ -791,6 +867,10 @@
 		60D4E0871720F4950081D112 /* mis puntos */ = {
 			isa = PBXGroup;
 			children = (
+				60BF70B31721EBD900E9EA13 /* icono-no-visitado.png */,
+				60BF70B41721EBD900E9EA13 /* icono-no-visitado@2x.png */,
+				60BF70B51721EBD900E9EA13 /* icono-visitado.png */,
+				60BF70B61721EBD900E9EA13 /* icono-visitado@2x.png */,
 				60D4E0901721083C0081D112 /* ficha-img-fondo-fila-arriba.png */,
 				60D4E0911721083C0081D112 /* ficha-img-fondo-fila-arriba@2x.png */,
 				60D4E08C172106ED0081D112 /* ficha-img-fondo-fila.png */,
@@ -984,6 +1064,31 @@
 				60D4E0921721083C0081D112 /* ficha-img-fondo-fila-arriba.png in Resources */,
 				60D4E0931721083C0081D112 /* ficha-img-fondo-fila-arriba@2x.png in Resources */,
 				603CEB8A1721917400F50727 /* DejarComentarioViewController.xib in Resources */,
+				60BF708A1721DDF400E9EA13 /* ComentariosViewController.xib in Resources */,
+				60BF708F1721E63400E9EA13 /* ficha-tabbar-activ-02-over.png in Resources */,
+				60BF70901721E63400E9EA13 /* ficha-tabbar-activ-02-over@2x.png in Resources */,
+				60BF70911721E63400E9EA13 /* ficha-tabbar-activ-02.png in Resources */,
+				60BF70921721E63400E9EA13 /* ficha-tabbar-activ-02@2x.png in Resources */,
+				60BF70971721E63D00E9EA13 /* ficha-tabbar-aper-02-over.png in Resources */,
+				60BF70981721E63D00E9EA13 /* ficha-tabbar-aper-02-over@2x.png in Resources */,
+				60BF70991721E63D00E9EA13 /* ficha-tabbar-aper-02.png in Resources */,
+				60BF709A1721E63D00E9EA13 /* ficha-tabbar-aper-02@2x.png in Resources */,
+				60BF709F1721E65500E9EA13 /* ficha-tabbar-recorridos-02-over.png in Resources */,
+				60BF70A01721E65500E9EA13 /* ficha-tabbar-recorridos-02-over@2x.png in Resources */,
+				60BF70A11721E65500E9EA13 /* ficha-tabbar-recorridos-02.png in Resources */,
+				60BF70A21721E65500E9EA13 /* ficha-tabbar-recorridos-02@2x.png in Resources */,
+				60BF70A71721E65D00E9EA13 /* ficha-tabbar-rutas-02-over.png in Resources */,
+				60BF70A81721E65D00E9EA13 /* ficha-tabbar-rutas-02-over@2x.png in Resources */,
+				60BF70A91721E65D00E9EA13 /* ficha-tabbar-rutas-02.png in Resources */,
+				60BF70AA1721E65D00E9EA13 /* ficha-tabbar-rutas-02@2x.png in Resources */,
+				60BF70AD1721E79000E9EA13 /* ficha-tabbar-icono-agregar.png in Resources */,
+				60BF70AE1721E79000E9EA13 /* ficha-tabbar-icono-agregar@2x.png in Resources */,
+				60BF70B11721E79B00E9EA13 /* ficha-tabbar-icono-comentar.png in Resources */,
+				60BF70B21721E79B00E9EA13 /* ficha-tabbar-icono-comentar@2x.png in Resources */,
+				60BF70B71721EBD900E9EA13 /* icono-no-visitado.png in Resources */,
+				60BF70B81721EBD900E9EA13 /* icono-no-visitado@2x.png in Resources */,
+				60BF70B91721EBD900E9EA13 /* icono-visitado.png in Resources */,
+				60BF70BA1721EBD900E9EA13 /* icono-visitado@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1134,7 @@
 				6087CB0917183ED700013D76 /* PuntoMapa.m in Sources */,
 				6087CB0F17183F1000013D76 /* ViewPuntoMapa.m in Sources */,
 				603CEB891721917400F50727 /* DejarComentarioViewController.m in Sources */,
+				60BF70891721DDF400E9EA13 /* ComentariosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

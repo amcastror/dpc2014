@@ -11,6 +11,7 @@
 #import "ShareViewController.h"
 #import "Filtros.h"
 #import "DejarComentarioViewController.h"
+#import "ComentariosViewController.h"
 
 #define bordeInferior 5
 #define fuenteTitulo [UIFont systemFontOfSize:20.0]
@@ -18,11 +19,13 @@
 #define fuenteDescripciones [UIFont systemFontOfSize:17.0]
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
 #define fuenteTituloComentarios [UIFont systemFontOfSize:17.0]
+#define fuenteNombreComentarios [UIFont systemFontOfSize:15.0]
 #define colorTitulo [UIColor colorWithRed: 19.0/255.0 green: 182.0/255.0 blue: 243.0/255.0 alpha: 1.0]
 #define colorZona [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 #define colorDescripciones [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 20.0/255.0 alpha: 1.0]
 #define colorInformacion [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorTituloComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
+#define colorNombreComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 
 @interface PuntoCulturalViewController (){
     PuntoCultural *puntoCultural;
@@ -243,20 +246,77 @@
         [self actualizaLargoScroll];
         [scroll addSubview:titulo_comentarios];
         
-        //
+        // Comentarios
         
         int cantidad_comentarios = [[puntoCultural comentarios] count];
         for (int i = 0; i < MIN(4, cantidad_comentarios); i++) {
-            //
+            
+            CGSize size_comentario = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"comentario"] sizeWithFont:fuenteDescripciones
+                                                                        constrainedToSize:CGSizeMake(260, 100000)
+                                                                            lineBreakMode:UILineBreakModeTailTruncation];
+            
+            UILabel *comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 260, size_comentario.height)];
+            comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"comentario"];
+            comentario.font = fuenteDescripciones;
+            comentario.textColor = colorDescripciones;
+            comentario.backgroundColor = [UIColor clearColor];
+            comentario.numberOfLines = 0;
+            comentario.lineBreakMode = UILineBreakModeWordWrap;
+            
+            CGSize size_nombre_comentario = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"autor"] sizeWithFont:fuenteNombreComentarios
+                                                                                                                          constrainedToSize:CGSizeMake(260, 100000)
+                                                                                                                              lineBreakMode:UILineBreakModeTailTruncation];
+            UILabel *nombre_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, comentario.frame.origin.y + comentario.frame.size.height + 5, 260, size_nombre_comentario.height)];
+            nombre_comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"autor"];
+            nombre_comentario.font = fuenteNombreComentarios;
+            nombre_comentario.textColor = colorNombreComentarios;
+            nombre_comentario.backgroundColor = [UIColor clearColor];
+            nombre_comentario.numberOfLines = 1;
+            nombre_comentario.lineBreakMode = UILineBreakModeTailTruncation;
+            
+            UIImageView *comentario_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, nombre_comentario.frame.origin.y + size_nombre_comentario.height + 10)];
+            comentario_view.image = fondo_resizable;
+            [comentario_view addSubview:comentario];
+            [comentario_view addSubview:nombre_comentario];
+            
+            largoActualFicha = comentario_view.frame.origin.y + comentario_view.frame.size.height;
+            [self actualizaLargoScroll];
+            [scroll addSubview:comentario_view];
         }
         
         if (cantidad_comentarios > 4) {
             //Agrego el boton de ver más comentarios.
+            
+            UIButton *ver_todos = [UIButton buttonWithType:UIButtonTypeCustom];
+            [ver_todos setBackgroundImage:fondo_resizable forState:UIControlStateNormal];
+            CGRect frame = CGRectMake(20, largoActualFicha, 280, 70);
+            ver_todos.frame = frame;
+            ver_todos.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+            [ver_todos setTitle:@"Ver todos los comentarios" forState:UIControlStateNormal];
+            [ver_todos setTitleColor:colorDescripciones forState:UIControlStateNormal];
+            [ver_todos addTarget:self action:@selector(verTodosPressed:) forControlEvents:UIControlEventTouchUpInside];
+            
+            largoActualFicha = ver_todos.frame.origin.y + ver_todos.frame.size.height + bordeInferior;
+            [self actualizaLargoScroll];
+            [scroll addSubview:ver_todos];
         }
         
     } AndFail:^(NSError *error) {
         //
     }];
+}
+
+-(void) verTodosPressed:(id)sender{
+    ComentariosViewController *comentarios = [[ComentariosViewController alloc] initWithNibName:@"ComentariosViewController" bundle:[NSBundle mainBundle] AndComentarios:[puntoCultural comentarios]];
+    [self.navigationController pushViewController:comentarios animated:YES];
+    
+    UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    
+    if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
+        atras.tintColor = [UIColor darkGrayColor];
+    }
+    
+    [self.navigationItem setBackBarButtonItem:atras];
 }
 
 -(void) actualizaLargoScroll{
@@ -267,35 +327,45 @@
     
     //ahora actualizo los fondos de los botones
     UIImage *default_image_01;
+    UIImage *default_image_02;
     UIImage *default_image_03;
     UIImage *selected_image_01;
+    UIImage *selected_image_02;
     UIImage *selected_image_03;
     switch (puntoCultural.id_tipo.intValue) {
         case TIPO_APERTURA:
             default_image_01 = [UIImage imageNamed:@"ficha-tabbar-aper-01"];
+            default_image_02 = [UIImage imageNamed:@"ficha-tabbar-aper-02"];
             default_image_03 = [UIImage imageNamed:@"ficha-tabbar-aper-03"];
             selected_image_01 = [UIImage imageNamed:@"ficha-tabbar-aper-01-over"];
+            selected_image_02 = [UIImage imageNamed:@"ficha-tabbar-aper-02-over"];
             selected_image_03 = [UIImage imageNamed:@"ficha-tabbar-aper-03-over"];
             break;
         
         case TIPO_ACTIVIDAD:
             default_image_01 = [UIImage imageNamed:@"ficha-tabbar-activ-01"];
+            default_image_02 = [UIImage imageNamed:@"ficha-tabbar-activ-02"];
             default_image_03 = [UIImage imageNamed:@"ficha-tabbar-activ-03"];
             selected_image_01 = [UIImage imageNamed:@"ficha-tabbar-activ-01-over"];
+            selected_image_02 = [UIImage imageNamed:@"ficha-tabbar-activ-02-over"];
             selected_image_03 = [UIImage imageNamed:@"ficha-tabbar-activ-03-over"];
             break;
         
         case TIPO_RUTA_TEMATICA:
             default_image_01 = [UIImage imageNamed:@"ficha-tabbar-rutas-01"];
+            default_image_02 = [UIImage imageNamed:@"ficha-tabbar-rutas-02"];
             default_image_03 = [UIImage imageNamed:@"ficha-tabbar-rutas-03"];
             selected_image_01 = [UIImage imageNamed:@"ficha-tabbar-rutas-01-over"];
+            selected_image_02 = [UIImage imageNamed:@"ficha-tabbar-rutas-02-over"];
             selected_image_03 = [UIImage imageNamed:@"ficha-tabbar-rutas-03-over"];
             break;
             
         case TIPO_RECORRIDO_GUIADO:
             default_image_01 = [UIImage imageNamed:@"ficha-tabbar-recorridos-01"];
+            default_image_02 = [UIImage imageNamed:@"ficha-tabbar-recorridos-02"];
             default_image_03 = [UIImage imageNamed:@"ficha-tabbar-recorridos-03"];
             selected_image_01 = [UIImage imageNamed:@"ficha-tabbar-recorridos-01-over"];
+            selected_image_02 = [UIImage imageNamed:@"ficha-tabbar-recorridos-02-over"];
             selected_image_03 = [UIImage imageNamed:@"ficha-tabbar-recorridos-03-over"];
             break;
         default:
@@ -304,23 +374,25 @@
     
     [botonCompartir setBackgroundImage:default_image_01 forState:UIControlStateNormal];
     [botonCompartir setBackgroundImage:selected_image_01 forState:UIControlStateHighlighted];
+    [botonComentar setBackgroundImage:default_image_02 forState:UIControlStateNormal];
+    [botonComentar setBackgroundImage:selected_image_02 forState:UIControlStateHighlighted];
     [botonAccionPunto setBackgroundImage:default_image_03 forState:UIControlStateNormal];
     [botonAccionPunto setBackgroundImage:selected_image_03 forState:UIControlStateHighlighted];
     
     if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
         if (puntoCultural.visitado) {
-            [botonAccionPunto setTitle:@"x visitar" forState:UIControlStateNormal];
-            [botonAccionPunto setTitle:@"x visitar" forState:UIControlStateSelected];
-            [botonAccionPunto setTitle:@"x visitar" forState:UIControlStateHighlighted];
+            [botonAccionPunto setTitle:@"   No visitado" forState:UIControlStateNormal];
+            [botonAccionPunto setTitle:@"   No visitado" forState:UIControlStateSelected];
+            [botonAccionPunto setTitle:@"   No visitado" forState:UIControlStateHighlighted];
         }else{
-            [botonAccionPunto setTitle:@"Visitado!" forState:UIControlStateNormal];
-            [botonAccionPunto setTitle:@"Visitado!" forState:UIControlStateSelected];
-            [botonAccionPunto setTitle:@"Visitado!" forState:UIControlStateHighlighted];
+            [botonAccionPunto setTitle:@"Visitado" forState:UIControlStateNormal];
+            [botonAccionPunto setTitle:@"Visitado" forState:UIControlStateSelected];
+            [botonAccionPunto setTitle:@"Visitado" forState:UIControlStateHighlighted];
         }
     }else{
-        [botonAccionPunto setTitle:@"+ Mi ruta" forState:UIControlStateNormal];
-        [botonAccionPunto setTitle:@"+ Mi ruta" forState:UIControlStateSelected];
-        [botonAccionPunto setTitle:@"+ Mi ruta" forState:UIControlStateHighlighted];
+        [botonAccionPunto setTitle:@"Agregar" forState:UIControlStateNormal];
+        [botonAccionPunto setTitle:@"Agregar" forState:UIControlStateSelected];
+        [botonAccionPunto setTitle:@"Agregar" forState:UIControlStateHighlighted];
     }
 }
 
