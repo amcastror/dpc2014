@@ -20,12 +20,14 @@
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
 #define fuenteTituloComentarios [UIFont systemFontOfSize:17.0]
 #define fuenteNombreComentarios [UIFont systemFontOfSize:15.0]
+#define fuenteFecha [UIFont systemFontOfSize:15.0]
 #define colorTitulo [UIColor colorWithRed: 19.0/255.0 green: 182.0/255.0 blue: 243.0/255.0 alpha: 1.0]
 #define colorZona [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 #define colorDescripciones [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 20.0/255.0 alpha: 1.0]
 #define colorInformacion [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorTituloComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 #define colorNombreComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
+#define colorFecha [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 
 @interface PuntoCulturalViewController (){
     PuntoCultural *puntoCultural;
@@ -222,7 +224,6 @@
     [scroll addSubview:descripcion_larga_view];
     
     [puntoCultural requestComentariosWithSuccess:^{
-        NSLog(@"comentarios: %@", [puntoCultural comentarios]);
         
         //separador
         UIImageView *separador = [[UIImageView alloc] initWithFrame:CGRectMake(0, largoActualFicha, 320, 2)];
@@ -264,8 +265,8 @@
             comentario.lineBreakMode = UILineBreakModeWordWrap;
             
             CGSize size_nombre_comentario = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"autor"] sizeWithFont:fuenteNombreComentarios
-                                                                                                                          constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                                              lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                                            constrainedToSize:CGSizeMake(260, 100000)
+                                                                                                                                lineBreakMode:UILineBreakModeTailTruncation];
             UILabel *nombre_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, comentario.frame.origin.y + comentario.frame.size.height + 5, 260, size_nombre_comentario.height)];
             nombre_comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"autor"];
             nombre_comentario.font = fuenteNombreComentarios;
@@ -274,10 +275,24 @@
             nombre_comentario.numberOfLines = 1;
             nombre_comentario.lineBreakMode = UILineBreakModeTailTruncation;
             
-            UIImageView *comentario_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, nombre_comentario.frame.origin.y + size_nombre_comentario.height + 10)];
+            
+            
+            CGSize size_fecha = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"fecha"] sizeWithFont:fuenteNombreComentarios
+                                                                                                                            constrainedToSize:CGSizeMake(260, 100000)
+                                                                                                                                lineBreakMode:UILineBreakModeTailTruncation];
+            UILabel *fecha_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, nombre_comentario.frame.origin.y + nombre_comentario.frame.size.height + 5, 260, size_fecha.height)];
+            fecha_comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"fecha"];
+            fecha_comentario.font = fuenteNombreComentarios;
+            fecha_comentario.textColor = colorNombreComentarios;
+            fecha_comentario.backgroundColor = [UIColor clearColor];
+            fecha_comentario.numberOfLines = 1;
+            fecha_comentario.lineBreakMode = UILineBreakModeTailTruncation;
+            
+            UIImageView *comentario_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, fecha_comentario.frame.origin.y + size_fecha.height + 10)];
             comentario_view.image = fondo_resizable;
             [comentario_view addSubview:comentario];
             [comentario_view addSubview:nombre_comentario];
+            [comentario_view addSubview:fecha_comentario];
             
             largoActualFicha = comentario_view.frame.origin.y + comentario_view.frame.size.height;
             [self actualizaLargoScroll];
@@ -401,7 +416,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//[[[UIAlertView alloc] initWithTitle:@"error" message:@"Sí hay conexión!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 #pragma mark - acciones del punto
 
 - (IBAction)botonAccionPuntoPressed:(id)sender{
@@ -411,9 +426,20 @@
         [puntoCultural cambiarEstadoPuntoWithSuccess:^{
             [self actualizaDisplayBotonAccion];
             [DejalBezelActivityView removeViewAnimated:YES];
+            if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
+                if (puntoCultural.visitado) {
+                    [[[UIAlertView alloc] initWithTitle:@"Excelente!" message:@"Lugar marcado como visitado" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                }else{
+                    [[[UIAlertView alloc] initWithTitle:@"Excelente!" message:@"Lugar marcado como no visitado" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                }
+            }else{
+                [[[UIAlertView alloc] initWithTitle:@"Excelente!" message:@"Lugar agregado a tu ruta" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            }
         } AndFail:^(NSError *error) {
             [self actualizaDisplayBotonAccion];
             [DejalBezelActivityView removeViewAnimated:YES];
+            
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Ocurrió un error, intenta de nuevo más tarde" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }];
         
     }else{
@@ -427,9 +453,11 @@
         [[MisPuntosCulturales instance] agregarPuntoCultural:puntoCultural AMisPuntosWithSuccess:^{
             [DejalBezelActivityView removeViewAnimated:YES];
             [self actualizaDisplayBotonAccion];
+            [[[UIAlertView alloc] initWithTitle:@"Excelente!" message:@"Lugar agregado a tu ruta" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         } AndFail:^(NSError *error) {
             [DejalBezelActivityView removeViewAnimated:YES];
             [self actualizaDisplayBotonAccion];
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Ocurrió un error, intenta de nuevo más tarde" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }];
     }
     

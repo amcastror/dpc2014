@@ -48,7 +48,6 @@
 -(void) requestCompletarInformacionWithSuccess:(void (^)())success
                                        AndFail:(void (^)(NSError *error))fail{
     [[APIClient instance] requestCompletarInformacionPuntoCulturalConIDPunto:id_punto AndSuccess:^(NSDictionary *informacionPunto) {
-        NSLog(@"info: %@", informacionPunto);
         
         if ([informacionPunto objectForKey:@"d_c"]) {
             descripcion = [informacionPunto objectForKey:@"d_c"];

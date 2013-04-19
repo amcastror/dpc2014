@@ -55,7 +55,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSLog(@"mis puntos: %@", [[MisPuntosCulturales instance] misPuntosCulturales]);
     [tablaPuntosCulturales reloadData];
 }
 

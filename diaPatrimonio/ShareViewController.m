@@ -282,8 +282,6 @@
  didFinishPickingMediaWithInfo:(NSDictionary *) info {
     [self dismissModalViewControllerAnimated: YES];
     
-    NSLog(@"info: %@",info);
-    
     imagenSeleccionada = [info objectForKey:UIImagePickerControllerEditedImage];
     [self textViewDidChange:comentario];
     
