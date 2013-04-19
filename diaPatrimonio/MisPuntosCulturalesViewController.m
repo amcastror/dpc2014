@@ -11,6 +11,8 @@
 #import "PuntoCultural.h"
 #import "PuntoCulturalViewController.h"
 
+#define fuenteNombre [UIFont systemFontOfSize:14.0]
+
 @interface MisPuntosCulturalesViewController (){
     BOOL editando;
 }
@@ -91,7 +93,14 @@
         self.filaPuntoCultural = nil;
     }
     
+    int alto_primera_fila = 0;
+    if (indexPath.row == 0) {
+        alto_primera_fila = 10;
+    }
+    
     PuntoCultural *puntoCultural = [[[MisPuntosCulturales instance] misPuntosCulturales] objectAtIndex:indexPath.row];
+    
+    CGRect frame;
     
     /*
      1 - Label, nombre
@@ -100,19 +109,101 @@
     UILabel *label;
     
     label = (UILabel *)[cell viewWithTag:1];
+    
+    CGSize size_nombre = [puntoCultural.nombre sizeWithFont:fuenteNombre
+                                          constrainedToSize:CGSizeMake(170, 100000)
+                                              lineBreakMode:UILineBreakModeTailTruncation];
+    frame = label.frame;
+    frame.origin.y = frame.origin.y + alto_primera_fila;
+    frame.size.height = size_nombre.height;
+    label.frame = frame;
+    label.font = fuenteNombre;
+    //label.backgroundColor = [UIColor greenColor];
     label.text = puntoCultural.nombre;
+    
+    /*
+     4 - Label, categoria
+     */
+    
+    int fin_nombre = frame.origin.y + frame.size.height;
+    
+    label = (UILabel *)[cell viewWithTag:4];
+    switch (puntoCultural.id_tipo.intValue) {
+        case TIPO_APERTURA:
+            label.text = @"Apertura";
+            break;
+        case TIPO_ACTIVIDAD:
+            label.text = @"Actividad";
+            break;
+        case TIPO_RECORRIDO_GUIADO:
+            label.text = @"Recorrido guiado";
+            break;
+        case TIPO_RUTA_TEMATICA:
+            label.text = @"Ruta temática";
+            break;
+        default:
+            break;
+    }
+    
+    frame = label.frame;
+    frame.origin.y = fin_nombre + 5;
+    label.frame = frame;
+    //label.backgroundColor = [UIColor yellowColor];
     
     /*
      2 - Label, visitado
      */
     
     label = (UILabel *)[cell viewWithTag:2];
+    
+    frame = label.frame;
+    frame.origin.y = frame.origin.y + alto_primera_fila;
+    label.frame = frame;
+    
     if (puntoCultural.visitado) {
         label.text = @"Visitado";
     }else{
         label.text = @"No visitado";
     }
     
+    /*
+     3 - imageview, tipo
+     */
+    
+    UIImageView *imagenTipo = (UIImageView *)[cell viewWithTag:3];
+    switch (puntoCultural.id_tipo.intValue) {
+        case TIPO_APERTURA:
+            imagenTipo.image = [UIImage imageNamed:@"icono-categoria-apertura-02"];
+            break;
+        case TIPO_ACTIVIDAD:
+            imagenTipo.image = [UIImage imageNamed:@"icono-categoria-actividad-02"];
+            break;
+        case TIPO_RECORRIDO_GUIADO:
+            imagenTipo.image = [UIImage imageNamed:@"icono-categoria-recorrido-02"];
+            break;
+        case TIPO_RUTA_TEMATICA:
+            imagenTipo.image = [UIImage imageNamed:@"icono-categoria-rutas-02"];
+            break;
+        default:
+            break;
+    }
+    
+    frame = imagenTipo.frame;
+    frame.origin.y = [self tableView:tableView heightForRowAtIndexPath:indexPath]/2 - frame.size.height/2 + alto_primera_fila;
+    imagenTipo.frame = frame;
+    
+    //icono-categoria-actividad-02
+    
+    UIImage *fondo;
+    if (indexPath.row == 0) {
+        fondo = [UIImage imageNamed:@"ficha-img-fondo-fila-arriba"];
+    }else{
+        fondo = [UIImage imageNamed:@"ficha-img-fondo-fila"];
+    }
+    
+    UIImage *fondo_resizable = [fondo resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
+    UIImageView *background = [[UIImageView alloc] initWithImage:fondo_resizable];
+    cell.backgroundView = background;
     return cell;
     
 }
@@ -146,6 +237,19 @@
         } AndFail:^(NSError *error) {
             [DejalBezelActivityView removeViewAnimated:YES];
         }];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PuntoCultural *puntoCultural = [[[MisPuntosCulturales instance] misPuntosCulturales] objectAtIndex:indexPath.row];
+    CGSize size_nombre = [puntoCultural.nombre sizeWithFont:fuenteNombre
+                                  constrainedToSize:CGSizeMake(170, 100000)
+                                      lineBreakMode:UILineBreakModeTailTruncation];
+    
+    if (indexPath.row == 0) {
+        return MAX((size_nombre.height + 30 + 25), 50);
+    }else{
+        return MAX((size_nombre.height + 30 + 25), 40);
     }
 }
 

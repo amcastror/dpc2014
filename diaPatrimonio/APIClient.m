@@ -12,7 +12,7 @@
 
 @implementation APIClient
 
-static NSString * const baseURL = @"http://diadelpatrimonio.dsarhoya.cl/";
+static NSString * const baseURL = @"http://dev.diadelpatrimonio.cl/";
 static NSString * const prefixURL = @"ws";
 
 + (APIClient *)instance {
@@ -30,7 +30,7 @@ static NSString * const prefixURL = @"ws";
                 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))_success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))_failure{
     
-    [self getPath:[prefixURL stringByAppendingString:_path] parameters:_parameters success:_success failure:_failure];
+    [self getPath:[prefixURL stringByAppendingString:[_path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] parameters:_parameters success:_success failure:_failure];
 }
 
 - (id)initWithBaseURL:(NSURL *)url {
@@ -84,7 +84,6 @@ static NSString * const prefixURL = @"ws";
     double longitud = [[Usuario instance] longitud];
     
     [self apiClientGetPath:[NSString stringWithFormat:@"/puntosCercanos/%f/%f", latitud, longitud] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"res: %@", responseObject);
         if (success) {
             success(responseObject);
         }
@@ -153,7 +152,7 @@ static NSString * const prefixURL = @"ws";
         path = [path stringByAppendingFormat:@"/%@", texto];
     }
     
-    [self apiClientGetPath:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+    [self apiClientGetPath:path
                 parameters:nil
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                        if (success) {
@@ -246,7 +245,7 @@ static NSString * const prefixURL = @"ws";
     }
 }
 
-#pragma mark - acciones mis puntos
+#pragma mark - requests mis puntos
 
 -(void)requestAgregarPuntoId:(NSNumber *)id_punto
        AMisPuntosWithSuccess:(void (^)())success
@@ -320,6 +319,51 @@ static NSString * const prefixURL = @"ws";
     [self apiClientGetPath:[NSString stringWithFormat:@"/cambiarEstadoPunto/%@/%i",
                             [[Usuario instance] udid],
                             [id_punto intValue]
+                            ]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       if (success) {
+                           success();
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
+
+#pragma mark - requests comentarios
+
+-(void)requestDejarComentarioEnPuntoCulturalID:(NSNumber *)id_punto
+                                      ConAutor:(NSString *)autor
+                                        Titulo:(NSString *)titulo
+                                   YComentario:(NSString *)comentario
+                                   WithSuccess:(void (^)())success
+                                       AndFail:(void (^)(NSError *error))fail{
+    
+    if (
+        !autor ||
+        !titulo ||
+        !comentario ||
+        [autor isEqualToString:@""] ||
+        [titulo isEqualToString:@""] ||
+        [comentario isEqualToString:@""]
+        ) {
+        NSError *err = [[NSError alloc] initWithDomain:@"no viene toda la información para dejar el comentario" code:101 userInfo:nil];
+        if (fail) {
+            fail(err);
+        }
+        return;
+    }
+    
+    [self apiClientGetPath:[NSString stringWithFormat:@"/setComentario/%i/%@/%@/%@",
+                            id_punto.intValue,
+                            autor,
+                            titulo,
+                            comentario
                             ]
                 parameters:nil
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {

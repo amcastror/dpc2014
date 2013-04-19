@@ -58,6 +58,8 @@
 		6026CE1217151D2F00AE68AE /* tab-bar-perfil-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6026CDE417151D2F00AE68AE /* tab-bar-perfil-@2x.png */; };
 		6026CE14171521FB00AE68AE /* icon-57-.png in Resources */ = {isa = PBXBuildFile; fileRef = 6026CE13171521FB00AE68AE /* icon-57-.png */; };
 		6026CE161715222300AE68AE /* icon-114-.png in Resources */ = {isa = PBXBuildFile; fileRef = 6026CE151715222300AE68AE /* icon-114-.png */; };
+		603CEB891721917400F50727 /* DejarComentarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603CEB871721917400F50727 /* DejarComentarioViewController.m */; };
+		603CEB8A1721917400F50727 /* DejarComentarioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603CEB881721917400F50727 /* DejarComentarioViewController.xib */; };
 		6044F088171FA60100F50842 /* ficha-linea-punto-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6044F086171FA60100F50842 /* ficha-linea-punto-01.png */; };
 		6044F089171FA60100F50842 /* ficha-linea-punto-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6044F087171FA60100F50842 /* ficha-linea-punto-01@2x.png */; };
 		6044F092171FA67B00F50842 /* icono-categoria-actividad-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 6044F08A171FA67B00F50842 /* icono-categoria-actividad-02.png */; };
@@ -104,6 +106,10 @@
 		6044F0DF171FBD1600F50842 /* ficha-tabbar-rutas-03-over@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6044F0D7171FBD1600F50842 /* ficha-tabbar-rutas-03-over@2x.png */; };
 		6044F0E0171FBD1600F50842 /* ficha-tabbar-rutas-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 6044F0D8171FBD1600F50842 /* ficha-tabbar-rutas-03.png */; };
 		6044F0E1171FBD1600F50842 /* ficha-tabbar-rutas-03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6044F0D9171FBD1600F50842 /* ficha-tabbar-rutas-03@2x.png */; };
+		60536487172041EC00563C44 /* ficha-tabbar-icono-compartir-over@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60536485172041EC00563C44 /* ficha-tabbar-icono-compartir-over@2x.png */; };
+		60536488172041EC00563C44 /* ficha-tabbar-icono-compartir.png in Resources */ = {isa = PBXBuildFile; fileRef = 60536486172041EC00563C44 /* ficha-tabbar-icono-compartir.png */; };
+		6053648B1720421C00563C44 /* ficha-tabbar-icono-compartir-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 605364891720421C00563C44 /* ficha-tabbar-icono-compartir-over.png */; };
+		6053648C1720421C00563C44 /* ficha-tabbar-icono-compartir@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6053648A1720421C00563C44 /* ficha-tabbar-icono-compartir@2x.png */; };
 		60723BB816ECB4E100C50BCF /* MisPuntosCulturales.m in Sources */ = {isa = PBXBuildFile; fileRef = 60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */; };
 		608297B316D831360057BED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B216D831360057BED5 /* UIKit.framework */; };
 		608297B516D831360057BED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B416D831360057BED5 /* Foundation.framework */; };
@@ -160,6 +166,10 @@
 		60C7EB0D16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7EB0B16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib */; };
 		60C8E6F516EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */; };
 		60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */; };
+		60D4E08E172106ED0081D112 /* ficha-img-fondo-fila.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D4E08C172106ED0081D112 /* ficha-img-fondo-fila.png */; };
+		60D4E08F172106ED0081D112 /* ficha-img-fondo-fila@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D4E08D172106ED0081D112 /* ficha-img-fondo-fila@2x.png */; };
+		60D4E0921721083C0081D112 /* ficha-img-fondo-fila-arriba.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D4E0901721083C0081D112 /* ficha-img-fondo-fila-arriba.png */; };
+		60D4E0931721083C0081D112 /* ficha-img-fondo-fila-arriba@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D4E0911721083C0081D112 /* ficha-img-fondo-fila-arriba@2x.png */; };
 		60E6D57D16EE35E500E08C14 /* filaPuntoCultural.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */; };
 		60E6D58316EE38C000E08C14 /* FilaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E6D58216EE38C000E08C14 /* FilaCell.m */; };
 		60E6D58516EE38D700E08C14 /* FilaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D58416EE38D700E08C14 /* FilaCell.xib */; };
@@ -224,6 +234,9 @@
 		6026CDE417151D2F00AE68AE /* tab-bar-perfil-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-bar-perfil-@2x.png"; sourceTree = "<group>"; };
 		6026CE13171521FB00AE68AE /* icon-57-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-57-.png"; sourceTree = "<group>"; };
 		6026CE151715222300AE68AE /* icon-114-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-114-.png"; sourceTree = "<group>"; };
+		603CEB861721917400F50727 /* DejarComentarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejarComentarioViewController.h; sourceTree = "<group>"; };
+		603CEB871721917400F50727 /* DejarComentarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejarComentarioViewController.m; sourceTree = "<group>"; };
+		603CEB881721917400F50727 /* DejarComentarioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DejarComentarioViewController.xib; sourceTree = "<group>"; };
 		6044F086171FA60100F50842 /* ficha-linea-punto-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-linea-punto-01.png"; sourceTree = "<group>"; };
 		6044F087171FA60100F50842 /* ficha-linea-punto-01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-linea-punto-01@2x.png"; sourceTree = "<group>"; };
 		6044F08A171FA67B00F50842 /* icono-categoria-actividad-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-categoria-actividad-02.png"; sourceTree = "<group>"; };
@@ -270,6 +283,10 @@
 		6044F0D7171FBD1600F50842 /* ficha-tabbar-rutas-03-over@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-rutas-03-over@2x.png"; sourceTree = "<group>"; };
 		6044F0D8171FBD1600F50842 /* ficha-tabbar-rutas-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-rutas-03.png"; sourceTree = "<group>"; };
 		6044F0D9171FBD1600F50842 /* ficha-tabbar-rutas-03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-rutas-03@2x.png"; sourceTree = "<group>"; };
+		60536485172041EC00563C44 /* ficha-tabbar-icono-compartir-over@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-compartir-over@2x.png"; sourceTree = "<group>"; };
+		60536486172041EC00563C44 /* ficha-tabbar-icono-compartir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-compartir.png"; sourceTree = "<group>"; };
+		605364891720421C00563C44 /* ficha-tabbar-icono-compartir-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-compartir-over.png"; sourceTree = "<group>"; };
+		6053648A1720421C00563C44 /* ficha-tabbar-icono-compartir@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-tabbar-icono-compartir@2x.png"; sourceTree = "<group>"; };
 		60723BB616ECB4E100C50BCF /* MisPuntosCulturales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturales.h; sourceTree = "<group>"; };
 		60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturales.m; sourceTree = "<group>"; };
 		608297AF16D831360057BED5 /* DiaDelPatrimonio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaDelPatrimonio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,6 +376,10 @@
 		60C8E6F216EAC3CA00C95DFD /* MisPuntosCulturalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturalesViewController.h; sourceTree = "<group>"; };
 		60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturalesViewController.m; sourceTree = "<group>"; };
 		60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MisPuntosCulturalesViewController.xib; sourceTree = "<group>"; };
+		60D4E08C172106ED0081D112 /* ficha-img-fondo-fila.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-img-fondo-fila.png"; sourceTree = "<group>"; };
+		60D4E08D172106ED0081D112 /* ficha-img-fondo-fila@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-img-fondo-fila@2x.png"; sourceTree = "<group>"; };
+		60D4E0901721083C0081D112 /* ficha-img-fondo-fila-arriba.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-img-fondo-fila-arriba.png"; sourceTree = "<group>"; };
+		60D4E0911721083C0081D112 /* ficha-img-fondo-fila-arriba@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ficha-img-fondo-fila-arriba@2x.png"; sourceTree = "<group>"; };
 		60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filaPuntoCultural.xib; sourceTree = "<group>"; };
 		60E6D58116EE38C000E08C14 /* FilaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilaCell.h; sourceTree = "<group>"; };
 		60E6D58216EE38C000E08C14 /* FilaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilaCell.m; sourceTree = "<group>"; };
@@ -410,6 +431,7 @@
 		6026CDB617151D1900AE68AE /* imagenes */ = {
 			isa = PBXGroup;
 			children = (
+				60D4E0871720F4950081D112 /* mis puntos */,
 				6044F083171FA19400F50842 /* ficha */,
 				6044F082171FA05D00F50842 /* mapa */,
 				6087CB181718560200013D76 /* splash-carga.png */,
@@ -472,6 +494,10 @@
 		6044F083171FA19400F50842 /* ficha */ = {
 			isa = PBXGroup;
 			children = (
+				605364891720421C00563C44 /* ficha-tabbar-icono-compartir-over.png */,
+				6053648A1720421C00563C44 /* ficha-tabbar-icono-compartir@2x.png */,
+				60536485172041EC00563C44 /* ficha-tabbar-icono-compartir-over@2x.png */,
+				60536486172041EC00563C44 /* ficha-tabbar-icono-compartir.png */,
 				6044F0D2171FBD1500F50842 /* ficha-tabbar-rutas-01-over.png */,
 				6044F0D3171FBD1500F50842 /* ficha-tabbar-rutas-01-over@2x.png */,
 				6044F0D4171FBD1500F50842 /* ficha-tabbar-rutas-01.png */,
@@ -702,6 +728,9 @@
 				6082980A16D99DC10057BED5 /* PuntoCulturalViewController.h */,
 				6082980B16D99DC10057BED5 /* PuntoCulturalViewController.m */,
 				6082980C16D99DC10057BED5 /* PuntoCulturalViewController.xib */,
+				603CEB861721917400F50727 /* DejarComentarioViewController.h */,
+				603CEB871721917400F50727 /* DejarComentarioViewController.m */,
+				603CEB881721917400F50727 /* DejarComentarioViewController.xib */,
 			);
 			name = PuntoCultural;
 			sourceTree = "<group>";
@@ -757,6 +786,17 @@
 				60E6D58416EE38D700E08C14 /* FilaCell.xib */,
 			);
 			name = ListaMisPuntosCulturales;
+			sourceTree = "<group>";
+		};
+		60D4E0871720F4950081D112 /* mis puntos */ = {
+			isa = PBXGroup;
+			children = (
+				60D4E0901721083C0081D112 /* ficha-img-fondo-fila-arriba.png */,
+				60D4E0911721083C0081D112 /* ficha-img-fondo-fila-arriba@2x.png */,
+				60D4E08C172106ED0081D112 /* ficha-img-fondo-fila.png */,
+				60D4E08D172106ED0081D112 /* ficha-img-fondo-fila@2x.png */,
+			);
+			name = "mis puntos";
 			sourceTree = "<group>";
 		};
 		60E9A76716FF42E30009D7C8 /* TestFlight */ = {
@@ -935,6 +975,15 @@
 				6044F0DF171FBD1600F50842 /* ficha-tabbar-rutas-03-over@2x.png in Resources */,
 				6044F0E0171FBD1600F50842 /* ficha-tabbar-rutas-03.png in Resources */,
 				6044F0E1171FBD1600F50842 /* ficha-tabbar-rutas-03@2x.png in Resources */,
+				60536487172041EC00563C44 /* ficha-tabbar-icono-compartir-over@2x.png in Resources */,
+				60536488172041EC00563C44 /* ficha-tabbar-icono-compartir.png in Resources */,
+				6053648B1720421C00563C44 /* ficha-tabbar-icono-compartir-over.png in Resources */,
+				6053648C1720421C00563C44 /* ficha-tabbar-icono-compartir@2x.png in Resources */,
+				60D4E08E172106ED0081D112 /* ficha-img-fondo-fila.png in Resources */,
+				60D4E08F172106ED0081D112 /* ficha-img-fondo-fila@2x.png in Resources */,
+				60D4E0921721083C0081D112 /* ficha-img-fondo-fila-arriba.png in Resources */,
+				60D4E0931721083C0081D112 /* ficha-img-fondo-fila-arriba@2x.png in Resources */,
+				603CEB8A1721917400F50727 /* DejarComentarioViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,6 +1028,7 @@
 				608DF984170F892A0026C00E /* TwitterController.m in Sources */,
 				6087CB0917183ED700013D76 /* PuntoMapa.m in Sources */,
 				6087CB0F17183F1000013D76 /* ViewPuntoMapa.m in Sources */,
+				603CEB891721917400F50727 /* DejarComentarioViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

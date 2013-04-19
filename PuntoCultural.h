@@ -59,6 +59,11 @@ typedef enum TipoPunto TipoPunto;
 
 -(void) requestCompletarInformacionWithSuccess:(void (^)())success
                                        AndFail:(void (^)(NSError *error))fail;
+-(void)requestDejarComentarioConAutor:(NSString *)autor
+                               Titulo:(NSString *)titulo
+                          YComentario:(NSString *)comentario
+                          WithSuccess:(void (^)())success
+                              AndFail:(void (^)(NSError *error))fail;
 -(void) cambiarEstadoPuntoWithSuccess:(void (^)())success
                               AndFail:(void (^)(NSError *error))fail;
 @end

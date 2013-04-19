@@ -10,6 +10,7 @@
 #import "MisPuntosCulturales.h" 
 #import "ShareViewController.h"
 #import "Filtros.h"
+#import "DejarComentarioViewController.h"
 
 #define bordeInferior 5
 #define fuenteTitulo [UIFont systemFontOfSize:20.0]
@@ -124,6 +125,7 @@
                                               lineBreakMode:UILineBreakModeTailTruncation];
     UILabel *nombre = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_nombre.height)];
     nombre.text = puntoCultural.nombre;
+    nombre.numberOfLines = 0;
     nombre.font = fuenteTitulo;
     nombre.textColor = colorTitulo;
     nombre.backgroundColor = [UIColor clearColor];
@@ -331,6 +333,13 @@
     }
     
     [self.navigationItem setBackBarButtonItem:atras];
+}
+
+- (IBAction)botonComentarioPressed:(id)sender{
+    DejarComentarioViewController *comentario = [[DejarComentarioViewController alloc] initWithNibName:@"DejarComentarioViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
+    [self.navigationController presentViewController:comentario animated:YES completion:^{
+        //
+    }];
 }
 
 @end

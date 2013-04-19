@@ -51,4 +51,10 @@
 -(void)requestCambiarEstadoPuntoCulturalID:(NSNumber *)id_punto
                                WithSuccess:(void (^)())success
                                    AndFail:(void (^)(NSError *error))fail;
+-(void)requestDejarComentarioEnPuntoCulturalID:(NSNumber *)id_punto
+                                      ConAutor:(NSString *)autor
+                                        Titulo:(NSString *)titulo
+                                   YComentario:(NSString *)comentario
+                                   WithSuccess:(void (^)())success
+                                       AndFail:(void (^)(NSError *error))fail;
 @end

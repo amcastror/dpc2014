@@ -77,6 +77,24 @@
     }];
 }
 
+-(void)requestDejarComentarioConAutor:(NSString *)autor
+                               Titulo:(NSString *)titulo
+                          YComentario:(NSString *)comentario
+                          WithSuccess:(void (^)())success
+                              AndFail:(void (^)(NSError *error))fail{
+    
+    [[APIClient instance] requestDejarComentarioEnPuntoCulturalID:id_punto ConAutor:autor Titulo:titulo YComentario:comentario WithSuccess:^{
+        if(success){
+            success();
+        }
+    } AndFail:^(NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
+    
+}
+
 -(void) eliminarDeMisPuntosWithSuccess:(void (^)())success
                                AndFail:(void (^)(NSError *error))fail{
     [[APIClient instance] requestEliminarPuntoId:id_punto DeMisPuntosWithSuccess:^{
