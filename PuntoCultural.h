@@ -31,6 +31,7 @@ typedef enum TipoPunto TipoPunto;
     NSNumber *id_sub_zona;
     NSNumber *distancia;
     NSNumber *id_tipo;
+    NSDictionary *comentarios;
     BOOL visitado;
 }
 
@@ -46,6 +47,7 @@ typedef enum TipoPunto TipoPunto;
 @property (nonatomic, readonly) NSNumber *id_sub_zona;
 @property (nonatomic, readonly) NSNumber *distancia;
 @property (nonatomic, readonly) NSNumber *id_tipo;
+@property (nonatomic, readonly) NSDictionary *comentarios;
 @property (readwrite) BOOL visitado;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto
@@ -64,6 +66,8 @@ typedef enum TipoPunto TipoPunto;
                           YComentario:(NSString *)comentario
                           WithSuccess:(void (^)())success
                               AndFail:(void (^)(NSError *error))fail;
+-(void)requestComentariosWithSuccess:(void (^)())success
+                             AndFail:(void (^)(NSError *error))fail;
 -(void) cambiarEstadoPuntoWithSuccess:(void (^)())success
                               AndFail:(void (^)(NSError *error))fail;
 @end

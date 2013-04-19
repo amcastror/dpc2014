@@ -17,10 +17,12 @@
 #define fuenteZona [UIFont boldSystemFontOfSize:17.0]
 #define fuenteDescripciones [UIFont systemFontOfSize:17.0]
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
+#define fuenteTituloComentarios [UIFont systemFontOfSize:17.0]
 #define colorTitulo [UIColor colorWithRed: 19.0/255.0 green: 182.0/255.0 blue: 243.0/255.0 alpha: 1.0]
 #define colorZona [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 #define colorDescripciones [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 20.0/255.0 alpha: 1.0]
 #define colorInformacion [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 100.0/255.0 alpha: 1.0]
+#define colorTituloComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 
 @interface PuntoCulturalViewController (){
     PuntoCultural *puntoCultural;
@@ -215,6 +217,46 @@
     largoActualFicha = descripcion_larga_view.frame.origin.y + descripcion_larga_view.frame.size.height + bordeInferior;
     [self actualizaLargoScroll];
     [scroll addSubview:descripcion_larga_view];
+    
+    [puntoCultural requestComentariosWithSuccess:^{
+        NSLog(@"comentarios: %@", [puntoCultural comentarios]);
+        
+        //separador
+        UIImageView *separador = [[UIImageView alloc] initWithFrame:CGRectMake(0, largoActualFicha, 320, 2)];
+        separador.image = [UIImage imageNamed:@"ficha-linea-punto-01"];
+        
+        largoActualFicha = largoActualFicha + 2 + bordeInferior;
+        [self actualizaLargoScroll];
+        [scroll addSubview:separador];
+        
+        //La gente comenta
+        CGSize size_titulo_comentarios = [@"La gente comenta" sizeWithFont:fuenteTituloComentarios
+                                   constrainedToSize:CGSizeMake(280, 100000)
+                                       lineBreakMode:UILineBreakModeTailTruncation];
+        UILabel *titulo_comentarios = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_titulo_comentarios.height)];
+        titulo_comentarios.text = @"La gente comenta";
+        titulo_comentarios.font = fuenteTituloComentarios;
+        titulo_comentarios.textColor = colorTituloComentarios;
+        titulo_comentarios.backgroundColor = [UIColor clearColor];
+        
+        largoActualFicha = titulo_comentarios.frame.origin.y + titulo_comentarios.frame.size.height + bordeInferior;
+        [self actualizaLargoScroll];
+        [scroll addSubview:titulo_comentarios];
+        
+        //
+        
+        int cantidad_comentarios = [[puntoCultural comentarios] count];
+        for (int i = 0; i < MIN(4, cantidad_comentarios); i++) {
+            //
+        }
+        
+        if (cantidad_comentarios > 4) {
+            //Agrego el boton de ver más comentarios.
+        }
+        
+    } AndFail:^(NSError *error) {
+        //
+    }];
 }
 
 -(void) actualizaLargoScroll{

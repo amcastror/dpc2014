@@ -57,4 +57,7 @@
                                    YComentario:(NSString *)comentario
                                    WithSuccess:(void (^)())success
                                        AndFail:(void (^)(NSError *error))fail;
+-(void)requestComentariosDePuntoCulturalID:(NSNumber *)id_punto
+                               WithSuccess:(void (^)(NSDictionary *results))success
+                                   AndFail:(void (^)(NSError *error))fail;
 @end

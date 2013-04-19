@@ -13,7 +13,7 @@
 @implementation PuntoCultural
 
 //aca sintetizo las propiedades
-@synthesize nombre, latitud, longitud, id_punto, descripcion, descripcion_larga, direccion, url_foto, id_zona, id_sub_zona, distancia, id_tipo, visitado;
+@synthesize nombre, latitud, longitud, id_punto, descripcion, descripcion_larga, direccion, url_foto, id_zona, id_sub_zona, distancia, id_tipo, visitado, comentarios;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto
             AndNombre:(NSString *)_nombre
@@ -92,7 +92,21 @@
             fail(error);
         }
     }];
+}
+
+-(void)requestComentariosWithSuccess:(void (^)())success
+                             AndFail:(void (^)(NSError *error))fail{
     
+    [[APIClient instance] requestComentariosDePuntoCulturalID:id_punto WithSuccess:^(NSDictionary *results) {
+        comentarios = results;
+        if (success) {
+            success();
+        }
+    } AndFail:^(NSError *error) {
+        if (fail) {
+            fail(error);
+        }
+    }];
 }
 
 -(void) eliminarDeMisPuntosWithSuccess:(void (^)())success

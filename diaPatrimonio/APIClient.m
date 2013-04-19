@@ -379,4 +379,25 @@ static NSString * const prefixURL = @"ws";
                        }
                    }];
 }
+-(void)requestComentariosDePuntoCulturalID:(NSNumber *)id_punto
+                               WithSuccess:(void (^)(NSDictionary *results))success
+                                   AndFail:(void (^)(NSError *error))fail{
+    
+    [self apiClientGetPath:[NSString stringWithFormat:@"/getComentarios/%i",
+                            id_punto.intValue
+                            ]
+                parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                       if (success) {
+                           success((NSDictionary *)responseObject);
+                       }
+                       
+                   }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                       [self revisaSiHayInternet];
+                       if (fail) {
+                           fail(error);
+                       }
+                   }];
+}
 @end
