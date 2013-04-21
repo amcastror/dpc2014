@@ -14,6 +14,7 @@
 			<string>IBProxyObject</string>
 			<string>IBUIBarButtonItem</string>
 			<string>IBUIButton</string>
+			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUIPickerView</string>
 			<string>IBUITextField</string>
@@ -40,10 +41,25 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
+					<object class="IBUIImageView" id="13206604">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{0, 402}, {320, 58}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="323349875"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">ficha-fondo-botones-01.png</string>
+						</object>
+					</object>
 					<object class="IBUIButton" id="981827634">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{210, 397}, {88, 44}}</string>
+						<string key="NSFrame">{{164, 415}, {122, 32}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="778748706"/>
@@ -53,19 +69,26 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Cancelar</string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor" id="175349350">
+						<object class="NSColor" key="IBUIHighlightedTitleColor">
 							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
+							<bytes key="NSWhite">MC45MDY5OTEzMzIxAA</bytes>
 						</object>
 						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC45MDY5OTEzMzIxAA</bytes>
 						</object>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="70513151">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
+						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">busqueda-tabbar-cancelar-over.png</string>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">busqueda-tabbar-cancelar.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="853567672">
 							<int key="type">2</int>
@@ -89,18 +112,26 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Todas las zonas...</string>
-						<reference key="IBUIHighlightedTitleColor" ref="175349350"/>
-						<object class="NSColor" key="IBUISelectedTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4wMTU2ODYyNzQ1MSAwLjQ5NDExNzY0NzEgMC44ODYyNzQ1MDk4AA</bytes>
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="175349350">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
 						</object>
+						<reference key="IBUISelectedTitleColor" ref="175349350"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC4zNzY0NzA2MjU0IDAuMzcyNTQ5MDI3MiAwLjM5MjE1Njg5OQA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="70513151"/>
+						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="239417456">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">busqueda-boton-over.png</string>
+						</object>
+						<reference key="IBUISelectedBackgroundImage" ref="239417456"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="41794462">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">busqueda-boton.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="853567672"/>
 						<reference key="IBUIFont" ref="475684728"/>
 					</object>
@@ -119,15 +150,15 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Todas las sub zonas...</string>
 						<reference key="IBUIHighlightedTitleColor" ref="175349350"/>
-						<object class="NSColor" key="IBUISelectedTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4wMTU2ODYyNzQ1MSAwLjQ5NDExNzY0NzEgMC44ODYyNzQ1MDk4AA</bytes>
-						</object>
+						<reference key="IBUISelectedTitleColor" ref="175349350"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC4zNzY0NzA2MjU0IDAuMzcyNTQ5MDI3MiAwLjM5MjE1Njg5OQA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="70513151"/>
+						<reference key="IBUIHighlightedBackgroundImage" ref="239417456"/>
+						<reference key="IBUISelectedBackgroundImage" ref="239417456"/>
+						<reference key="IBUINormalBackgroundImage" ref="41794462"/>
 						<reference key="IBUIFontDescription" ref="853567672"/>
 						<reference key="IBUIFont" ref="475684728"/>
 					</object>
@@ -212,18 +243,17 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Todas las categorías...</string>
 						<reference key="IBUIHighlightedTitleColor" ref="175349350"/>
-						<object class="NSColor" key="IBUISelectedTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4wMTU2ODYyNzQ1MSAwLjQ5NDExNzY0NzEgMC44ODYyNzQ1MDk4AA</bytes>
-						</object>
+						<reference key="IBUISelectedTitleColor" ref="175349350"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC4zNzY0NzA2MjU0IDAuMzcyNTQ5MDI3MiAwLjM5MjE1Njg5OQA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="70513151"/>
+						<reference key="IBUIHighlightedBackgroundImage" ref="239417456"/>
+						<reference key="IBUISelectedBackgroundImage" ref="239417456"/>
+						<reference key="IBUINormalBackgroundImage" ref="41794462"/>
 						<reference key="IBUIFontDescription" ref="853567672"/>
 						<reference key="IBUIFont" ref="475684728"/>
 					</object>
@@ -282,7 +312,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">El texto</string>
+						<string key="IBUIText">La palabra</string>
 						<reference key="IBUITextColor" ref="1015981805"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
@@ -293,7 +323,7 @@
 					<object class="IBUIButton" id="323349875">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{23, 397}, {179, 44}}</string>
+						<string key="NSFrame">{{34, 415}, {122, 32}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="981827634"/>
@@ -302,14 +332,24 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Buscar</string>
-						<reference key="IBUIHighlightedTitleColor" ref="175349350"/>
+						<object class="NSColor" key="IBUIHighlightedTitleColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC45MDY5OTEzMzIxAA</bytes>
+						</object>
 						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC45MDY5OTEzMzIxAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="70513151"/>
+						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">busqueda-tabbar-buscar-over.png</string>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">busqueda-tabbar-buscar.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="853567672"/>
 						<reference key="IBUIFont" ref="475684728"/>
 					</object>
@@ -319,7 +359,7 @@
 						<string key="NSFrame">{{47, 310}, {226, 79}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="323349875"/>
+						<reference key="NSNextKeyView" ref="13206604"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -328,8 +368,8 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">buscar...</string>
 						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwLjUwMTk2MDgxNCAxAA</bytes>
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC4zNzI1NDkwMjcyIDAuMzc2NDcwNjI1NCAwLjM5MjE1Njg5OQA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
@@ -350,6 +390,7 @@
 								<string key="NSFrame">{{0, 44}, {320, 216}}</string>
 								<reference key="NSSuperview" ref="778748706"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<array key="IBUIGestureRecognizers" id="0"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -394,9 +435,8 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="944030424"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MQA</bytes>
-					<reference key="NSCustomColorSpace" ref="859536835"/>
+					<int key="NSColorSpace">2</int>
+					<bytes key="NSRGB">MC44NjI3NDUxNjU4IDAuODc4NDMxNDM5NCAwLjg5MDE5NjE0NDYAA</bytes>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
@@ -609,8 +649,6 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="981827634"/>
-							<reference ref="323349875"/>
 							<reference ref="778748706"/>
 							<reference ref="101178678"/>
 							<reference ref="310655608"/>
@@ -621,6 +659,9 @@
 							<reference ref="487992818"/>
 							<reference ref="529527034"/>
 							<reference ref="666642247"/>
+							<reference ref="13206604"/>
+							<reference ref="323349875"/>
+							<reference ref="981827634"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -717,6 +758,11 @@
 						<reference key="object" ref="944030424"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">56</int>
+						<reference key="object" ref="13206604"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -726,8 +772,9 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="0.0" key="10.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="15.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="2" key="15.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="2" key="17.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -735,26 +782,67 @@
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="22.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="22.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="39.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="40.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="46.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="48.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="48.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="2" key="48.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="49.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">55</int>
+			<int key="maxID">56</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">BuscadorPuntosCulturalesViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="botonBuscarPressed:">id</string>
+						<string key="botonCancelarPressed:">id</string>
+						<string key="botonCategorias:">id</string>
+						<string key="botonSubZonas:">id</string>
+						<string key="botonZonas:">id</string>
+						<string key="esconderPicker:">id</string>
+						<string key="mostrarPicker:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="botonBuscarPressed:">
+							<string key="name">botonBuscarPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="botonCancelarPressed:">
+							<string key="name">botonCancelarPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="botonCategorias:">
+							<string key="name">botonCategorias:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="botonSubZonas:">
+							<string key="name">botonSubZonas:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="botonZonas:">
+							<string key="name">botonZonas:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="esconderPicker:">
+							<string key="name">esconderPicker:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="mostrarPicker:">
+							<string key="name">mostrarPicker:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="botonBuscar">UIButton</string>
 						<string key="botonCancelar">UIButton</string>
@@ -815,6 +903,15 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="busqueda-boton-over.png">{281, 45}</string>
+			<string key="busqueda-boton.png">{281, 45}</string>
+			<string key="busqueda-tabbar-buscar-over.png">{122, 32}</string>
+			<string key="busqueda-tabbar-buscar.png">{122, 32}</string>
+			<string key="busqueda-tabbar-cancelar-over.png">{122, 32}</string>
+			<string key="busqueda-tabbar-cancelar.png">{122, 32}</string>
+			<string key="ficha-fondo-botones-01.png">{320, 58}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>
