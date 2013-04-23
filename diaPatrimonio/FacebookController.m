@@ -10,6 +10,8 @@
 
 @implementation FacebookController
 
+@synthesize nombre_usuario;
+
 +(FacebookController *) instance
 {
     static FacebookController *singleton = nil;
@@ -67,9 +69,14 @@
                                           allowLoginUI:withUI
                                      completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
                                          [self sessionStateChanged:session state:status];
-                                         if (handler) {
-                                             handler(error);
-                                         }
+                                         [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                             if ([(NSDictionary *)result objectForKey:@"name"]) {
+                                                 nombre_usuario = [(NSDictionary *)result objectForKey:@"name"];
+                                             }
+                                             if (handler) {
+                                                 handler(error);
+                                             }
+                                         }];
     }];
 }
 

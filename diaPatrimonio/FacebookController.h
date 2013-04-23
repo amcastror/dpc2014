@@ -11,7 +11,11 @@
 
 typedef void (^CompletionHandler)(NSError *error);
 
-@interface FacebookController : NSObject
+@interface FacebookController : NSObject{
+    NSString *nombre_usuario;
+}
+
+@property (nonatomic, readonly) NSString *nombre_usuario;
 
 +(FacebookController *) instance;
 

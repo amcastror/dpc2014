@@ -9,20 +9,21 @@
 #import "ComentariosViewController.h"
 
 #define bordeInferior 5
-#define fuenteTitulo [UIFont systemFontOfSize:20.0]
-#define fuenteZona [UIFont boldSystemFontOfSize:17.0]
+#define fuenteTitulo [UIFont fontWithName:@"Helvetica-Bold" size:21]
+#define fuenteZona [UIFont fontWithName:@"Arial-BoldMT" size:14]
+#define fuenteCategoria [UIFont fontWithName:@"Helvetica" size:16]
 #define fuenteDescripciones [UIFont systemFontOfSize:17.0]
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
 #define fuenteTituloComentarios [UIFont systemFontOfSize:17.0]
-#define fuenteNombreComentarios [UIFont systemFontOfSize:15.0]
-#define fuenteFecha [UIFont systemFontOfSize:15.0]
-#define colorTitulo [UIColor colorWithRed: 19.0/255.0 green: 182.0/255.0 blue: 243.0/255.0 alpha: 1.0]
+#define fuenteNombreComentarios [UIFont systemFontOfSize:12.0]
+#define fuenteFecha [UIFont systemFontOfSize:12.0]
+#define colorTitulo [UIColor colorWithRed: 22.0/255.0 green: 82.0/255.0 blue: 158.0/255.0 alpha: 1.0]
 #define colorZona [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 #define colorDescripciones [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 20.0/255.0 alpha: 1.0]
 #define colorInformacion [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorTituloComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
-#define colorNombreComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
-#define colorFecha [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
+#define colorNombreComentarios [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
+#define colorFecha [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 
 @interface ComentariosViewController ()
 

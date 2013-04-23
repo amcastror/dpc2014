@@ -7,6 +7,7 @@
 //
 
 #import "DejarComentarioViewController.h"
+#import "FacebookController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface DejarComentarioViewController ()
@@ -29,6 +30,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    if ([[FacebookController instance] tengoSession]) {
+        nombre_field.text = [[FacebookController instance] nombre_usuario];
+    }
     
     UIImageView *fondo_blanco = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 45)];
     fondo_blanco.image = [[UIImage imageNamed:@"fondo-blanco"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];

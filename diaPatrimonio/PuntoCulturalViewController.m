@@ -20,15 +20,15 @@
 #define fuenteDescripciones [UIFont systemFontOfSize:17.0]
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
 #define fuenteTituloComentarios [UIFont systemFontOfSize:17.0]
-#define fuenteNombreComentarios [UIFont systemFontOfSize:15.0]
-#define fuenteFecha [UIFont systemFontOfSize:15.0]
+#define fuenteNombreComentarios [UIFont systemFontOfSize:12.0]
+#define fuenteFecha [UIFont systemFontOfSize:12.0]
 #define colorTitulo [UIColor colorWithRed: 22.0/255.0 green: 82.0/255.0 blue: 158.0/255.0 alpha: 1.0]
 #define colorZona [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
 #define colorDescripciones [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 20.0/255.0 alpha: 1.0]
 #define colorInformacion [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorTituloComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
-#define colorNombreComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
-#define colorFecha [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
+#define colorNombreComentarios [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
+#define colorFecha [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 
 @interface PuntoCulturalViewController (){
     PuntoCultural *puntoCultural;
@@ -281,13 +281,13 @@
                 
                 
                 
-                CGSize size_fecha = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"fecha"] sizeWithFont:fuenteNombreComentarios
+                CGSize size_fecha = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"fecha"] sizeWithFont:fuenteFecha
                                                                                                                     constrainedToSize:CGSizeMake(260, 100000)
                                                                                                                         lineBreakMode:UILineBreakModeTailTruncation];
                 UILabel *fecha_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, nombre_comentario.frame.origin.y + nombre_comentario.frame.size.height + 5, 260, size_fecha.height)];
                 fecha_comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"fecha"];
-                fecha_comentario.font = fuenteNombreComentarios;
-                fecha_comentario.textColor = colorNombreComentarios;
+                fecha_comentario.font = fuenteFecha;
+                fecha_comentario.textColor = colorFecha;
                 fecha_comentario.backgroundColor = [UIColor clearColor];
                 fecha_comentario.numberOfLines = 1;
                 fecha_comentario.lineBreakMode = UILineBreakModeTailTruncation;

@@ -49,10 +49,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if ([[FacebookController instance] tengoSession]) {
-        estadoSesionFacebook.text = @"facebook on";
+        estadoSesionFacebook.text = @"Conectado";
         facebookSwitch.on = YES;
     }else{
-        estadoSesionFacebook.text = @"facebook off";
+        estadoSesionFacebook.text = @"No conectado";
         facebookSwitch.on = NO;
     }
     
@@ -70,18 +70,20 @@
                 [DejalBezelActivityView removeViewAnimated:YES];
                 if (!error) {
                     if ([[FacebookController instance] tengoSession]) {
-                        estadoSesionFacebook.text = @"facebook on";
+                        estadoSesionFacebook.text = @"Conectado";
                     }else{
-                        estadoSesionFacebook.text = @"facebook off";
+                        estadoSesionFacebook.text = @"No conectado";
                         switchControl.on = NO;
                     }
                 }else{
-                    
+                    estadoSesionFacebook.text = @"No conectado";
+                    switchControl.on = NO;
                 }
             }];
         }else{
             [[FacebookController instance] logout];
-            estadoSesionFacebook.text = @"facebook off";
+            estadoSesionFacebook.text = @"No conectado";
+            switchControl.on = NO;
         }
     }else if(switchControl.tag ==1) {//Twitter
         if (switchControl.on) {
