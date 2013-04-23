@@ -7,6 +7,7 @@
 //
 
 #import "DejarComentarioViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DejarComentarioViewController ()
 
@@ -28,6 +29,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIImageView *fondo_blanco = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 45)];
+    fondo_blanco.image = [[UIImage imageNamed:@"fondo-blanco"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
+    [self.view addSubview:fondo_blanco];
+    [self.view sendSubviewToBack:fondo_blanco];
+    
+    UIImageView *fondo_gris = [[UIImageView alloc] initWithFrame:CGRectMake(10, 45, 300, 300)];
+    fondo_gris.image = [[UIImage imageNamed:@"fondo-gris"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
+    [self.view addSubview:fondo_gris];
+    [self.view sendSubviewToBack:fondo_gris];
+
+    comentario_view.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    comentario_view.layer.borderWidth = 0.5;
+    comentario_view.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +83,7 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         CGRect frame = self.view.frame;
-        frame.origin.y = frame.origin.y + 150;
+        frame.origin.y = frame.origin.y + 130;
         self.view.frame = frame;
     } completion:^(BOOL finished) {
         //
@@ -78,7 +93,7 @@
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     [UIView animateWithDuration:0.5 animations:^{
         CGRect frame = self.view.frame;
-        frame.origin.y = frame.origin.y - 150;
+        frame.origin.y = frame.origin.y - 130;
         self.view.frame = frame;
     } completion:^(BOOL finished) {
         //

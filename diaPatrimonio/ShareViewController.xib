@@ -89,7 +89,7 @@
 					<object class="IBUITextView" id="190230872">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 105}, {280, 121}}</string>
+						<string key="NSFrame">{{20, 101}, {280, 121}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="236600281"/>
@@ -157,7 +157,7 @@
 						<string key="NSFrame">{{26, 257}, {170, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="698326100"/>
+						<reference key="NSNextKeyView" ref="1014104292"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -181,7 +181,7 @@
 						<string key="NSFrame">{{40, 315}, {94, 27}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="422592086"/>
+						<reference key="NSNextKeyView" ref="698326100"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -340,7 +340,7 @@
 						<string key="NSFrame">{{57, 286}, {90, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="412752539"/>
+						<reference key="NSNextKeyView" ref="162389773"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -371,7 +371,7 @@
 						<string key="NSFrame">{{214, 286}, {80, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="162389773"/>
+						<reference key="NSNextKeyView" ref="422592086"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -440,7 +440,7 @@
 						<string key="NSFrame">{{160, 294}, {1, 45}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1014104292"/>
+						<reference key="NSNextKeyView" ref="412752539"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -580,7 +580,6 @@
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="455688053"/>
-							<reference ref="190230872"/>
 							<reference ref="236600281"/>
 							<reference ref="106813290"/>
 							<reference ref="162389773"/>
@@ -589,13 +588,14 @@
 							<reference ref="1006640822"/>
 							<reference ref="62125865"/>
 							<reference ref="412752539"/>
-							<reference ref="315456060"/>
 							<reference ref="930370308"/>
 							<reference ref="532423964"/>
 							<reference ref="182526836"/>
 							<reference ref="537793048"/>
-							<reference ref="694597515"/>
 							<reference ref="698326100"/>
+							<reference ref="694597515"/>
+							<reference ref="190230872"/>
+							<reference ref="315456060"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -740,6 +740,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">ShareViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="compartirPressed:">id</string>
+						<string key="tomarFotoPressed:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="compartirPressed:">
+							<string key="name">compartirPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="tomarFotoPressed:">
+							<string key="name">tomarFotoPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="comentario">UITextView</string>
 						<string key="compartir">UIButton</string>

@@ -269,6 +269,10 @@
 		60C7EB0D16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7EB0B16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib */; };
 		60C8E6F516EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */; };
 		60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */; };
+		60E40E0817261CDE007F4D5C /* fondo-blanco@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E40E0617261CDE007F4D5C /* fondo-blanco@2x.png */; };
+		60E40E0C17261D07007F4D5C /* fondo-blanco.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E40E0A17261D07007F4D5C /* fondo-blanco.png */; };
+		60E40E10172620A5007F4D5C /* fondo-gris.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E40E0E172620A4007F4D5C /* fondo-gris.png */; };
+		60E40E11172620A5007F4D5C /* fondo-gris@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E40E0F172620A5007F4D5C /* fondo-gris@2x.png */; };
 		60E6D57D16EE35E500E08C14 /* filaPuntoCultural.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */; };
 		60E6D58316EE38C000E08C14 /* FilaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E6D58216EE38C000E08C14 /* FilaCell.m */; };
 		60E6D58516EE38D700E08C14 /* FilaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D58416EE38D700E08C14 /* FilaCell.xib */; };
@@ -579,6 +583,10 @@
 		60C8E6F216EAC3CA00C95DFD /* MisPuntosCulturalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturalesViewController.h; sourceTree = "<group>"; };
 		60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturalesViewController.m; sourceTree = "<group>"; };
 		60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MisPuntosCulturalesViewController.xib; sourceTree = "<group>"; };
+		60E40E0617261CDE007F4D5C /* fondo-blanco@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo-blanco@2x.png"; sourceTree = "<group>"; };
+		60E40E0A17261D07007F4D5C /* fondo-blanco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo-blanco.png"; sourceTree = "<group>"; };
+		60E40E0E172620A4007F4D5C /* fondo-gris.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo-gris.png"; sourceTree = "<group>"; };
+		60E40E0F172620A5007F4D5C /* fondo-gris@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo-gris@2x.png"; sourceTree = "<group>"; };
 		60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = filaPuntoCultural.xib; sourceTree = "<group>"; };
 		60E6D58116EE38C000E08C14 /* FilaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilaCell.h; sourceTree = "<group>"; };
 		60E6D58216EE38C000E08C14 /* FilaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilaCell.m; sourceTree = "<group>"; };
@@ -631,6 +639,10 @@
 		60586B2F1725FBB80008B771 /* imagenes */ = {
 			isa = PBXGroup;
 			children = (
+				60E40E0E172620A4007F4D5C /* fondo-gris.png */,
+				60E40E0F172620A5007F4D5C /* fondo-gris@2x.png */,
+				60E40E0A17261D07007F4D5C /* fondo-blanco.png */,
+				60E40E0617261CDE007F4D5C /* fondo-blanco@2x.png */,
 				60586C65172602BD0008B771 /* compartir-barra-separadora.png */,
 				60586C66172602BD0008B771 /* compartir-barra-separadora@2x.png */,
 				60586C67172602BD0008B771 /* compartir-boton-comp-actividades-over.png */,
@@ -1357,6 +1369,10 @@
 				60586CB6172602BF0008B771 /* compartir-icono-twitter@2x.png in Resources */,
 				60586CB7172602BF0008B771 /* icono-compartir.png in Resources */,
 				60586CB8172602BF0008B771 /* icono-compartir@2x.png in Resources */,
+				60E40E0817261CDE007F4D5C /* fondo-blanco@2x.png in Resources */,
+				60E40E0C17261D07007F4D5C /* fondo-blanco.png in Resources */,
+				60E40E10172620A5007F4D5C /* fondo-gris.png in Resources */,
+				60E40E11172620A5007F4D5C /* fondo-gris@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
