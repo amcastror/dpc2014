@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PuntoCultural.h"
 #import "ImagenAsincrona.h"
+#import "DejarComentarioViewController.h"
 
-@interface PuntoCulturalViewController : UIViewController{
+@interface PuntoCulturalViewController : UIViewController <ComentarDelegate>{
     IBOutlet UIButton *botonAccionPunto;
     IBOutlet UIButton *botonCompartir;
     IBOutlet UIButton *botonComentar;

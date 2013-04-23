@@ -25,6 +25,9 @@ typedef enum TipoPunto TipoPunto;
     NSString *descripcion_larga;
     NSString *direccion;
     NSString *url_foto;
+    
+    NSString *horario;
+    
     NSNumber *latitud;
     NSNumber *longitud;
     NSNumber *id_zona;
@@ -40,6 +43,9 @@ typedef enum TipoPunto TipoPunto;
 @property (nonatomic, readonly) NSString *descripcion_larga;
 @property (nonatomic, readonly) NSString *direccion;
 @property (nonatomic, readonly) NSString *url_foto;
+
+@property (nonatomic, readonly) NSString *horario;
+
 @property (nonatomic, readonly) NSNumber *id_punto;
 @property (nonatomic, readonly) NSNumber *latitud;
 @property (nonatomic, readonly) NSNumber *longitud;

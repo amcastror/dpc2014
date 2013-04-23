@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "PuntoCultural.h"
 
+@protocol ComentarDelegate <NSObject>
+-(void)comentarioEnviado;
+@end
+
 @interface DejarComentarioViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>{
     IBOutlet UITextField *nombre_field;
     IBOutlet UITextField *titulo_field;
@@ -19,8 +23,9 @@
     NSString *comentario;
     
     PuntoCultural *puntoCultural;
+    id<ComentarDelegate> delegate;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil AndPuntoCultural:(PuntoCultural *)punto;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil AndPuntoCultural:(PuntoCultural *)punto AndDelegate:(id)_delegate;
 
 @end

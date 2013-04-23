@@ -7,6 +7,7 @@
 //
 
 #import "ComentariosViewController.h"
+#import "Comentario.h"
 
 #define bordeInferior 5
 #define fuenteTitulo [UIFont fontWithName:@"Helvetica-Bold" size:21]
@@ -61,7 +62,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     int alto_primera_fila = 0;
     if (indexPath.row == 0) {
         alto_primera_fila = 10;
@@ -73,7 +74,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     
-    CGSize size_comentario = [[(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"comentario"] sizeWithFont:fuenteDescripciones
+    CGSize size_comentario = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] comentario] sizeWithFont:fuenteDescripciones
                                                                                                                 constrainedToSize:CGSizeMake(260, 100000)
                                                                                                                     lineBreakMode:UILineBreakModeTailTruncation];
     CGRect frame;
@@ -85,7 +86,7 @@
     label.font = fuenteDescripciones;
     label.textColor = colorDescripciones;
     //label.backgroundColor = [UIColor greenColor];
-    label.text = [(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"comentario"];
+    label.text = [(Comentario *)[comentarios objectAtIndex:indexPath.row] comentario];
     
     [cell addSubview:label];
     
@@ -95,7 +96,7 @@
     
     label = [[UILabel alloc] init];
     
-    CGSize size_autor = [[(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"autor"] sizeWithFont:fuenteDescripciones
+    CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteDescripciones
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
                                                                                                           lineBreakMode:UILineBreakModeTailTruncation];
     frame.origin.x = 20;
@@ -106,7 +107,7 @@
     label.font = fuenteNombreComentarios;
     label.textColor = colorNombreComentarios;
     //label.backgroundColor = [UIColor yellowColor];
-    label.text = [(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"autor"];
+    label.text = [(Comentario *)[comentarios objectAtIndex:indexPath.row] autor];
     
     [cell addSubview:label];
     int fin_autor = frame.origin.y + frame.size.height;
@@ -117,7 +118,7 @@
     
     label = [[UILabel alloc] init];
     
-    CGSize size_fecha = [[(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"fecha"] sizeWithFont:fuenteFecha
+    CGSize size_fecha = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] fecha_string] sizeWithFont:fuenteFecha
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
                                                                                                           lineBreakMode:UILineBreakModeTailTruncation];
     frame.origin.x = 20;
@@ -128,7 +129,7 @@
     label.font = fuenteFecha;
     label.textColor = colorFecha;
     //label.backgroundColor = [UIColor redColor];
-    label.text = [(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"fecha"];
+    label.text = [(Comentario *)[comentarios objectAtIndex:indexPath.row] fecha_string];
     
     [cell addSubview:label];
     
@@ -150,14 +151,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size_nombre = [[(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"comentario"]
+    CGSize size_nombre = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] comentario]
                           sizeWithFont:fuenteDescripciones
                           constrainedToSize:CGSizeMake(170, 100000)
                           lineBreakMode:UILineBreakModeTailTruncation];
-    CGSize size_autor = [[(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"autor"] sizeWithFont:fuenteDescripciones
+    CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteDescripciones
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
                                                                                                           lineBreakMode:UILineBreakModeTailTruncation];
-    CGSize size_fecha = [[(NSDictionary *)[comentarios objectAtIndex:indexPath.row] objectForKey:@"fecha"] sizeWithFont:fuenteDescripciones
+    CGSize size_fecha = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] fecha_string] sizeWithFont:fuenteDescripciones
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
                                                                                                           lineBreakMode:UILineBreakModeTailTruncation];
     

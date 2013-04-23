@@ -16,12 +16,13 @@
 
 @implementation DejarComentarioViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil AndPuntoCultural:(PuntoCultural *)punto
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil AndPuntoCultural:(PuntoCultural *)punto AndDelegate:(id)_delegate
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
         puntoCultural = punto;
+        delegate = _delegate;
     }
     return self;
 }
@@ -33,6 +34,7 @@
     
     if ([[FacebookController instance] tengoSession]) {
         nombre_field.text = [[FacebookController instance] nombre_usuario];
+        nombre = [[FacebookController instance] nombre_usuario];
     }
     
     UIImageView *fondo_blanco = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 45)];
@@ -126,6 +128,7 @@
         [DejalBezelActivityView removeViewAnimated:YES];
         [self dismissViewControllerAnimated:YES completion:^{
             [[[UIAlertView alloc] initWithTitle:@"Gracias!" message:@"Gracias por dejarnos tu comentario" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [delegate comentarioEnviado];
         }];
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];

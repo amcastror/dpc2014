@@ -277,6 +277,7 @@
 		60E9A76D16FF42E30009D7C8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60E9A76916FF42E30009D7C8 /* README.md */; };
 		60E9A76E16FF42E30009D7C8 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 60E9A76A16FF42E30009D7C8 /* release_notes.md */; };
 		60E9A77016FF43450009D7C8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E9A76F16FF43450009D7C8 /* libz.dylib */; };
+		60FB6B7E1727466000309647 /* Comentario.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FB6B7D1727466000309647 /* Comentario.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -592,6 +593,8 @@
 		60E9A76A16FF42E30009D7C8 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		60E9A76B16FF42E30009D7C8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		60E9A76F16FF43450009D7C8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		60FB6B7C1727466000309647 /* Comentario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comentario.h; sourceTree = "<group>"; };
+		60FB6B7D1727466000309647 /* Comentario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comentario.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -989,6 +992,8 @@
 				601F9B8E16FF5E7B00C6E63A /* Usuario.m */,
 				608C617017075B6400F77FCB /* Zona.h */,
 				608C617117075B6400F77FCB /* Zona.m */,
+				60FB6B7C1727466000309647 /* Comentario.h */,
+				60FB6B7D1727466000309647 /* Comentario.m */,
 			);
 			name = Modelos;
 			path = ..;
@@ -1409,6 +1414,7 @@
 				6087CB0F17183F1000013D76 /* ViewPuntoMapa.m in Sources */,
 				603CEB891721917400F50727 /* DejarComentarioViewController.m in Sources */,
 				60BF70891721DDF400E9EA13 /* ComentariosViewController.m in Sources */,
+				60FB6B7E1727466000309647 /* Comentario.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,8 +1468,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "F448C327-8219-4109-BAC7-874A6E218372";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F448C327-8219-4109-BAC7-874A6E218372";
+				PROVISIONING_PROFILE = "6861CB90-7F85-484D-9E12-AB469B57D981";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6861CB90-7F85-484D-9E12-AB469B57D981";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1489,8 +1495,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F448C327-8219-4109-BAC7-874A6E218372";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F448C327-8219-4109-BAC7-874A6E218372";
+				PROVISIONING_PROFILE = "6861CB90-7F85-484D-9E12-AB469B57D981";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6861CB90-7F85-484D-9E12-AB469B57D981";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1499,7 +1505,8 @@
 		608297CD16D831360057BED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andres Castro (9659KEG457)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Marcos Correa";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marcos Correa";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1517,7 +1524,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B5EA795F-6F3A-4FF1-86F8-82C9F190F438";
+				PROVISIONING_PROFILE = "6861CB90-7F85-484D-9E12-AB469B57D981";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6861CB90-7F85-484D-9E12-AB469B57D981";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1525,6 +1533,8 @@
 		608297CE16D831360057BED5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Marcos Correa";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marcos Correa";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1542,6 +1552,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6861CB90-7F85-484D-9E12-AB469B57D981";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6861CB90-7F85-484D-9E12-AB469B57D981";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

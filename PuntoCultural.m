@@ -9,11 +9,12 @@
 #import "PuntoCultural.h"
 #import "APIClient.h"
 #import "Usuario.h"
+#import "Comentario.h"
 
 @implementation PuntoCultural
 
 //aca sintetizo las propiedades
-@synthesize nombre, latitud, longitud, id_punto, descripcion, descripcion_larga, direccion, url_foto, id_zona, id_sub_zona, distancia, id_tipo, visitado, comentarios;
+@synthesize nombre, latitud, longitud, id_punto, descripcion, descripcion_larga, direccion, url_foto, id_zona, id_sub_zona, distancia, id_tipo, visitado, comentarios, horario;
 
 -(id) initWithIDPunto:(NSNumber *) _id_punto
             AndNombre:(NSString *)_nombre
@@ -49,6 +50,16 @@
                                        AndFail:(void (^)(NSError *error))fail{
     [[APIClient instance] requestCompletarInformacionPuntoCulturalConIDPunto:id_punto AndSuccess:^(NSDictionary *informacionPunto) {
         
+        NSString *lunes = nil;
+        NSString *martes = nil;
+        NSString *miercoles = nil;
+        NSString *jueves = nil;
+        NSString *viernes = nil;
+        NSString *sabado = nil;
+        NSString *domingo = nil;
+        
+        NSMutableArray *horarios = [[NSMutableArray alloc] init];
+        
         if ([informacionPunto objectForKey:@"d_c"]) {
             descripcion = [informacionPunto objectForKey:@"d_c"];
         }
@@ -64,6 +75,56 @@
         
         if ([informacionPunto objectForKey:@"subzona"]) {
             id_sub_zona = (NSNumber *)[informacionPunto objectForKey:@"subzona"];
+        }
+        
+        /*    HORARIOS    */
+        
+        if ([informacionPunto objectForKey:@"l"] && [[informacionPunto objectForKey:@"l"] class] != [NSNull class]) {
+            lunes = (NSString *)[informacionPunto objectForKey:@"l"];
+            [horarios addObject:[NSString stringWithFormat:@"Lunes %@", lunes]];
+        }
+        
+        if ([informacionPunto objectForKey:@"m"] && [[informacionPunto objectForKey:@"m"] class] != [NSNull class]) {
+            martes = (NSString *)[informacionPunto objectForKey:@"m"];
+            [horarios addObject:[NSString stringWithFormat:@"Martes %@", martes]];
+        }
+        
+        if ([informacionPunto objectForKey:@"w"] && [[informacionPunto objectForKey:@"w"] class] != [NSNull class]) {
+            miercoles = (NSString *)[informacionPunto objectForKey:@"w"];
+            [horarios addObject:[NSString stringWithFormat:@"Miércoles %@", miercoles]];
+        }
+        
+        if ([informacionPunto objectForKey:@"j"] && [[informacionPunto objectForKey:@"j"] class] != [NSNull class]) {
+            jueves = (NSString *)[informacionPunto objectForKey:@"j"];
+            [horarios addObject:[NSString stringWithFormat:@"Jueves %@", jueves]];
+        }
+        
+        if ([informacionPunto objectForKey:@"v"] && [[informacionPunto objectForKey:@"v"] class] != [NSNull class]) {
+            viernes = (NSString *)[informacionPunto objectForKey:@"v"];
+            [horarios addObject:[NSString stringWithFormat:@"Viernes %@", viernes]];
+        }
+        
+        if ([informacionPunto objectForKey:@"s"] && [[informacionPunto objectForKey:@"s"] class] != [NSNull class]) {
+            sabado = (NSString *)[informacionPunto objectForKey:@"s"];
+            [horarios addObject:[NSString stringWithFormat:@"Sábado %@", sabado]];
+        }
+        
+        if ([informacionPunto objectForKey:@"d"] && [[informacionPunto objectForKey:@"d"] class] != [NSNull class]) {
+            domingo = (NSString *)[informacionPunto objectForKey:@"d"];
+            [horarios addObject:[NSString stringWithFormat:@"Domingo %@", domingo]];
+        }
+        
+        if (
+            [lunes isEqualToString:martes] &&
+            [lunes isEqualToString:miercoles] &&
+            [lunes isEqualToString:jueves] &&
+            [lunes isEqualToString:viernes] &&
+            [lunes isEqualToString:sabado] &&
+            [lunes isEqualToString:domingo]
+            ) {
+            horario = [NSString stringWithFormat:@"Todos los días %@", lunes];
+        }else{
+            horario = [horarios componentsJoinedByString:@", "];
         }
         
         if (success) {
@@ -97,11 +158,33 @@
                              AndFail:(void (^)(NSError *error))fail{
     
     [[APIClient instance] requestComentariosDePuntoCulturalID:id_punto WithSuccess:^(NSArray *results) {
-        comentarios = results;
+        
+        NSDateFormatter *df=[[NSDateFormatter alloc] init];
+        [df setDateFormat:@"dd-MM-yyy HH:mm:ss"];
+        
+        NSMutableArray *comentarios_tmp = [[NSMutableArray alloc] init];
+        for (NSDictionary *comentario in (NSArray *)results) {
+            [comentarios_tmp addObject:[[Comentario alloc] initWithAutor:[comentario objectForKey:@"autor"]
+                                                               AndTitulo:[comentario objectForKey:@"titulo"]
+                                                           AndComentario:[comentario objectForKey:@"comentario"]
+                                                                AndFecha:[df dateFromString:[comentario objectForKey:@"fecha"]]
+                                                          AndFechaString:[comentario objectForKey:@"fecha"]
+                                        ]];
+        }
+        
+        [comentarios_tmp sortUsingSelector:@selector(compararPorFecha:)];
+        
+        comentarios = [NSArray arrayWithArray:comentarios_tmp];
+        
+        for (Comentario *com in comentarios) {
+            NSLog(@"comentario: %@, %@", com.comentario, com.fecha);
+        }
+        
         if (success) {
             success();
         }
     } AndFail:^(NSError *error) {
+        NSLog(@"err: %@", error);
         if (fail) {
             fail(error);
         }

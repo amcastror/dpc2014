@@ -12,6 +12,7 @@
 #import "Filtros.h"
 #import "DejarComentarioViewController.h"
 #import "ComentariosViewController.h"
+#import "Comentario.h"
 
 #define bordeInferior 5
 #define fuenteTitulo [UIFont fontWithName:@"Helvetica-Bold" size:21]
@@ -33,6 +34,7 @@
 @interface PuntoCulturalViewController (){
     PuntoCultural *puntoCultural;
     int largoActualFicha;
+    UIView *viewComentarios;
 }
 
 @end
@@ -195,12 +197,26 @@
     direccion.font = fuenteInformacion;
     direccion.textColor = colorInformacion;
     direccion.backgroundColor = [UIColor clearColor];
-    
+    direccion.numberOfLines = 0;
     largoActualFicha = direccion.frame.origin.y + direccion.frame.size.height + bordeInferior;
     [self actualizaLargoScroll];
     [scroll addSubview:direccion];
     
     //Horarios, sitio web, etc.
+    
+    CGSize size_horario = [[NSString stringWithFormat:@"Horario: %@", puntoCultural.horario] sizeWithFont:fuenteInformacion
+                                                                                              constrainedToSize:CGSizeMake(280, 100000)
+                                                                                                  lineBreakMode:UILineBreakModeTailTruncation];
+    UILabel *horario = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_horario.height)];
+    horario.text = [NSString stringWithFormat:@"Horario: %@", puntoCultural.horario];
+    horario.font = fuenteInformacion;
+    horario.textColor = colorInformacion;
+    horario.backgroundColor = [UIColor clearColor];
+    horario.numberOfLines = 0;
+    
+    largoActualFicha = horario.frame.origin.y + horario.frame.size.height + bordeInferior;
+    [self actualizaLargoScroll];
+    [scroll addSubview:horario];
     
     largoActualFicha += 10;
     
@@ -225,82 +241,98 @@
     [self actualizaLargoScroll];
     [scroll addSubview:descripcion_larga_view];
     
+    [self muestraComentarios];
+}
+
+-(void)muestraComentarios{
+    
     [puntoCultural requestComentariosWithSuccess:^{
         
         int cantidad_comentarios = [[puntoCultural comentarios] count];
         
         if (cantidad_comentarios > 0) {
+            
+            UIImage *fondo_resizable = [[UIImage imageNamed:@"ficha-img-fondo-01"] resizableImageWithCapInsets:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)];
+            
+            largoActualFicha -= viewComentarios.frame.size.height;
+            [viewComentarios removeFromSuperview];
+            viewComentarios = [[UIView alloc] initWithFrame:CGRectMake(0, largoActualFicha, 320, 0)];
+            
+            int largoActualView = 0;
+            
             //separador
-            UIImageView *separador = [[UIImageView alloc] initWithFrame:CGRectMake(0, largoActualFicha, 320, 2)];
+            UIImageView *separador = [[UIImageView alloc] initWithFrame:CGRectMake(0, largoActualView, 320, 2)];
             separador.image = [UIImage imageNamed:@"ficha-linea-punto-01"];
             
-            largoActualFicha = largoActualFicha + 2 + bordeInferior;
-            [self actualizaLargoScroll];
-            [scroll addSubview:separador];
+            largoActualView = largoActualView + 2 + bordeInferior;
+            //[self actualizaLargoScroll];
+            //[scroll addSubview:separador];
+            [viewComentarios addSubview:separador];
             
             
             //La gente comenta
             CGSize size_titulo_comentarios = [@"La gente comenta" sizeWithFont:fuenteTituloComentarios
                                                              constrainedToSize:CGSizeMake(280, 100000)
                                                                  lineBreakMode:UILineBreakModeTailTruncation];
-            UILabel *titulo_comentarios = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_titulo_comentarios.height)];
+            UILabel *titulo_comentarios = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualView, 280, size_titulo_comentarios.height)];
             titulo_comentarios.text = @"La gente comenta";
             titulo_comentarios.font = fuenteTituloComentarios;
             titulo_comentarios.textColor = colorTituloComentarios;
             titulo_comentarios.backgroundColor = [UIColor clearColor];
             
-            largoActualFicha = titulo_comentarios.frame.origin.y + titulo_comentarios.frame.size.height + bordeInferior;
+            largoActualView = titulo_comentarios.frame.origin.y + titulo_comentarios.frame.size.height + bordeInferior;
             [self actualizaLargoScroll];
-            [scroll addSubview:titulo_comentarios];
+            //[scroll addSubview:titulo_comentarios];
+            [viewComentarios addSubview:titulo_comentarios];
             
             // Comentarios
             for (int i = 0; i < MIN(4, cantidad_comentarios); i++) {
                 
-                CGSize size_comentario = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"comentario"] sizeWithFont:fuenteDescripciones
-                                                                                                                              constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                                                  lineBreakMode:UILineBreakModeTailTruncation];
+                CGSize size_comentario = [[(Comentario *)[puntoCultural.comentarios objectAtIndex:i] comentario] sizeWithFont:fuenteDescripciones
+                                                                                                            constrainedToSize:CGSizeMake(260, 100000)
+                                                                                                                lineBreakMode:UILineBreakModeTailTruncation];
                 
                 UILabel *comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 260, size_comentario.height)];
-                comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"comentario"];
+                comentario.text = [(Comentario *)[puntoCultural.comentarios objectAtIndex:i] comentario];
                 comentario.font = fuenteDescripciones;
                 comentario.textColor = colorDescripciones;
                 comentario.backgroundColor = [UIColor clearColor];
                 comentario.numberOfLines = 0;
                 comentario.lineBreakMode = UILineBreakModeWordWrap;
                 
-                CGSize size_nombre_comentario = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"autor"] sizeWithFont:fuenteNombreComentarios
-                                                                                                                                constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                                                    lineBreakMode:UILineBreakModeTailTruncation];
+                CGSize size_nombre_comentario = [[(Comentario *)[puntoCultural.comentarios objectAtIndex:i] autor] sizeWithFont:fuenteNombreComentarios
+                                                                                                              constrainedToSize:CGSizeMake(260, 100000)
+                                                                                                                  lineBreakMode:UILineBreakModeTailTruncation];
                 UILabel *nombre_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, comentario.frame.origin.y + comentario.frame.size.height + 5, 260, size_nombre_comentario.height)];
-                nombre_comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"autor"];
+                nombre_comentario.text = [(Comentario *)[puntoCultural.comentarios objectAtIndex:i] autor];
                 nombre_comentario.font = fuenteNombreComentarios;
                 nombre_comentario.textColor = colorNombreComentarios;
                 nombre_comentario.backgroundColor = [UIColor clearColor];
                 nombre_comentario.numberOfLines = 1;
                 nombre_comentario.lineBreakMode = UILineBreakModeTailTruncation;
                 
-                
-                
-                CGSize size_fecha = [[(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"fecha"] sizeWithFont:fuenteFecha
-                                                                                                                    constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                                        lineBreakMode:UILineBreakModeTailTruncation];
+                ;
+                CGSize size_fecha = [[(Comentario *)[puntoCultural.comentarios objectAtIndex:i] fecha_string] sizeWithFont:fuenteFecha
+                                                                                                         constrainedToSize:CGSizeMake(260, 100000)
+                                                                                                             lineBreakMode:UILineBreakModeTailTruncation];
                 UILabel *fecha_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, nombre_comentario.frame.origin.y + nombre_comentario.frame.size.height + 5, 260, size_fecha.height)];
-                fecha_comentario.text = [(NSDictionary *)[puntoCultural.comentarios objectAtIndex:i] objectForKey:@"fecha"];
+                fecha_comentario.text = [(Comentario *)[puntoCultural.comentarios objectAtIndex:i] fecha_string];
                 fecha_comentario.font = fuenteFecha;
                 fecha_comentario.textColor = colorFecha;
                 fecha_comentario.backgroundColor = [UIColor clearColor];
                 fecha_comentario.numberOfLines = 1;
                 fecha_comentario.lineBreakMode = UILineBreakModeTailTruncation;
                 
-                UIImageView *comentario_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, fecha_comentario.frame.origin.y + size_fecha.height + 10)];
+                UIImageView *comentario_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualView, 280, fecha_comentario.frame.origin.y + size_fecha.height + 10)];
                 comentario_view.image = fondo_resizable;
                 [comentario_view addSubview:comentario];
                 [comentario_view addSubview:nombre_comentario];
                 [comentario_view addSubview:fecha_comentario];
                 
-                largoActualFicha = comentario_view.frame.origin.y + comentario_view.frame.size.height;
-                [self actualizaLargoScroll];
-                [scroll addSubview:comentario_view];
+                largoActualView = comentario_view.frame.origin.y + comentario_view.frame.size.height;
+                //[self actualizaLargoScroll];
+                //[scroll addSubview:comentario_view];
+                [viewComentarios addSubview:comentario_view];
             }
             
             if (cantidad_comentarios > 4) {
@@ -308,17 +340,25 @@
                 
                 UIButton *ver_todos = [UIButton buttonWithType:UIButtonTypeCustom];
                 [ver_todos setBackgroundImage:fondo_resizable forState:UIControlStateNormal];
-                CGRect frame = CGRectMake(20, largoActualFicha, 280, 70);
+                CGRect frame = CGRectMake(20, largoActualView, 280, 70);
                 ver_todos.frame = frame;
                 ver_todos.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
                 [ver_todos setTitle:@"Ver todos los comentarios" forState:UIControlStateNormal];
                 [ver_todos setTitleColor:colorDescripciones forState:UIControlStateNormal];
                 [ver_todos addTarget:self action:@selector(verTodosPressed:) forControlEvents:UIControlEventTouchUpInside];
                 
-                largoActualFicha = ver_todos.frame.origin.y + ver_todos.frame.size.height + bordeInferior;
+                largoActualView = ver_todos.frame.origin.y + ver_todos.frame.size.height + bordeInferior;
                 [self actualizaLargoScroll];
-                [scroll addSubview:ver_todos];
+                //[scroll addSubview:ver_todos];
+                [viewComentarios addSubview:ver_todos];
             }
+            
+            CGRect frame = viewComentarios.frame;
+            frame.size.height = largoActualView;
+            viewComentarios.frame = frame;
+            largoActualFicha += largoActualView;
+            [scroll addSubview:viewComentarios];
+            [self actualizaLargoScroll];
         }
         
     } AndFail:^(NSError *error) {
@@ -483,10 +523,15 @@
 }
 
 - (IBAction)botonComentarioPressed:(id)sender{
-    DejarComentarioViewController *comentario = [[DejarComentarioViewController alloc] initWithNibName:@"DejarComentarioViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
+    DejarComentarioViewController *comentario = [[DejarComentarioViewController alloc] initWithNibName:@"DejarComentarioViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural AndDelegate:self];
     [self.navigationController presentViewController:comentario animated:YES completion:^{
         //
     }];
+}
+
+//Metodo delegado
+-(void)comentarioEnviado{
+    [self muestraComentarios];
 }
 
 @end
