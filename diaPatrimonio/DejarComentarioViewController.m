@@ -88,6 +88,9 @@
 #pragma mark - acciones
 
 -(IBAction)enviarComentario:(id)sender{
+    if (!titulo || [titulo isEqualToString:@""]) {
+        titulo = @"sin titulo";
+    }
     if(
         !nombre || !titulo || !comentario ||
        [nombre isEqualToString:@""] ||

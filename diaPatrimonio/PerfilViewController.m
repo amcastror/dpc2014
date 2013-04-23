@@ -7,6 +7,7 @@
 //
 
 #import "PerfilViewController.h"
+//#import <QuartzCore/QuartzCore.h>
 
 @interface PerfilViewController ()
 
@@ -100,11 +101,11 @@
         estadoSesionTwitter.text = @"twitter off";
         cuentaPorDefecto.hidden = YES;
         twitterSwitch.on = NO;
-        nombreCuenta.text = @"";
+        nombreCuenta.text = @"Sin cuenta";
     }else{
         estadoSesionTwitter.text = @"twitter on";
         twitterSwitch.on = YES;
-        nombreCuenta.text = [NSString stringWithFormat:@"Estas usando la cuenta %@", [[TwitterController instance] nombreCuenta]];
+        nombreCuenta.text = [NSString stringWithFormat:@"%@", [[TwitterController instance] nombreCuenta]];
         if ([[TwitterController instance] cantidadDeCuentas] > 0) {
             cuentaPorDefecto.hidden = NO;
         }else{
