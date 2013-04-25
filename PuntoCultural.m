@@ -142,7 +142,8 @@
                           YComentario:(NSString *)comentario
                           WithSuccess:(void (^)())success
                               AndFail:(void (^)(NSError *error))fail{
-    
+    //NSArray *parrafos_comentario = [comentario componentsSeparatedByString:@"\n"];
+    //NSString *comentario_final = [parrafos_comentario componentsJoinedByString:@"%0D%0A"];
     [[APIClient instance] requestDejarComentarioEnPuntoCulturalID:id_punto ConAutor:autor Titulo:titulo YComentario:comentario WithSuccess:^{
         if(success){
             success();
@@ -175,10 +176,6 @@
         [comentarios_tmp sortUsingSelector:@selector(compararPorFecha:)];
         
         comentarios = [NSArray arrayWithArray:comentarios_tmp];
-        
-        for (Comentario *com in comentarios) {
-            NSLog(@"comentario: %@, %@", com.comentario, com.fecha);
-        }
         
         if (success) {
             success();

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MisPuntosCulturalesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
-    
+    IBOutlet UIView *vistaSinPuntos;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tablaPuntosCulturales;

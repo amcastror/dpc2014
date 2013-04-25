@@ -87,7 +87,7 @@
     label.textColor = colorDescripciones;
     //label.backgroundColor = [UIColor greenColor];
     label.text = [(Comentario *)[comentarios objectAtIndex:indexPath.row] comentario];
-    
+    label.numberOfLines = 0;
     [cell addSubview:label];
     
     /*
@@ -96,7 +96,7 @@
     
     label = [[UILabel alloc] init];
     
-    CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteDescripciones
+    CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteNombreComentarios
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
                                                                                                           lineBreakMode:UILineBreakModeTailTruncation];
     frame.origin.x = 20;
@@ -153,12 +153,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize size_nombre = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] comentario]
                           sizeWithFont:fuenteDescripciones
-                          constrainedToSize:CGSizeMake(170, 100000)
+                          constrainedToSize:CGSizeMake(260, 100000)
                           lineBreakMode:UILineBreakModeTailTruncation];
-    CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteDescripciones
+    CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteNombreComentarios
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
                                                                                                           lineBreakMode:UILineBreakModeTailTruncation];
-    CGSize size_fecha = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] fecha_string] sizeWithFont:fuenteDescripciones
+    CGSize size_fecha = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] fecha_string] sizeWithFont:fuenteFecha
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
                                                                                                           lineBreakMode:UILineBreakModeTailTruncation];
     

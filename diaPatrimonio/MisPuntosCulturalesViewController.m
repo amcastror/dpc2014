@@ -10,6 +10,7 @@
 #import "MisPuntosCulturales.h"
 #import "PuntoCultural.h"
 #import "PuntoCulturalViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define fuenteNombre [UIFont systemFontOfSize:14.0]
 
@@ -50,12 +51,16 @@
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editarPressed:)];
     [self.navigationItem.leftBarButtonItem setTintColor:[UIColor darkTextColor]];
+    vistaSinPuntos.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    vistaSinPuntos.layer.borderWidth = 1;
+    vistaSinPuntos.layer.cornerRadius = 8;
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [tablaPuntosCulturales reloadData];
+    [self revisaVistaSinPuntos];
 }
 
 - (void) editarPressed:(id)sender{
@@ -235,8 +240,10 @@
         [[MisPuntosCulturales instance] eliminarPuntoCultural:puntoCultural DeMisPuntosWithSuccess:^{
             [DejalBezelActivityView removeViewAnimated:YES];
             [self.tablaPuntosCulturales reloadData];
+            [self revisaVistaSinPuntos];
         } AndFail:^(NSError *error) {
             [DejalBezelActivityView removeViewAnimated:YES];
+            [self revisaVistaSinPuntos];
         }];
     }
 }
@@ -251,6 +258,14 @@
         return MAX((size_nombre.height + 30 + 25), 50);
     }else{
         return MAX((size_nombre.height + 30 + 25), 40);
+    }
+}
+
+- (void) revisaVistaSinPuntos{
+    if ([[[MisPuntosCulturales instance] misPuntosCulturales] count] == 0) {
+        vistaSinPuntos.hidden = NO;
+    }else{
+        vistaSinPuntos.hidden = YES;
     }
 }
 

@@ -358,14 +358,16 @@ static NSString * const prefixURL = @"ws";
         }
         return;
     }
-    
-    [self apiClientGetPath:[NSString stringWithFormat:@"/setComentario/%i/%@/%@/%@",
+    NSDictionary *parametros = [NSDictionary dictionaryWithObject:comentario forKey:
+                                @"cuerpo"];
+    [self apiClientGetPath:[NSString stringWithFormat:@"/setComentario/%i/%@/%@",
                             id_punto.intValue,
                             autor,
-                            titulo,
-                            comentario
+                            titulo
+                            //comentario
+                            //@"un comentario"
                             ]
-                parameters:nil
+                parameters:parametros
                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                        if (success) {
                            success();
