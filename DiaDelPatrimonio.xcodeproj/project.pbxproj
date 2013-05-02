@@ -1506,7 +1506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Marcos Correa";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andres Castro (9659KEG457)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marcos Correa";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1525,7 +1525,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6861CB90-7F85-484D-9E12-AB469B57D981";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B5EA795F-6F3A-4FF1-86F8-82C9F190F438";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6861CB90-7F85-484D-9E12-AB469B57D981";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
