@@ -7,11 +7,7 @@
 //
 /*
  TODO:
-<<<<<<< HEAD
  1. todo listo en master
-=======
- 1. todo listo en branch
->>>>>>> branch_prueba
  */
 
 #import <UIKit/UIKit.h>
