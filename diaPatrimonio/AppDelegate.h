@@ -5,10 +5,6 @@
 //  Created by Matias Castro on 22-02-13.
 //  Copyright (c) 2013 Matias Castro. All rights reserved.
 //
-/*
- TODO:
- 1. todo listo en master
- */
 
 #import <UIKit/UIKit.h>
 
