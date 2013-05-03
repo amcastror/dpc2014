@@ -7,7 +7,7 @@
 //
 /*
  TODO:
- 1. todo listo en mastersadfasdf
+ 1. todo listo en master
  */
 
 #import <UIKit/UIKit.h>
