@@ -19,7 +19,3 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 @end
-/*
- asdfa
- asdf
- */
