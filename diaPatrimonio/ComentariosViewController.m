@@ -8,6 +8,8 @@
 
 #import "ComentariosViewController.h"
 #import "Comentario.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 #define bordeInferior 5
 #define fuenteTitulo [UIFont fontWithName:@"Helvetica-Bold" size:21]
@@ -45,7 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.trackedViewName = @"ver_comentarios";
 }
 
 - (void)didReceiveMemoryWarning

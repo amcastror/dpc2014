@@ -11,6 +11,8 @@
 #import "PuntoCultural.h"
 #import "PuntoCulturalViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GAI.h"
+#import "GAITracker.h"
 
 #define fuenteNombre [UIFont systemFontOfSize:14.0]
 
@@ -49,6 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"mis_puntos";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editarPressed:)];
     [self.navigationItem.leftBarButtonItem setTintColor:[UIColor darkTextColor]];
     vistaSinPuntos.layer.borderColor = [UIColor darkGrayColor].CGColor;

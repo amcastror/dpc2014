@@ -7,6 +7,8 @@
 //
 
 #import "PerfilViewController.h"
+#import "GAI.h"
+#import "GAITracker.h"
 //#import <QuartzCore/QuartzCore.h>
 
 @interface PerfilViewController ()
@@ -31,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"perfil";
     [facebookSwitch addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
     [twitterSwitch addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
     
@@ -80,11 +83,16 @@
                     switchControl.on = NO;
                 }
             }];
+            
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            [tracker trackEventWithCategory:@"UI" withAction:@"login" withLabel:@"FB" withValue:nil];
+            
         }else{
             [[FacebookController instance] logout];
             estadoSesionFacebook.text = @"No conectado";
             switchControl.on = NO;
         }
+        
     }else if(switchControl.tag ==1) {//Twitter
         if (switchControl.on) {
             [[TwitterController instance] setDelegate:self];
@@ -92,6 +100,9 @@
                                                AndHandler:^(NSError *error) {
                                                    [self actualizaTwitterDisplay];
                                                }];
+            
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            [tracker trackEventWithCategory:@"UI" withAction:@"share" withLabel:@"TW" withValue:nil];
             
         }else{
             [[TwitterController instance] logout];

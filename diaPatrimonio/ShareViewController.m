@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Matias Castro. All rights reserved.
 //
 
+#import "GAI.h"
+#import "GAITracker.h"
 #import "ShareViewController.h"
 #import "FacebookController.h"
 #import "TwitterController.h"
@@ -32,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"share";
+    
     [facebook addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
     [twitter addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
     [self actualizarBotonCompartir];
@@ -133,7 +137,11 @@
 
 - (IBAction)compartirPressed:(id)sender{
     //Tengo que hacer la lógica de comartir
-    NSLog(@"tengo que compartir el texto: %@", comentario.text);
+    int imagen = 0;
+    if (imagenSeleccionada) {
+        imagen = 1;
+    }
+    
     if (facebook.on) {
         
         NSDictionary *parametros = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -149,6 +157,10 @@
             if (error) {
                 NSLog(@"err: %@", error);
             }
+            
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            [tracker trackEventWithCategory:@"UI" withAction:@"share" withLabel:@"FB" withValue:[NSNumber numberWithInt:imagen]];
+
         }];
     }
     if (twitter.on) {
@@ -156,6 +168,9 @@
             if (error) {
                 NSLog(@"err: %@", error);
             }
+            
+            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+            [tracker trackEventWithCategory:@"UI" withAction:@"share" withLabel:@"TW" withValue:[NSNumber numberWithInt:imagen]];
         }];
     }
     

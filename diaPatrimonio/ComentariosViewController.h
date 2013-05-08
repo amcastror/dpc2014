@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface ComentariosViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>{
+@interface ComentariosViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate>{
     IBOutlet UITableView *tablaComentarios;
     NSArray *comentarios;
 }

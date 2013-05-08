@@ -9,6 +9,8 @@
 #import "DejarComentarioViewController.h"
 #import "FacebookController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GAI.h"
+#import "GAITracker.h"
 
 @interface DejarComentarioViewController ()
 
@@ -30,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.trackedViewName = @"dejar_comentario";
     
     if ([[FacebookController instance] tengoSession]) {
         nombre_field.text = [[FacebookController instance] nombre_usuario];

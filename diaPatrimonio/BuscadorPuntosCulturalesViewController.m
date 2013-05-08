@@ -9,6 +9,8 @@
 #import "BuscadorPuntosCulturalesViewController.h"
 #import "PuntosCulturales.h"
 #import "Filtros.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 @interface BuscadorPuntosCulturalesViewController ()
 
@@ -32,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"busqueda";
     if ([[Filtros instance] zona_seleccionada]) {
         //[botonZonas setTitle:[[[Filtros instance] zona_seleccionada] nombre] forState:UIControlStateNormal];
     }
@@ -76,6 +79,9 @@
     [[PuntosCulturales instance] buscarPuntosCulturalesConFiltrosActivosWithSuccess:^{
         [DejalBezelActivityView removeViewAnimated:YES];
         [self dismissModalViewControllerAnimated:YES];
+        
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker trackEventWithCategory:@"UI" withAction:@"buscar" withLabel:@"filtros" withValue:nil];
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"No se pudo realizar la búsqueda, intenta de nuevo más tarde" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];

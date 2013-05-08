@@ -14,6 +14,7 @@
 #import "UIDevice+IdentifierAddition.h"
 #import "Usuario.h"
 #import "Filtros.h"
+#import "GAI.h"
 
 @implementation AppDelegate
 
@@ -53,8 +54,21 @@
     if ([[UINavigationBar class]respondsToSelector:@selector(appearance)]) {
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-var-"] forBarMetrics:UIBarMetricsDefault];
     }
-     [self.window makeKeyAndVisible];
-     return YES;
+    
+    /* GAI */
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-40739633-1"];
+    [tracker setAnonymize:NO];
+    
+    /* GAI */
+    
+    [self.window makeKeyAndVisible];
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

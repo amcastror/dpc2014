@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "PuntoCultural.h"
 #import "ImagenAsincrona.h"
 #import "DejarComentarioViewController.h"
 
-@interface PuntoCulturalViewController : UIViewController <ComentarDelegate>{
+@interface PuntoCulturalViewController : GAITrackedViewController <ComentarDelegate>{
     IBOutlet UIButton *botonAccionPunto;
     IBOutlet UIButton *botonCompartir;
     IBOutlet UIButton *botonComentar;

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "FacebookController.h"
 #import "TwitterController.h"
 
-@interface PerfilViewController : UIViewController <UIActionSheetDelegate, twitter> {
+@interface PerfilViewController : GAITrackedViewController <UIActionSheetDelegate, twitter> {
     IBOutlet UILabel *estadoSesionFacebook;
     IBOutlet UILabel *estadoSesionTwitter;
     IBOutlet UIButton *publish;

@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "PuntoCultural.h"
 
 @protocol ComentarDelegate <NSObject>
 -(void)comentarioEnviado;
 @end
 
-@interface DejarComentarioViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>{
+@interface DejarComentarioViewController : GAITrackedViewController <UITextFieldDelegate, UITextViewDelegate>{
     IBOutlet UITextField *nombre_field;
     IBOutlet UITextField *titulo_field;
     IBOutlet UITextView *comentario_view;

@@ -13,6 +13,8 @@
 #import "DejarComentarioViewController.h"
 #import "ComentariosViewController.h"
 #import "Comentario.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 #define bordeInferior 5
 #define fuenteTitulo [UIFont fontWithName:@"Helvetica-Bold" size:21]
@@ -55,6 +57,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"punto_cultural";
     
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"cargando..."];
     [puntoCultural requestCompletarInformacionWithSuccess:^{

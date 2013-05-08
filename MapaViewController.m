@@ -14,6 +14,8 @@
 #import "ViewPuntoMapa.h"
 #import "BuscadorPuntosCulturalesViewController.h"
 #import "Usuario.h"
+#import "GAI.h"
+#import "GAITracker.h"
 
 @interface MapaViewController ()
 
@@ -36,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"mapa";
     // Do any additional setup after loading the view from its nib.
 
     [mapa setDelegate:self];
@@ -190,6 +193,9 @@
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
     }];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker trackEventWithCategory:@"UI" withAction:@"buscar" withLabel:@"aqui" withValue:nil];
 }
 
 #pragma mark mapa delegate methods

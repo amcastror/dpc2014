@@ -207,6 +207,8 @@
 		60586CB6172602BF0008B771 /* compartir-icono-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60586C8C172602BF0008B771 /* compartir-icono-twitter@2x.png */; };
 		60586CB7172602BF0008B771 /* icono-compartir.png in Resources */ = {isa = PBXBuildFile; fileRef = 60586C8D172602BF0008B771 /* icono-compartir.png */; };
 		60586CB8172602BF0008B771 /* icono-compartir@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60586C8E172602BF0008B771 /* icono-compartir@2x.png */; };
+		60640F8A173ACD7E0074C516 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60640F89173ACD7E0074C516 /* libGoogleAnalytics.a */; };
+		60640F8D173ACDC20074C516 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60640F8C173ACDC20074C516 /* CoreData.framework */; };
 		60723BB816ECB4E100C50BCF /* MisPuntosCulturales.m in Sources */ = {isa = PBXBuildFile; fileRef = 60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */; };
 		608297B316D831360057BED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B216D831360057BED5 /* UIKit.framework */; };
 		608297B516D831360057BED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B416D831360057BED5 /* Foundation.framework */; };
@@ -487,6 +489,13 @@
 		60586C8C172602BF0008B771 /* compartir-icono-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compartir-icono-twitter@2x.png"; sourceTree = "<group>"; };
 		60586C8D172602BF0008B771 /* icono-compartir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-compartir.png"; sourceTree = "<group>"; };
 		60586C8E172602BF0008B771 /* icono-compartir@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-compartir@2x.png"; sourceTree = "<group>"; };
+		60640F84173ACD7E0074C516 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		60640F85173ACD7E0074C516 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		60640F86173ACD7E0074C516 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		60640F87173ACD7E0074C516 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		60640F88173ACD7E0074C516 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		60640F89173ACD7E0074C516 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		60640F8C173ACDC20074C516 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		60723BB616ECB4E100C50BCF /* MisPuntosCulturales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturales.h; sourceTree = "<group>"; };
 		60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturales.m; sourceTree = "<group>"; };
 		608297AF16D831360057BED5 /* DiaDelPatrimonio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaDelPatrimonio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -602,6 +611,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60640F8D173ACDC20074C516 /* CoreData.framework in Frameworks */,
 				60586B1C1725F44F0008B771 /* QuartzCore.framework in Frameworks */,
 				608DF987170F90C70026C00E /* Accounts.framework in Frameworks */,
 				601F9B9116FF666E00C6E63A /* CoreLocation.framework in Frameworks */,
@@ -617,6 +627,7 @@
 				608297B716D831360057BED5 /* CoreGraphics.framework in Frameworks */,
 				609E82BF16E3EA290029BBFD /* FacebookSDK.framework in Frameworks */,
 				60E9A76C16FF42E30009D7C8 /* libTestFlight.a in Frameworks */,
+				60640F8A173ACD7E0074C516 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,6 +850,19 @@
 			name = imagenes;
 			sourceTree = "<group>";
 		};
+		60640F8B173ACD840074C516 /* GA */ = {
+			isa = PBXGroup;
+			children = (
+				60640F84173ACD7E0074C516 /* GAI.h */,
+				60640F85173ACD7E0074C516 /* GAITrackedViewController.h */,
+				60640F86173ACD7E0074C516 /* GAITracker.h */,
+				60640F87173ACD7E0074C516 /* GAITransaction.h */,
+				60640F88173ACD7E0074C516 /* GAITransactionItem.h */,
+				60640F89173ACD7E0074C516 /* libGoogleAnalytics.a */,
+			);
+			name = GA;
+			sourceTree = "<group>";
+		};
 		608297A616D831360057BED5 = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +888,7 @@
 		608297B116D831360057BED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60640F8C173ACDC20074C516 /* CoreData.framework */,
 				60586B1B1725F44F0008B771 /* QuartzCore.framework */,
 				608DF986170F90C70026C00E /* Accounts.framework */,
 				601F9B9016FF666E00C6E63A /* CoreLocation.framework */,
@@ -929,6 +954,7 @@
 		608297D516D835160057BED5 /* Librerias */ = {
 			isa = PBXGroup;
 			children = (
+				60640F8B173ACD840074C516 /* GA */,
 				601F9B8616FF5DE300C6E63A /* UDIDMD5 */,
 				608297D716D835380057BED5 /* AFNetworking */,
 				6082981216D9A0060057BED5 /* Dejal */,
@@ -1453,7 +1479,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Marcos Correa";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marcos Correa";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andres Castro (9659KEG457)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1469,7 +1495,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "6861CB90-7F85-484D-9E12-AB469B57D981";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6861CB90-7F85-484D-9E12-AB469B57D981";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FB084BD3-DB52-4CFE-A378-EFB43F06E314";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1506,7 +1532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Marcos Correa";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andres Castro (9659KEG457)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1518,6 +1544,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/diaPatrimonio/TestFlight\"",
+					"\"$(SRCROOT)/diaPatrimonio\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
@@ -1525,6 +1552,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6861CB90-7F85-484D-9E12-AB469B57D981";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B5EA795F-6F3A-4FF1-86F8-82C9F190F438";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1545,6 +1573,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/diaPatrimonio/TestFlight\"",
+					"\"$(SRCROOT)/diaPatrimonio\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",

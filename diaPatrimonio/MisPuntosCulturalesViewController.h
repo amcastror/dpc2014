@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface MisPuntosCulturalesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
+@interface MisPuntosCulturalesViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource>{
     IBOutlet UIView *vistaSinPuntos;
 }
 

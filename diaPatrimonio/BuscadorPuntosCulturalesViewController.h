@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 enum Busqueda
 {
     BUSQUEDA_ZONAS,
@@ -16,7 +17,7 @@ enum Busqueda
 };
 typedef enum Busqueda Busqueda;
 
-@interface BuscadorPuntosCulturalesViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
+@interface BuscadorPuntosCulturalesViewController : GAITrackedViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
     IBOutlet UIButton *botonCancelar;
     IBOutlet UIButton *botonBuscar;
     IBOutlet UIButton *botonZonas;

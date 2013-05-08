@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface MapaViewController : UIViewController <MKMapViewDelegate>{
+@interface MapaViewController : GAITrackedViewController <MKMapViewDelegate>{
     IBOutlet MKMapView *mapa;
     IBOutlet UIButton *botonBuscarAqui;
     IBOutlet UIButton *boton_aperturas;
