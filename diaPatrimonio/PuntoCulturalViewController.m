@@ -207,22 +207,23 @@
     [scroll addSubview:direccion];
     
     //Horarios, sitio web, etc.
-    
-    CGSize size_horario = [[NSString stringWithFormat:@"Horario: %@", puntoCultural.horario] sizeWithFont:fuenteInformacion
-                                                                                              constrainedToSize:CGSizeMake(280, 100000)
-                                                                                                  lineBreakMode:UILineBreakModeTailTruncation];
-    UILabel *horario = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_horario.height)];
-    horario.text = [NSString stringWithFormat:@"Horario: %@", puntoCultural.horario];
-    horario.font = fuenteInformacion;
-    horario.textColor = colorInformacion;
-    horario.backgroundColor = [UIColor clearColor];
-    horario.numberOfLines = 0;
-    
-    largoActualFicha = horario.frame.origin.y + horario.frame.size.height + bordeInferior;
-    [self actualizaLargoScroll];
-    [scroll addSubview:horario];
-    
-    largoActualFicha += 10;
+    if (![puntoCultural.horario isEqualToString:@""]) {
+        CGSize size_horario = [[NSString stringWithFormat:@"Horario: %@", puntoCultural.horario] sizeWithFont:fuenteInformacion
+                                                                                            constrainedToSize:CGSizeMake(280, 100000)
+                                                                                                lineBreakMode:UILineBreakModeTailTruncation];
+        UILabel *horario = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_horario.height)];
+        horario.text = [NSString stringWithFormat:@"Horario: %@", puntoCultural.horario];
+        horario.font = fuenteInformacion;
+        horario.textColor = colorInformacion;
+        horario.backgroundColor = [UIColor clearColor];
+        horario.numberOfLines = 0;
+        
+        largoActualFicha = horario.frame.origin.y + horario.frame.size.height + bordeInferior;
+        [self actualizaLargoScroll];
+        [scroll addSubview:horario];
+        
+        largoActualFicha += 10;
+    }
     
     //Descripción larga
     

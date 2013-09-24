@@ -12,6 +12,7 @@
 #import "MisPuntosCulturalesViewController.h"
 #import "FacebookController.h"
 #import "UIDevice+IdentifierAddition.h"
+#import "NSString+MD5Addition.h"
 #import "Usuario.h"
 #import "Filtros.h"
 #import "GAI.h"
@@ -24,7 +25,11 @@
     
     /*     Set ups iniciales     */
     [TestFlight takeOff:@"6eb30449-c8c1-4a32-99e8-c142d56db41f"];
-    [[Usuario instance] setUdid:[[UIDevice currentDevice] uniqueDeviceIdentifier]];
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(identifierForVendor)]) {
+        [[Usuario instance] setUdid:[[[[UIDevice currentDevice] identifierForVendor] UUIDString] stringFromMD5]];
+    }else{
+        [[Usuario instance] setUdid:[[UIDevice currentDevice] uniqueDeviceIdentifier]];
+    }
     [Filtros instance];
     /*     Set ups iniciales     */
     
