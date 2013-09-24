@@ -135,7 +135,7 @@
         [lats addObject:[punto latitud]];
         [lons addObject:[punto longitud]];
     }
-    
+    NSLog(@"test");
     float maxLat = [[lats valueForKeyPath:@"@max.self"] doubleValue];
     float maxLon = [[lons valueForKeyPath:@"@max.self"] doubleValue];
     float minLat = [[lats valueForKeyPath:@"@min.self"] doubleValue];

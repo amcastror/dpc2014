@@ -94,14 +94,17 @@
     NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
     
     for (NSDictionary *punto in arregloPuntos) {
-        PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
-                                                                    AndNombre:[punto objectForKey:@"n"]
-                                                                   AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
-                                                                  AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
-                                                                      AndZona:nil
-                                                                   AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]
-                                                                  AndVisitado:NO];
-        [arregloPuntosCulturales addObject:puntoCultural];
+        if ([[punto objectForKey:@"lat"] class] != [NSNull class] && [[punto objectForKey:@"lon"] class] != [NSNull class]&& [[punto objectForKey:@"n"] class] != [NSNull class]) {
+            
+            PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
+                                                                        AndNombre:[punto objectForKey:@"n"]
+                                                                       AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
+                                                                      AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
+                                                                          AndZona:nil
+                                                                       AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]
+                                                                      AndVisitado:NO];
+            [arregloPuntosCulturales addObject:puntoCultural];
+        }
     }
     
     return [NSArray arrayWithArray:arregloPuntosCulturales];

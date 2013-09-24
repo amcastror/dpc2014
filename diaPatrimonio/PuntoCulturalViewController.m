@@ -63,6 +63,7 @@
     [puntoCultural requestCompletarInformacionWithSuccess:^{
         [self actualizaDisplay];
         [DejalBezelActivityView removeViewAnimated:YES];
+        NSLog(@"dist: %f", [puntoCultural distancia].doubleValue);
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
     }];

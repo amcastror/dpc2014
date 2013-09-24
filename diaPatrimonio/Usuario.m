@@ -55,7 +55,6 @@
     [self setLongitud:newLocation.coordinate.longitude];
 
     if ([newLocation horizontalAccuracy]<=radioPrecision && [newLocation verticalAccuracy]<= radioPrecision && !isFirstTime) {
-        NSLog(@"Entro!");
         [temporizador invalidate];
         [manager stopUpdatingLocation];
         if (successHandler) {
