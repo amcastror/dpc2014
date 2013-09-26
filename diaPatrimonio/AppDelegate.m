@@ -48,17 +48,27 @@
     UINavigationController *perfilNavController = [[UINavigationController alloc] initWithRootViewController:perfil];
     UITabBarItem *item_perfil = [[UITabBarItem alloc] initWithTitle:@"Perfil" image:[UIImage imageNamed:@"tab-bar-perfil-"] tag:2];
     [perfilNavController setTabBarItem:item_perfil];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+
     /*     View controllers     */
     
      self.tabBarController = [[UITabBarController alloc] init];
+    if ([self.tabBarController.tabBar respondsToSelector:@selector(setBarStyle:)]) {
+        self.tabBarController.tabBar.barStyle = UIBarStyleBlack;
+    }
+    if ([self.tabBarController.tabBar respondsToSelector:@selector(setTranslucent:)]) {
+        self.tabBarController.tabBar.translucent = NO;
+    }
+    
      self.tabBarController.viewControllers = @[mapaNavController, misPuntosNavController, perfilNavController];
      self.window.rootViewController = self.tabBarController;
+
 
     [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
     if ([[UINavigationBar class]respondsToSelector:@selector(appearance)]) {
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-var-"] forBarMetrics:UIBarMetricsDefault];
     }
-    
     /* GAI */
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.

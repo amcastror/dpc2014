@@ -181,12 +181,7 @@
                      animations: ^{
                          CGRect myRect = pickerView.frame;
                          
-                         //Soporte en el mapa para iPhone 5
-                         CGRect screenBounds = [[UIScreen mainScreen] bounds];
-                         int origen_b_aqui = 460;
-                         if (screenBounds.size.height == 568) {
-                             origen_b_aqui = 548;
-                         }
+                         int origen_b_aqui = self.view.frame.size.height;
                          
                          myRect.origin.y = origen_b_aqui;
                          pickerView.frame = myRect;
@@ -202,12 +197,7 @@
                      animations: ^{
                          CGRect myRect = pickerView.frame;
                          
-                         //Soporte en el mapa para iPhone 5
-                         CGRect screenBounds = [[UIScreen mainScreen] bounds];
-                         int origen_b_aqui = 200;
-                         if (screenBounds.size.height == 568) {
-                             origen_b_aqui = 288;
-                         }
+                         int origen_b_aqui = self.view.frame.size.height - pickerView.frame.size.height;
                          
                          myRect.origin.y = origen_b_aqui;
                          pickerView.frame = myRect;
