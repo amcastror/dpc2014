@@ -49,8 +49,10 @@
     UITabBarItem *item_perfil = [[UITabBarItem alloc] initWithTitle:@"Perfil" image:[UIImage imageNamed:@"tab-bar-perfil-"] tag:2];
     [perfilNavController setTabBarItem:item_perfil];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    }
+    
     /*     View controllers     */
     
      self.tabBarController = [[UITabBarController alloc] init];

@@ -78,7 +78,7 @@
     
     CGSize size_comentario = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] comentario] sizeWithFont:fuenteDescripciones
                                                                                                                 constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                                    lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                                    lineBreakMode:NSLineBreakByTruncatingTail];
     CGRect frame;
     frame.origin.x = 20;
     frame.origin.y = alto_primera_fila + 10;
@@ -100,7 +100,7 @@
     
     CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteNombreComentarios
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                          lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                          lineBreakMode:NSLineBreakByTruncatingTail];
     frame.origin.x = 20;
     frame.origin.y = alto_primera_fila + 10 + size_comentario.height + 5;
     frame.size.height = size_autor.height;
@@ -122,7 +122,7 @@
     
     CGSize size_fecha = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] fecha_string] sizeWithFont:fuenteFecha
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                          lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                          lineBreakMode:NSLineBreakByTruncatingTail];
     frame.origin.x = 20;
     frame.origin.y = fin_autor + 5;
     frame.size.height = size_fecha.height;
@@ -156,13 +156,13 @@
     CGSize size_nombre = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] comentario]
                           sizeWithFont:fuenteDescripciones
                           constrainedToSize:CGSizeMake(260, 100000)
-                          lineBreakMode:UILineBreakModeTailTruncation];
+                          lineBreakMode:NSLineBreakByTruncatingTail];
     CGSize size_autor = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] autor] sizeWithFont:fuenteNombreComentarios
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                          lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                          lineBreakMode:NSLineBreakByTruncatingTail];
     CGSize size_fecha = [[(Comentario *)[comentarios objectAtIndex:indexPath.row] fecha_string] sizeWithFont:fuenteFecha
                                                                                                       constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                          lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                          lineBreakMode:NSLineBreakByTruncatingTail];
     
     if (indexPath.row == 0) {
         return MAX((10 + size_nombre.height + 5 + size_autor.height + 5 + size_fecha.height + 10 + 10), 50);

@@ -137,7 +137,7 @@
     
     CGSize size_nombre = [puntoCultural.nombre sizeWithFont:fuenteTitulo
                                           constrainedToSize:CGSizeMake(280, 100000)
-                                              lineBreakMode:UILineBreakModeTailTruncation];
+                                              lineBreakMode:NSLineBreakByTruncatingTail];
     UILabel *nombre = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_nombre.height)];
     nombre.text = puntoCultural.nombre;
     nombre.numberOfLines = 0;
@@ -155,7 +155,7 @@
                              [[Filtros instance] nombreSubZonaConIDSubZona:puntoCultural.id_sub_zona]];
     CGSize size_zona = [string_zona sizeWithFont:fuenteZona
                                           constrainedToSize:CGSizeMake(280, 100000)
-                                              lineBreakMode:UILineBreakModeTailTruncation];
+                                              lineBreakMode:NSLineBreakByTruncatingTail];
     UILabel *zona = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_zona.height)];
     zona.text = string_zona;
     zona.font = fuenteZona;
@@ -172,7 +172,7 @@
     
     CGSize size_descripcion_corta = [puntoCultural.descripcion sizeWithFont:fuenteDescripciones
                                                           constrainedToSize:CGSizeMake(260, 100000)
-                                                              lineBreakMode:UILineBreakModeTailTruncation];
+                                                              lineBreakMode:NSLineBreakByTruncatingTail];
     UILabel *descripcion_corta = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 260, size_descripcion_corta.height)];
     descripcion_corta.text = puntoCultural.descripcion;
     descripcion_corta.font = fuenteDescripciones;
@@ -195,7 +195,7 @@
     
     CGSize size_direccion = [[NSString stringWithFormat:@"Dirección: %@", puntoCultural.direccion] sizeWithFont:fuenteInformacion
                                           constrainedToSize:CGSizeMake(280, 100000)
-                                              lineBreakMode:UILineBreakModeTailTruncation];
+                                              lineBreakMode:NSLineBreakByTruncatingTail];
     UILabel *direccion = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_direccion.height)];
     direccion.text = [NSString stringWithFormat:@"Dirección: %@", puntoCultural.direccion];
     direccion.font = fuenteInformacion;
@@ -210,7 +210,7 @@
     if (![puntoCultural.horario isEqualToString:@""]) {
         CGSize size_horario = [[NSString stringWithFormat:@"Horario: %@", puntoCultural.horario] sizeWithFont:fuenteInformacion
                                                                                             constrainedToSize:CGSizeMake(280, 100000)
-                                                                                                lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                lineBreakMode:NSLineBreakByTruncatingTail];
         UILabel *horario = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_horario.height)];
         horario.text = [NSString stringWithFormat:@"Horario: %@", puntoCultural.horario];
         horario.font = fuenteInformacion;
@@ -229,7 +229,7 @@
     
     CGSize size_descripcion_larga = [puntoCultural.descripcion_larga sizeWithFont:fuenteDescripciones
                                                           constrainedToSize:CGSizeMake(260, 100000)
-                                                              lineBreakMode:UILineBreakModeTailTruncation];
+                                                              lineBreakMode:NSLineBreakByTruncatingTail];
     UILabel *descripcion_larga = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 260, size_descripcion_larga.height)];
     descripcion_larga.text = puntoCultural.descripcion_larga;
     descripcion_larga.font = fuenteDescripciones;
@@ -278,7 +278,7 @@
             //La gente comenta
             CGSize size_titulo_comentarios = [@"La gente comenta" sizeWithFont:fuenteTituloComentarios
                                                              constrainedToSize:CGSizeMake(280, 100000)
-                                                                 lineBreakMode:UILineBreakModeTailTruncation];
+                                                                 lineBreakMode:NSLineBreakByTruncatingTail];
             UILabel *titulo_comentarios = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualView, 280, size_titulo_comentarios.height)];
             titulo_comentarios.text = @"La gente comenta";
             titulo_comentarios.font = fuenteTituloComentarios;
@@ -295,7 +295,7 @@
                 
                 CGSize size_comentario = [[(Comentario *)[puntoCultural.comentarios objectAtIndex:i] comentario] sizeWithFont:fuenteDescripciones
                                                                                                             constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                                lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                                lineBreakMode:NSLineBreakByTruncatingTail];
                 
                 UILabel *comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 260, size_comentario.height)];
                 comentario.text = [(Comentario *)[puntoCultural.comentarios objectAtIndex:i] comentario];
@@ -307,7 +307,7 @@
                 
                 CGSize size_nombre_comentario = [[(Comentario *)[puntoCultural.comentarios objectAtIndex:i] autor] sizeWithFont:fuenteNombreComentarios
                                                                                                               constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                                  lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                                  lineBreakMode:NSLineBreakByTruncatingTail];
                 UILabel *nombre_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, comentario.frame.origin.y + comentario.frame.size.height + 5, 260, size_nombre_comentario.height)];
                 nombre_comentario.text = [(Comentario *)[puntoCultural.comentarios objectAtIndex:i] autor];
                 nombre_comentario.font = fuenteNombreComentarios;
@@ -319,7 +319,7 @@
                 ;
                 CGSize size_fecha = [[(Comentario *)[puntoCultural.comentarios objectAtIndex:i] fecha_string] sizeWithFont:fuenteFecha
                                                                                                          constrainedToSize:CGSizeMake(260, 100000)
-                                                                                                             lineBreakMode:UILineBreakModeTailTruncation];
+                                                                                                             lineBreakMode:NSLineBreakByTruncatingTail];
                 UILabel *fecha_comentario = [[UILabel alloc] initWithFrame:CGRectMake(10, nombre_comentario.frame.origin.y + nombre_comentario.frame.size.height + 5, 260, size_fecha.height)];
                 fecha_comentario.text = [(Comentario *)[puntoCultural.comentarios objectAtIndex:i] fecha_string];
                 fecha_comentario.font = fuenteFecha;

@@ -208,7 +208,7 @@
 - (void) actualizaBusqueda{
     NSString *stringBusqueda = @"Buscar";
     
-    if ([textoABuscar.text isEqualToString:@""]) {
+    if (!textoABuscar.text || [textoABuscar.text isEqualToString:@""]) {
         stringBusqueda = [stringBusqueda stringByAppendingString:@" todo"];
     }else{
         stringBusqueda = [stringBusqueda stringByAppendingFormat:@" %@", textoABuscar.text];

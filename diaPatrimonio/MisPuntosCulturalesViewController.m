@@ -119,7 +119,7 @@
     
     CGSize size_nombre = [puntoCultural.nombre sizeWithFont:fuenteNombre
                                           constrainedToSize:CGSizeMake(170, 100000)
-                                              lineBreakMode:UILineBreakModeTailTruncation];
+                                              lineBreakMode:NSLineBreakByTruncatingTail];
     frame = label.frame;
     frame.origin.y = frame.origin.y + alto_primera_fila;
     frame.size.height = size_nombre.height;
@@ -255,7 +255,7 @@
     PuntoCultural *puntoCultural = [[[MisPuntosCulturales instance] misPuntosCulturales] objectAtIndex:indexPath.row];
     CGSize size_nombre = [puntoCultural.nombre sizeWithFont:fuenteNombre
                                   constrainedToSize:CGSizeMake(170, 100000)
-                                      lineBreakMode:UILineBreakModeTailTruncation];
+                                      lineBreakMode:NSLineBreakByTruncatingTail];
     
     if (indexPath.row == 0) {
         return MAX((size_nombre.height + 30 + 25), 50);

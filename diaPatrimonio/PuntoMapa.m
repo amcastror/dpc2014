@@ -9,7 +9,7 @@
 #import "PuntoMapa.h"
 
 @implementation PuntoMapa
-
+@synthesize coordinate;
 @synthesize coordenadas, titulo, subtitulo;
 
 -(id) initWithCoordenadas: (CLLocationCoordinate2D)_coordenadas titulo: (NSString *)_titulo subtitulo:(NSString *) _subtitulo {
