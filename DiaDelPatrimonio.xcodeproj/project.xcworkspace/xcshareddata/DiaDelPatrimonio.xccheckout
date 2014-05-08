@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8394C409-5DEC-4517-A57D-00E723CAAC5C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DiaDelPatrimonio</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6E4CD34A-782A-4DF2-B184-91A096873DA9</key>
+		<string>ubuntu@54.232.196.231:/usr/local/git/repos/diap.git</string>
+		<key>F0BFE81A-BE70-4CA6-AEBE-EB5A8B2BF66B</key>
+		<string>git://github.com/facebook/facebook-ios-sdk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DiaDelPatrimonio.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6E4CD34A-782A-4DF2-B184-91A096873DA9</key>
+		<string>../..</string>
+		<key>F0BFE81A-BE70-4CA6-AEBE-EB5A8B2BF66B</key>
+		<string>../../../facebookIOS_SDK</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ubuntu@54.232.196.231:/usr/local/git/repos/diap.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6E4CD34A-782A-4DF2-B184-91A096873DA9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6E4CD34A-782A-4DF2-B184-91A096873DA9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>diap</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F0BFE81A-BE70-4CA6-AEBE-EB5A8B2BF66B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>facebookIOS_SDK</string>
+		</dict>
+	</array>
+</dict>
+</plist>
