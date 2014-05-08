@@ -28,6 +28,6 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readwrite) int originalArrayIndex;
 
--(id) initWithIDPunto:(NSNumber *)_id_punto AndCoordinate:(CLLocationCoordinate2D)_coordenadas AndNombre:(NSString *)_nombre AndOriginalArrayIndex:(int)_index;
+-(id) initWithIDPunto:(NSNumber *)_id_punto AndCoordinate:(CLLocationCoordinate2D)_coordenadas AndNombre:(NSString *)_nombre AndDescripcion:(NSString *)_descripcion AndOriginalArrayIndex:(int)_index;
 
 @end

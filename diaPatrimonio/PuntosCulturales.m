@@ -94,7 +94,7 @@
     NSMutableArray *arregloPuntosCulturales = [[NSMutableArray alloc] init];
     
     for (NSDictionary *punto in arregloPuntos) {
-        if ([[punto objectForKey:@"lat"] class] != [NSNull class] && [[punto objectForKey:@"lon"] class] != [NSNull class]&& [[punto objectForKey:@"n"] class] != [NSNull class]) {
+        if ([[punto objectForKey:@"lat"] class] != [NSNull class] && [[punto objectForKey:@"lon"] class] != [NSNull class] && [[punto objectForKey:@"n"] class] != [NSNull class] ) {
             
             PuntoCultural *puntoCultural = [[PuntoCultural alloc] initWithIDPunto:[NSNumber numberWithInt:[[punto objectForKey:@"id"] intValue]]
                                                                         AndNombre:[punto objectForKey:@"n"]
@@ -103,6 +103,10 @@
                                                                           AndZona:nil
                                                                        AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]
                                                                       AndVisitado:NO];
+            if ([[punto objectForKey:@"d_c"] class] != [NSNull class]) {
+                puntoCultural.descripcion = (NSString *)[punto objectForKey:@"d_c"];
+            }
+            
             [arregloPuntosCulturales addObject:puntoCultural];
         }
     }

@@ -39,7 +39,7 @@ typedef enum TipoPunto TipoPunto;
 }
 
 @property (nonatomic, readonly) NSString *nombre;
-@property (nonatomic, readonly) NSString *descripcion;
+@property (nonatomic, readwrite) NSString *descripcion;
 @property (nonatomic, readonly) NSString *descripcion_larga;
 @property (nonatomic, readonly) NSString *direccion;
 @property (nonatomic, readonly) NSString *url_foto;

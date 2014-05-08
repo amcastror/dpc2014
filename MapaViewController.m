@@ -126,7 +126,7 @@
         }
         if (muestra_punto) {
             CLLocationCoordinate2D coordenadaItem = {puntoCultural.latitud.doubleValue, puntoCultural.longitud.doubleValue};
-            MapItem *item = [[MapItem alloc] initWithIDPunto:puntoCultural.id_punto AndCoordinate:coordenadaItem AndNombre:puntoCultural.nombre AndOriginalArrayIndex:[[[PuntosCulturales instance] puntosCulturales] indexOfObject:puntoCultural]];
+            MapItem *item = [[MapItem alloc] initWithIDPunto:puntoCultural.id_punto AndCoordinate:coordenadaItem AndNombre:puntoCultural.nombre AndDescripcion:puntoCultural.descripcion AndOriginalArrayIndex:[[[PuntosCulturales instance] puntosCulturales] indexOfObject:puntoCultural]];
             [mapa addAnnotation:item];
         }
     }
@@ -169,8 +169,6 @@
     PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
     puntoCulturalViewController.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
-    
-    //TODO dejar sin titulo solo si es iOS 7.
     
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Mapa" style:UIBarButtonItemStyleBordered target:nil action:nil];
     

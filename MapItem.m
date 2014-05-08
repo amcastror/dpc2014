@@ -12,13 +12,17 @@
 
 @synthesize id_punto, nombre, coordinate, title, subtitle, originalArrayIndex;
 
--(id) initWithIDPunto:(NSNumber *)_id_punto AndCoordinate:(CLLocationCoordinate2D)_coordenadas AndNombre:(NSString *)_nombre AndOriginalArrayIndex:(int)_index{
+-(id) initWithIDPunto:(NSNumber *)_id_punto
+        AndCoordinate:(CLLocationCoordinate2D)_coordenadas
+            AndNombre:(NSString *)_nombre
+       AndDescripcion:(NSString *)_descripcion
+AndOriginalArrayIndex:(int)_index{
     if (self = [super init]) {
         id_punto = _id_punto;
         nombre = _nombre;
         coordinate = _coordenadas;
         title = _nombre;
-        subtitle = _nombre;
+        subtitle = _descripcion;
         originalArrayIndex = _index;
     }
     return self;
