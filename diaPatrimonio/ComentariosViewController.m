@@ -48,6 +48,11 @@
 {
     [super viewDidLoad];
     self.trackedViewName = @"ver_comentarios";
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+        self.navigationController.navigationBar.translucent = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning

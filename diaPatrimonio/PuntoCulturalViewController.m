@@ -67,6 +67,11 @@
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
     }];
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+        self.navigationController.navigationBar.translucent = NO;
+    }
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -373,8 +378,8 @@
 
 -(void) verTodosPressed:(id)sender{
     ComentariosViewController *comentarios = [[ComentariosViewController alloc] initWithNibName:@"ComentariosViewController" bundle:[NSBundle mainBundle] AndComentarios:[puntoCultural comentarios]];
-    [self.navigationController pushViewController:comentarios animated:YES];
     comentarios.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
+    [self.navigationController pushViewController:comentarios animated:YES];
     
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
@@ -516,10 +521,10 @@
 
 - (IBAction)botonCompartirEnRedesSocialesPressed:(id)sender{
     ShareViewController *share = [[ShareViewController alloc] initWithNibName:@"ShareViewController" bundle:[NSBundle mainBundle]];
+    share.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     [[self navigationController] pushViewController:share
                                            animated:YES];
     
-    share.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
     if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
