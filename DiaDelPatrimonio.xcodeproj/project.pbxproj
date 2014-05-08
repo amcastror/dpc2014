@@ -25,10 +25,6 @@
 		600E45BA191C24CF008A01E2 /* dpc-nav-bar-rutas-activo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45B2191C24CF008A01E2 /* dpc-nav-bar-rutas-activo@2x.png */; };
 		600E45BB191C24CF008A01E2 /* dpc-nav-bar-rutas.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45B3191C24CF008A01E2 /* dpc-nav-bar-rutas.png */; };
 		600E45BC191C24CF008A01E2 /* dpc-nav-bar-rutas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45B4191C24CF008A01E2 /* dpc-nav-bar-rutas@2x.png */; };
-		600E45C1191C26D3008A01E2 /* dpc-tab-bar-miruta-activo.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45BD191C26D3008A01E2 /* dpc-tab-bar-miruta-activo.png */; };
-		600E45C2191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45BE191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png */; };
-		600E45C3191C26D3008A01E2 /* dpc-tab-bar-miruta.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45BF191C26D3008A01E2 /* dpc-tab-bar-miruta.png */; };
-		600E45C4191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45C0191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png */; };
 		600E45C7191C317C008A01E2 /* dpc-mapa-call-flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45C5191C317C008A01E2 /* dpc-mapa-call-flecha.png */; };
 		600E45C8191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45C6191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png */; };
 		6011181916DA687F00F0C828 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6011181716DA687F00F0C828 /* Localizable.strings */; };
@@ -302,6 +298,14 @@
 		60E9A76D16FF42E30009D7C8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60E9A76916FF42E30009D7C8 /* README.md */; };
 		60E9A76E16FF42E30009D7C8 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 60E9A76A16FF42E30009D7C8 /* release_notes.md */; };
 		60E9A77016FF43450009D7C8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E9A76F16FF43450009D7C8 /* libz.dylib */; };
+		60F0A910191C4A4100635250 /* dpc-tab-bar-mapa-icon-.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A90E191C4A4100635250 /* dpc-tab-bar-mapa-icon-.png */; };
+		60F0A911191C4A4100635250 /* dpc-tab-bar-mapa-icon-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A90F191C4A4100635250 /* dpc-tab-bar-mapa-icon-@2x.png */; };
+		60F0A914191C4A4900635250 /* dpc-tab-bar-miruta-icon-.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A912191C4A4900635250 /* dpc-tab-bar-miruta-icon-.png */; };
+		60F0A915191C4A4900635250 /* dpc-tab-bar-miruta-icon-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A913191C4A4900635250 /* dpc-tab-bar-miruta-icon-@2x.png */; };
+		60F0A918191C4A5100635250 /* dpc-tab-bar-perfil-icon-.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A916191C4A5100635250 /* dpc-tab-bar-perfil-icon-.png */; };
+		60F0A919191C4A5100635250 /* dpc-tab-bar-perfil-icon-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A917191C4A5100635250 /* dpc-tab-bar-perfil-icon-@2x.png */; };
+		60F0A91C191C4AAD00635250 /* dpc-nav-bar-lupa-.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A91A191C4AAD00635250 /* dpc-nav-bar-lupa-.png */; };
+		60F0A91D191C4AAD00635250 /* dpc-nav-bar-lupa-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F0A91B191C4AAD00635250 /* dpc-nav-bar-lupa-@2x.png */; };
 		60FB6B7E1727466000309647 /* Comentario.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FB6B7D1727466000309647 /* Comentario.m */; };
 /* End PBXBuildFile section */
 
@@ -324,10 +328,6 @@
 		600E45B2191C24CF008A01E2 /* dpc-nav-bar-rutas-activo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-rutas-activo@2x.png"; sourceTree = "<group>"; };
 		600E45B3191C24CF008A01E2 /* dpc-nav-bar-rutas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-rutas.png"; sourceTree = "<group>"; };
 		600E45B4191C24CF008A01E2 /* dpc-nav-bar-rutas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-rutas@2x.png"; sourceTree = "<group>"; };
-		600E45BD191C26D3008A01E2 /* dpc-tab-bar-miruta-activo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta-activo.png"; sourceTree = "<group>"; };
-		600E45BE191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta-activo@2x.png"; sourceTree = "<group>"; };
-		600E45BF191C26D3008A01E2 /* dpc-tab-bar-miruta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta.png"; sourceTree = "<group>"; };
-		600E45C0191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta@2x.png"; sourceTree = "<group>"; };
 		600E45C5191C317C008A01E2 /* dpc-mapa-call-flecha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-mapa-call-flecha.png"; sourceTree = "<group>"; };
 		600E45C6191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-mapa-call-flecha@2x.png"; sourceTree = "<group>"; };
 		6011181816DA687F00F0C828 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -649,6 +649,14 @@
 		60E9A76A16FF42E30009D7C8 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		60E9A76B16FF42E30009D7C8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		60E9A76F16FF43450009D7C8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		60F0A90E191C4A4100635250 /* dpc-tab-bar-mapa-icon-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-mapa-icon-.png"; sourceTree = "<group>"; };
+		60F0A90F191C4A4100635250 /* dpc-tab-bar-mapa-icon-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-mapa-icon-@2x.png"; sourceTree = "<group>"; };
+		60F0A912191C4A4900635250 /* dpc-tab-bar-miruta-icon-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta-icon-.png"; sourceTree = "<group>"; };
+		60F0A913191C4A4900635250 /* dpc-tab-bar-miruta-icon-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta-icon-@2x.png"; sourceTree = "<group>"; };
+		60F0A916191C4A5100635250 /* dpc-tab-bar-perfil-icon-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-perfil-icon-.png"; sourceTree = "<group>"; };
+		60F0A917191C4A5100635250 /* dpc-tab-bar-perfil-icon-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-perfil-icon-@2x.png"; sourceTree = "<group>"; };
+		60F0A91A191C4AAD00635250 /* dpc-nav-bar-lupa-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-lupa-.png"; sourceTree = "<group>"; };
+		60F0A91B191C4AAD00635250 /* dpc-nav-bar-lupa-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-lupa-@2x.png"; sourceTree = "<group>"; };
 		60FB6B7C1727466000309647 /* Comentario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comentario.h; sourceTree = "<group>"; };
 		60FB6B7D1727466000309647 /* Comentario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comentario.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -686,12 +694,16 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				60F0A91A191C4AAD00635250 /* dpc-nav-bar-lupa-.png */,
+				60F0A91B191C4AAD00635250 /* dpc-nav-bar-lupa-@2x.png */,
+				60F0A916191C4A5100635250 /* dpc-tab-bar-perfil-icon-.png */,
+				60F0A917191C4A5100635250 /* dpc-tab-bar-perfil-icon-@2x.png */,
+				60F0A912191C4A4900635250 /* dpc-tab-bar-miruta-icon-.png */,
+				60F0A913191C4A4900635250 /* dpc-tab-bar-miruta-icon-@2x.png */,
+				60F0A90E191C4A4100635250 /* dpc-tab-bar-mapa-icon-.png */,
+				60F0A90F191C4A4100635250 /* dpc-tab-bar-mapa-icon-@2x.png */,
 				600E45C5191C317C008A01E2 /* dpc-mapa-call-flecha.png */,
 				600E45C6191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png */,
-				600E45BD191C26D3008A01E2 /* dpc-tab-bar-miruta-activo.png */,
-				600E45BE191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png */,
-				600E45BF191C26D3008A01E2 /* dpc-tab-bar-miruta.png */,
-				600E45C0191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png */,
 				600E45AD191C24CF008A01E2 /* dpc-nav-bar-recorrido-activo.png */,
 				600E45AE191C24CF008A01E2 /* dpc-nav-bar-recorrido-activo@2x.png */,
 				600E45AF191C24CF008A01E2 /* dpc-nav-bar-recorrido.png */,
@@ -1273,7 +1285,7 @@
 				60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */,
 				60E6D57D16EE35E500E08C14 /* filaPuntoCultural.xib in Resources */,
 				60E6D58516EE38D700E08C14 /* FilaCell.xib in Resources */,
-				600E45C1191C26D3008A01E2 /* dpc-tab-bar-miruta-activo.png in Resources */,
+				60F0A911191C4A4100635250 /* dpc-tab-bar-mapa-icon-@2x.png in Resources */,
 				60E9A76D16FF42E30009D7C8 /* README.md in Resources */,
 				60E9A76E16FF42E30009D7C8 /* release_notes.md in Resources */,
 				609B5B78170E49B500E82018 /* ShareViewController.xib in Resources */,
@@ -1306,6 +1318,7 @@
 				60586BD81725FBFB0008B771 /* cat-acti-over-@2x.png in Resources */,
 				60586BD91725FBFB0008B771 /* cat-aper-.png in Resources */,
 				60586BDA1725FBFB0008B771 /* cat-aper-@2x.png in Resources */,
+				60F0A919191C4A5100635250 /* dpc-tab-bar-perfil-icon-@2x.png in Resources */,
 				60586BDB1725FBFB0008B771 /* cat-aper-over-.png in Resources */,
 				60586BDC1725FBFB0008B771 /* cat-aper-over-@2x.png in Resources */,
 				60586BDD1725FBFB0008B771 /* cat-reco-.png in Resources */,
@@ -1327,7 +1340,6 @@
 				60586BEB1725FBFB0008B771 /* ficha-img-fondo-fila-arriba.png in Resources */,
 				60586BEC1725FBFB0008B771 /* ficha-img-fondo-fila-arriba@2x.png in Resources */,
 				60586BED1725FBFB0008B771 /* ficha-img-fondo-fila.png in Resources */,
-				600E45C4191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png in Resources */,
 				60586BEE1725FBFB0008B771 /* ficha-img-fondo-fila@2x.png in Resources */,
 				60586BEF1725FBFB0008B771 /* ficha-linea-punto-01.png in Resources */,
 				60586BF01725FBFB0008B771 /* ficha-linea-punto-01@2x.png in Resources */,
@@ -1378,9 +1390,7 @@
 				60586C191725FBFB0008B771 /* ficha-tabbar-recorridos-02-over.png in Resources */,
 				60586C1A1725FBFB0008B771 /* ficha-tabbar-recorridos-02-over@2x.png in Resources */,
 				60586C1B1725FBFB0008B771 /* ficha-tabbar-recorridos-02.png in Resources */,
-				600E45C2191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png in Resources */,
 				60586C1C1725FBFB0008B771 /* ficha-tabbar-recorridos-02@2x.png in Resources */,
-				600E45C3191C26D3008A01E2 /* dpc-tab-bar-miruta.png in Resources */,
 				60586C1D1725FBFB0008B771 /* ficha-tabbar-recorridos-03-over.png in Resources */,
 				60586C1E1725FBFB0008B771 /* ficha-tabbar-recorridos-03-over@2x.png in Resources */,
 				60586C1F1725FBFB0008B771 /* ficha-tabbar-recorridos-03.png in Resources */,
@@ -1392,6 +1402,7 @@
 				60586C251725FBFB0008B771 /* ficha-tabbar-rutas-02-over.png in Resources */,
 				600E459B191C1E65008A01E2 /* dpc-nav-bar-logos.png in Resources */,
 				60586C261725FBFB0008B771 /* ficha-tabbar-rutas-02-over@2x.png in Resources */,
+				60F0A918191C4A5100635250 /* dpc-tab-bar-perfil-icon-.png in Resources */,
 				60586C271725FBFB0008B771 /* ficha-tabbar-rutas-02.png in Resources */,
 				600E45BC191C24CF008A01E2 /* dpc-nav-bar-rutas@2x.png in Resources */,
 				600E459C191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png in Resources */,
@@ -1425,6 +1436,7 @@
 				60586C451725FBFB0008B771 /* perfil-btn-cambiar-over.png in Resources */,
 				60586C461725FBFB0008B771 /* perfil-btn-cambiar-over@2x.png in Resources */,
 				60586C471725FBFB0008B771 /* perfil-btn-cambiar.png in Resources */,
+				60F0A914191C4A4900635250 /* dpc-tab-bar-miruta-icon-.png in Resources */,
 				600E45C8191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png in Resources */,
 				60586C481725FBFB0008B771 /* perfil-btn-cambiar@2x.png in Resources */,
 				60586C491725FBFB0008B771 /* perfil-icono-fb.png in Resources */,
@@ -1441,14 +1453,17 @@
 				60586C5E1725FDA40008B771 /* comentar-boton-cancelar-over@2x.png in Resources */,
 				60586C5F1725FDA40008B771 /* comentar-boton-cancelar.png in Resources */,
 				60586C601725FDA40008B771 /* comentar-boton-cancelar@2x.png in Resources */,
+				60F0A910191C4A4100635250 /* dpc-tab-bar-mapa-icon-.png in Resources */,
 				600E45A2191C245A008A01E2 /* dpc-nav-bar-aperturas-activo@2x.png in Resources */,
 				60586C611725FDA40008B771 /* comentar-boton-enviar-over.png in Resources */,
 				60586C621725FDA40008B771 /* comentar-boton-enviar-over@2x.png in Resources */,
+				60F0A91D191C4AAD00635250 /* dpc-nav-bar-lupa-@2x.png in Resources */,
 				600E45C7191C317C008A01E2 /* dpc-mapa-call-flecha.png in Resources */,
 				60586C631725FDA40008B771 /* comentar-boton-enviar.png in Resources */,
 				60586C641725FDA40008B771 /* comentar-boton-enviar@2x.png in Resources */,
 				60586C8F172602BF0008B771 /* compartir-barra-separadora.png in Resources */,
 				60586C90172602BF0008B771 /* compartir-barra-separadora@2x.png in Resources */,
+				60F0A915191C4A4900635250 /* dpc-tab-bar-miruta-icon-@2x.png in Resources */,
 				60586C91172602BF0008B771 /* compartir-boton-comp-actividades-over.png in Resources */,
 				60586C92172602BF0008B771 /* compartir-boton-comp-actividades-over@2x.png in Resources */,
 				60586C93172602BF0008B771 /* compartir-boton-comp-actividades.png in Resources */,
@@ -1492,6 +1507,7 @@
 				60586CB4172602BF0008B771 /* compartir-icono-foto@2x.png in Resources */,
 				60586CB5172602BF0008B771 /* compartir-icono-twitter.png in Resources */,
 				60586CB6172602BF0008B771 /* compartir-icono-twitter@2x.png in Resources */,
+				60F0A91C191C4AAD00635250 /* dpc-nav-bar-lupa-.png in Resources */,
 				60586CB7172602BF0008B771 /* icono-compartir.png in Resources */,
 				60586CB8172602BF0008B771 /* icono-compartir@2x.png in Resources */,
 				60E40E0817261CDE007F4D5C /* fondo-blanco@2x.png in Resources */,

@@ -36,17 +36,17 @@
     /*     View controllers      */
     MapaViewController *mapa = [[MapaViewController alloc] initWithNibName:@"MapaViewController" bundle:nil];
     UINavigationController *mapaNavController = [[UINavigationController alloc] initWithRootViewController:mapa];
-    UITabBarItem *item_mapa = [[UITabBarItem alloc] initWithTitle:@"Mapa" image:[UIImage imageNamed:@"tab-bar-mapa-"] tag:0];
+    UITabBarItem *item_mapa = [[UITabBarItem alloc] initWithTitle:@"Mapa" image:[UIImage imageNamed:@"dpc-tab-bar-mapa-icon-"] tag:0];
     [mapaNavController setTabBarItem:item_mapa];
     
     MisPuntosCulturalesViewController *misPuntos = [[MisPuntosCulturalesViewController alloc] initWithNibName:@"MisPuntosCulturalesViewController" bundle:nil];
     UINavigationController *misPuntosNavController = [[UINavigationController alloc] initWithRootViewController:misPuntos];
-    UITabBarItem *item_mis_puntos = [[UITabBarItem alloc] initWithTitle:@"Mi ruta" image:[UIImage imageNamed:@"dpc-tab-bar-miruta"] tag:1];
+    UITabBarItem *item_mis_puntos = [[UITabBarItem alloc] initWithTitle:@"Mi ruta" image:[UIImage imageNamed:@"dpc-tab-bar-miruta-icon-"] tag:1];
     [misPuntosNavController setTabBarItem:item_mis_puntos];
     
     PerfilViewController *perfil = [[PerfilViewController alloc] initWithNibName:@"PerfilViewController" bundle:nil];
     UINavigationController *perfilNavController = [[UINavigationController alloc] initWithRootViewController:perfil];
-    UITabBarItem *item_perfil = [[UITabBarItem alloc] initWithTitle:@"Perfil" image:[UIImage imageNamed:@"tab-bar-perfil-"] tag:2];
+    UITabBarItem *item_perfil = [[UITabBarItem alloc] initWithTitle:@"Perfil" image:[UIImage imageNamed:@"dpc-tab-bar-perfil-icon-"] tag:2];
     [perfilNavController setTabBarItem:item_perfil];
     
     /*

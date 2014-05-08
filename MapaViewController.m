@@ -45,9 +45,12 @@
         self.navigationController.navigationBar.translucent = NO;
     }
     
-    //cambiar esto por uno con imagen de fondo para que se vea bien en iOS 6.
-    UIBarButtonItem *buscarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(presentaBuscador:)];
-    //[buscarButtonItem setTintColor:[UIColor whiteColor]];
+    UIImage *lupa = [UIImage imageNamed:@"dpc-nav-bar-lupa-"];
+    UIButton *botonLupa = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, lupa.size.width, lupa.size.height)];
+    [botonLupa setBackgroundImage:lupa forState:UIControlStateNormal];
+    [botonLupa setBackgroundImage:lupa forState:UIControlStateHighlighted];
+    [botonLupa addTarget:self action:@selector(presentaBuscador:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *buscarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:botonLupa];
     self.navigationItem.rightBarButtonItem = buscarButtonItem;
 
     [mapa setDelegate:self];
