@@ -67,7 +67,6 @@
      self.tabBarController.viewControllers = @[mapaNavController, misPuntosNavController, perfilNavController];
      self.window.rootViewController = self.tabBarController;
 
-
     [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
     if ([[UINavigationBar class]respondsToSelector:@selector(appearance)]) {
         //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-var-"] forBarMetrics:UIBarMetricsDefault];
@@ -86,6 +85,8 @@
     /* GAI */
     
     mapa.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
+    misPuntos.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
+    perfil.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];

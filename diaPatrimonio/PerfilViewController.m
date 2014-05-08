@@ -47,6 +47,11 @@
     [self.view addSubview:fondo_gris];
     [self.view sendSubviewToBack:fondo_gris];
     
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+        self.navigationController.navigationBar.translucent = NO;
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

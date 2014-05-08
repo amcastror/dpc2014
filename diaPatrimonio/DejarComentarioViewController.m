@@ -52,6 +52,11 @@
     comentario_view.layer.borderColor = [UIColor lightGrayColor].CGColor;
     comentario_view.layer.borderWidth = 0.5;
     comentario_view.layer.cornerRadius = 5;
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+        self.navigationController.navigationBar.translucent = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning

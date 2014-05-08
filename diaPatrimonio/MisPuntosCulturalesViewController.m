@@ -58,6 +58,11 @@
     vistaSinPuntos.layer.borderWidth = 1;
     vistaSinPuntos.layer.cornerRadius = 8;
     // Do any additional setup after loading the view from its nib.
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+        self.navigationController.navigationBar.translucent = NO;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -221,6 +226,7 @@
     PuntoCultural *puntoCultural = [[[MisPuntosCulturales instance] misPuntosCulturales] objectAtIndex:indexPath.row];
     
     PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
+    puntoCulturalViewController.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
     
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Mi ruta" style:UIBarButtonItemStyleBordered target:nil action:nil];

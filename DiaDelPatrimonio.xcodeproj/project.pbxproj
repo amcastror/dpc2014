@@ -29,6 +29,8 @@
 		600E45C2191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45BE191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png */; };
 		600E45C3191C26D3008A01E2 /* dpc-tab-bar-miruta.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45BF191C26D3008A01E2 /* dpc-tab-bar-miruta.png */; };
 		600E45C4191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45C0191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png */; };
+		600E45C7191C317C008A01E2 /* dpc-mapa-call-flecha.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45C5191C317C008A01E2 /* dpc-mapa-call-flecha.png */; };
+		600E45C8191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E45C6191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png */; };
 		6011181916DA687F00F0C828 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6011181716DA687F00F0C828 /* Localizable.strings */; };
 		601F9B8916FF5E1100C6E63A /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 601F9B8816FF5E1100C6E63A /* UIDevice+IdentifierAddition.m */; };
 		601F9B8C16FF5E2600C6E63A /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 601F9B8B16FF5E2600C6E63A /* NSString+MD5Addition.m */; };
@@ -326,6 +328,8 @@
 		600E45BE191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta-activo@2x.png"; sourceTree = "<group>"; };
 		600E45BF191C26D3008A01E2 /* dpc-tab-bar-miruta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta.png"; sourceTree = "<group>"; };
 		600E45C0191C26D3008A01E2 /* dpc-tab-bar-miruta@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-tab-bar-miruta@2x.png"; sourceTree = "<group>"; };
+		600E45C5191C317C008A01E2 /* dpc-mapa-call-flecha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-mapa-call-flecha.png"; sourceTree = "<group>"; };
+		600E45C6191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-mapa-call-flecha@2x.png"; sourceTree = "<group>"; };
 		6011181816DA687F00F0C828 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		601F9B8716FF5E1100C6E63A /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		601F9B8816FF5E1100C6E63A /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
@@ -682,6 +686,8 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				600E45C5191C317C008A01E2 /* dpc-mapa-call-flecha.png */,
+				600E45C6191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png */,
 				600E45BD191C26D3008A01E2 /* dpc-tab-bar-miruta-activo.png */,
 				600E45BE191C26D3008A01E2 /* dpc-tab-bar-miruta-activo@2x.png */,
 				600E45BF191C26D3008A01E2 /* dpc-tab-bar-miruta.png */,
@@ -1419,6 +1425,7 @@
 				60586C451725FBFB0008B771 /* perfil-btn-cambiar-over.png in Resources */,
 				60586C461725FBFB0008B771 /* perfil-btn-cambiar-over@2x.png in Resources */,
 				60586C471725FBFB0008B771 /* perfil-btn-cambiar.png in Resources */,
+				600E45C8191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png in Resources */,
 				60586C481725FBFB0008B771 /* perfil-btn-cambiar@2x.png in Resources */,
 				60586C491725FBFB0008B771 /* perfil-icono-fb.png in Resources */,
 				60586C4A1725FBFB0008B771 /* perfil-icono-fb@2x.png in Resources */,
@@ -1437,6 +1444,7 @@
 				600E45A2191C245A008A01E2 /* dpc-nav-bar-aperturas-activo@2x.png in Resources */,
 				60586C611725FDA40008B771 /* comentar-boton-enviar-over.png in Resources */,
 				60586C621725FDA40008B771 /* comentar-boton-enviar-over@2x.png in Resources */,
+				600E45C7191C317C008A01E2 /* dpc-mapa-call-flecha.png in Resources */,
 				60586C631725FDA40008B771 /* comentar-boton-enviar.png in Resources */,
 				60586C641725FDA40008B771 /* comentar-boton-enviar@2x.png in Resources */,
 				60586C8F172602BF0008B771 /* compartir-barra-separadora.png in Resources */,

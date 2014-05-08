@@ -374,6 +374,7 @@
 -(void) verTodosPressed:(id)sender{
     ComentariosViewController *comentarios = [[ComentariosViewController alloc] initWithNibName:@"ComentariosViewController" bundle:[NSBundle mainBundle] AndComentarios:[puntoCultural comentarios]];
     [self.navigationController pushViewController:comentarios animated:YES];
+    comentarios.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
@@ -518,6 +519,7 @@
     [[self navigationController] pushViewController:share
                                            animated:YES];
     
+    share.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
     if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){

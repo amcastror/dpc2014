@@ -47,7 +47,7 @@
     
     //cambiar esto por uno con imagen de fondo para que se vea bien en iOS 6.
     UIBarButtonItem *buscarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(presentaBuscador:)];
-    [buscarButtonItem setTintColor:[UIColor whiteColor]];
+    //[buscarButtonItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = buscarButtonItem;
 
     [mapa setDelegate:self];
@@ -167,7 +167,10 @@
     PuntoCultural *puntoCultural = [[PuntosCulturales instance] requestPuntoConID:[NSNumber numberWithInt:((UIButton *)sender).tag]];
     
     PuntoCulturalViewController *puntoCulturalViewController = [[PuntoCulturalViewController alloc] initWithNibName:@"PuntoCulturalViewController" bundle:[NSBundle mainBundle] AndPuntoCultural:puntoCultural];
+    puntoCulturalViewController.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
+    
+    //TODO dejar sin titulo solo si es iOS 7.
     
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Mapa" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
@@ -175,7 +178,7 @@
         atras.tintColor = [UIColor darkGrayColor];
     }
     
-    [self.navigationItem setBackBarButtonItem:atras];
+    self.navigationItem.backBarButtonItem = atras;
 }
 
 -(IBAction) presentaBuscador:(id)sender{
@@ -226,12 +229,13 @@
     annotationView.canShowCallout = YES;
     
     annotationView.annotation = annotation;
-    
+    UIImage *flecha = [UIImage imageNamed:@"dpc-mapa-call-flecha"];
     UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [rightButton setImage:flecha forState:UIControlStateNormal];
+    [rightButton setImage:flecha forState:UIControlStateHighlighted];
     [rightButton addTarget:self action:@selector(muestraPuntoCultural:) forControlEvents:UIControlEventTouchUpInside];
     rightButton.tag = [aMapPoint.id_punto intValue];
     annotationView.rightCalloutAccessoryView = rightButton;
-    
     return annotationView;
 }
 
