@@ -16,7 +16,6 @@
 
 @interface DejarComentarioViewController : GAITrackedViewController <UITextFieldDelegate, UITextViewDelegate>{
     IBOutlet UITextField *nombre_field;
-    IBOutlet UITextField *titulo_field;
     IBOutlet UITextView *comentario_view;
     
     NSString *nombre;

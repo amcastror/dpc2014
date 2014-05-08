@@ -41,13 +41,13 @@
     
     UIImageView *fondo_blanco = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 45)];
     fondo_blanco.image = [[UIImage imageNamed:@"fondo-blanco"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:fondo_blanco];
-    [self.view sendSubviewToBack:fondo_blanco];
+    //[self.view addSubview:fondo_blanco];
+    //[self.view sendSubviewToBack:fondo_blanco];
     
     UIImageView *fondo_gris = [[UIImageView alloc] initWithFrame:CGRectMake(10, 45, 300, 300)];
     fondo_gris.image = [[UIImage imageNamed:@"fondo-gris"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:fondo_gris];
-    [self.view sendSubviewToBack:fondo_gris];
+    //[self.view addSubview:fondo_gris];
+    //[self.view sendSubviewToBack:fondo_gris];
 
     comentario_view.layer.borderColor = [UIColor lightGrayColor].CGColor;
     comentario_view.layer.borderWidth = 0.5;
@@ -72,9 +72,6 @@
     if ([nombre_field isFirstResponder] && [touch view] != nombre_field) {
         [nombre_field resignFirstResponder];
     }
-    if ([titulo_field isFirstResponder] && [touch view] != titulo_field) {
-        [titulo_field resignFirstResponder];
-    }
     if ([comentario_view isFirstResponder] && [touch view] != comentario_view) {
         [comentario_view resignFirstResponder];
     }
@@ -86,8 +83,6 @@
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     if (textField == nombre_field) {
         nombre = textField.text;
-    }else if(textField == titulo_field){
-        titulo = textField.text;
     }
 }
 

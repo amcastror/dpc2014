@@ -41,6 +41,11 @@
     if ([[Filtros instance] sub_zona_seleccionada]) {
         //[botonSubZonas setTitle:[[[Filtros instance] sub_zona_seleccionada] nombre] forState:UIControlStateNormal];
     }
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+        self.navigationController.navigationBar.translucent = NO;
+    }
 }
 
 - (void) viewWillAppear:(BOOL)animated{
