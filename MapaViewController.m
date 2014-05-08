@@ -39,7 +39,16 @@
 {
     [super viewDidLoad];
     self.trackedViewName = @"mapa";
-    // Do any additional setup after loading the view from its nib.
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
+        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
+        self.navigationController.navigationBar.translucent = NO;
+    }
+    
+    //cambiar esto por uno con imagen de fondo para que se vea bien en iOS 6.
+    UIBarButtonItem *buscarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(presentaBuscador:)];
+    [buscarButtonItem setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = buscarButtonItem;
 
     [mapa setDelegate:self];
     

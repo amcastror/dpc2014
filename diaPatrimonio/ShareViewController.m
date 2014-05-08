@@ -175,7 +175,7 @@
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[[UIAlertView alloc] initWithTitle:@"Listo!" message:@"Gracias por compartir!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Listo!" message:@"Gracias por compartir!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         [self.navigationController popViewControllerAnimated:YES];
     });
 }

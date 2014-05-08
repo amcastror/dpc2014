@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapaViewController">
@@ -40,42 +40,19 @@
                         <action selector="botonBuscarAquiPressed:" destination="-1" eventType="touchUpInside" id="11"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="12">
-                    <rect key="frame" x="267" y="52" width="53" height="49"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Button" image="buscar-mapa-.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="selected" image="buscar-mapa-over-.png"/>
-                    <state key="highlighted" image="buscar-mapa-over-.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="presentaBuscador:" destination="-1" eventType="touchUpInside" id="13"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" id="14">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ver por" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="15">
-                            <rect key="frame" x="8" y="11" width="51" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="16">
-                            <rect key="frame" x="196" y="1" width="45" height="44"/>
+                            <rect key="frame" x="160" y="0.0" width="75" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" image="cat-ruta-.png">
+                            <state key="normal" image="dpc-nav-bar-rutas.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="selected" image="cat-ruta-over-.png"/>
+                            <state key="selected" image="dpc-nav-bar-rutas-activo.png"/>
                             <state key="highlighted">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -84,14 +61,14 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="17">
-                            <rect key="frame" x="56" y="1" width="73" height="44"/>
+                            <rect key="frame" x="12" y="0.0" width="75" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" image="cat-aper-.png">
+                            <state key="normal" image="dpc-nav-bar-aperturas.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="selected" image="cat-aper-over-.png"/>
+                            <state key="selected" image="dpc-nav-bar-aperturas-activo.png"/>
                             <state key="highlighted">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -100,14 +77,14 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="18">
-                            <rect key="frame" x="124" y="1" width="73" height="44"/>
+                            <rect key="frame" x="86" y="0.0" width="75" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" image="cat-reco-.png">
+                            <state key="normal" image="dpc-nav-bar-recorrido.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="selected" image="cat-reco-over-.png"/>
+                            <state key="selected" image="dpc-nav-bar-recorrido-activo.png"/>
                             <state key="highlighted">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -116,14 +93,14 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="19">
-                            <rect key="frame" x="240" y="1" width="73" height="44"/>
+                            <rect key="frame" x="234" y="0.0" width="75" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" image="cat-acti-.png">
+                            <state key="normal" image="dpc-nav-bar-actividades.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="selected" image="cat-acti-over-.png"/>
+                            <state key="selected" image="dpc-nav-bar-actividades-activo.png"/>
                             <state key="highlighted">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -132,7 +109,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.33000000000000002" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="0.67000000000000004" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -144,15 +121,13 @@
     </objects>
     <resources>
         <image name="buscar-aqui-.png" width="137" height="39"/>
-        <image name="buscar-mapa-.png" width="53" height="49"/>
-        <image name="buscar-mapa-over-.png" width="53" height="49"/>
-        <image name="cat-acti-.png" width="73" height="31"/>
-        <image name="cat-acti-over-.png" width="73" height="31"/>
-        <image name="cat-aper-.png" width="66" height="31"/>
-        <image name="cat-aper-over-.png" width="66" height="31"/>
-        <image name="cat-reco-.png" width="72" height="31"/>
-        <image name="cat-reco-over-.png" width="72" height="31"/>
-        <image name="cat-ruta-.png" width="45" height="31"/>
-        <image name="cat-ruta-over-.png" width="45" height="31"/>
+        <image name="dpc-nav-bar-actividades-activo.png" width="75" height="29"/>
+        <image name="dpc-nav-bar-actividades.png" width="75" height="29"/>
+        <image name="dpc-nav-bar-aperturas-activo.png" width="75" height="29"/>
+        <image name="dpc-nav-bar-aperturas.png" width="75" height="29"/>
+        <image name="dpc-nav-bar-recorrido-activo.png" width="75" height="29"/>
+        <image name="dpc-nav-bar-recorrido.png" width="75" height="29"/>
+        <image name="dpc-nav-bar-rutas-activo.png" width="75" height="29"/>
+        <image name="dpc-nav-bar-rutas.png" width="75" height="29"/>
     </resources>
 </document>

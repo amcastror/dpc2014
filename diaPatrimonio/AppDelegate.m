@@ -41,7 +41,7 @@
     
     MisPuntosCulturalesViewController *misPuntos = [[MisPuntosCulturalesViewController alloc] initWithNibName:@"MisPuntosCulturalesViewController" bundle:nil];
     UINavigationController *misPuntosNavController = [[UINavigationController alloc] initWithRootViewController:misPuntos];
-    UITabBarItem *item_mis_puntos = [[UITabBarItem alloc] initWithTitle:@"Mi ruta" image:[UIImage imageNamed:@"tab-bar-mis-puntos-"] tag:1];
+    UITabBarItem *item_mis_puntos = [[UITabBarItem alloc] initWithTitle:@"Mi ruta" image:[UIImage imageNamed:@"dpc-tab-bar-miruta"] tag:1];
     [misPuntosNavController setTabBarItem:item_mis_puntos];
     
     PerfilViewController *perfil = [[PerfilViewController alloc] initWithNibName:@"PerfilViewController" bundle:nil];
@@ -49,15 +49,16 @@
     UITabBarItem *item_perfil = [[UITabBarItem alloc] initWithTitle:@"Perfil" image:[UIImage imageNamed:@"tab-bar-perfil-"] tag:2];
     [perfilNavController setTabBarItem:item_perfil];
     
+    /*
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     }
-    
+    */
     /*     View controllers     */
     
      self.tabBarController = [[UITabBarController alloc] init];
     if ([self.tabBarController.tabBar respondsToSelector:@selector(setBarStyle:)]) {
-        self.tabBarController.tabBar.barStyle = UIBarStyleBlack;
+        self.tabBarController.tabBar.barStyle = UIBarStyleDefault;
     }
     if ([self.tabBarController.tabBar respondsToSelector:@selector(setTranslucent:)]) {
         self.tabBarController.tabBar.translucent = NO;
@@ -69,7 +70,8 @@
 
     [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
     if ([[UINavigationBar class]respondsToSelector:@selector(appearance)]) {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-var-"] forBarMetrics:UIBarMetricsDefault];
+        //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-var-"] forBarMetrics:UIBarMetricsDefault];
+
     }
     /* GAI */
     [GAI sharedInstance].trackUncaughtExceptions = YES;
@@ -83,6 +85,11 @@
     
     /* GAI */
     
+    mapa.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
