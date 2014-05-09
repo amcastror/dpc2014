@@ -63,7 +63,6 @@
     [puntoCultural requestCompletarInformacionWithSuccess:^{
         [self actualizaDisplay];
         [DejalBezelActivityView removeViewAnimated:YES];
-        NSLog(@"dist: %f", [puntoCultural distancia].doubleValue);
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
     }];
@@ -84,7 +83,6 @@
 -(void) actualizaDisplay{
     //imagen
     if (puntoCultural.url_foto) {
-        NSLog(@"url: %@", puntoCultural.url_foto);
         ImagenAsincrona *foto = [[ImagenAsincrona alloc] initWithFrame:CGRectMake(0, 0, 320, 180) AndURL:puntoCultural.url_foto AndStartNow:YES];
         foto.backgroundColor = [UIColor clearColor];
         largoActualFicha = 180 + bordeInferior;

@@ -37,17 +37,28 @@
     MapaViewController *mapa = [[MapaViewController alloc] initWithNibName:@"MapaViewController" bundle:nil];
     UINavigationController *mapaNavController = [[UINavigationController alloc] initWithRootViewController:mapa];
     UITabBarItem *item_mapa = [[UITabBarItem alloc] initWithTitle:@"Mapa" image:[UIImage imageNamed:@"dpc-tab-bar-mapa-icon-"] tag:0];
+    [item_mapa setFinishedSelectedImage:[UIImage imageNamed:@"dpc-tab-bar-mapa-activo-icon-"] withFinishedUnselectedImage:[UIImage imageNamed:@"dpc-tab-bar-mapa-icon-"]];
     [mapaNavController setTabBarItem:item_mapa];
     
     MisPuntosCulturalesViewController *misPuntos = [[MisPuntosCulturalesViewController alloc] initWithNibName:@"MisPuntosCulturalesViewController" bundle:nil];
     UINavigationController *misPuntosNavController = [[UINavigationController alloc] initWithRootViewController:misPuntos];
     UITabBarItem *item_mis_puntos = [[UITabBarItem alloc] initWithTitle:@"Mi ruta" image:[UIImage imageNamed:@"dpc-tab-bar-miruta-icon-"] tag:1];
+    [item_mis_puntos setFinishedSelectedImage:[UIImage imageNamed:@"dpc-tab-bar-miruta-activo-icon-"] withFinishedUnselectedImage:[UIImage imageNamed:@"dpc-tab-bar-miruta-icon-"]];
     [misPuntosNavController setTabBarItem:item_mis_puntos];
     
     PerfilViewController *perfil = [[PerfilViewController alloc] initWithNibName:@"PerfilViewController" bundle:nil];
     UINavigationController *perfilNavController = [[UINavigationController alloc] initWithRootViewController:perfil];
     UITabBarItem *item_perfil = [[UITabBarItem alloc] initWithTitle:@"Perfil" image:[UIImage imageNamed:@"dpc-tab-bar-perfil-icon-"] tag:2];
+    [item_perfil setFinishedSelectedImage:[UIImage imageNamed:@"dpc-tab-bar-perfil-activo-icon-"] withFinishedUnselectedImage:[UIImage imageNamed:@"dpc-tab-bar-perfil-icon-"]];
     [perfilNavController setTabBarItem:item_perfil];
+
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor darkGrayColor], UITextAttributeTextColor,
+                                                       nil] forState:UIControlStateNormal];
+    UIColor *titleHighlightedColor = [UIColor colorWithRed:35/255.0 green:139/255.0 blue:255/255.0 alpha:1.0];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       titleHighlightedColor, UITextAttributeTextColor,
+                                                       nil] forState:UIControlStateHighlighted];
     
     /*
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
@@ -65,6 +76,9 @@
     }
     
      self.tabBarController.viewControllers = @[mapaNavController, misPuntosNavController, perfilNavController];
+    
+    //iOS 6?
+    self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"1px-white"];
      self.window.rootViewController = self.tabBarController;
 
     [[FacebookController instance] trataDeAbrirSesionWithUI:NO AndHandler:^(NSError *error) { }];
