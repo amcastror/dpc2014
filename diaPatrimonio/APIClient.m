@@ -82,7 +82,7 @@ static NSString * const prefixURL = @"ws";
     
     double latitud = [[Usuario instance] latitud];
     double longitud = [[Usuario instance] longitud];
-    
+    NSLog(@"query: /puntosCercanos/%f/%f", latitud, longitud);
     [self apiClientGetPath:[NSString stringWithFormat:@"/puntosCercanos/%f/%f", latitud, longitud] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success(responseObject);

@@ -16,6 +16,7 @@
 #import "Usuario.h"
 #import "GAI.h"
 #import "GAITracker.h"
+#import "GPSManager.h"
 
 @interface MapaViewController ()
 
@@ -72,6 +73,12 @@
     } AndFail:^(NSError *error) {
         //
     }];
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(updateBotonUbicarme)
+                                                name:UIApplicationDidBecomeActiveNotification
+                                              object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -80,6 +87,16 @@
     if ([[PuntosCulturales instance] recienDescargados]) {
         [self dibujarMapaConAjuste:YES];
         [[PuntosCulturales instance] setRecienDescargados:NO];
+    }
+    [self updateBotonUbicarme];
+}
+
+-(void)updateBotonUbicarme{
+    
+    if ([[GPSManager sharedInstance] hasGPSPermissions]) {
+        self.botonUbicarme.hidden = NO;
+    }else{
+        self.botonUbicarme.hidden = YES;
     }
 }
 
@@ -160,6 +177,20 @@
     laRegion.center.longitude = (minLon + maxLon)/2;
     span.latitudeDelta= (fabs(minLat) - fabs(maxLat))*1.15;
     span.longitudeDelta= (fabs(minLon) - fabs(maxLon))*1.15;
+    laRegion.span = span;
+    
+    [mapa setRegion:laRegion animated:YES];
+}
+
+-(IBAction)ubicarme:(id)sender{
+    
+    MKCoordinateSpan span;
+    MKCoordinateRegion laRegion;
+    
+    laRegion.center.latitude = [[Usuario instance] latitud];
+    laRegion.center.longitude = [[Usuario instance] longitud];
+    span.latitudeDelta= 0.03;
+    span.longitudeDelta= 0.03;
     laRegion.span = span;
     
     [mapa setRegion:laRegion animated:YES];

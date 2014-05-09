@@ -19,5 +19,6 @@
 }
 
 @property (nonatomic, readonly) IBOutlet UIButton *botonBuscarAqui;
+@property IBOutlet UIButton *botonUbicarme;
 
 @end

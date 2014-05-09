@@ -301,6 +301,9 @@
 		60E6D57D16EE35E500E08C14 /* filaPuntoCultural.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D57C16EE35E500E08C14 /* filaPuntoCultural.xib */; };
 		60E6D58316EE38C000E08C14 /* FilaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E6D58216EE38C000E08C14 /* FilaCell.m */; };
 		60E6D58516EE38D700E08C14 /* FilaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E6D58416EE38D700E08C14 /* FilaCell.xib */; };
+		60E8F684191D121A00A43DF7 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E8F683191D121A00A43DF7 /* GPSManager.m */; };
+		60E8F687191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E8F685191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion.png */; };
+		60E8F688191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E8F686191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion@2x.png */; };
 		60E9A76C16FF42E30009D7C8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E9A76816FF42E30009D7C8 /* libTestFlight.a */; };
 		60E9A76D16FF42E30009D7C8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60E9A76916FF42E30009D7C8 /* README.md */; };
 		60E9A76E16FF42E30009D7C8 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 60E9A76A16FF42E30009D7C8 /* release_notes.md */; };
@@ -658,6 +661,10 @@
 		60E6D58116EE38C000E08C14 /* FilaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilaCell.h; sourceTree = "<group>"; };
 		60E6D58216EE38C000E08C14 /* FilaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilaCell.m; sourceTree = "<group>"; };
 		60E6D58416EE38D700E08C14 /* FilaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilaCell.xib; sourceTree = "<group>"; };
+		60E8F682191D121A00A43DF7 /* GPSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSManager.h; sourceTree = "<group>"; };
+		60E8F683191D121A00A43DF7 /* GPSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSManager.m; sourceTree = "<group>"; };
+		60E8F685191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-mapa-nav-ubicacion.png"; sourceTree = "<group>"; };
+		60E8F686191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-mapa-nav-ubicacion@2x.png"; sourceTree = "<group>"; };
 		60E9A76816FF42E30009D7C8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		60E9A76916FF42E30009D7C8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		60E9A76A16FF42E30009D7C8 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -708,6 +715,8 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				60E8F685191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion.png */,
+				60E8F686191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion@2x.png */,
 				601E91AB191C888C009A69C8 /* dpc-tab-bar-perfil-activo-icon-.png */,
 				601E91AC191C888C009A69C8 /* dpc-tab-bar-perfil-activo-icon-@2x.png */,
 				601E91A7191C8882009A69C8 /* dpc-tab-bar-miruta-activo-icon-.png */,
@@ -1067,6 +1076,8 @@
 		608297D516D835160057BED5 /* Librerias */ = {
 			isa = PBXGroup;
 			children = (
+				60E8F682191D121A00A43DF7 /* GPSManager.h */,
+				60E8F683191D121A00A43DF7 /* GPSManager.m */,
 				60640F8B173ACD840074C516 /* GA */,
 				601F9B8616FF5DE300C6E63A /* UDIDMD5 */,
 				608297D716D835380057BED5 /* AFNetworking */,
@@ -1427,6 +1438,7 @@
 				60586C271725FBFB0008B771 /* ficha-tabbar-rutas-02.png in Resources */,
 				600E45BC191C24CF008A01E2 /* dpc-nav-bar-rutas@2x.png in Resources */,
 				600E459C191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png in Resources */,
+				60E8F688191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion@2x.png in Resources */,
 				60586C281725FBFB0008B771 /* ficha-tabbar-rutas-02@2x.png in Resources */,
 				60586C291725FBFB0008B771 /* ficha-tabbar-rutas-03-over.png in Resources */,
 				60586C2A1725FBFB0008B771 /* ficha-tabbar-rutas-03-over@2x.png in Resources */,
@@ -1538,6 +1550,7 @@
 				60586CB7172602BF0008B771 /* icono-compartir.png in Resources */,
 				601E91AE191C888C009A69C8 /* dpc-tab-bar-perfil-activo-icon-@2x.png in Resources */,
 				60586CB8172602BF0008B771 /* icono-compartir@2x.png in Resources */,
+				60E8F687191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion.png in Resources */,
 				60E40E0817261CDE007F4D5C /* fondo-blanco@2x.png in Resources */,
 				60E40E0C17261D07007F4D5C /* fondo-blanco.png in Resources */,
 				60E40E10172620A5007F4D5C /* fondo-gris.png in Resources */,
@@ -1565,6 +1578,7 @@
 				608297EF16D835380057BED5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				608297F016D835380057BED5 /* AFPropertyListRequestOperation.m in Sources */,
 				608297F116D835380057BED5 /* AFURLConnectionOperation.m in Sources */,
+				60E8F684191D121A00A43DF7 /* GPSManager.m in Sources */,
 				608297F216D835380057BED5 /* AFXMLRequestOperation.m in Sources */,
 				608297F316D835380057BED5 /* UIImageView+AFNetworking.m in Sources */,
 				608297FA16D839E10057BED5 /* APIClient.m in Sources */,

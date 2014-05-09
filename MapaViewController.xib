@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapaViewController">
             <connections>
                 <outlet property="botonBuscarAqui" destination="9" id="10"/>
+                <outlet property="botonUbicarme" destination="cUf-Sc-diO" id="NGD-8u-wvG"/>
                 <outlet property="boton_actividades" destination="19" id="27"/>
                 <outlet property="boton_aperturas" destination="17" id="24"/>
                 <outlet property="boton_recorridos" destination="18" id="25"/>
@@ -111,6 +112,16 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.67000000000000004" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cUf-Sc-diO">
+                    <rect key="frame" x="269" y="315" width="45" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="dpc-mapa-nav-ubicacion.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="ubicarme:" destination="-1" eventType="touchUpInside" id="p1u-j0-PIe"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -121,6 +132,7 @@
     </objects>
     <resources>
         <image name="buscar-aqui-.png" width="137" height="39"/>
+        <image name="dpc-mapa-nav-ubicacion.png" width="45" height="45"/>
         <image name="dpc-nav-bar-actividades-activo.png" width="75" height="29"/>
         <image name="dpc-nav-bar-actividades.png" width="75" height="29"/>
         <image name="dpc-nav-bar-aperturas-activo.png" width="75" height="29"/>
