@@ -290,6 +290,8 @@
 		60C7EB0D16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C7EB0B16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib */; };
 		60C8E6F516EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */; };
 		60C8E6F616EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */; };
+		60D47C89191DB4D500AB7872 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D47C87191DB4D500AB7872 /* back.png */; };
+		60D47C8A191DB4D500AB7872 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D47C88191DB4D500AB7872 /* back@2x.png */; };
 		60D6D8811773685000ECE65A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D6D8801773685000ECE65A /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		60D6D8831773686100ECE65A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D6D8821773686100ECE65A /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		60E40E0817261CDE007F4D5C /* fondo-blanco@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E40E0617261CDE007F4D5C /* fondo-blanco@2x.png */; };
@@ -649,6 +651,8 @@
 		60C8E6F216EAC3CA00C95DFD /* MisPuntosCulturalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturalesViewController.h; sourceTree = "<group>"; };
 		60C8E6F316EAC3CA00C95DFD /* MisPuntosCulturalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturalesViewController.m; sourceTree = "<group>"; };
 		60C8E6F416EAC3CA00C95DFD /* MisPuntosCulturalesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MisPuntosCulturalesViewController.xib; sourceTree = "<group>"; };
+		60D47C87191DB4D500AB7872 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		60D47C88191DB4D500AB7872 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		60D6D8801773685000ECE65A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		60D6D8821773686100ECE65A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		60E40E0617261CDE007F4D5C /* fondo-blanco@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo-blanco@2x.png"; sourceTree = "<group>"; };
@@ -715,6 +719,8 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				60D47C87191DB4D500AB7872 /* back.png */,
+				60D47C88191DB4D500AB7872 /* back@2x.png */,
 				60E8F685191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion.png */,
 				60E8F686191D2EF100A43DF7 /* dpc-mapa-nav-ubicacion@2x.png */,
 				601E91AB191C888C009A69C8 /* dpc-tab-bar-perfil-activo-icon-.png */,
@@ -1427,6 +1433,7 @@
 				60586C1E1725FBFB0008B771 /* ficha-tabbar-recorridos-03-over@2x.png in Resources */,
 				60586C1F1725FBFB0008B771 /* ficha-tabbar-recorridos-03.png in Resources */,
 				60586C201725FBFB0008B771 /* ficha-tabbar-recorridos-03@2x.png in Resources */,
+				60D47C8A191DB4D500AB7872 /* back@2x.png in Resources */,
 				60586C211725FBFB0008B771 /* ficha-tabbar-rutas-01-over.png in Resources */,
 				60586C221725FBFB0008B771 /* ficha-tabbar-rutas-01-over@2x.png in Resources */,
 				60586C231725FBFB0008B771 /* ficha-tabbar-rutas-01.png in Resources */,
@@ -1467,6 +1474,7 @@
 				60586C401725FBFB0008B771 /* icono-no-visitado@2x.png in Resources */,
 				60586C411725FBFB0008B771 /* icono-visitado.png in Resources */,
 				60586C421725FBFB0008B771 /* icono-visitado@2x.png in Resources */,
+				60D47C89191DB4D500AB7872 /* back.png in Resources */,
 				60586C431725FBFB0008B771 /* nav-var-.png in Resources */,
 				60586C441725FBFB0008B771 /* nav-var-@2x.png in Resources */,
 				601E91AA191C8882009A69C8 /* dpc-tab-bar-miruta-activo-icon-@2x.png in Resources */,

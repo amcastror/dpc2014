@@ -66,16 +66,22 @@
     } AndFail:^(NSError *error) {
         [DejalBezelActivityView removeViewAnimated:YES];
     }];
-    
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
-        self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
-        self.navigationController.navigationBar.translucent = NO;
-    }
 }
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self actualizaDisplayBotonAccion];
+    [self.navigationItem setHidesBackButton:YES];
+    
+    //Left bar button like back button item.
+    UIImage *backImage = [UIImage imageNamed:@"back"];
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.bounds = CGRectMake( 0, 0, backImage.size.width, backImage.size.height );
+    [backButton setImage:backImage forState:UIControlStateNormal];
+    [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backBarButtonItem;
+
 }
 
 #pragma mark - funciones display

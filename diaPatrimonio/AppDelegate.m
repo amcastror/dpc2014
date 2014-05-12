@@ -58,7 +58,7 @@
     UIColor *titleHighlightedColor = [UIColor colorWithRed:35/255.0 green:139/255.0 blue:255/255.0 alpha:1.0];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                        titleHighlightedColor, UITextAttributeTextColor,
-                                                       nil] forState:UIControlStateHighlighted];
+                                                       nil] forState:UIControlStateSelected];
     
     /*
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {

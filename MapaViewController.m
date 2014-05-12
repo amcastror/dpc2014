@@ -204,6 +204,7 @@
     puntoCulturalViewController.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     [[self navigationController] pushViewController:puntoCulturalViewController animated:YES];
     
+    /*
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Mapa" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
     if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
@@ -211,6 +212,14 @@
     }
     
     self.navigationItem.backBarButtonItem = atras;
+    */
+    //UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"a" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    //self.navigationItem.backBarButtonItem = nil;
+    /*
+    UIImage *backButtonHomeImage = [[UIImage imageNamed:@"back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonHomeImage  forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+     */
 }
 
 -(IBAction) presentaBuscador:(id)sender{
