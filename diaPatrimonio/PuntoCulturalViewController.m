@@ -74,7 +74,7 @@
     [self.navigationItem setHidesBackButton:YES];
     
     //Left bar button like back button item.
-    UIImage *backImage = [UIImage imageNamed:@"back"];
+    UIImage *backImage = [UIImage imageNamed:@"dpc-nav-bar-back"];
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.bounds = CGRectMake( 0, 0, backImage.size.width, backImage.size.height );
     [backButton setImage:backImage forState:UIControlStateNormal];
@@ -194,45 +194,83 @@
     descripcion_corta_view.image = fondo_resizable;
     [descripcion_corta_view addSubview:descripcion_corta];
     
-    largoActualFicha = descripcion_corta_view.frame.origin.y + descripcion_corta_view.frame.size.height + bordeInferior;
+    largoActualFicha = descripcion_corta_view.frame.origin.y + descripcion_corta_view.frame.size.height;
     [self actualizaLargoScroll];
     [scroll addSubview:descripcion_corta_view];
     
     //Dirección
     
     largoActualFicha += 10;
-    
-    CGSize size_direccion = [[NSString stringWithFormat:@"Dirección: %@", puntoCultural.direccion] sizeWithFont:fuenteInformacion
-                                          constrainedToSize:CGSizeMake(280, 100000)
+    CGSize size_direccion = [puntoCultural.direccion sizeWithFont:fuenteInformacion
+                                          constrainedToSize:CGSizeMake(boxDireccionLabel.frame.size.width, 100000)
                                               lineBreakMode:NSLineBreakByTruncatingTail];
-    UILabel *direccion = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_direccion.height)];
-    direccion.text = [NSString stringWithFormat:@"Dirección: %@", puntoCultural.direccion];
-    direccion.font = fuenteInformacion;
-    direccion.textColor = colorInformacion;
-    direccion.backgroundColor = [UIColor clearColor];
-    direccion.numberOfLines = 0;
-    largoActualFicha = direccion.frame.origin.y + direccion.frame.size.height + bordeInferior;
+    
+    CGRect frameBoxDireccionLabel = boxDireccionLabel.frame;
+    frameBoxDireccionLabel.size.height = size_direccion.height;
+    boxDireccionLabel.frame = frameBoxDireccionLabel;
+    
+    //UILabel *direccion = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_direccion.height)];
+    boxDireccionLabel.text = puntoCultural.direccion;
+    boxDireccionLabel.font = fuenteInformacion;
+    boxDireccionLabel.textColor = colorInformacion;
+    boxDireccionLabel.backgroundColor = [UIColor clearColor];
+    boxDireccionLabel.numberOfLines = 0;
+    
+    CGRect frameBoxDireccionView = boxDireccionView.frame;
+    frameBoxDireccionView.origin.y = largoActualFicha;
+    frameBoxDireccionView.size.height = boxDireccionLabel.frame.origin.y + boxDireccionLabel.frame.size.height + 3;
+    boxDireccionView.frame = frameBoxDireccionView;
+    boxDireccionView.hidden = NO;
+    
+    largoActualFicha = boxDireccionView.frame.origin.y + boxDireccionView.frame.size.height;
     [self actualizaLargoScroll];
-    [scroll addSubview:direccion];
+    //[scroll addSubview:direccion];
     
     //Horarios, sitio web, etc.
     if (![puntoCultural.horario isEqualToString:@""]) {
-        CGSize size_horario = [[NSString stringWithFormat:@"Horario: %@", puntoCultural.horario] sizeWithFont:fuenteInformacion
-                                                                                            constrainedToSize:CGSizeMake(280, 100000)
-                                                                                                lineBreakMode:NSLineBreakByTruncatingTail];
-        UILabel *horario = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_horario.height)];
-        horario.text = [NSString stringWithFormat:@"Horario: %@", puntoCultural.horario];
-        horario.font = fuenteInformacion;
-        horario.textColor = colorInformacion;
-        horario.backgroundColor = [UIColor clearColor];
-        horario.numberOfLines = 0;
+        CGSize size_horario = [puntoCultural.horario sizeWithFont:fuenteInformacion
+                                                constrainedToSize:CGSizeMake(boxHorarioLabel.frame.size.width, 100000)];
         
-        largoActualFicha = horario.frame.origin.y + horario.frame.size.height + bordeInferior;
+        CGRect frameBoxHorarioLabel = boxHorarioLabel.frame;
+        frameBoxHorarioLabel.size.height = size_horario.height;
+        boxHorarioLabel.frame = frameBoxHorarioLabel;
+        
+        boxHorarioLabel.text = puntoCultural.horario;
+        boxHorarioLabel.font = fuenteInformacion;
+        boxHorarioLabel.textColor = colorInformacion;
+        boxHorarioLabel.backgroundColor = [UIColor clearColor];
+        boxHorarioLabel.numberOfLines = 0;
+        
+        CGRect frameBoxHorarioView = boxHorarioView.frame;
+        frameBoxHorarioView.origin.y = largoActualFicha;
+        frameBoxHorarioView.size.height = boxHorarioLabel.frame.origin.y + boxHorarioLabel.frame.size.height + 3;
+        boxHorarioView.frame = frameBoxHorarioView;
+        
+        largoActualFicha = boxHorarioView.frame.origin.y + boxHorarioView.frame.size.height;
+        boxHorarioView.hidden = NO;
         [self actualizaLargoScroll];
-        [scroll addSubview:horario];
+        //[scroll addSubview:horario];
         
-        largoActualFicha += 10;
     }
+    
+    if (puntoCultural.web && ![puntoCultural.web isEqualToString:@""]) {
+        
+        boxWebTTTLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
+        boxWebTTTLabel.delegate = self;
+        boxWebTTTLabel.text = puntoCultural.web;
+        boxWebTTTLabel.textColor = colorInformacion;
+        boxWebTTTLabel.backgroundColor = [UIColor clearColor];
+        
+        CGRect frameBoxWebView = boxWebView.frame;
+        frameBoxWebView.origin.y = largoActualFicha;
+        boxWebView.frame = frameBoxWebView;
+        boxWebView.hidden = NO;
+        
+        largoActualFicha = boxWebView.frame.origin.y + boxWebView.frame.size.height;
+        [self actualizaLargoScroll];
+    }
+    
+    largoActualFicha += 10;
     
     //Descripción larga
     
@@ -258,11 +296,15 @@
     [self muestraComentarios];
 }
 
+-(void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url{
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 -(void)muestraComentarios{
     
     [puntoCultural requestComentariosWithSuccess:^{
         
-        int cantidad_comentarios = [[puntoCultural comentarios] count];
+        int cantidad_comentarios = (int)[[puntoCultural comentarios] count];
         
         if (cantidad_comentarios > 0) {
             
@@ -384,14 +426,6 @@
     ComentariosViewController *comentarios = [[ComentariosViewController alloc] initWithNibName:@"ComentariosViewController" bundle:[NSBundle mainBundle] AndComentarios:[puntoCultural comentarios]];
     comentarios.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     [self.navigationController pushViewController:comentarios animated:YES];
-    
-    UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    
-    if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
-        atras.tintColor = [UIColor darkGrayColor];
-    }
-    
-    [self.navigationItem setBackBarButtonItem:atras];
 }
 
 -(void) actualizaLargoScroll{
@@ -447,12 +481,12 @@
             break;
     }
     
-    [botonCompartir setBackgroundImage:default_image_01 forState:UIControlStateNormal];
-    [botonCompartir setBackgroundImage:selected_image_01 forState:UIControlStateHighlighted];
-    [botonComentar setBackgroundImage:default_image_02 forState:UIControlStateNormal];
-    [botonComentar setBackgroundImage:selected_image_02 forState:UIControlStateHighlighted];
-    [botonAccionPunto setBackgroundImage:default_image_03 forState:UIControlStateNormal];
-    [botonAccionPunto setBackgroundImage:selected_image_03 forState:UIControlStateHighlighted];
+    //[botonCompartir setBackgroundImage:default_image_01 forState:UIControlStateNormal];
+    //[botonCompartir setBackgroundImage:selected_image_01 forState:UIControlStateHighlighted];
+    //[botonComentar setBackgroundImage:default_image_02 forState:UIControlStateNormal];
+    //[botonComentar setBackgroundImage:selected_image_02 forState:UIControlStateHighlighted];
+    //[botonAccionPunto setBackgroundImage:default_image_03 forState:UIControlStateNormal];
+    //[botonAccionPunto setBackgroundImage:selected_image_03 forState:UIControlStateHighlighted];
     
     if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
         if (puntoCultural.visitado) {
@@ -528,7 +562,7 @@
     share.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dpc-nav-bar-logos"]];
     [[self navigationController] pushViewController:share
                                            animated:YES];
-    
+    /*
     UIBarButtonItem *atras = [[UIBarButtonItem alloc] initWithTitle:@"Ficha" style:UIBarButtonItemStyleBordered target:nil action:nil];
     
     if([[UIBarButtonItem class] instancesRespondToSelector:@selector(setTintColor:)]){
@@ -536,6 +570,7 @@
     }
     
     [self.navigationItem setBackBarButtonItem:atras];
+     */
 }
 
 - (IBAction)botonComentarioPressed:(id)sender{

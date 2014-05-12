@@ -53,6 +53,15 @@
         self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
         self.navigationController.navigationBar.translucent = NO;
     }
+    
+    //Left bar button like back button item.
+    UIImage *backImage = [UIImage imageNamed:@"dpc-nav-bar-back"];
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.bounds = CGRectMake( 0, 0, backImage.size.width, backImage.size.height );
+    [backButton setImage:backImage forState:UIControlStateNormal];
+    [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backBarButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
