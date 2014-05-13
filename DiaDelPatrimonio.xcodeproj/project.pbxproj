@@ -71,6 +71,10 @@
 		603875691922AE5E000222BD /* dpc-miruta-icon-novisitado@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603875671922AE5E000222BD /* dpc-miruta-icon-novisitado@2x.png */; };
 		6038756C1922AE67000222BD /* dpc-miruta-icon-visitado.png in Resources */ = {isa = PBXBuildFile; fileRef = 6038756A1922AE67000222BD /* dpc-miruta-icon-visitado.png */; };
 		6038756D1922AE67000222BD /* dpc-miruta-icon-visitado@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6038756B1922AE67000222BD /* dpc-miruta-icon-visitado@2x.png */; };
+		603875741922B8B1000222BD /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 603875711922B8B1000222BD /* Default~iphone.png */; };
+		603875751922B8B1000222BD /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 603875721922B8B1000222BD /* Default@2x~iphone.png */; };
+		603875761922B8B1000222BD /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 603875731922B8B1000222BD /* Default-568h@2x~iphone.png */; };
+		6038757A1922B94F000222BD /* dpc-inicio-640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 603875791922B94F000222BD /* dpc-inicio-640x960.png */; };
 		603CEB891721917400F50727 /* DejarComentarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603CEB871721917400F50727 /* DejarComentarioViewController.m */; };
 		603CEB8A1721917400F50727 /* DejarComentarioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603CEB881721917400F50727 /* DejarComentarioViewController.xib */; };
 		603F7DFD17736587001C426B /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 603F7DFB17736587001C426B /* FacebookSDKResources.bundle */; };
@@ -279,9 +283,6 @@
 		608297BD16D831360057BED5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 608297BB16D831360057BED5 /* InfoPlist.strings */; };
 		608297BF16D831360057BED5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 608297BE16D831360057BED5 /* main.m */; };
 		608297C316D831360057BED5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 608297C216D831360057BED5 /* AppDelegate.m */; };
-		608297C516D831360057BED5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 608297C416D831360057BED5 /* Default.png */; };
-		608297C716D831360057BED5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 608297C616D831360057BED5 /* Default@2x.png */; };
-		608297C916D831360057BED5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 608297C816D831360057BED5 /* Default-568h@2x.png */; };
 		608297D216D831820057BED5 /* MapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608297D016D831820057BED5 /* MapaViewController.m */; };
 		608297D316D831820057BED5 /* MapaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608297D116D831820057BED5 /* MapaViewController.xib */; };
 		608297EB16D835380057BED5 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 608297D916D835380057BED5 /* AFHTTPClient.m */; };
@@ -422,6 +423,10 @@
 		603875671922AE5E000222BD /* dpc-miruta-icon-novisitado@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dpc-miruta-icon-novisitado@2x.png"; path = "../../../../Dropbox/dsarhoya/proyectos/201402_cambiosDPC/pantallas/mi-ruta/dpc-miruta-icon-novisitado@2x.png"; sourceTree = "<group>"; };
 		6038756A1922AE67000222BD /* dpc-miruta-icon-visitado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dpc-miruta-icon-visitado.png"; path = "../../../../Dropbox/dsarhoya/proyectos/201402_cambiosDPC/pantallas/mi-ruta/dpc-miruta-icon-visitado.png"; sourceTree = "<group>"; };
 		6038756B1922AE67000222BD /* dpc-miruta-icon-visitado@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dpc-miruta-icon-visitado@2x.png"; path = "../../../../Dropbox/dsarhoya/proyectos/201402_cambiosDPC/pantallas/mi-ruta/dpc-miruta-icon-visitado@2x.png"; sourceTree = "<group>"; };
+		603875711922B8B1000222BD /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		603875721922B8B1000222BD /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
+		603875731922B8B1000222BD /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		603875791922B94F000222BD /* dpc-inicio-640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-inicio-640x960.png"; sourceTree = "<group>"; };
 		603CEB861721917400F50727 /* DejarComentarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejarComentarioViewController.h; sourceTree = "<group>"; };
 		603CEB871721917400F50727 /* DejarComentarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejarComentarioViewController.m; sourceTree = "<group>"; };
 		603CEB881721917400F50727 /* DejarComentarioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DejarComentarioViewController.xib; sourceTree = "<group>"; };
@@ -643,9 +648,6 @@
 		608297C016D831360057BED5 /* DiaDelPatrimonio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiaDelPatrimonio-Prefix.pch"; sourceTree = "<group>"; };
 		608297C116D831360057BED5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		608297C216D831360057BED5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		608297C416D831360057BED5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		608297C616D831360057BED5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		608297C816D831360057BED5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		608297CF16D831820057BED5 /* MapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapaViewController.h; path = ../MapaViewController.h; sourceTree = "<group>"; };
 		608297D016D831820057BED5 /* MapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapaViewController.m; path = ../MapaViewController.m; sourceTree = "<group>"; };
 		608297D116D831820057BED5 /* MapaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapaViewController.xib; path = ../MapaViewController.xib; sourceTree = "<group>"; };
@@ -781,6 +783,10 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				603875791922B94F000222BD /* dpc-inicio-640x960.png */,
+				603875711922B8B1000222BD /* Default~iphone.png */,
+				603875721922B8B1000222BD /* Default@2x~iphone.png */,
+				603875731922B8B1000222BD /* Default-568h@2x~iphone.png */,
 				6038756A1922AE67000222BD /* dpc-miruta-icon-visitado.png */,
 				6038756B1922AE67000222BD /* dpc-miruta-icon-visitado@2x.png */,
 				603875661922AE5E000222BD /* dpc-miruta-icon-novisitado.png */,
@@ -1154,9 +1160,6 @@
 				608297BB16D831360057BED5 /* InfoPlist.strings */,
 				608297BE16D831360057BED5 /* main.m */,
 				608297C016D831360057BED5 /* DiaDelPatrimonio-Prefix.pch */,
-				608297C416D831360057BED5 /* Default.png */,
-				608297C616D831360057BED5 /* Default@2x.png */,
-				608297C816D831360057BED5 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1397,9 +1400,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				608297BD16D831360057BED5 /* InfoPlist.strings in Resources */,
-				608297C516D831360057BED5 /* Default.png in Resources */,
-				608297C716D831360057BED5 /* Default@2x.png in Resources */,
-				608297C916D831360057BED5 /* Default-568h@2x.png in Resources */,
 				608297D316D831820057BED5 /* MapaViewController.xib in Resources */,
 				6082980E16D99DC10057BED5 /* PuntoCulturalViewController.xib in Resources */,
 				60C7EB0D16D9B580001145F2 /* BuscadorPuntosCulturalesViewController.xib in Resources */,
@@ -1464,6 +1464,7 @@
 				600E45B7191C24CF008A01E2 /* dpc-nav-bar-recorrido.png in Resources */,
 				60586BEA1725FBFB0008B771 /* ficha-img-fondo-01@2x.png in Resources */,
 				60586BEB1725FBFB0008B771 /* ficha-img-fondo-fila-arriba.png in Resources */,
+				603875741922B8B1000222BD /* Default~iphone.png in Resources */,
 				602019B11921671C002D5D16 /* dpc-actividad-icon-direccion@2x.png in Resources */,
 				60586BEC1725FBFB0008B771 /* ficha-img-fondo-fila-arriba@2x.png in Resources */,
 				60586BED1725FBFB0008B771 /* ficha-img-fondo-fila.png in Resources */,
@@ -1482,6 +1483,7 @@
 				60586BF91725FBFB0008B771 /* ficha-tabbar-activ-03-over.png in Resources */,
 				60586BFA1725FBFB0008B771 /* ficha-tabbar-activ-03-over@2x.png in Resources */,
 				60201998192156FD002D5D16 /* dpc-nav-bar-back.png in Resources */,
+				6038757A1922B94F000222BD /* dpc-inicio-640x960.png in Resources */,
 				60586BFB1725FBFB0008B771 /* ficha-tabbar-activ-03.png in Resources */,
 				60586BFC1725FBFB0008B771 /* ficha-tabbar-activ-03@2x.png in Resources */,
 				60586BFD1725FBFB0008B771 /* ficha-tabbar-aper-01-over.png in Resources */,
@@ -1510,6 +1512,7 @@
 				60586C0D1725FBFB0008B771 /* ficha-tabbar-icono-comentar-over.png in Resources */,
 				60586C0E1725FBFB0008B771 /* ficha-tabbar-icono-comentar-over@2x.png in Resources */,
 				602019B51921671C002D5D16 /* dpc-actividad-icon-sitio@2x.png in Resources */,
+				603875761922B8B1000222BD /* Default-568h@2x~iphone.png in Resources */,
 				60586C0F1725FBFB0008B771 /* ficha-tabbar-icono-comentar.png in Resources */,
 				60586C101725FBFB0008B771 /* ficha-tabbar-icono-comentar@2x.png in Resources */,
 				60586C111725FBFB0008B771 /* ficha-tabbar-icono-compartir-over.png in Resources */,
@@ -1657,6 +1660,7 @@
 				602019A41921595F002D5D16 /* dpc-boton-compartir.png in Resources */,
 				6038756D1922AE67000222BD /* dpc-miruta-icon-visitado@2x.png in Resources */,
 				60586CAD172602BF0008B771 /* compartir-boton-foto-rutas-over.png in Resources */,
+				603875751922B8B1000222BD /* Default@2x~iphone.png in Resources */,
 				607604AD192263850085AA6F /* dpc-boton-miruta-icono@2x.png in Resources */,
 				60586CAE172602BF0008B771 /* compartir-boton-foto-rutas-over@2x.png in Resources */,
 				60586CAF172602BF0008B771 /* compartir-boton-foto-rutas.png in Resources */,

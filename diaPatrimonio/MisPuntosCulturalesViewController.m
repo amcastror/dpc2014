@@ -14,7 +14,7 @@
 #import "GAI.h"
 #import "GAITracker.h"
 
-#define fuenteNombre [UIFont systemFontOfSize:14.0]
+#define fuenteNombre [UIFont fontWithName:@"HelveticaNeue-Light" size:16]
 
 @interface MisPuntosCulturalesViewController (){
     BOOL editando;
@@ -267,9 +267,9 @@
                                       lineBreakMode:NSLineBreakByTruncatingTail];
     
     if (indexPath.row == 0) {
-        return MAX((size_nombre.height + 30 + 25), 50);
+        return MAX((size_nombre.height + 10 + 25), 50);
     }else{
-        return MAX((size_nombre.height + 30 + 25), 40);
+        return MAX((size_nombre.height + 10 + 25), 40);
     }
 }
 
