@@ -257,6 +257,8 @@
 		60640F8A173ACD7E0074C516 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60640F89173ACD7E0074C516 /* libGoogleAnalytics.a */; };
 		60640F8D173ACDC20074C516 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60640F8C173ACDC20074C516 /* CoreData.framework */; };
 		60723BB816ECB4E100C50BCF /* MisPuntosCulturales.m in Sources */ = {isa = PBXBuildFile; fileRef = 60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */; };
+		607604AC192263850085AA6F /* dpc-boton-miruta-icono.png in Resources */ = {isa = PBXBuildFile; fileRef = 607604AA192263850085AA6F /* dpc-boton-miruta-icono.png */; };
+		607604AD192263850085AA6F /* dpc-boton-miruta-icono@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 607604AB192263850085AA6F /* dpc-boton-miruta-icono@2x.png */; };
 		608297B316D831360057BED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B216D831360057BED5 /* UIKit.framework */; };
 		608297B516D831360057BED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B416D831360057BED5 /* Foundation.framework */; };
 		608297B716D831360057BED5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608297B616D831360057BED5 /* CoreGraphics.framework */; };
@@ -604,6 +606,8 @@
 		60640F8C173ACDC20074C516 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		60723BB616ECB4E100C50BCF /* MisPuntosCulturales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisPuntosCulturales.h; sourceTree = "<group>"; };
 		60723BB716ECB4E100C50BCF /* MisPuntosCulturales.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisPuntosCulturales.m; sourceTree = "<group>"; };
+		607604AA192263850085AA6F /* dpc-boton-miruta-icono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-boton-miruta-icono.png"; sourceTree = "<group>"; };
+		607604AB192263850085AA6F /* dpc-boton-miruta-icono@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-boton-miruta-icono@2x.png"; sourceTree = "<group>"; };
 		608297AF16D831360057BED5 /* DiaDelPatrimonio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiaDelPatrimonio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		608297B216D831360057BED5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		608297B416D831360057BED5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -757,6 +761,8 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				607604AA192263850085AA6F /* dpc-boton-miruta-icono.png */,
+				607604AB192263850085AA6F /* dpc-boton-miruta-icono@2x.png */,
 				602019AA1921671C002D5D16 /* dpc-actividad-icon-direccion.png */,
 				602019AB1921671C002D5D16 /* dpc-actividad-icon-direccion@2x.png */,
 				602019AC1921671C002D5D16 /* dpc-actividad-icon-hora.png */,
@@ -1551,6 +1557,7 @@
 				60586C461725FBFB0008B771 /* perfil-btn-cambiar-over@2x.png in Resources */,
 				60586C471725FBFB0008B771 /* perfil-btn-cambiar.png in Resources */,
 				60F0A914191C4A4900635250 /* dpc-tab-bar-miruta-icon-.png in Resources */,
+				607604AC192263850085AA6F /* dpc-boton-miruta-icono.png in Resources */,
 				600E45C8191C317C008A01E2 /* dpc-mapa-call-flecha@2x.png in Resources */,
 				60586C481725FBFB0008B771 /* perfil-btn-cambiar@2x.png in Resources */,
 				601E91A9191C8882009A69C8 /* dpc-tab-bar-miruta-activo-icon-.png in Resources */,
@@ -1617,6 +1624,7 @@
 				60586CAC172602BF0008B771 /* compartir-boton-foto-reco@2x.png in Resources */,
 				602019A41921595F002D5D16 /* dpc-boton-compartir.png in Resources */,
 				60586CAD172602BF0008B771 /* compartir-boton-foto-rutas-over.png in Resources */,
+				607604AD192263850085AA6F /* dpc-boton-miruta-icono@2x.png in Resources */,
 				60586CAE172602BF0008B771 /* compartir-boton-foto-rutas-over@2x.png in Resources */,
 				60586CAF172602BF0008B771 /* compartir-boton-foto-rutas.png in Resources */,
 				60586CB0172602BF0008B771 /* compartir-boton-foto-rutas@2x.png in Resources */,

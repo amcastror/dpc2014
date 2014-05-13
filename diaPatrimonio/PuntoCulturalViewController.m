@@ -27,6 +27,8 @@
 #define fuenteTituloComentarios [UIFont fontWithName:@"HelveticaNeue-Light" size:18]
 #define fuenteNombreComentarios [UIFont fontWithName:@"HelveticaNeue-Light" size:12]
 #define fuenteFecha [UIFont systemFontOfSize:12.0]
+#define fuenteBotonTituloLargo [UIFont fontWithName:@"HelveticaNeue-Medium" size:11]
+#define fuenteBotonTituloCorto [UIFont fontWithName:@"HelveticaNeue-Medium" size:13]
 
 #define colorCategoria [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorTitulo [UIColor colorWithRed: 22.0/255.0 green: 82.0/255.0 blue: 158.0/255.0 alpha: 1.0]
@@ -63,7 +65,7 @@
 {
     [super viewDidLoad];
     self.trackedViewName = @"punto_cultural";
-    
+    botonAccionPunto.layer.cornerRadius = 3;
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"cargando..."];
     [puntoCultural requestCompletarInformacionWithSuccess:^{
         [self actualizaDisplay];
@@ -260,7 +262,6 @@
         largoActualFicha = boxHorarioView.frame.origin.y + boxHorarioView.frame.size.height;
         boxHorarioView.hidden = NO;
         [self actualizaLargoScroll];
-        //[scroll addSubview:horario];
         
     }
     
@@ -490,24 +491,21 @@
             break;
     }
     
-    //[botonCompartir setBackgroundImage:default_image_01 forState:UIControlStateNormal];
-    //[botonCompartir setBackgroundImage:selected_image_01 forState:UIControlStateHighlighted];
-    //[botonComentar setBackgroundImage:default_image_02 forState:UIControlStateNormal];
-    //[botonComentar setBackgroundImage:selected_image_02 forState:UIControlStateHighlighted];
-    //[botonAccionPunto setBackgroundImage:default_image_03 forState:UIControlStateNormal];
-    //[botonAccionPunto setBackgroundImage:selected_image_03 forState:UIControlStateHighlighted];
-    
+    //13 - 11
     if ([[MisPuntosCulturales instance] puntoCulturalConID:puntoCultural.id_punto]) {
         if (puntoCultural.visitado) {
-            [botonAccionPunto setTitle:@"   No visitado" forState:UIControlStateNormal];
-            [botonAccionPunto setTitle:@"   No visitado" forState:UIControlStateSelected];
-            [botonAccionPunto setTitle:@"   No visitado" forState:UIControlStateHighlighted];
+            botonAccionPunto.titleLabel.font = fuenteBotonTituloLargo;
+            [botonAccionPunto setTitle:@"No visitado" forState:UIControlStateNormal];
+            [botonAccionPunto setTitle:@"No visitado" forState:UIControlStateSelected];
+            [botonAccionPunto setTitle:@"No visitado" forState:UIControlStateHighlighted];
         }else{
+            botonAccionPunto.titleLabel.font = fuenteBotonTituloCorto;
             [botonAccionPunto setTitle:@"Visitado" forState:UIControlStateNormal];
             [botonAccionPunto setTitle:@"Visitado" forState:UIControlStateSelected];
             [botonAccionPunto setTitle:@"Visitado" forState:UIControlStateHighlighted];
         }
     }else{
+        botonAccionPunto.titleLabel.font = fuenteBotonTituloCorto;
         [botonAccionPunto setTitle:@"Agregar" forState:UIControlStateNormal];
         [botonAccionPunto setTitle:@"Agregar" forState:UIControlStateSelected];
         [botonAccionPunto setTitle:@"Agregar" forState:UIControlStateHighlighted];

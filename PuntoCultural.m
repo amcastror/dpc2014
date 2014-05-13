@@ -72,7 +72,7 @@
         if ([informacionPunto objectForKey:@"img"] && ![[informacionPunto objectForKey:@"img"] isEqualToString:@""]) {
             url_foto = [informacionPunto objectForKey:@"img"];
         }
-        if ([informacionPunto objectForKey:@"web"]) {
+        if ([informacionPunto objectForKey:@"web"] && ![[informacionPunto objectForKey:@"web"] isKindOfClass:[NSNull class]]) {
             web = [informacionPunto objectForKey:@"web"];
         }
         
