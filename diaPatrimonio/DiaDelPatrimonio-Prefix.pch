@@ -16,6 +16,5 @@
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <MapKit/MapKit.h>
     #import "DejalActivityView.h"
-    #import "TestFlight.h"
     #import "version.h"
 #endif

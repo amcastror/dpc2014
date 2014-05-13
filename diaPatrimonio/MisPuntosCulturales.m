@@ -32,13 +32,15 @@
         //Tengo que inicializar cada punto...
          for (NSDictionary *punto in puntos) {
              if ([[punto objectForKey:@"lat"] class] != [NSNull class] && [[punto objectForKey:@"lon"] class] != [NSNull class]&& [[punto objectForKey:@"n"] class] != [NSNull class]) {
-                 
+
                  PuntoCultural *miPunto = [[PuntoCultural alloc] initWithIDPunto:[punto objectForKey:@"id"]
                                                                        AndNombre:[punto objectForKey:@"n"]
                                                                       AndLatitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lat"] doubleValue]]
                                                                      AndLongitud:[NSNumber numberWithDouble:[[punto objectForKey:@"lon"] doubleValue]]
                                                                          AndZona:nil
-                                                                      AndSubZona:nil AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]] AndVisitado:[[punto objectForKey:@"visitado"] boolValue]];
+                                                                      AndSubZona:nil
+                                                                       AndIdTipo:[NSNumber numberWithInt:[[punto objectForKey:@"tipo"] intValue]]
+                                                                     AndVisitado:[[punto objectForKey:@"estado"] boolValue]];
                  [puntos_tmp addObject:miPunto];
              }
          }

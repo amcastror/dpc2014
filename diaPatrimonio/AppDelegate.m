@@ -24,7 +24,6 @@
      self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     /*     Set ups iniciales     */
-    [TestFlight takeOff:@"6eb30449-c8c1-4a32-99e8-c142d56db41f"];
     if ([[UIDevice currentDevice] respondsToSelector:@selector(identifierForVendor)]) {
         [[Usuario instance] setUdid:[[[[UIDevice currentDevice] identifierForVendor] UUIDString] stringFromMD5]];
     }else{

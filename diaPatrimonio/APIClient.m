@@ -293,7 +293,7 @@ static NSString * const prefixURL = @"ws";
 
 -(void)requestMisPuntosCulturalesWithSuccess:(void (^)(NSArray *misPuntosCulturales))success
                                      AndFail:(void (^)(NSError *error))fail{
-    
+
     [self apiClientGetPath:[NSString stringWithFormat:@"/verListaAlmacenada/%@",
                             [[Usuario instance] udid]
                             ]
@@ -315,7 +315,7 @@ static NSString * const prefixURL = @"ws";
 -(void)requestCambiarEstadoPuntoCulturalID:(NSNumber *)id_punto
                                WithSuccess:(void (^)())success
                                      AndFail:(void (^)(NSError *error))fail{
-    
+
     [self apiClientGetPath:[NSString stringWithFormat:@"/cambiarEstadoPunto/%@/%i",
                             [[Usuario instance] udid],
                             [id_punto intValue]

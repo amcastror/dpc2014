@@ -52,7 +52,7 @@
 {
     [super viewDidLoad];
     self.trackedViewName = @"mis_puntos";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editarPressed:)];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editarPressed:)];
     [self.navigationItem.leftBarButtonItem setTintColor:[UIColor darkTextColor]];
     vistaSinPuntos.layer.borderColor = [UIColor darkGrayColor].CGColor;
     vistaSinPuntos.layer.borderWidth = 1;
@@ -104,12 +104,12 @@
         cell = self.filaPuntoCultural;
         self.filaPuntoCultural = nil;
     }
-    
+    /*
     int alto_primera_fila = 0;
     if (indexPath.row == 0) {
         alto_primera_fila = 10;
     }
-    
+    */
     PuntoCultural *puntoCultural = [[[MisPuntosCulturales instance] misPuntosCulturales] objectAtIndex:indexPath.row];
     
     CGRect frame;
@@ -126,7 +126,6 @@
                                           constrainedToSize:CGSizeMake(170, 100000)
                                               lineBreakMode:NSLineBreakByTruncatingTail];
     frame = label.frame;
-    frame.origin.y = frame.origin.y + alto_primera_fila;
     frame.size.height = size_nombre.height;
     label.frame = frame;
     label.font = fuenteNombre;
@@ -166,20 +165,22 @@
      2 - imageview, visitado
      */
     
-    UIImageView *imagenVisitado = (UIImageView *)[cell viewWithTag:2];
-    
+    UIImageView *imagenNoVisitado = (UIImageView *)[cell viewWithTag:20];
+    UIImageView *imagenVisitado = (UIImageView *)[cell viewWithTag:21];
+    imagenVisitado.hidden = YES;
+    imagenNoVisitado.hidden = YES;
     
     if (puntoCultural.visitado) {
-        imagenVisitado.image = [UIImage imageNamed:@"icono-visitado"];
+        imagenVisitado.hidden = NO;
     }else{
-        imagenVisitado.image = [UIImage imageNamed:@"icono-no-visitado"];
+        imagenNoVisitado.hidden = NO;
     }
-    
+    /*
     frame = imagenVisitado.frame;
     frame.origin.y = frame.origin.y + alto_primera_fila;
     frame.origin.y = [self tableView:tableView heightForRowAtIndexPath:indexPath]/2 - frame.size.height/2 + alto_primera_fila;
     imagenVisitado.frame = frame;
-    
+    */
     /*
      3 - imageview, tipo
      */
@@ -203,11 +204,11 @@
     }
     
     frame = imagenTipo.frame;
-    frame.origin.y = [self tableView:tableView heightForRowAtIndexPath:indexPath]/2 - frame.size.height/2 + alto_primera_fila;
+    frame.origin.y = [self tableView:tableView heightForRowAtIndexPath:indexPath]/2 - frame.size.height/2;
     imagenTipo.frame = frame;
     
     //icono-categoria-actividad-02
-    
+    /*
     UIImage *fondo;
     if (indexPath.row == 0) {
         fondo = [UIImage imageNamed:@"ficha-img-fondo-fila-arriba"];
@@ -218,6 +219,8 @@
     UIImage *fondo_resizable = [fondo resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
     UIImageView *background = [[UIImageView alloc] initWithImage:fondo_resizable];
     cell.backgroundView = background;
+     */
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
     
 }
@@ -273,8 +276,10 @@
 - (void) revisaVistaSinPuntos{
     if ([[[MisPuntosCulturales instance] misPuntosCulturales] count] == 0) {
         vistaSinPuntos.hidden = NO;
+        tablaPuntosCulturales.hidden = YES;
     }else{
         vistaSinPuntos.hidden = YES;
+        tablaPuntosCulturales.hidden = NO;
     }
 }
 
