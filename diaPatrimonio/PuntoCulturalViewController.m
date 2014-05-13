@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Matias Castro. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "PuntoCulturalViewController.h"
 #import "MisPuntosCulturales.h" 
 #import "ShareViewController.h"
@@ -17,19 +19,22 @@
 #import "GAITracker.h"
 
 #define bordeInferior 5
-#define fuenteTitulo [UIFont fontWithName:@"Helvetica-Bold" size:21]
-#define fuenteZona [UIFont fontWithName:@"Arial-BoldMT" size:14]
-#define fuenteCategoria [UIFont fontWithName:@"Helvetica" size:16]
-#define fuenteDescripciones [UIFont systemFontOfSize:17.0]
+#define fuenteTitulo [UIFont fontWithName:@"HelveticaNeue-Light" size:21]
+#define fuenteZona [UIFont fontWithName:@"HelveticaNeue-Light" size:14]
+#define fuenteCategoria [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f];
+#define fuenteDescripciones [UIFont fontWithName:@"HelveticaNeue-Light" size:18]
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
-#define fuenteTituloComentarios [UIFont systemFontOfSize:17.0]
-#define fuenteNombreComentarios [UIFont systemFontOfSize:12.0]
+#define fuenteTituloComentarios [UIFont fontWithName:@"HelveticaNeue-Light" size:18]
+#define fuenteNombreComentarios [UIFont fontWithName:@"HelveticaNeue-Light" size:12]
 #define fuenteFecha [UIFont systemFontOfSize:12.0]
+
+#define colorCategoria [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorTitulo [UIColor colorWithRed: 22.0/255.0 green: 82.0/255.0 blue: 158.0/255.0 alpha: 1.0]
-#define colorZona [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
-#define colorDescripciones [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 20.0/255.0 alpha: 1.0]
+#define colorZona [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
+#define colorDescripciones [UIColor colorWithRed: 90.0/255.0 green: 90.0/255.0 blue: 90.0/255.0 alpha: 1.0]
 #define colorInformacion [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 100.0/255.0 alpha: 1.0]
-#define colorTituloComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
+#define colorComentarios [UIColor colorWithRed: 235.0/255.0 green: 235.0/255.0 blue: 235.0/255.0 alpha: 1.0]
+#define colorTituloComentarios [UIColor colorWithRed: 90.0/255.0 green: 90.0/255.0 blue: 90.0/255.0 alpha: 1.0]
 #define colorNombreComentarios [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorFecha [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 
@@ -94,6 +99,7 @@
         largoActualFicha = 180 + bordeInferior;
         [self actualizaLargoScroll];
         [scroll addSubview:foto];
+        largoActualFicha += 10;
     }
     
     // imagen categoria
@@ -105,6 +111,7 @@
     UILabel *label_categoria = [[UILabel alloc] initWithFrame:CGRectMake(50, largoActualFicha, 200, 20)];
     label_categoria.backgroundColor = [UIColor clearColor];
     label_categoria.font = fuenteCategoria;
+    label_categoria.textColor = colorCategoria;
     
     switch (puntoCultural.id_tipo.intValue) {
         case TIPO_APERTURA:
@@ -133,15 +140,7 @@
     [self actualizaLargoScroll];
     [scroll addSubview:icono_categoria];
     [scroll addSubview:label_categoria];
-    
-    //separador
-    UIImageView *separador = [[UIImageView alloc] initWithFrame:CGRectMake(0, largoActualFicha, 320, 2)];
-    separador.image = [UIImage imageNamed:@"ficha-linea-punto-01"];
-    
-    largoActualFicha = largoActualFicha + 2 + bordeInferior;
-    [self actualizaLargoScroll];
-    [scroll addSubview:separador];
-    
+
     //titulo
     
     CGSize size_nombre = [puntoCultural.nombre sizeWithFont:fuenteTitulo
@@ -154,14 +153,23 @@
     nombre.textColor = colorTitulo;
     nombre.backgroundColor = [UIColor clearColor];
     
-    largoActualFicha = nombre.frame.origin.y + nombre.frame.size.height;
+    largoActualFicha = nombre.frame.origin.y + nombre.frame.size.height + bordeInferior;
     [self actualizaLargoScroll];
     [scroll addSubview:nombre];
     
+    //separador
+    
+    UIImageView *separador = [[UIImageView alloc] initWithFrame:CGRectMake(0, largoActualFicha, 320, 2)];
+    separador.image = [UIImage imageNamed:@"ficha-linea-punto-01"];
+    
+    largoActualFicha = largoActualFicha + bordeInferior;
+    [self actualizaLargoScroll];
+    [scroll addSubview:separador];
+    
     //zona y sub zona
     NSString *string_zona = [NSString stringWithFormat:@"%@ | %@",
-                             [[Filtros instance] nombreZonaConIDSubZona:puntoCultural.id_sub_zona],
-                             [[Filtros instance] nombreSubZonaConIDSubZona:puntoCultural.id_sub_zona]];
+                             [[[Filtros instance] nombreZonaConIDSubZona:puntoCultural.id_sub_zona] uppercaseString],
+                             [[[Filtros instance] nombreSubZonaConIDSubZona:puntoCultural.id_sub_zona] uppercaseString]];
     CGSize size_zona = [string_zona sizeWithFont:fuenteZona
                                           constrainedToSize:CGSizeMake(280, 100000)
                                               lineBreakMode:NSLineBreakByTruncatingTail];
@@ -170,19 +178,26 @@
     zona.font = fuenteZona;
     zona.textColor = colorZona;
     zona.backgroundColor = [UIColor clearColor];
-    
+    zona.numberOfLines = 0;
     largoActualFicha = zona.frame.origin.y + zona.frame.size.height + bordeInferior;
     [self actualizaLargoScroll];
     [scroll addSubview:zona];
     
-    UIImage *fondo_resizable = [[UIImage imageNamed:@"ficha-img-fondo-01"] resizableImageWithCapInsets:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)];
+    //separador
+    
+    UIImageView *separador2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, largoActualFicha, 320, 2)];
+    separador2.image = [UIImage imageNamed:@"ficha-linea-punto-01"];
+    
+    largoActualFicha = largoActualFicha + 15;
+    [self actualizaLargoScroll];
+    [scroll addSubview:separador2];
 
     //Descripción corta
     
     CGSize size_descripcion_corta = [puntoCultural.descripcion sizeWithFont:fuenteDescripciones
-                                                          constrainedToSize:CGSizeMake(260, 100000)
+                                                          constrainedToSize:CGSizeMake(280, 100000)
                                                               lineBreakMode:NSLineBreakByTruncatingTail];
-    UILabel *descripcion_corta = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 260, size_descripcion_corta.height)];
+    UILabel *descripcion_corta = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_descripcion_corta.height)];
     descripcion_corta.text = puntoCultural.descripcion;
     descripcion_corta.font = fuenteDescripciones;
     descripcion_corta.textColor = colorDescripciones;
@@ -190,17 +205,13 @@
     descripcion_corta.numberOfLines = 0;
     descripcion_corta.lineBreakMode = UILineBreakModeWordWrap;
     
-    UIImageView *descripcion_corta_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, 20 + size_descripcion_corta.height + 20)];
-    descripcion_corta_view.image = fondo_resizable;
-    [descripcion_corta_view addSubview:descripcion_corta];
-    
-    largoActualFicha = descripcion_corta_view.frame.origin.y + descripcion_corta_view.frame.size.height;
+    largoActualFicha = descripcion_corta.frame.origin.y + descripcion_corta.frame.size.height;
     [self actualizaLargoScroll];
-    [scroll addSubview:descripcion_corta_view];
+    [scroll addSubview:descripcion_corta];
     
     //Dirección
     
-    largoActualFicha += 10;
+    largoActualFicha += 15;
     CGSize size_direccion = [puntoCultural.direccion sizeWithFont:fuenteInformacion
                                           constrainedToSize:CGSizeMake(boxDireccionLabel.frame.size.width, 100000)
                                               lineBreakMode:NSLineBreakByTruncatingTail];
@@ -270,14 +281,14 @@
         [self actualizaLargoScroll];
     }
     
-    largoActualFicha += 10;
+    largoActualFicha += 15;
     
     //Descripción larga
     
     CGSize size_descripcion_larga = [puntoCultural.descripcion_larga sizeWithFont:fuenteDescripciones
-                                                          constrainedToSize:CGSizeMake(260, 100000)
+                                                          constrainedToSize:CGSizeMake(280, 100000)
                                                               lineBreakMode:NSLineBreakByTruncatingTail];
-    UILabel *descripcion_larga = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 260, size_descripcion_larga.height)];
+    UILabel *descripcion_larga = [[UILabel alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, size_descripcion_larga.height)];
     descripcion_larga.text = puntoCultural.descripcion_larga;
     descripcion_larga.font = fuenteDescripciones;
     descripcion_larga.textColor = colorDescripciones;
@@ -285,13 +296,9 @@
     descripcion_larga.numberOfLines = 0;
     descripcion_larga.lineBreakMode = UILineBreakModeWordWrap;
     
-    UIImageView *descripcion_larga_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualFicha, 280, 20 + size_descripcion_larga.height + 20)];
-    descripcion_larga_view.image = fondo_resizable;
-    [descripcion_larga_view addSubview:descripcion_larga];
-    
-    largoActualFicha = descripcion_larga_view.frame.origin.y + descripcion_larga_view.frame.size.height + bordeInferior;
+    largoActualFicha = descripcion_larga.frame.origin.y + descripcion_larga.frame.size.height + bordeInferior + 15;
     [self actualizaLargoScroll];
-    [scroll addSubview:descripcion_larga_view];
+    [scroll addSubview:descripcion_larga];
     
     [self muestraComentarios];
 }
@@ -307,8 +314,6 @@
         int cantidad_comentarios = (int)[[puntoCultural comentarios] count];
         
         if (cantidad_comentarios > 0) {
-            
-            UIImage *fondo_resizable = [[UIImage imageNamed:@"ficha-img-fondo-01"] resizableImageWithCapInsets:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)];
             
             largoActualFicha -= viewComentarios.frame.size.height;
             [viewComentarios removeFromSuperview];
@@ -367,7 +372,6 @@
                 nombre_comentario.numberOfLines = 1;
                 nombre_comentario.lineBreakMode = UILineBreakModeTailTruncation;
                 
-                ;
                 CGSize size_fecha = [[(Comentario *)[puntoCultural.comentarios objectAtIndex:i] fecha_string] sizeWithFont:fuenteFecha
                                                                                                          constrainedToSize:CGSizeMake(260, 100000)
                                                                                                              lineBreakMode:NSLineBreakByTruncatingTail];
@@ -380,12 +384,15 @@
                 fecha_comentario.lineBreakMode = UILineBreakModeTailTruncation;
                 
                 UIImageView *comentario_view = [[UIImageView alloc] initWithFrame:CGRectMake(20, largoActualView, 280, fecha_comentario.frame.origin.y + size_fecha.height + 10)];
-                comentario_view.image = fondo_resizable;
+                //comentario_view.image = fondo_resizable;
                 [comentario_view addSubview:comentario];
                 [comentario_view addSubview:nombre_comentario];
                 [comentario_view addSubview:fecha_comentario];
+                comentario_view.backgroundColor = colorComentarios;
+                comentario_view.layer.borderWidth = 2;
+                comentario_view.layer.borderColor = [UIColor lightGrayColor].CGColor;
                 
-                largoActualView = comentario_view.frame.origin.y + comentario_view.frame.size.height;
+                largoActualView = comentario_view.frame.origin.y + comentario_view.frame.size.height - 2;
                 //[self actualizaLargoScroll];
                 //[scroll addSubview:comentario_view];
                 [viewComentarios addSubview:comentario_view];
@@ -395,14 +402,16 @@
                 //Agrego el boton de ver más comentarios.
                 
                 UIButton *ver_todos = [UIButton buttonWithType:UIButtonTypeCustom];
-                [ver_todos setBackgroundImage:fondo_resizable forState:UIControlStateNormal];
+                //[ver_todos setBackgroundImage:fondo_resizable forState:UIControlStateNormal];
                 CGRect frame = CGRectMake(20, largoActualView, 280, 70);
                 ver_todos.frame = frame;
                 ver_todos.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
                 [ver_todos setTitle:@"Ver todos los comentarios" forState:UIControlStateNormal];
                 [ver_todos setTitleColor:colorDescripciones forState:UIControlStateNormal];
                 [ver_todos addTarget:self action:@selector(verTodosPressed:) forControlEvents:UIControlEventTouchUpInside];
-                
+                ver_todos.backgroundColor = colorComentarios;
+                ver_todos.layer.borderColor = [UIColor lightGrayColor].CGColor;
+                ver_todos.layer.borderWidth = 2;
                 largoActualView = ver_todos.frame.origin.y + ver_todos.frame.size.height + bordeInferior;
                 [self actualizaLargoScroll];
                 //[scroll addSubview:ver_todos];

@@ -50,7 +50,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="0.80072422445255476" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="nLx-AL-EuG">
                             <rect key="frame" x="0.0" y="161" width="320" height="26"/>
@@ -73,7 +73,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="0.80072422450000003" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="TlT-lw-74x">
                             <rect key="frame" x="0.0" y="195" width="320" height="26"/>
@@ -96,10 +96,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="0.80072422450000003" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.86274509799999999" green="0.87843137250000003" blue="0.8862745098" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </scrollView>
                 <view contentMode="scaleToFill" id="Kxp-Dx-OmH">
                     <rect key="frame" x="0.0" y="422" width="320" height="58"/>
