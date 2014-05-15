@@ -21,7 +21,7 @@
 #define bordeInferior 5
 #define fuenteTitulo [UIFont fontWithName:@"HelveticaNeue-Light" size:21]
 #define fuenteZona [UIFont fontWithName:@"HelveticaNeue-Light" size:14]
-#define fuenteCategoria [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f];
+#define fuenteCategoria [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f]
 #define fuenteDescripciones [UIFont fontWithName:@"HelveticaNeue-Light" size:18]
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
 #define fuenteTituloComentarios [UIFont fontWithName:@"HelveticaNeue-Light" size:18]

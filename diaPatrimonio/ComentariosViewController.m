@@ -12,19 +12,24 @@
 #import "GAITracker.h"
 
 #define bordeInferior 5
-#define fuenteTitulo [UIFont fontWithName:@"Helvetica-Bold" size:21]
-#define fuenteZona [UIFont fontWithName:@"Arial-BoldMT" size:14]
-#define fuenteCategoria [UIFont fontWithName:@"Helvetica" size:16]
-#define fuenteDescripciones [UIFont systemFontOfSize:17.0]
+#define fuenteTitulo [UIFont fontWithName:@"HelveticaNeue-Light" size:21]
+#define fuenteZona [UIFont fontWithName:@"HelveticaNeue-Light" size:14]
+#define fuenteCategoria [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f]
+#define fuenteDescripciones [UIFont fontWithName:@"HelveticaNeue-Light" size:18]
 #define fuenteInformacion [UIFont systemFontOfSize:17.0]
-#define fuenteTituloComentarios [UIFont systemFontOfSize:17.0]
-#define fuenteNombreComentarios [UIFont systemFontOfSize:12.0]
+#define fuenteTituloComentarios [UIFont fontWithName:@"HelveticaNeue-Light" size:18]
+#define fuenteNombreComentarios [UIFont fontWithName:@"HelveticaNeue-Light" size:12]
 #define fuenteFecha [UIFont systemFontOfSize:12.0]
+#define fuenteBotonTituloLargo [UIFont fontWithName:@"HelveticaNeue-Medium" size:11]
+#define fuenteBotonTituloCorto [UIFont fontWithName:@"HelveticaNeue-Medium" size:13]
+
+#define colorCategoria [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorTitulo [UIColor colorWithRed: 22.0/255.0 green: 82.0/255.0 blue: 158.0/255.0 alpha: 1.0]
-#define colorZona [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
-#define colorDescripciones [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 20.0/255.0 alpha: 1.0]
+#define colorZona [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
+#define colorDescripciones [UIColor colorWithRed: 90.0/255.0 green: 90.0/255.0 blue: 90.0/255.0 alpha: 1.0]
 #define colorInformacion [UIColor colorWithRed: 20.0/255.0 green: 20.0/255.0 blue: 100.0/255.0 alpha: 1.0]
-#define colorTituloComentarios [UIColor colorWithRed: 0.0/255.0 green: 0.0/255.0 blue: 0.0/255.0 alpha: 1.0]
+#define colorComentarios [UIColor colorWithRed: 235.0/255.0 green: 235.0/255.0 blue: 235.0/255.0 alpha: 1.0]
+#define colorTituloComentarios [UIColor colorWithRed: 90.0/255.0 green: 90.0/255.0 blue: 90.0/255.0 alpha: 1.0]
 #define colorNombreComentarios [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 #define colorFecha [UIColor colorWithRed: 100.0/255.0 green: 100.0/255.0 blue: 100.0/255.0 alpha: 1.0]
 
