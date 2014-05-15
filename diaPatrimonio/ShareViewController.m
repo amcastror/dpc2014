@@ -40,30 +40,9 @@
     [twitter addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
     [self actualizarBotonCompartir];
     
-    UIImageView *fondo_blanco = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 300, 45)];
-    fondo_blanco.image = [[UIImage imageNamed:@"fondo-blanco"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:fondo_blanco];
-    [self.view sendSubviewToBack:fondo_blanco];
-    
-    UIImageView *fondo_gris = [[UIImageView alloc] initWithFrame:CGRectMake(10, 45, 300, 210)];
-    fondo_gris.image = [[UIImage imageNamed:@"fondo-gris"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:fondo_gris];
-    [self.view sendSubviewToBack:fondo_gris];
-    
-    UIImageView *segundo_blanco = [[UIImageView alloc] initWithFrame:CGRectMake(10, 245, 300, 37)];
-    segundo_blanco.image = [[UIImage imageNamed:@"fondo-blanco"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:segundo_blanco];
-    [self.view sendSubviewToBack:segundo_blanco];
-    
-    UIImageView *segundo_gris = [[UIImageView alloc] initWithFrame:CGRectMake(10, 272, 300, 80)];
-    segundo_gris.image = [[UIImage imageNamed:@"fondo-gris"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:segundo_gris];
-    [self.view sendSubviewToBack:segundo_gris];
     comentario.layer.borderColor = [UIColor lightGrayColor].CGColor;
     comentario.layer.borderWidth = 0.5;
     comentario.layer.cornerRadius = 5;
-    
-    
     
     //Left bar button like back button item.
     UIImage *backImage = [UIImage imageNamed:@"dpc-nav-bar-back"];

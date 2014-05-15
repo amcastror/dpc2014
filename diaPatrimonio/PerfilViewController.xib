@@ -73,12 +73,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="perfil-icono-fb.png" id="35">
-                    <rect key="frame" x="40" y="109" width="27" height="29"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dpc-perfil-icon-fb.png" id="35">
+                    <rect key="frame" x="40" y="111" width="26" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="perfil-icono-tw.png" id="36">
-                    <rect key="frame" x="40" y="229" width="27" height="29"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dpc-perfil-icon-tw.png" id="36">
+                    <rect key="frame" x="40" y="231" width="26" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dpc-perfil-bg-02.png" id="cZe-i7-yuz">
@@ -128,9 +128,9 @@
     <resources>
         <image name="dpc-perfil-bg-02.png" width="320" height="129"/>
         <image name="dpc-perfil-boton-.png" width="185" height="30"/>
+        <image name="dpc-perfil-icon-fb.png" width="26" height="26"/>
+        <image name="dpc-perfil-icon-tw.png" width="26" height="26"/>
         <image name="dpc-perfil-icon.png" width="22" height="22"/>
         <image name="perfil-btn-cambiar-over.png" width="168" height="32"/>
-        <image name="perfil-icono-fb.png" width="27" height="29"/>
-        <image name="perfil-icono-tw.png" width="27" height="29"/>
     </resources>
 </document>
