@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600A58D71924FE0500D534D2 /* dpc-btn-buscar-aqui.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58D51924FE0500D534D2 /* dpc-btn-buscar-aqui.png */; };
+		600A58D81924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58D61924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png */; };
 		600E459B191C1E65008A01E2 /* dpc-nav-bar-logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E4599191C1E65008A01E2 /* dpc-nav-bar-logos.png */; };
 		600E459C191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E459A191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png */; };
 		600E45A1191C245A008A01E2 /* dpc-nav-bar-aperturas-activo.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E459D191C245A008A01E2 /* dpc-nav-bar-aperturas-activo.png */; };
@@ -354,6 +356,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		600A58D51924FE0500D534D2 /* dpc-btn-buscar-aqui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-btn-buscar-aqui.png"; sourceTree = "<group>"; };
+		600A58D61924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-btn-buscar-aqui@2x.png"; sourceTree = "<group>"; };
 		600E4599191C1E65008A01E2 /* dpc-nav-bar-logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-logos.png"; sourceTree = "<group>"; };
 		600E459A191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-logos@2x.png"; sourceTree = "<group>"; };
 		600E459D191C245A008A01E2 /* dpc-nav-bar-aperturas-activo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-aperturas-activo.png"; sourceTree = "<group>"; };
@@ -783,6 +787,8 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				600A58D51924FE0500D534D2 /* dpc-btn-buscar-aqui.png */,
+				600A58D61924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png */,
 				603875791922B94F000222BD /* dpc-inicio-640x960.png */,
 				603875711922B8B1000222BD /* Default~iphone.png */,
 				603875721922B8B1000222BD /* Default@2x~iphone.png */,
@@ -1423,6 +1429,7 @@
 				60586BC71725FBFB0008B771 /* buscar-mapa-over-.png in Resources */,
 				60586BC81725FBFB0008B771 /* buscar-mapa-over-@2x.png in Resources */,
 				600E45B8191C24CF008A01E2 /* dpc-nav-bar-recorrido@2x.png in Resources */,
+				600A58D71924FE0500D534D2 /* dpc-btn-buscar-aqui.png in Resources */,
 				60586BC91725FBFB0008B771 /* busqueda-boton-over.png in Resources */,
 				60586BCA1725FBFB0008B771 /* busqueda-boton-over@2x.png in Resources */,
 				60586BCB1725FBFB0008B771 /* busqueda-boton.png in Resources */,
@@ -1599,6 +1606,7 @@
 				602019A01921595F002D5D16 /* dpc-boton-agregar.png in Resources */,
 				60586C4B1725FBFB0008B771 /* perfil-icono-tw.png in Resources */,
 				60586C4C1725FBFB0008B771 /* perfil-icono-tw@2x.png in Resources */,
+				600A58D81924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png in Resources */,
 				60586C4F1725FBFB0008B771 /* tab-bar-mapa-.png in Resources */,
 				60586C501725FBFB0008B771 /* tab-bar-mapa-@2x.png in Resources */,
 				60586C511725FBFB0008B771 /* tab-bar-mis-puntos-.png in Resources */,
