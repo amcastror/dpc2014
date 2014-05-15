@@ -39,13 +39,13 @@
     
     UIImageView *fondo_blanco = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 280, 90)];
     fondo_blanco.image = [[UIImage imageNamed:@"fondo-blanco"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:fondo_blanco];
-    [self.view sendSubviewToBack:fondo_blanco];
+    //[self.view addSubview:fondo_blanco];
+    //[self.view sendSubviewToBack:fondo_blanco];
     
     UIImageView *fondo_gris = [[UIImageView alloc] initWithFrame:CGRectMake(20, 95, 280, 260)];
     fondo_gris.image = [[UIImage imageNamed:@"fondo-gris"] resizableImageWithCapInsets:UIEdgeInsetsMake(40.0, 40.0, 40.0, 40.0)];
-    [self.view addSubview:fondo_gris];
-    [self.view sendSubviewToBack:fondo_gris];
+    //[self.view addSubview:fondo_gris];
+    //[self.view sendSubviewToBack:fondo_gris];
     
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
         self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements

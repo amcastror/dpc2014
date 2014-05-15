@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		600A58D71924FE0500D534D2 /* dpc-btn-buscar-aqui.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58D51924FE0500D534D2 /* dpc-btn-buscar-aqui.png */; };
 		600A58D81924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58D61924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png */; };
+		600A58DB1925001100D534D2 /* dpc-perfil-bg-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58D91925001100D534D2 /* dpc-perfil-bg-02.png */; };
+		600A58DC1925001100D534D2 /* dpc-perfil-bg-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58DA1925001100D534D2 /* dpc-perfil-bg-02@2x.png */; };
+		600A58DF1925004700D534D2 /* dpc-perfil-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58DD1925004700D534D2 /* dpc-perfil-icon.png */; };
+		600A58E01925004700D534D2 /* dpc-perfil-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58DE1925004700D534D2 /* dpc-perfil-icon@2x.png */; };
+		600A58E3192501E800D534D2 /* dpc-perfil-boton-.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58E1192501E800D534D2 /* dpc-perfil-boton-.png */; };
+		600A58E4192501E800D534D2 /* dpc-perfil-boton-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600A58E2192501E800D534D2 /* dpc-perfil-boton-@2x.png */; };
 		600E459B191C1E65008A01E2 /* dpc-nav-bar-logos.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E4599191C1E65008A01E2 /* dpc-nav-bar-logos.png */; };
 		600E459C191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E459A191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png */; };
 		600E45A1191C245A008A01E2 /* dpc-nav-bar-aperturas-activo.png in Resources */ = {isa = PBXBuildFile; fileRef = 600E459D191C245A008A01E2 /* dpc-nav-bar-aperturas-activo.png */; };
@@ -358,6 +364,12 @@
 /* Begin PBXFileReference section */
 		600A58D51924FE0500D534D2 /* dpc-btn-buscar-aqui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-btn-buscar-aqui.png"; sourceTree = "<group>"; };
 		600A58D61924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-btn-buscar-aqui@2x.png"; sourceTree = "<group>"; };
+		600A58D91925001100D534D2 /* dpc-perfil-bg-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-perfil-bg-02.png"; sourceTree = "<group>"; };
+		600A58DA1925001100D534D2 /* dpc-perfil-bg-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-perfil-bg-02@2x.png"; sourceTree = "<group>"; };
+		600A58DD1925004700D534D2 /* dpc-perfil-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-perfil-icon.png"; sourceTree = "<group>"; };
+		600A58DE1925004700D534D2 /* dpc-perfil-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-perfil-icon@2x.png"; sourceTree = "<group>"; };
+		600A58E1192501E800D534D2 /* dpc-perfil-boton-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-perfil-boton-.png"; sourceTree = "<group>"; };
+		600A58E2192501E800D534D2 /* dpc-perfil-boton-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-perfil-boton-@2x.png"; sourceTree = "<group>"; };
 		600E4599191C1E65008A01E2 /* dpc-nav-bar-logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-logos.png"; sourceTree = "<group>"; };
 		600E459A191C1E65008A01E2 /* dpc-nav-bar-logos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-logos@2x.png"; sourceTree = "<group>"; };
 		600E459D191C245A008A01E2 /* dpc-nav-bar-aperturas-activo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dpc-nav-bar-aperturas-activo.png"; sourceTree = "<group>"; };
@@ -787,6 +799,12 @@
 		600E4598191C1DC5008A01E2 /* imagenes2014 */ = {
 			isa = PBXGroup;
 			children = (
+				600A58E1192501E800D534D2 /* dpc-perfil-boton-.png */,
+				600A58E2192501E800D534D2 /* dpc-perfil-boton-@2x.png */,
+				600A58DD1925004700D534D2 /* dpc-perfil-icon.png */,
+				600A58DE1925004700D534D2 /* dpc-perfil-icon@2x.png */,
+				600A58D91925001100D534D2 /* dpc-perfil-bg-02.png */,
+				600A58DA1925001100D534D2 /* dpc-perfil-bg-02@2x.png */,
 				600A58D51924FE0500D534D2 /* dpc-btn-buscar-aqui.png */,
 				600A58D61924FE0500D534D2 /* dpc-btn-buscar-aqui@2x.png */,
 				603875791922B94F000222BD /* dpc-inicio-640x960.png */,
@@ -1424,6 +1442,7 @@
 				60586BC41725FBFB0008B771 /* buscar-aqui-@2x.png in Resources */,
 				6038755D1922AB3E000222BD /* dpc-icono-120.png in Resources */,
 				60586BC51725FBFB0008B771 /* buscar-mapa-.png in Resources */,
+				600A58E01925004700D534D2 /* dpc-perfil-icon@2x.png in Resources */,
 				600E45A3191C245A008A01E2 /* dpc-nav-bar-aperturas.png in Resources */,
 				60586BC61725FBFB0008B771 /* buscar-mapa-@2x.png in Resources */,
 				60586BC71725FBFB0008B771 /* buscar-mapa-over-.png in Resources */,
@@ -1475,6 +1494,7 @@
 				602019B11921671C002D5D16 /* dpc-actividad-icon-direccion@2x.png in Resources */,
 				60586BEC1725FBFB0008B771 /* ficha-img-fondo-fila-arriba@2x.png in Resources */,
 				60586BED1725FBFB0008B771 /* ficha-img-fondo-fila.png in Resources */,
+				600A58E3192501E800D534D2 /* dpc-perfil-boton-.png in Resources */,
 				60586BEE1725FBFB0008B771 /* ficha-img-fondo-fila@2x.png in Resources */,
 				60586BEF1725FBFB0008B771 /* ficha-linea-punto-01.png in Resources */,
 				60586BF01725FBFB0008B771 /* ficha-linea-punto-01@2x.png in Resources */,
@@ -1500,6 +1520,7 @@
 				602019A21921595F002D5D16 /* dpc-boton-coment.png in Resources */,
 				60586BFF1725FBFB0008B771 /* ficha-tabbar-aper-01.png in Resources */,
 				60586C001725FBFB0008B771 /* ficha-tabbar-aper-01@2x.png in Resources */,
+				600A58DF1925004700D534D2 /* dpc-perfil-icon.png in Resources */,
 				60586C011725FBFB0008B771 /* ficha-tabbar-aper-02-over.png in Resources */,
 				600E45A9191C24BC008A01E2 /* dpc-nav-bar-actividades-activo.png in Resources */,
 				60586C021725FBFB0008B771 /* ficha-tabbar-aper-02-over@2x.png in Resources */,
@@ -1613,6 +1634,7 @@
 				60586C521725FBFB0008B771 /* tab-bar-mis-puntos-@2x.png in Resources */,
 				60586C531725FBFB0008B771 /* tab-bar-perfil-.png in Resources */,
 				60586C541725FBFB0008B771 /* tab-bar-perfil-@2x.png in Resources */,
+				600A58E4192501E800D534D2 /* dpc-perfil-boton-@2x.png in Resources */,
 				60586C5D1725FDA40008B771 /* comentar-boton-cancelar-over.png in Resources */,
 				60586C5E1725FDA40008B771 /* comentar-boton-cancelar-over@2x.png in Resources */,
 				60586C5F1725FDA40008B771 /* comentar-boton-cancelar.png in Resources */,
@@ -1664,6 +1686,7 @@
 				60586CAA172602BF0008B771 /* compartir-boton-foto-reco-over@2x.png in Resources */,
 				60586CAB172602BF0008B771 /* compartir-boton-foto-reco.png in Resources */,
 				60586CAC172602BF0008B771 /* compartir-boton-foto-reco@2x.png in Resources */,
+				600A58DC1925001100D534D2 /* dpc-perfil-bg-02@2x.png in Resources */,
 				6038755B1922AB3E000222BD /* dpc-icono-80.png in Resources */,
 				602019A41921595F002D5D16 /* dpc-boton-compartir.png in Resources */,
 				6038756D1922AE67000222BD /* dpc-miruta-icon-visitado@2x.png in Resources */,
@@ -1677,6 +1700,7 @@
 				600E45B5191C24CF008A01E2 /* dpc-nav-bar-recorrido-activo.png in Resources */,
 				60586CB2172602BF0008B771 /* compartir-icono-facebook@2x.png in Resources */,
 				60586CB3172602BF0008B771 /* compartir-icono-foto.png in Resources */,
+				600A58DB1925001100D534D2 /* dpc-perfil-bg-02.png in Resources */,
 				60586CB4172602BF0008B771 /* compartir-icono-foto@2x.png in Resources */,
 				60586CB5172602BF0008B771 /* compartir-icono-twitter.png in Resources */,
 				603875591922AB3E000222BD /* dpc-icono-57.png in Resources */,
