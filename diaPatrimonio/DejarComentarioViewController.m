@@ -43,6 +43,8 @@
     comentario_view.layer.borderWidth = 0.5;
     comentario_view.layer.cornerRadius = 5;
     
+    botonCancelar.layer.cornerRadius = 3;
+    botonEnviar.layer.cornerRadius = 3;
     
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) { // if iOS 7
         self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements

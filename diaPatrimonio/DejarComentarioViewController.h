@@ -18,6 +18,9 @@
     IBOutlet UITextField *nombre_field;
     IBOutlet UITextView *comentario_view;
     
+    IBOutlet UIButton *botonEnviar;
+    IBOutlet UIButton *botonCancelar;
+    
     NSString *nombre;
     NSString *titulo;
     NSString *comentario;
