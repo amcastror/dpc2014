@@ -11,6 +11,7 @@
 #import "Filtros.h"
 #import "GAI.h"
 #import "GAITracker.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface BuscadorPuntosCulturalesViewController ()
 
@@ -46,6 +47,9 @@
         self.edgesForExtendedLayout = UIRectEdgeNone; //layout adjustements
         self.navigationController.navigationBar.translucent = NO;
     }
+    
+    self.botonBuscar.layer.cornerRadius = 3;
+    self.botonCancelar.layer.cornerRadius = 3;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
